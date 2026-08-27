@@ -7,6 +7,17 @@
     <title>ElectricalVPF ERP & CRM — Soluția completă pentru firme de instalații electrice</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .lang-option:hover {
+            background-color: rgba(234, 179, 8, 0.1);
+            color: var(--accent-color);
+        }
+
+        .lang-option.active {
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+    </style>
 </head>
 
 <body>
@@ -16,16 +27,21 @@
         <div class="container nav-container">
             <div class="logo">Electrical<span>VPF</span></div>
             <nav class="nav-links">
-                <a href="#product">Product</a>
-                <a href="#features">Features</a>
-                <a href="#workflow">Workflow</a>
-                <a href="#pricing">Pricing</a>
+                <a href="#product" data-i18n="product">Product</a>
+                <a href="#features" data-i18n="features">Features</a>
+                <a href="#workflow" data-i18n="workflow">Workflow</a>
+                <a href="#pricing" data-i18n="pricing">Pricing</a>
+
+                <!-- Controlul refolosibil pentru limbă -->
+                <div id="language-control-container"></div>
+
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="Comută modul de afișare">
                     <span class="icon-moon">🌙</span>
                     <span class="icon-sun">☀️</span>
                 </button>
-                <a href="https://electricalvpf.app" class="btn-secondary" target="_blank">Login</a>
-                <a href="https://electricalvpf.app" class="btn-primary" target="_blank">Start Free</a>
+                <a href="https://electricalvpf.app" class="btn-secondary" target="_blank" data-i18n="login">Login</a>
+                <a href="https://electricalvpf.app" class="btn-primary" target="_blank" data-i18n="startFree">Start
+                    Free</a>
             </nav>
         </div>
     </header>
@@ -34,18 +50,18 @@
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <span class="badge-tag">ERP & CRM pentru Electricieni</span>
-                <h1>ElectricalVPF ERP & CRM</h1>
-                <p class="hero-subtitle">Platforma software completă dedicată firmelor de instalații electrice și
-                    profesioniștilor. Gestionează proiecte, devize, clienți și facturare dintr-un singur workspace
-                    optimizat.</p>
+                <span class="badge-tag" data-i18n="heroTag">ERP & CRM pentru Electricieni</span>
+                <h1>ElectricalVPF <span data-i18n="heroTitleSuffix">ERP & CRM</span></h1>
+                <p class="hero-subtitle" data-i18n="heroSubtitle">Platforma software completă dedicată firmelor de
+                    instalații electrice și profesioniștilor. Gestionează proiecte, devize, clienți și facturare
+                    dintr-un singur workspace optimizat.</p>
                 <div class="hero-buttons">
-                    <a href="https://electricalvpf.app" class="btn-primary btn-lg" target="_blank">Start Free</a>
-                    <a href="#product" class="btn-outline btn-lg">Explore the Platform</a>
+                    <a href="https://electricalvpf.app" class="btn-primary btn-lg" target="_blank"
+                        data-i18n="startFree">Start Free</a>
+                    <a href="#product" class="btn-outline btn-lg" data-i18n="explore">Explore the Platform</a>
                 </div>
             </div>
             <div class="hero-mockup-wrapper">
-                <!-- Mockup HTML/CSS Dashboard Realist -->
                 <div class="mini-dashboard-mockup">
                     <div class="mockup-topbar">
                         <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
@@ -59,7 +75,8 @@
                         </div>
                         <div class="mockup-table">
                             <div class="m-tr header">
-                                <span>Proiect</span><span>Client</span><span>Status</span><span>Valoare</span></div>
+                                <span>Proiect</span><span>Client</span><span>Status</span><span>Valoare</span>
+                            </div>
                             <div class="m-tr"><span>Instalație Rezidențială</span><span>Ion Popescu</span><span
                                     class="status-badge">În Lucru</span><span>€4,200</span></div>
                             <div class="m-tr"><span>Tablou Industrial</span><span>S.C. Electra</span><span
@@ -82,54 +99,32 @@
         </div>
     </section>
 
-    <!-- 2. PRODUCT PREVIEW & MODULES -->
-    <section id="product" class="section-padding">
+    <!-- 4. & 7. BENEFITS & WHY ELECTRICALVPF (Features) -->
+    <section id="features" class="section-padding">
         <div class="container">
             <div class="section-header">
-                <h2>Everything your electrical business needs. In one place.</h2>
-                <p>Module integrate special concepute pentru fluxul de lucru specific unui electrician sau antreprenor
-                    în instalații.</p>
+                <h2 data-i18n="featuresTitle">Built specifically for electrical professionals.</h2>
+                <p data-i18n="featuresSubtitle">Optimizat pentru specificul industriei electrice, oferind control
+                    absolut asupra afacerii tale.</p>
             </div>
-            <div class="grid-4">
-                <div class="feature-card">
-                    <div class="icon">📊</div>
-                    <h3>Dashboard</h3>
-                    <p>Prezentare generală a activității, veniturilor și indicatorilor cheie în timp real.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">👥</div>
-                    <h3>Clients</h3>
-                    <p>CRM complet pentru evidența clienților, istoric și date de contact.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">📁</div>
-                    <h3>Projects</h3>
-                    <p>Monitorizează stadiul șantierelor, prioritatea și alocarea resurselor.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">📐</div>
-                    <h3>Estimating</h3>
-                    <p>Calculează devize de lucrări, necesar de ore și costuri estimate.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">📄</div>
-                    <h3>Quotes</h3>
-                    <p>Generează oferte comerciale profesionale direct din devize.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">🧾</div>
-                    <h3>Invoices</h3>
-                    <p>Emite și gestionează facturile clienților cu urmărirea stării de plată.</p>
-                </div>
+            <div class="grid-3">
                 <div class="feature-card">
                     <div class="icon">⚡</div>
-                    <h3>Materials</h3>
-                    <p>Gestionează stocurile de materiale, echipamente și componente electrice.</p>
+                    <h3 data-i18n="feature1Title">Manage Projects</h3>
+                    <p data-i18n="feature1Desc">Coordonează eficient șantiere multiple și etapele de execuție tehnică.
+                    </p>
                 </div>
                 <div class="feature-card">
-                    <div class="icon">📈</div>
-                    <h3>Reports</h3>
-                    <p>Rapoarte financiare detaliate privind facturarea și încasările lunare.</p>
+                    <div class="icon">📦</div>
+                    <h3 data-i18n="feature2Title">Control Costs & Materials</h3>
+                    <p data-i18n="feature2Desc">Monitorizează stocurile, consumul de materiale și cheltuielile aferente
+                        fiecărui proiect.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📝</div>
+                    <h3 data-i18n="feature3Title">Create Professional Quotes</h3>
+                    <p data-i18n="feature3Desc">Generează oferte clare și devize detaliate care inspiră încredere
+                        clienților tăi.</p>
                 </div>
             </div>
         </div>
@@ -139,9 +134,9 @@
     <section id="workflow" class="section-padding bg-darker">
         <div class="container">
             <div class="section-header">
-                <h2>Seamless Business Workflow</h2>
-                <p>Un flux comercial clar și structurat, conceput pentru eficiență maximă de la primul contact până la
-                    încasare.</p>
+                <h2 data-i18n="workflowTitle">Seamless Business Workflow</h2>
+                <p data-i18n="workflowSubtitle">Un flux comercial clar și structurat, conceput pentru eficiență maximă
+                    de la primul contact până la încasare.</p>
             </div>
             <div class="workflow-chain">
                 <div class="workflow-step"><span>01</span><strong>Client</strong></div>
@@ -163,138 +158,13 @@
         </div>
     </section>
 
-    <!-- 5. ERP + CRM -->
-    <section class="section-padding">
-        <div class="container grid-2">
-            <div class="dual-box">
-                <div class="box-tag erp">ERP Core</div>
-                <h3>Gestionare Operațională și Tehnică</h3>
-                <p>Instrumente robuste pentru coordonarea execuției pe șantier și control financiar.</p>
-                <ul class="clean-list">
-                    <li>✔ Projects Management</li>
-                    <li>✔ Estimating & Devize</li>
-                    <li>✔ Professional Quotes</li>
-                    <li>✔ Invoicing & Tracking</li>
-                    <li>✔ Materials & Inventory</li>
-                    <li>✔ Advanced Reports</li>
-                </ul>
-            </div>
-            <div class="dual-box">
-                <div class="box-tag crm">CRM Core</div>
-                <h3>Relația cu Clienții și Istoric</h3>
-                <p>Păstrează toate informațiile despre clienți și contracte centralizate într-un singur loc.</p>
-                <ul class="clean-list">
-                    <li>✔ Client Database & Directory</li>
-                    <li>✔ Contact Persons Management</li>
-                    <li>✔ Complete Client History</li>
-                    <li>✔ Project & Document Relationships</li>
-                    <li>✔ Communication Context</li>
-                    <li>✔ Fast Search & Filtering</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. DASHBOARD SHOWCASE -->
-    <section class="section-padding bg-darker">
-        <div class="container">
-            <div class="section-header">
-                <h2>Designed for Real Electrical Work</h2>
-                <p>Interfață intuitivă concepută pentru claritate imediată în activitatea de zi cu zi.</p>
-            </div>
-            <div class="large-dashboard-showcase">
-                <div class="mockup-topbar">
-                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-                    <span class="mockup-title">ElectricalVPF ERP — Executive Dashboard</span>
-                </div>
-                <div class="showcase-content">
-                    <div class="sc-stats">
-                        <div class="sc-box"><span>Total Clienți</span>
-                            <h3>125</h3>
-                        </div>
-                        <div class="sc-box"><span>Proiecte Active</span>
-                            <h3>24</h3>
-                        </div>
-                        <div class="sc-box"><span>Oferte Deschise</span>
-                            <h3>12</h3>
-                        </div>
-                        <div class="sc-box"><span>Facturi Emise</span>
-                            <h3>38</h3>
-                        </div>
-                        <div class="sc-box highlight"><span>Încasări Luna Curentă</span>
-                            <h3>€24,560</h3>
-                        </div>
-                    </div>
-                    <div class="sc-main-area">
-                        <div class="sc-left">
-                            <h4>Proiecte Recente</h4>
-                            <div class="sc-row"><span>Instalație Rezidențială Vila Sibiu</span> <span
-                                    class="badge-status yellow">În Lucru</span></div>
-                            <div class="sc-row"><span>Tablou Electric Industrial Transilvania</span> <span
-                                    class="badge-status green">Finalizat</span></div>
-                            <div class="sc-row"><span>Sistem Iluminat LED Depozit</span> <span
-                                    class="badge-status blue">Planificare</span></div>
-                        </div>
-                        <div class="sc-right">
-                            <h4>Activitate Sistem</h4>
-                            <div class="sc-activity">Quote #Q-2026-089 generated</div>
-                            <div class="sc-activity">Invoice #INV-1042 (€1,250) marked as paid</div>
-                            <div class="sc-activity">New client "Mihai Ionescu" registered</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. & 7. BENEFITS & WHY ELECTRICALVPF -->
-    <section id="features" class="section-padding">
-        <div class="container">
-            <div class="section-header">
-                <h2>Built specifically for electrical professionals.</h2>
-                <p>Optimizat pentru specificul industriei electrice, oferind control absolut asupra afacerii tale.</p>
-            </div>
-            <div class="grid-3">
-                <div class="feature-card">
-                    <div class="icon">⚡</div>
-                    <h3>Manage Projects</h3>
-                    <p>Coordonează eficient șantiere multiple și etapele de execuție tehnică.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">📦</div>
-                    <h3>Control Costs & Materials</h3>
-                    <p>Monitorizează stocurile, consumul de materiale și cheltuielile aferente fiecărui proiect.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">📝</div>
-                    <h3>Create Professional Quotes</h3>
-                    <p>Generează oferte clare și devize detaliate care inspiră încredere clienților tăi.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">💳</div>
-                    <h3>Manage Invoices & Payments</h3>
-                    <p>Urmărește facturile emise, scadențele și plățile încasate fără erori.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">📊</div>
-                    <h3>Track Business Performance</h3>
-                    <p>Analizează indicatorii financiari și evoluția veniturilor prin rapoarte centralizate.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">☁️</div>
-                    <h3>Access Everything From One Workspace</h3>
-                    <p>Ai toate datele firmei la un click distanță, în siguranță absolută în cloud.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- 8. PRICING PREVIEW -->
-    <section id="pricing" class="section-padding bg-darker">
+    <section id="pricing" class="section-padding">
         <div class="container">
             <div class="section-header">
-                <h2>Transparent Pricing Plans</h2>
-                <p>Alege planul potrivit pentru dimensiunea afacerii tale. Fără costuri ascunse.</p>
+                <h2 data-i18n="pricingTitle">Transparent Pricing Plans</h2>
+                <p data-i18n="pricingSubtitle">Alege planul potrivit pentru dimensiunea afacerii tale. Fără costuri
+                    ascunse.</p>
             </div>
             <div class="pricing-grid">
                 <div class="pricing-card">
@@ -306,7 +176,8 @@
                         <li>2 proiecte active</li>
                         <li>5 estimări / lună</li>
                     </ul>
-                    <a href="https://electricalvpf.app" class="btn-outline" target="_blank">View Plans & Start Free</a>
+                    <a href="https://electricalvpf.app" class="btn-outline" target="_blank" data-i18n="startFree">View
+                        Plans & Start Free</a>
                 </div>
                 <div class="pricing-card featured">
                     <div class="popular-tag">Recomandat</div>
@@ -318,36 +189,30 @@
                         <li>Proiecte nelimitate</li>
                         <li>Estimări și facturi nelimitate</li>
                     </ul>
-                    <a href="https://electricalvpf.app" class="btn-primary" target="_blank">View Plans & Start Free</a>
+                    <a href="https://electricalvpf.app" class="btn-primary" target="_blank" data-i18n="startFree">View
+                        Plans & Start Free</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- 10. FINAL CTA -->
-    <section class="final-cta-section">
-        <div class="container text-center">
-            <h2>Ready to run your electrical business smarter?</h2>
-            <p>Start using ElectricalVPF today.</p>
-            <a href="https://electricalvpf.app" class="btn-primary btn-lg" target="_blank">Open ElectricalVPF.app</a>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="site-footer">
         <div class="container footer-flex">
-            <p>&copy; 2026 ElectricalVPF. All rights reserved.</p>
+            <p>&copy; 2026 <span data-i18n="footerText">ElectricalVPF. All rights reserved.</span></p>
             <p>Presentation website hosted on <strong>electricalvpf.eu</strong> | App running on
-                <strong>electricalvpf.app</strong></p>
+                <strong>electricalvpf.app</strong>
+            </p>
         </div>
     </footer>
 
-    <!-- Script pentru comutare Dark / Light mode -->
+    <!-- Scripturi -->
+    <script src="translations.js"></script>
+    <script src="language-dropdown.js"></script>
     <script>
+        // Inițializare Dark / Light mode
         const toggleBtn = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
-
-        // Verifică preferința salvată anterior
         const savedTheme = localStorage.getItem('electricalvpf_theme') || 'dark';
         htmlElement.setAttribute('data-theme', savedTheme);
 
@@ -356,6 +221,13 @@
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             htmlElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('electricalvpf_theme', newTheme);
+        });
+
+        // Inițializare control limbă cu steaguri
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof LanguageDropdownControl !== 'undefined') {
+                new LanguageDropdownControl('language-control-container');
+            }
         });
     </script>
 </body>

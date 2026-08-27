@@ -1,0 +1,92 @@
+class LanguageDropdownControl {
+  constructor(containerId) {
+    this.container = document.getElementById(containerId);
+    this.currentLang = localStorage.getItem("electricalvpf_lang") || "en";
+
+    // Listă completă cu codurile pentru steaguri oficiale (folosind coduri ISO pentru imagini SVG sau clase dedicate)
+    this.languages = [
+      { code: "en", name: "English", flagCode: "gb" },
+      { code: "ro", name: "Română", flagCode: "ro" },
+      { code: "uk", name: "Українська", flagCode: "ua" },
+      { code: "tr", name: "Türkçe", flagCode: "tr" },
+      { code: "pl", name: "Polski", flagCode: "pl" },
+      { code: "ru", name: "Русский", flagCode: "ru" },
+      { code: "it", name: "Italiano", flagCode: "it" },
+      { code: "nl", name: "Nederlands", flagCode: "nl" },
+      { code: "no", name: "Norsk", flagCode: "no" },
+    ];
+    this.init();
+  }
+
+  init() {
+    if (!this.container) return;
+    this.render();
+    this.attachEvents();
+    this.applyLanguage(this.currentLang);
+  }
+
+  render() {
+    const currentLangObj =
+      this.languages.find((l) => l.code === this.currentLang) ||
+      this.languages[0];
+
+    this.container.innerHTML = `
+            <div class="lang-dropdown-wrapper" style="position: relative; display: inline-block;">
+                <button id="lang-toggle-btn" class="lang-btn" style="background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); padding: 8px 14px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 0.9rem;">
+                    <img src="https://flagcdn.com/20x15/${currentLangObj.flagCode}.png" alt="${currentLangObj.name}" style="width: 20px; height: 15px; border-radius: 2px; object-fit: cover;">
+                    <span>${currentLangObj.name}</span>
+                    <span style="font-size: 0.7rem; opacity: 0.7;">▼</span>
+                </button>
+                <div id="lang-menu" class="lang-menu" style="display: none; position: absolute; right: 0; top: 115%; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; box-shadow: 0 10px 25px var(--shadow-color); z-index: 1000; min-width: 170px; max-height: 260px; overflow-y: auto; padding: 6px 0;">
+                    ${this.languages
+                      .map(
+                        (lang) => `
+                        <div class="lang-option ${lang.code === this.currentLang ? "active" : ""}" data-code="${lang.code}" style="padding: 9px 14px; display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.9rem; color: var(--text-main); transition: background 0.15s;">
+                            <img src="https://flagcdn.com/20x15/${lang.flagCode}.png" alt="${lang.name}" style="width: 20px; height: 15px; border-radius: 2px; object-fit: cover;">
+                            <span>${lang.name}</span>
+                        </div>
+                    `,
+                      )
+                      .join("")}
+                </div>
+            </div>
+        `;
+  }
+
+  attachEvents() {
+    const btn = document.getElementById("lang-toggle-btn");
+    const menu = document.getElementById("lang-menu");
+
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    });
+
+    document.addEventListener("click", () => {
+      menu.style.display = "none";
+    });
+
+    menu.querySelectorAll(".lang-option").forEach((option) => {
+      option.addEventListener("click", () => {
+        const selectedLang = option.getAttribute("data-code");
+        this.currentLang = selectedLang;
+        localStorage.setItem("electricalvpf_lang", selectedLang);
+        this.render();
+        this.attachEvents();
+        this.applyLanguage(selectedLang);
+      });
+    });
+  }
+
+  applyLanguage(lang) {
+    if (typeof translations === "undefined" || !translations[lang]) return;
+    const dict = translations[lang];
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (dict[key]) {
+        el.textContent = dict[key];
+      }
+    });
+  }
+}
