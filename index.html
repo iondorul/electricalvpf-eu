@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="ro" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <!-- 11. NAVIGATION -->
@@ -18,6 +20,10 @@
                 <a href="#features">Features</a>
                 <a href="#workflow">Workflow</a>
                 <a href="#pricing">Pricing</a>
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Comută modul de afișare">
+                    <span class="icon-moon">🌙</span>
+                    <span class="icon-sun">☀️</span>
+                </button>
                 <a href="https://electricalvpf.app" class="btn-secondary" target="_blank">Login</a>
                 <a href="https://electricalvpf.app" class="btn-primary" target="_blank">Start Free</a>
             </nav>
@@ -30,7 +36,9 @@
             <div class="hero-content">
                 <span class="badge-tag">ERP & CRM pentru Electricieni</span>
                 <h1>ElectricalVPF ERP & CRM</h1>
-                <p class="hero-subtitle">Platforma software completă dedicată firmelor de instalații electrice și profesioniștilor. Gestionează proiecte, devize, clienți și facturare dintr-un singur workspace optimizat.</p>
+                <p class="hero-subtitle">Platforma software completă dedicată firmelor de instalații electrice și
+                    profesioniștilor. Gestionează proiecte, devize, clienți și facturare dintr-un singur workspace
+                    optimizat.</p>
                 <div class="hero-buttons">
                     <a href="https://electricalvpf.app" class="btn-primary btn-lg" target="_blank">Start Free</a>
                     <a href="#product" class="btn-outline btn-lg">Explore the Platform</a>
@@ -50,9 +58,12 @@
                             <div class="m-card"><span>Clienți</span><strong>125</strong></div>
                         </div>
                         <div class="mockup-table">
-                            <div class="m-tr header"><span>Proiect</span><span>Client</span><span>Status</span><span>Valoare</span></div>
-                            <div class="m-tr"><span>Instalație Rezidențială</span><span>Ion Popescu</span><span class="status-badge">În Lucru</span><span>€4,200</span></div>
-                            <div class="m-tr"><span>Tablou Industrial</span><span>S.C. Electra</span><span class="status-badge green">Finalizat</span><span>€12,800</span></div>
+                            <div class="m-tr header">
+                                <span>Proiect</span><span>Client</span><span>Status</span><span>Valoare</span></div>
+                            <div class="m-tr"><span>Instalație Rezidențială</span><span>Ion Popescu</span><span
+                                    class="status-badge">În Lucru</span><span>€4,200</span></div>
+                            <div class="m-tr"><span>Tablou Industrial</span><span>S.C. Electra</span><span
+                                    class="status-badge green">Finalizat</span><span>€12,800</span></div>
                         </div>
                     </div>
                 </div>
@@ -76,7 +87,8 @@
         <div class="container">
             <div class="section-header">
                 <h2>Everything your electrical business needs. In one place.</h2>
-                <p>Module integrate special concepute pentru fluxul de lucru specific unui electrician sau antreprenor în instalații.</p>
+                <p>Module integrate special concepute pentru fluxul de lucru specific unui electrician sau antreprenor
+                    în instalații.</p>
             </div>
             <div class="grid-4">
                 <div class="feature-card">
@@ -128,7 +140,8 @@
         <div class="container">
             <div class="section-header">
                 <h2>Seamless Business Workflow</h2>
-                <p>Un flux comercial clar și structurat, conceput pentru eficiență maximă de la primul contact până la încasare.</p>
+                <p>Un flux comercial clar și structurat, conceput pentru eficiență maximă de la primul contact până la
+                    încasare.</p>
             </div>
             <div class="workflow-chain">
                 <div class="workflow-step"><span>01</span><strong>Client</strong></div>
@@ -196,18 +209,31 @@
                 </div>
                 <div class="showcase-content">
                     <div class="sc-stats">
-                        <div class="sc-box"><span>Total Clienți</span><h3>125</h3></div>
-                        <div class="sc-box"><span>Proiecte Active</span><h3>24</h3></div>
-                        <div class="sc-box"><span>Oferte Deschise</span><h3>12</h3></div>
-                        <div class="sc-box"><span>Facturi Emise</span><h3>38</h3></div>
-                        <div class="sc-box highlight"><span>Încasări Luna Curentă</span><h3>€24,560</h3></div>
+                        <div class="sc-box"><span>Total Clienți</span>
+                            <h3>125</h3>
+                        </div>
+                        <div class="sc-box"><span>Proiecte Active</span>
+                            <h3>24</h3>
+                        </div>
+                        <div class="sc-box"><span>Oferte Deschise</span>
+                            <h3>12</h3>
+                        </div>
+                        <div class="sc-box"><span>Facturi Emise</span>
+                            <h3>38</h3>
+                        </div>
+                        <div class="sc-box highlight"><span>Încasări Luna Curentă</span>
+                            <h3>€24,560</h3>
+                        </div>
                     </div>
                     <div class="sc-main-area">
                         <div class="sc-left">
                             <h4>Proiecte Recente</h4>
-                            <div class="sc-row"><span>Instalație Rezidențială Vila Sibiu</span> <span class="badge-status yellow">În Lucru</span></div>
-                            <div class="sc-row"><span>Tablou Electric Industrial Transilvania</span> <span class="badge-status green">Finalizat</span></div>
-                            <div class="sc-row"><span>Sistem Iluminat LED Depozit</span> <span class="badge-status blue">Planificare</span></div>
+                            <div class="sc-row"><span>Instalație Rezidențială Vila Sibiu</span> <span
+                                    class="badge-status yellow">În Lucru</span></div>
+                            <div class="sc-row"><span>Tablou Electric Industrial Transilvania</span> <span
+                                    class="badge-status green">Finalizat</span></div>
+                            <div class="sc-row"><span>Sistem Iluminat LED Depozit</span> <span
+                                    class="badge-status blue">Planificare</span></div>
                         </div>
                         <div class="sc-right">
                             <h4>Activitate Sistem</h4>
@@ -311,9 +337,27 @@
     <footer class="site-footer">
         <div class="container footer-flex">
             <p>&copy; 2026 ElectricalVPF. All rights reserved.</p>
-            <p>Presentation website hosted on <strong>electricalvpf.eu</strong> | App running on <strong>electricalvpf.app</strong></p>
+            <p>Presentation website hosted on <strong>electricalvpf.eu</strong> | App running on
+                <strong>electricalvpf.app</strong></p>
         </div>
     </footer>
 
+    <!-- Script pentru comutare Dark / Light mode -->
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Verifică preferința salvată anterior
+        const savedTheme = localStorage.getItem('electricalvpf_theme') || 'dark';
+        htmlElement.setAttribute('data-theme', savedTheme);
+
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('electricalvpf_theme', newTheme);
+        });
+    </script>
 </body>
+
 </html>
