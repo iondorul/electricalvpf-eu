@@ -88,5 +88,15 @@ class LanguageDropdownControl {
         el.textContent = dict[key];
       }
     });
+
+    document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-aria-label");
+      if (dict[key]) el.setAttribute("aria-label", dict[key]);
+    });
+
+    const title = document.querySelector("title[data-i18n]");
+    if (title && dict[title.dataset.i18n])
+      document.title = dict[title.dataset.i18n];
+    document.documentElement.lang = lang;
   }
 }

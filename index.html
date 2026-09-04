@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ElectricalVPF ERP & CRM — Soluția completă pentru firme de instalații electrice</title>
+    <title data-i18n="pageTitle">ElectricalVPF ERP & CRM - Soluția completă pentru firme de instalații electrice</title>
 
     <link rel="icon" type="image/svg+xml" href="img/favicon-light.png">
 
@@ -30,21 +30,23 @@
         <div class="container nav-container">
             <div class="logo">Electrical<span>VPF</span></div>
             <nav class="nav-links">
-                <a href="#product" data-i18n="product">Product</a>
-                <a href="#features" data-i18n="features">Features</a>
-                <a href="#workflow" data-i18n="workflow">Workflow</a>
-                <a href="#pricing" data-i18n="pricing">Pricing</a>
+                <a href="#product" data-i18n="product">Produs</a>
+                <a href="#features" data-i18n="features">Funcționalități</a>
+                <a href="#workflow" data-i18n="workflow">Flux de lucru</a>
+                <a href="#pricing" data-i18n="pricing">Prețuri</a>
 
                 <!-- Controlul refolosibil pentru limbă -->
                 <div id="language-control-container"></div>
 
-                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Comută modul de afișare">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Comută modul de afișare"
+                    data-i18n-aria-label="themeToggleLabel">
                     <span class="icon-moon">🌙</span>
                     <span class="icon-sun">☀️</span>
                 </button>
-                <a href="https://electricalvpf.app" class="btn-secondary" target="_blank" data-i18n="login">Login</a>
-                <a href="https://electricalvpf.app" class="btn-primary" target="_blank" data-i18n="startFree">Start
-                    Free</a>
+                <a href="https://electricalvpf.app" class="btn-secondary" target="_blank"
+                    data-i18n="login">Autentificare</a>
+                <a href="https://electricalvpf.app" class="btn-primary" target="_blank" data-i18n="startFree">Începe
+                    gratuit</a>
             </nav>
         </div>
     </header>
@@ -60,8 +62,8 @@
                     dintr-un singur workspace optimizat.</p>
                 <div class="hero-buttons">
                     <a href="https://electricalvpf.app" class="btn-primary btn-lg" target="_blank"
-                        data-i18n="startFree">Start Free</a>
-                    <a href="#product" class="btn-outline btn-lg" data-i18n="explore">Explore the Platform</a>
+                        data-i18n="startFree">Începe gratuit</a>
+                    <a href="#product" class="btn-outline btn-lg" data-i18n="explore">Explorează platforma</a>
                 </div>
             </div>
             <div class="hero-mockup-wrapper">
@@ -72,18 +74,21 @@
                     </div>
                     <div class="mockup-body">
                         <div class="mockup-stats-row">
-                            <div class="m-card"><span>Venituri</span><strong>€24,560</strong></div>
-                            <div class="m-card"><span>Proiecte</span><strong>24</strong></div>
-                            <div class="m-card"><span>Clienți</span><strong>125</strong></div>
+                            <div class="m-card"><span data-i18n="revenue">Venituri</span><strong>€24,560</strong></div>
+                            <div class="m-card"><span data-i18n="projects">Proiecte</span><strong>24</strong></div>
+                            <div class="m-card"><span data-i18n="clients">Clienți</span><strong>125</strong></div>
                         </div>
                         <div class="mockup-table">
                             <div class="m-tr header">
-                                <span>Proiect</span><span>Client</span><span>Status</span><span>Valoare</span>
+                                <span data-i18n="project">Proiect</span><span data-i18n="client">Client</span><span
+                                    data-i18n="status">Status</span><span data-i18n="value">Valoare</span>
                             </div>
                             <div class="m-tr"><span>Instalație Rezidențială</span><span>Ion Popescu</span><span
-                                    class="status-badge">În Lucru</span><span>€4,200</span></div>
+                                    class="status-badge" data-i18n="inProgress">În desfășurare</span><span>€4,200</span>
+                            </div>
                             <div class="m-tr"><span>Tablou Industrial</span><span>S.C. Electra</span><span
-                                    class="status-badge green">Finalizat</span><span>€12,800</span></div>
+                                    class="status-badge green"
+                                    data-i18n="completed">Finalizat</span><span>€12,800</span></div>
                         </div>
                     </div>
                 </div>
@@ -94,11 +99,13 @@
     <!-- 9. TRUST / PROFESSIONALISM -->
     <section class="trust-bar">
         <div class="container trust-grid">
-            <div class="trust-item"><span>⚡</span> Professional</div>
-            <div class="trust-item"><span>🔒</span> Secure</div>
-            <div class="trust-item"><span>☁️</span> Cloud-based</div>
-            <div class="trust-item"><span>🌐</span> Accessible anywhere</div>
-            <div class="trust-item"><span>💡</span> Built for electrical businesses</div>
+            <div class="trust-item"><span>⚡</span> <span data-i18n="professional">Profesional</span></div>
+            <div class="trust-item"><span>🔒</span> <span data-i18n="secure">Securizat</span></div>
+            <div class="trust-item"><span>☁️</span> <span data-i18n="cloudBased">În cloud</span></div>
+            <div class="trust-item"><span>🌐</span> <span data-i18n="accessibleAnywhere">Accesibil de oriunde</span>
+            </div>
+            <div class="trust-item"><span>💡</span> <span data-i18n="builtForElectricalBusinesses">Creat pentru firme de
+                    instalații electrice</span></div>
         </div>
     </section>
 
@@ -106,26 +113,26 @@
     <section id="features" class="section-padding">
         <div class="container">
             <div class="section-header">
-                <h2 data-i18n="featuresTitle">Built specifically for electrical professionals.</h2>
+                <h2 data-i18n="featuresTitle">Creat special pentru profesioniștii din domeniul electric.</h2>
                 <p data-i18n="featuresSubtitle">Optimizat pentru specificul industriei electrice, oferind control
                     absolut asupra afacerii tale.</p>
             </div>
             <div class="grid-3">
                 <div class="feature-card">
                     <div class="icon">⚡</div>
-                    <h3 data-i18n="feature1Title">Manage Projects</h3>
+                    <h3 data-i18n="feature1Title">Gestionarea proiectelor</h3>
                     <p data-i18n="feature1Desc">Coordonează eficient șantiere multiple și etapele de execuție tehnică.
                     </p>
                 </div>
                 <div class="feature-card">
                     <div class="icon">📦</div>
-                    <h3 data-i18n="feature2Title">Control Costs & Materials</h3>
+                    <h3 data-i18n="feature2Title">Controlul costurilor și materialelor</h3>
                     <p data-i18n="feature2Desc">Monitorizează stocurile, consumul de materiale și cheltuielile aferente
                         fiecărui proiect.</p>
                 </div>
                 <div class="feature-card">
                     <div class="icon">📝</div>
-                    <h3 data-i18n="feature3Title">Create Professional Quotes</h3>
+                    <h3 data-i18n="feature3Title">Crearea ofertelor profesionale</h3>
                     <p data-i18n="feature3Desc">Generează oferte clare și devize detaliate care inspiră încredere
                         clienților tăi.</p>
                 </div>
@@ -137,26 +144,27 @@
     <section id="workflow" class="section-padding bg-darker">
         <div class="container">
             <div class="section-header">
-                <h2 data-i18n="workflowTitle">Seamless Business Workflow</h2>
+                <h2 data-i18n="workflowTitle">Flux de lucru comercial simplificat</h2>
                 <p data-i18n="workflowSubtitle">Un flux comercial clar și structurat, conceput pentru eficiență maximă
                     de la primul contact până la încasare.</p>
             </div>
             <div class="workflow-chain">
-                <div class="workflow-step"><span>01</span><strong>Client</strong></div>
+                <div class="workflow-step"><span>01</span><strong data-i18n="client">Client</strong></div>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><span>02</span><strong>Project</strong></div>
+                <div class="workflow-step"><span>02</span><strong data-i18n="project">Proiect</strong></div>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><span>03</span><strong>Estimate</strong></div>
+                <div class="workflow-step"><span>03</span><strong data-i18n="estimate">Estimare</strong></div>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><span>04</span><strong>Quote</strong></div>
+                <div class="workflow-step"><span>04</span><strong data-i18n="quote">Ofertă</strong></div>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><span>05</span><strong>Approval</strong></div>
+                <div class="workflow-step"><span>05</span><strong data-i18n="approval">Aprobare</strong></div>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><span>06</span><strong>Invoice</strong></div>
+                <div class="workflow-step"><span>06</span><strong data-i18n="invoice">Factură</strong></div>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><span>07</span><strong>Payment</strong></div>
+                <div class="workflow-step"><span>07</span><strong data-i18n="payment">Plată</strong></div>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><span>08</span><strong>Financial Overview</strong></div>
+                <div class="workflow-step"><span>08</span><strong data-i18n="financialOverview">Situație
+                        financiară</strong></div>
             </div>
         </div>
     </section>
@@ -165,35 +173,37 @@
     <section id="pricing" class="section-padding">
         <div class="container">
             <div class="section-header">
-                <h2 data-i18n="pricingTitle">Transparent Pricing Plans</h2>
+                <h2 data-i18n="pricingTitle">Planuri tarifare transparente</h2>
                 <p data-i18n="pricingSubtitle">Alege planul potrivit pentru dimensiunea afacerii tale. Fără costuri
                     ascunse.</p>
             </div>
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <h3>Free</h3>
-                    <p class="p-desc">Pentru testarea ERP-ului sau activități cu volum redus.</p>
+                    <h3 data-i18n="freePlan">Gratuit</h3>
+                    <p class="p-desc" data-i18n="freePlanDesc">Pentru testarea ERP-ului sau pentru activități cu volum
+                        redus.</p>
                     <ul class="clean-list">
-                        <li>1 companie, 1 utilizator</li>
-                        <li>2 clienți</li>
-                        <li>2 proiecte active</li>
-                        <li>5 estimări / lună</li>
+                        <li data-i18n="freeFeature1">1 companie, 1 utilizator</li>
+                        <li data-i18n="freeFeature2">2 clienți</li>
+                        <li data-i18n="freeFeature3">2 proiecte active</li>
+                        <li data-i18n="freeFeature4">5 estimări pe lună</li>
                     </ul>
-                    <a href="https://electricalvpf.app" class="btn-outline" target="_blank" data-i18n="startFree">View
-                        Plans & Start Free</a>
+                    <a href="https://electricalvpf.app" class="btn-outline" target="_blank"
+                        data-i18n="viewPlansStartFree">Vezi planurile și începe gratuit</a>
                 </div>
                 <div class="pricing-card featured">
-                    <div class="popular-tag">Recomandat</div>
-                    <h3>Pro</h3>
-                    <p class="p-desc">Pentru firme care vor control complet și nelimitat asupra activității.</p>
+                    <div class="popular-tag" data-i18n="recommended">Recomandat</div>
+                    <h3 data-i18n="proPlan">Pro</h3>
+                    <p class="p-desc" data-i18n="proPlanDesc">Pentru firme care doresc control complet și nelimitat
+                        asupra activității.</p>
                     <ul class="clean-list">
-                        <li>Utilizatori multipli</li>
-                        <li>Clienți nelimitați</li>
-                        <li>Proiecte nelimitate</li>
-                        <li>Estimări și facturi nelimitate</li>
+                        <li data-i18n="proFeature1">Utilizatori multipli</li>
+                        <li data-i18n="proFeature2">Clienți nelimitați</li>
+                        <li data-i18n="proFeature3">Proiecte nelimitate</li>
+                        <li data-i18n="proFeature4">Estimări și facturi nelimitate</li>
                     </ul>
-                    <a href="https://electricalvpf.app" class="btn-primary" target="_blank" data-i18n="startFree">View
-                        Plans & Start Free</a>
+                    <a href="https://electricalvpf.app" class="btn-primary" target="_blank"
+                        data-i18n="viewPlansStartFree">Vezi planurile și începe gratuit</a>
                 </div>
             </div>
         </div>
@@ -202,8 +212,9 @@
     <!-- FOOTER -->
     <footer class="site-footer">
         <div class="container footer-flex">
-            <p>&copy; 2026 <span data-i18n="footerText">ElectricalVPF. All rights reserved.</span></p>
-            <p>Presentation website hosted on <strong>electricalvpf.eu</strong> | App running on
+            <p>&copy; 2026 <span data-i18n="footerText">ElectricalVPF. Toate drepturile rezervate.</span></p>
+            <p><span data-i18n="presentationHosted">Site-ul de prezentare este găzduit pe</span>
+                <strong>electricalvpf.eu</strong> | <span data-i18n="appRunning">Aplicația rulează pe</span>
                 <strong>electricalvpf.app</strong>
             </p>
         </div>
