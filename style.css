@@ -205,14 +205,14 @@ a { text-decoration: none; }
 .logo-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     color: var(--text-heading);
     text-decoration: none;
 }
 
 .logo-mark {
-    width: 32px;
-    height: 32px;
+    width: 52px;
+    height: 52px;
     display: block;
     border-radius: 50%;
 }
@@ -223,7 +223,7 @@ a { text-decoration: none; }
 }
 
 .logo {
-    font-size: 1.25rem;
+    font-size: 1.7rem;
     font-weight: 700;
     color: var(--text-heading);
 }
