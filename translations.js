@@ -1,6 +1,7 @@
 const translations = {
   en: {
     product: "Product",
+    electricalServices: "Electrical Services",
     features: "Features",
     workflow: "Workflow",
     pricing: "Pricing",
@@ -73,6 +74,7 @@ const translations = {
   },
   ro: {
     product: "Produs",
+    electricalServices: "Servicii electrice",
     features: "Funcționalități",
     workflow: "Flux de lucru",
     pricing: "Prețuri",
@@ -146,6 +148,7 @@ const translations = {
   },
   uk: {
     product: "Продукт",
+    electricalServices: "Електротехнічні послуги",
     features: "Функції",
     workflow: "Робочий процес",
     pricing: "Ціни",
@@ -218,6 +221,7 @@ const translations = {
   },
   tr: {
     product: "Ürün",
+    electricalServices: "Elektrik Hizmetleri",
     features: "Özellikler",
     workflow: "İş Akışı",
     pricing: "Fiyatlandırma",
@@ -288,6 +292,7 @@ const translations = {
   },
   pl: {
     product: "Produkt",
+    electricalServices: "Usługi elektryczne",
     features: "Funkcje",
     workflow: "Przepływ",
     pricing: "Cennik",
@@ -360,6 +365,7 @@ const translations = {
   },
   ru: {
     product: "Продукт",
+    electricalServices: "Электротехнические услуги",
     features: "Функции",
     workflow: "Процесс",
     pricing: "Цены",
@@ -431,6 +437,7 @@ const translations = {
   },
   it: {
     product: "Prodotto",
+    electricalServices: "Servizi elettrici",
     features: "Funzionalità",
     workflow: "Flusso",
     pricing: "Prezzi",
@@ -501,6 +508,7 @@ const translations = {
   },
   nl: {
     product: "Product",
+    electricalServices: "Elektrotechnische diensten",
     features: "Functies",
     workflow: "Workflow",
     pricing: "Prijzen",
@@ -571,6 +579,7 @@ const translations = {
   },
   no: {
     product: "Produkt",
+    electricalServices: "Elektriske tjenester",
     features: "Funksjoner",
     workflow: "Arbeidsflyt",
     pricing: "Priser",
