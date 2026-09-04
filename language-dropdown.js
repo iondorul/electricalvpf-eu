@@ -1,6 +1,8 @@
 class LanguageDropdownControl {
   constructor(containerId) {
     this.container = document.getElementById(containerId);
+    this.toggleId = `${containerId}-toggle`;
+    this.menuId = `${containerId}-menu`;
     this.currentLang = localStorage.getItem("electricalvpf_lang") || "en";
 
     // Listă completă cu codurile pentru steaguri oficiale (folosind coduri ISO pentru imagini SVG sau clase dedicate)
@@ -32,12 +34,12 @@ class LanguageDropdownControl {
 
     this.container.innerHTML = `
             <div class="lang-dropdown-wrapper" style="position: relative; display: inline-block;">
-                <button id="lang-toggle-btn" class="lang-btn" style="background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); padding: 8px 14px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 0.9rem;">
+                <button id="${this.toggleId}" class="lang-btn" style="background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); padding: 8px 14px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 0.9rem;">
                     <img src="https://flagcdn.com/20x15/${currentLangObj.flagCode}.png" alt="${currentLangObj.name}" style="width: 20px; height: 15px; border-radius: 2px; object-fit: cover;">
                     <span>${currentLangObj.name}</span>
                     <span style="font-size: 0.7rem; opacity: 0.7;">▼</span>
                 </button>
-                <div id="lang-menu" class="lang-menu" style="display: none; position: absolute; right: 0; top: 115%; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; box-shadow: 0 10px 25px var(--shadow-color); z-index: 1000; min-width: 170px; max-height: 260px; overflow-y: auto; padding: 6px 0;">
+                <div id="${this.menuId}" class="lang-menu" style="display: none; position: absolute; right: 0; top: 115%; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; box-shadow: 0 10px 25px var(--shadow-color); z-index: 1000; min-width: 170px; max-height: 260px; overflow-y: auto; padding: 6px 0;">
                     ${this.languages
                       .map(
                         (lang) => `
@@ -54,8 +56,8 @@ class LanguageDropdownControl {
   }
 
   attachEvents() {
-    const btn = document.getElementById("lang-toggle-btn");
-    const menu = document.getElementById("lang-menu");
+    const btn = document.getElementById(this.toggleId);
+    const menu = document.getElementById(this.menuId);
 
     btn.addEventListener("click", (e) => {
       e.stopPropagation();

@@ -33,6 +33,9 @@
                 <img class="logo-mark logo-mark-light" src="img/favicon-light.png" alt="">
                 <span class="logo">Electrical<span>VPF</span></span>
             </a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Deschide meniul"
+                data-i18n-aria-label="mobileMenuOpenLabel" aria-expanded="false"
+                aria-controls="mobile-nav-drawer">☰</button>
             <nav class="nav-links">
                 <a href="#product" data-i18n="product">Produs</a>
                 <a href="#features" data-i18n="features">Funcționalități</a>
@@ -53,6 +56,35 @@
                     gratuit</a>
             </nav>
         </div>
+        <div id="mobile-nav-overlay" class="mobile-nav-overlay" hidden></div>
+        <aside id="mobile-nav-drawer" class="mobile-nav-drawer" aria-hidden="true" aria-modal="true"
+            aria-labelledby="mobile-nav-title" inert>
+            <div class="mobile-nav-header">
+                <span id="mobile-nav-title" class="mobile-nav-title" data-i18n="mobileMenuTitle">Meniu</span>
+                <button id="mobile-menu-close" class="mobile-menu-close" type="button" aria-label="Închide meniul"
+                    data-i18n-aria-label="mobileMenuCloseLabel">×</button>
+            </div>
+            <nav class="mobile-nav-links" aria-label="Navigare mobilă" data-i18n-aria-label="mobileNavigationLabel">
+                <a href="#product" data-i18n="product">Produs</a>
+                <a href="#features" data-i18n="features">Funcționalități</a>
+                <a href="#workflow" data-i18n="workflow">Flux de lucru</a>
+                <a href="#pricing" data-i18n="pricing">Prețuri</a>
+                <a href="https://electricalvpf.com/service.html" target="_blank" data-i18n="electricalServices">Servicii
+                    electrice</a>
+            </nav>
+            <div class="mobile-nav-actions">
+                <div id="language-control-mobile"></div>
+                <button id="theme-toggle-mobile" class="theme-toggle-btn" type="button"
+                    aria-label="Comută modul de afișare" data-i18n-aria-label="themeToggleLabel" data-theme-toggle>
+                    <span class="icon-moon">🌙</span>
+                    <span class="icon-sun">☀️</span>
+                </button>
+                <a href="https://electricalvpf.app" class="btn-secondary" target="_blank"
+                    data-i18n="login">Autentificare</a>
+                <a href="https://electricalvpf.app" class="btn-primary" target="_blank" data-i18n="startFree">Începe
+                    gratuit</a>
+            </div>
+        </aside>
     </header>
 
     <!-- 1. HERO PREMIUM -->
@@ -232,23 +264,61 @@
     <script src="language-dropdown.js"></script>
     <script>
         // Inițializare Dark / Light mode
-        const toggleBtn = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
         const savedTheme = localStorage.getItem('electricalvpf_theme') || 'dark';
         htmlElement.setAttribute('data-theme', savedTheme);
 
-        toggleBtn.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('electricalvpf_theme', newTheme);
+        document.querySelectorAll('[data-theme-toggle]').forEach((toggleBtn) => {
+            toggleBtn.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('electricalvpf_theme', newTheme);
+            });
         });
 
         // Inițializare control limbă cu steaguri
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof LanguageDropdownControl !== 'undefined') {
                 new LanguageDropdownControl('language-control-container');
+                new LanguageDropdownControl('language-control-mobile');
             }
+
+            const menuToggle = document.getElementById('mobile-menu-toggle');
+            const menuClose = document.getElementById('mobile-menu-close');
+            const drawer = document.getElementById('mobile-nav-drawer');
+            const overlay = document.getElementById('mobile-nav-overlay');
+            const internalLinks = drawer.querySelectorAll('a[href^="#"]');
+            let lastFocusedElement;
+
+            const closeMobileMenu = () => {
+                drawer.classList.remove('is-open');
+                drawer.setAttribute('aria-hidden', 'true');
+                drawer.setAttribute('inert', '');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                overlay.hidden = true;
+                document.body.classList.remove('mobile-menu-open');
+                if (lastFocusedElement) lastFocusedElement.focus();
+            };
+
+            const openMobileMenu = () => {
+                lastFocusedElement = document.activeElement;
+                drawer.classList.add('is-open');
+                drawer.setAttribute('aria-hidden', 'false');
+                drawer.removeAttribute('inert');
+                menuToggle.setAttribute('aria-expanded', 'true');
+                overlay.hidden = false;
+                document.body.classList.add('mobile-menu-open');
+                menuClose.focus();
+            };
+
+            menuToggle.addEventListener('click', openMobileMenu);
+            menuClose.addEventListener('click', closeMobileMenu);
+            overlay.addEventListener('click', closeMobileMenu);
+            internalLinks.forEach((link) => link.addEventListener('click', closeMobileMenu));
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && drawer.classList.contains('is-open')) closeMobileMenu();
+            });
         });
     </script>
 </body>
