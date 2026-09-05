@@ -33,7 +33,7 @@ const translations = {
       "A clear, structured business process designed for maximum efficiency from first contact to payment.",
     pricingTitle: "Transparent Pricing Plans",
     pricingSubtitle:
-      "Alege planul potrivit pentru dimensiunea afacerii tale. Fără costuri ascunse.",
+      "Choose the right plan for your business size. No hidden fees.",
     footerText: "ElectricalVPF. All rights reserved.",
     pageTitle:
       "ElectricalVPF ERP & CRM - Complete solution for electrical installation firms",
