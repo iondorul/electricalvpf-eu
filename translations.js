@@ -110,7 +110,7 @@ const translations = {
       "Un flux comercial clar și structurat, conceput pentru eficiență maximă de la primul contact până la încasare.",
     pricingTitle: "Planuri tarifare transparente",
     pricingSubtitle:
-      "Choose the right plan for the size of your business. No hidden costs.",
+      "Alege planul potrivit pentru dimensiunea afacerii tale. Fără costuri ascunse.",
     footerText: "ElectricalVPF. Toate drepturile rezervate.",
     pageTitle:
       "ElectricalVPF ERP & CRM - Soluția completă pentru firme de instalații electrice",
