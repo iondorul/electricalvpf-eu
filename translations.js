@@ -60,7 +60,6 @@ const translations = {
     financialOverview: "Financial overview",
     freePlan: "Free",
     freePlanDesc: "For testing the ERP or managing a low volume of work.",
-    freeFeature1: "1 company, 1 user",
     freeFeature2: "2 clients",
     freeFeature3: "2 active projects",
     freeFeature4: "5 estimates / month",
@@ -69,7 +68,6 @@ const translations = {
     proPlan: "Pro",
     proPlanDesc:
       "For firms that want complete and unlimited control of their operations.",
-    proFeature1: "Multiple users",
     proFeature2: "Unlimited clients",
     proFeature3: "Unlimited projects",
     proFeature4: "Unlimited estimates and invoices",
@@ -138,7 +136,6 @@ const translations = {
     freePlan: "Gratuit",
     freePlanDesc:
       "Pentru testarea ERP-ului sau pentru activități cu volum redus.",
-    freeFeature1: "1 companie, 1 utilizator",
     freeFeature2: "2 clienți",
     freeFeature3: "2 proiecte active",
     freeFeature4: "5 estimări pe lună",
@@ -147,7 +144,6 @@ const translations = {
     proPlan: "Pro",
     proPlanDesc:
       "Pentru firme care doresc control complet și nelimitat asupra activității.",
-    proFeature1: "Utilizatori multipli",
     proFeature2: "Clienți nelimitați",
     proFeature3: "Proiecte nelimitate",
     proFeature4: "Estimări și facturi nelimitate",
@@ -215,7 +211,6 @@ const translations = {
     financialOverview: "Фінансовий огляд",
     freePlan: "Безкоштовний",
     freePlanDesc: "Для тестування ERP або роботи з невеликим обсягом операцій.",
-    freeFeature1: "1 компанія, 1 користувач",
     freeFeature2: "2 клієнти",
     freeFeature3: "2 активні проєкти",
     freeFeature4: "5 кошторисів на місяць",
@@ -224,7 +219,6 @@ const translations = {
     proPlan: "Pro",
     proPlanDesc:
       "Для компаній, яким потрібен повний і необмежений контроль над діяльністю.",
-    proFeature1: "Кілька користувачів",
     proFeature2: "Необмежена кількість клієнтів",
     proFeature3: "Необмежена кількість проєктів",
     proFeature4: "Необмежена кількість кошторисів і рахунків-фактур",
@@ -290,7 +284,6 @@ const translations = {
     financialOverview: "Finansal görünüm",
     freePlan: "Ücretsiz",
     freePlanDesc: "ERP'yi denemek veya düşük hacimli işler için.",
-    freeFeature1: "1 şirket, 1 kullanıcı",
     freeFeature2: "2 müşteri",
     freeFeature3: "2 aktif proje",
     freeFeature4: "Ayda 5 keşif",
@@ -299,7 +292,6 @@ const translations = {
     proPlan: "Pro",
     proPlanDesc:
       "Faaliyetleri üzerinde tam ve sınırsız kontrol isteyen firmalar için.",
-    proFeature1: "Birden fazla kullanıcı",
     proFeature2: "Sınırsız müşteri",
     proFeature3: "Sınırsız proje",
     proFeature4: "Sınırsız keşif ve fatura",
@@ -367,7 +359,6 @@ const translations = {
     freePlan: "Darmowy",
     freePlanDesc:
       "Do testowania systemu ERP lub obsługi niewielkiej liczby zleceń.",
-    freeFeature1: "1 firma, 1 użytkownik",
     freeFeature2: "2 klientów",
     freeFeature3: "2 aktywne projekty",
     freeFeature4: "5 wycen miesięcznie",
@@ -376,7 +367,6 @@ const translations = {
     proPlan: "Pro",
     proPlanDesc:
       "Dla firm, które chcą pełnej i nieograniczonej kontroli nad działalnością.",
-    proFeature1: "Wielu użytkowników",
     proFeature2: "Nieograniczona liczba klientów",
     proFeature3: "Nieograniczona liczba projektów",
     proFeature4: "Nieograniczone wyceny i faktury",
@@ -443,7 +433,6 @@ const translations = {
     financialOverview: "Финансовый обзор",
     freePlan: "Бесплатный",
     freePlanDesc: "Для тестирования ERP или работы с небольшим объёмом задач.",
-    freeFeature1: "1 компания, 1 пользователь",
     freeFeature2: "2 клиента",
     freeFeature3: "2 активных проекта",
     freeFeature4: "5 смет в месяц",
@@ -452,7 +441,6 @@ const translations = {
     proPlan: "Pro",
     proPlanDesc:
       "Для компаний, которым нужен полный и неограниченный контроль деятельности.",
-    proFeature1: "Несколько пользователей",
     proFeature2: "Неограниченное число клиентов",
     proFeature3: "Неограниченное число проектов",
     proFeature4: "Неограниченное число смет и счетов",
@@ -518,7 +506,6 @@ const translations = {
     financialOverview: "Panoramica finanziaria",
     freePlan: "Gratuito",
     freePlanDesc: "Per testare l'ERP o gestire un volume ridotto di attività.",
-    freeFeature1: "1 azienda, 1 utente",
     freeFeature2: "2 clienti",
     freeFeature3: "2 progetti attivi",
     freeFeature4: "5 stime al mese",
@@ -527,7 +514,6 @@ const translations = {
     proPlan: "Pro",
     proPlanDesc:
       "Per le aziende che desiderano un controllo completo e illimitato delle proprie attività.",
-    proFeature1: "Più utenti",
     proFeature2: "Clienti illimitati",
     proFeature3: "Progetti illimitati",
     proFeature4: "Preventivi e fatture illimitati",
@@ -593,7 +579,6 @@ const translations = {
     freePlan: "Gratis",
     freePlanDesc:
       "Voor het testen van de ERP of het beheren van een beperkt werkvolume.",
-    freeFeature1: "1 bedrijf, 1 gebruiker",
     freeFeature2: "2 klanten",
     freeFeature3: "2 actieve projecten",
     freeFeature4: "5 ramingen per maand",
@@ -602,7 +587,6 @@ const translations = {
     proPlan: "Pro",
     proPlanDesc:
       "Voor bedrijven die volledige en onbeperkte controle over hun activiteiten willen.",
-    proFeature1: "Meerdere gebruikers",
     proFeature2: "Onbeperkt aantal klanten",
     proFeature3: "Onbeperkt aantal projecten",
     proFeature4: "Onbeperkte ramingen en facturen",
@@ -668,7 +652,6 @@ const translations = {
     freePlan: "Gratis",
     freePlanDesc:
       "For å teste ERP-systemet eller håndtere et lite arbeidsvolum.",
-    freeFeature1: "1 selskap, 1 bruker",
     freeFeature2: "2 kunder",
     freeFeature3: "2 aktive prosjekter",
     freeFeature4: "5 estimater per måned",
@@ -677,7 +660,6 @@ const translations = {
     proPlan: "Pro",
     proPlanDesc:
       "For bedrifter som ønsker full og ubegrenset kontroll over driften.",
-    proFeature1: "Flere brukere",
     proFeature2: "Ubegrenset antall kunder",
     proFeature3: "Ubegrenset antall prosjekter",
     proFeature4: "Ubegrensede estimater og fakturaer",

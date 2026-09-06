@@ -556,9 +556,25 @@ body.mobile-menu-open { overflow: hidden; }
     color: var(--text-main);
 }
 .clean-list li {
+    position: relative;
+    padding-left: 20px;
     margin-bottom: 10px;
     font-weight: 500;
     font-size: 0.95rem;
+}
+.clean-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: 700;
+}
+.clean-list li.is-locked {
+    color: var(--text-muted);
+}
+.clean-list li.is-locked::before {
+    content: "🔒";
+    font-size: 0.75rem;
 }
 
 /* Dashboard Showcase Large */
@@ -648,6 +664,9 @@ body.mobile-menu-open { overflow: hidden; }
 .pricing-card.featured {
     border-color: var(--accent-color);
     background-color: var(--bg-card-featured);
+}
+.pricing-card.free-plan {
+    justify-content: flex-start;
 }
 .popular-tag {
     position: absolute;
