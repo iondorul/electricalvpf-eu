@@ -8,14 +8,15 @@ class LanguageDropdownControl {
     // Listă completă cu codurile pentru steaguri oficiale (folosind coduri ISO pentru imagini SVG sau clase dedicate)
     this.languages = [
       { code: "en", name: "English", flagCode: "gb" },
-      { code: "ro", name: "Română", flagCode: "ro" },
-      { code: "uk", name: "Українська", flagCode: "ua" },
-      { code: "tr", name: "Türkçe", flagCode: "tr" },
-      { code: "pl", name: "Polski", flagCode: "pl" },
-      { code: "ru", name: "Русский", flagCode: "ru" },
       { code: "it", name: "Italiano", flagCode: "it" },
       { code: "nl", name: "Nederlands", flagCode: "nl" },
       { code: "no", name: "Norsk", flagCode: "no" },
+      { code: "pl", name: "Polski", flagCode: "pl" },
+      { code: "ro", name: "Română", flagCode: "ro" },
+      { code: "ru", name: "Русский", flagCode: "ru" },
+      { code: "sv", name: "Svenska", flagCode: "se" },
+      { code: "tr", name: "Türkçe", flagCode: "tr" },
+      { code: "uk", name: "Українська", flagCode: "ua" },
     ];
     this.init();
   }
@@ -36,16 +37,16 @@ class LanguageDropdownControl {
             <div class="lang-dropdown-wrapper" style="position: relative; display: inline-block;">
                 <button id="${this.toggleId}" class="lang-btn" style="background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); padding: 8px 14px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 0.9rem;">
                     <img src="https://flagcdn.com/20x15/${currentLangObj.flagCode}.png" alt="${currentLangObj.name}" style="width: 20px; height: 15px; border-radius: 2px; object-fit: cover;">
-                    <span>${currentLangObj.name}</span>
+                    <span>${currentLangObj.name} <span aria-hidden="true" style="font-size: 0.75rem; letter-spacing: 0.04em;">(${currentLangObj.code.toUpperCase()})</span></span>
                     <span style="font-size: 0.7rem; opacity: 0.7;">▼</span>
                 </button>
-                <div id="${this.menuId}" class="lang-menu" style="display: none; position: absolute; right: 0; top: 115%; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; box-shadow: 0 10px 25px var(--shadow-color); z-index: 1000; min-width: 170px; max-height: 260px; overflow-y: auto; padding: 6px 0;">
+                <div id="${this.menuId}" class="lang-menu" style="display: none; position: absolute; right: 0; top: 115%; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; box-shadow: 0 10px 25px var(--shadow-color); z-index: 1000; min-width: 190px; max-height: 260px; overflow-y: auto; padding: 6px 0;">
                     ${this.languages
                       .map(
                         (lang) => `
                         <div class="lang-option ${lang.code === this.currentLang ? "active" : ""}" data-code="${lang.code}" style="padding: 9px 14px; display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.9rem; color: var(--text-main); transition: background 0.15s;">
                             <img src="https://flagcdn.com/20x15/${lang.flagCode}.png" alt="${lang.name}" style="width: 20px; height: 15px; border-radius: 2px; object-fit: cover;">
-                            <span>${lang.name}</span>
+                            <span>${lang.name} <span aria-hidden="true" style="font-size: 0.75rem; letter-spacing: 0.04em;">(${lang.code.toUpperCase()})</span></span>
                         </div>
                     `,
                       )
