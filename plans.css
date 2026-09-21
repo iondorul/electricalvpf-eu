@@ -1,0 +1,450 @@
+/* Secțiunea "Planuri" a vitrinei — reproduce pagina de planuri din aplicație
+   (frontend/erp-plans.html): aceleași 10 module, aceleași lacăte/limite Free,
+   tooltip la hover + fereastră de workflow la click. Designul rămâne cel al
+   vitrinei (variabilele din style.css); doar tooltip-ul/fereastra păstrează
+   accentul amber al celor din aplicație, derivat din --accent-color.
+
+   Folosit identic în electricalvpf.app (site/) și în vitrina veche electricalvpf.eu. */
+
+/* ---------- Grilă: rândurile cardurilor sunt aliniate prin subgrid ----------
+   Free și Pro au blocuri diferite deasupra listei (comutatorul Lunar/Anual,
+   insigna de reducere) — fără subgrid, lista de module ar începe la înălțimi
+   diferite și lacătele nu s-ar mai compara "pe orizontală". */
+.plans-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 30px;
+    row-gap: 24px;
+}
+
+.plans-grid .plan-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+@supports (grid-template-rows: subgrid) {
+    .plans-grid {
+        grid-template-rows: repeat(7, auto);
+        row-gap: 0;
+    }
+
+    .plans-grid .plan-card {
+        display: grid;
+        grid-row: span 7;
+        grid-template-rows: subgrid;
+    }
+
+    .plan-card .pc-name { grid-row: 1; }
+    .plan-card .pc-billing { grid-row: 2; }
+    .plan-card .pc-price { grid-row: 3; }
+    .plan-card .pc-discount { grid-row: 4; }
+    .plan-card .pc-desc { grid-row: 5; }
+    .plan-card .pc-list { grid-row: 6; }
+    .plan-card .pc-cta { grid-row: 7; align-self: end; }
+}
+
+@media (max-width: 700px) {
+    .plans-grid { grid-template-columns: 1fr; }
+
+    .plans-grid .plan-card {
+        display: flex;
+        grid-row: auto;
+    }
+}
+
+/* ---------- Preț ---------- */
+.plan-card .pc-name { margin-bottom: 6px; }
+
+.pc-price {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.plan-amount {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--text-heading);
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+}
+
+.plan-period {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.plan-card .p-desc { margin-bottom: 20px; }
+
+/* ---------- Comutator Lunar / Anual (doar cardul Pro) ---------- */
+.pc-billing {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.plan-billing-label.active { color: var(--text-heading); }
+
+.plan-billing-switch {
+    position: relative;
+    width: 42px;
+    height: 24px;
+    padding: 0;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-darker);
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.plan-billing-switch:hover,
+.plan-billing-switch:focus-visible { border-color: var(--accent-color); }
+
+.plan-billing-switch:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 2px; }
+
+.plan-billing-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    transition: transform 0.2s ease;
+}
+
+.plan-billing-switch[aria-checked="true"] .plan-billing-thumb { transform: translateX(18px); }
+
+/* Rând rezervat (visibility, nu display) — comutarea nu mută lista de module. */
+.pc-discount {
+    min-height: 28px;
+    margin-bottom: 8px;
+}
+
+.plan-discount-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: rgba(234, 179, 8, 0.1);
+    border: 1px solid rgba(234, 179, 8, 0.2);
+    color: var(--accent-color);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.plan-discount-badge[hidden] { display: inline-block; visibility: hidden; }
+
+/* ---------- Lista de module ---------- */
+.plan-modules {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-bottom: 30px;
+}
+
+.plan-module {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+    cursor: pointer;
+    outline: none;
+}
+
+.plan-module:focus-visible .plan-mod-label { text-decoration: underline; text-underline-offset: 3px; }
+
+.plan-mod-icon {
+    flex-shrink: 0;
+    width: 18px;
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 2px;
+    font-size: 0.8rem;
+}
+
+.plan-module.included .plan-mod-icon { color: var(--accent-color); }
+.plan-module.excluded .plan-mod-icon { color: var(--text-muted); opacity: 0.7; }
+.plan-module.included .plan-mod-label { color: var(--text-main); }
+.plan-module.excluded .plan-mod-label { color: var(--text-muted); }
+
+/* ---------- Tooltip la hover + fereastră la click ---------- */
+.plan-tooltip,
+.plan-window {
+    width: max-content;
+    background: var(--accent-color);
+    border: 1px solid var(--accent-hover);
+    color: #140d00;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    text-align: left;
+}
+
+.plan-tooltip {
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    margin-bottom: 12px;
+    max-width: min(460px, calc(100vw - 32px));
+    padding: 14px 16px;
+    border-radius: 14px;
+    z-index: 300;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(4px);
+    transition: opacity 0.18s ease, visibility 0.18s ease, transform 0.18s ease;
+}
+
+.plan-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 16px;
+    border: 6px solid transparent;
+    border-top-color: var(--accent-color);
+}
+
+.plan-module:hover .plan-tooltip,
+.plan-module:focus-within .plan-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+/* Un click deschide fereastra; tooltip-ul aceluiași rând nu mai apare simultan. */
+.plan-module.pinned-open .plan-tooltip {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: none;
+}
+
+.plan-tooltip-title,
+.plan-window-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+    color: #140d00;
+}
+
+.plan-tooltip-title { font-size: 0.86rem; margin-bottom: 4px; }
+.plan-tooltip-title i { color: #ff2d2d; font-size: 0.74rem; }
+
+.plan-tooltip-desc {
+    color: rgba(20, 13, 0, 0.78);
+    font-weight: 600;
+    font-size: 0.76rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* Lanțul de workflow din tooltip: o singură linie, pașii se împachetează liber. */
+.plan-tooltip-flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 3px 0;
+    padding-top: 12px;
+    margin-top: 3px;
+    border-top: 1px solid #454545;
+}
+
+.plan-flow-item {
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: #454545;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+}
+
+.plan-flow-sep {
+    color: #454545;
+    font-size: 0.66rem;
+    margin: 0 4px;
+}
+
+.plan-flow-item.active {
+    display: inline-flex;
+    align-items: center;
+    color: #fff;
+    font-weight: 800;
+    padding: 2px 9px;
+    border-radius: 8px;
+    background: #ff0000;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5), 0 0 14px rgba(255, 0, 0, 0.9);
+    animation: planGlowPulse 1s ease-in-out infinite;
+}
+
+@keyframes planGlowPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.07); }
+}
+
+/* Fereastra persistentă — fixă, centrată în viewport (portal în <body>). */
+.plan-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.97);
+    width: min(480px, calc(100vw - 40px));
+    max-height: min(620px, calc(100vh - 40px));
+    overflow-y: auto;
+    padding: 28px 30px;
+    border-radius: 18px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 400;
+    transition: opacity 0.18s ease, visibility 0.18s ease, transform 0.18s ease;
+}
+
+.plan-window.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.plan-window-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background: rgba(20, 13, 0, 0.08);
+    color: #140d00;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.plan-window-close:hover,
+.plan-window-close:focus-visible { background: rgba(20, 13, 0, 0.18); }
+
+.plan-window-title {
+    gap: 12px;
+    font-size: 1.28rem;
+    margin-bottom: 10px;
+    padding-right: 30px;
+}
+
+.plan-window-title i {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    background: rgba(20, 13, 0, 0.1);
+    border-radius: 10px;
+}
+
+.plan-window-desc {
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+.plan-window-timeline-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 14px;
+}
+
+/* Stil "urmărire colet": o axă continuă în spatele punctelor, etapa curentă mare și roșie. */
+.plan-window-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-left: 2px;
+}
+
+.plan-window-timeline::before {
+    content: "";
+    position: absolute;
+    left: 11px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: rgba(20, 13, 0, 0.18);
+}
+
+.plan-window-step {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 28px;
+}
+
+.plan-window-step-dot {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    border: 2px solid rgba(20, 13, 0, 0.3);
+}
+
+.plan-window-step-label {
+    padding-left: 4px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: #454545;
+}
+
+.plan-window-step.active .plan-window-step-dot {
+    left: -2px;
+    width: 24px;
+    height: 24px;
+    background: #ff2d2d;
+    border-color: #ff2d2d;
+    box-shadow: 0 0 0 5px rgba(255, 45, 45, 0.22), 0 0 14px rgba(255, 45, 45, 0.8);
+    animation: planWindowPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes planWindowPulse {
+    0%, 100% { box-shadow: 0 0 0 5px rgba(255, 45, 45, 0.22), 0 0 14px rgba(255, 45, 45, 0.8); }
+    50% { box-shadow: 0 0 0 7px rgba(255, 45, 45, 0.3), 0 0 20px rgba(255, 45, 45, 1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .plan-flow-item.active,
+    .plan-window-step.active .plan-window-step-dot { animation: none; }
+
+    .plan-tooltip,
+    .plan-window,
+    .plan-billing-thumb { transition: none; }
+}
+
+/* Pe ecrane înguste, tooltip-ul de hover nu are loc lângă rând — rămâne fereastra la click. */
+@media (hover: none), (max-width: 700px) {
+    .plan-tooltip { display: none; }
+}

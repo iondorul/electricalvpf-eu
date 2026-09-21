@@ -3,7 +3,9 @@ class LanguageDropdownControl {
     this.container = document.getElementById(containerId);
     this.toggleId = `${containerId}-toggle`;
     this.menuId = `${containerId}-menu`;
-    this.currentLang = localStorage.getItem("electricalvpf_lang") || "en";
+    // Cheia de limbă e configurabilă: pe electricalvpf.app vitrina folosește aceeași cheie ca
+    // aplicația ("locale", vezi frontend/js/i18n.js), ca limba aleasă aici să rămână și după login.
+    this.storageKey = window.SITE_LANG_STORAGE_KEY || "electricalvpf_lang";
 
     // Listă completă cu codurile pentru steaguri oficiale (folosind coduri ISO pentru imagini SVG sau clase dedicate)
     this.languages = [
@@ -18,7 +20,34 @@ class LanguageDropdownControl {
       { code: "tr", name: "Türkçe", flagCode: "tr" },
       { code: "uk", name: "Українська", flagCode: "ua" },
     ];
+    this.currentLang = this.resolveInitialLang();
     this.init();
+  }
+
+  isSupported(code) {
+    return this.languages.some((l) => l.code === code);
+  }
+
+  // Ordine: limba salvată -> limba browserului (doar dacă SITE_LANG_DETECT) -> English,
+  // același fallback universal ca în aplicație (niciodată Română implicit).
+  resolveInitialLang() {
+    let stored = null;
+    try {
+      stored = localStorage.getItem(this.storageKey);
+    } catch (err) {
+      stored = null;
+    }
+    if (stored && this.isSupported(stored)) return stored;
+
+    if (window.SITE_LANG_DETECT) {
+      const preferred = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language];
+      for (const raw of preferred) {
+        let code = String(raw || "").toLowerCase().split("-")[0];
+        if (code === "nb" || code === "nn") code = "no";
+        if (this.isSupported(code)) return code;
+      }
+    }
+    return "en";
   }
 
   init() {
@@ -73,7 +102,11 @@ class LanguageDropdownControl {
       option.addEventListener("click", () => {
         const selectedLang = option.getAttribute("data-code");
         this.currentLang = selectedLang;
-        localStorage.setItem("electricalvpf_lang", selectedLang);
+        try {
+          localStorage.setItem(this.storageKey, selectedLang);
+        } catch (err) {
+          /* stocarea indisponibilă (mod privat) — limba se aplică oricum pe pagina curentă */
+        }
         this.render();
         this.attachEvents();
         this.applyLanguage(selectedLang);
@@ -87,9 +120,9 @@ class LanguageDropdownControl {
 
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.getAttribute("data-i18n");
-      if (dict[key]) {
-        el.textContent = dict[key];
-      }
+      // Cheie lipsă în limba aleasă -> English (nu textul static din HTML, care e în română).
+      const value = dict[key] || (translations.en && translations.en[key]);
+      if (value) el.textContent = value;
     });
 
     document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
@@ -101,5 +134,7 @@ class LanguageDropdownControl {
     if (title && dict[title.dataset.i18n])
       document.title = dict[title.dataset.i18n];
     document.documentElement.lang = lang;
+    // Elementele construite din JS (ex. tooltip-urile de module) nu au data-i18n — se refac la acest semnal.
+    document.dispatchEvent(new CustomEvent("site:lang-applied", { detail: { lang } }));
   }
 }
