@@ -9,8 +9,6 @@
   "use strict";
 
   var MODULES = [
-    { id: "dashboard", icon: "fa-house" },
-    { id: "practicalGuide", icon: "fa-book-open" },
     { id: "clients", icon: "fa-users" },
     { id: "work", icon: "fa-folder-open" },
     { id: "electricCalculator", icon: "fa-calculator" },
@@ -19,17 +17,14 @@
     { id: "contracts", icon: "fa-file-contract" },
     { id: "invoices", icon: "fa-file-invoice-dollar" },
     { id: "reports", icon: "fa-chart-line" },
+    { id: "jobStatus", icon: "fa-route" },
   ];
 
-  // Ca în aplicație: Panoul General și Ghidul Practic sunt pagini de referință, nu pași
-  // din fluxul real al unei lucrări — nu apar în lanț și nici nu au workflow propriu.
-  var CHAIN = MODULES.filter(function (m) {
-    return m.id !== "dashboard" && m.id !== "practicalGuide";
-  });
+  var CHAIN = MODULES.slice();
 
   var BILLING = {
-    month: { amount: "€49.00", periodKey: "planProPeriod" },
-    year: { amount: "€470.40", periodKey: "planProPeriodYearly" },
+    month: { amount: "€49.00", periodKey: "planProPeriod", ctaKey: "planProCtaMonthly" },
+    year: { amount: "€470.40", periodKey: "planProPeriodYearly", ctaKey: "planProCtaYearly" },
   };
 
   var grid = document.getElementById("plansGrid");
@@ -56,7 +51,7 @@
   }
 
   function showsFlow(id) {
-    return id !== "practicalGuide" && id !== "dashboard";
+    return true;
   }
 
   function buildTooltip(cfg) {
@@ -196,6 +191,7 @@
   var badgeEl = document.getElementById("proPlanDiscountBadge");
   var labelMonthly = document.getElementById("billingLabelMonthly");
   var labelYearly = document.getElementById("billingLabelYearly");
+  var ctaEl = document.getElementById("proPlanCta");
 
   function applyBilling(isYearly) {
     var cfg = isYearly ? BILLING.year : BILLING.month;
@@ -204,6 +200,11 @@
     // data-i18n păstrează perioada corectă și după o schimbare de limbă.
     periodEl.setAttribute("data-i18n", cfg.periodKey);
     periodEl.textContent = t(cfg.periodKey);
+    // Butonul Pro arată prețul perioadei alese (planProCtaMonthly/Yearly în translations.js).
+    if (ctaEl) {
+      ctaEl.setAttribute("data-i18n", cfg.ctaKey);
+      ctaEl.textContent = t(cfg.ctaKey);
+    }
     badgeEl.hidden = !isYearly;
     labelMonthly.classList.toggle("active", !isYearly);
     labelYearly.classList.toggle("active", isYearly);

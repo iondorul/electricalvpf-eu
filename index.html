@@ -5,14 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="pageTitle">ElectricalVPF ERP & CRM - Soluția completă pentru firme de instalații electrice</title>
+    <!-- SEO: aici (și în <title>, og:*, JSON-LD) rămâne "ERP & CRM"; în fața vizitatorului apare limbajul electricianului. -->
+    <meta name="description"
+        content="ERP & CRM pentru firme de instalații electrice, construit de electricieni. Clienți, Lucrări, Oferte, Contracte, Facturi și Rapoarte într-un singur workspace.">
+    <link rel="canonical" href="https://electricalvpf.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ElectricalVPF">
+    <meta property="og:url" content="https://electricalvpf.app/">
+    <meta property="og:title" content="ElectricalVPF ERP & CRM - Soluția completă pentru firme de instalații electrice">
+    <meta property="og:description"
+        content="ERP & CRM pentru firme de instalații electrice, construit de electricieni. Clienți, Lucrări, Oferte, Contracte, Facturi și Rapoarte într-un singur workspace.">
+    <meta name="twitter:card" content="summary">
 
-    <link rel="icon" type="image/svg+xml" href="img/favicon-light.png">
+    <link rel="icon" type="image/png" href="site/img/favicon-light.png">
 
-    <!-- Aceeași versiune Font Awesome ca aplicația (iconițele modulelor din secțiunea Planuri). -->
+    <!-- Aceeași versiune Font Awesome ca aplicația (frontend/*.html) — iconițele modulelor din secțiunea Planuri. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="plans.css?v=20260921-plans">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site/style.css?v=20260923-gp-preview">
+    <link rel="stylesheet" href="site/plans.css?v=20260923-pricing-974">
     <style>
         .lang-option:hover {
             background-color: rgba(234, 179, 8, 0.1);
@@ -23,7 +34,61 @@
             font-weight: 700;
             color: var(--accent-color);
         }
+
+        /* Cât timp se verifică o sesiune existentă (vezi site/session-redirect.js), pagina nu se
+           afișează — altfel un utilizator deja logat ar vedea vitrina clipind înainte de dashboard. */
+        html.session-check body {
+            visibility: hidden;
+        }
     </style>
+
+    <!-- Limba: aceeași cheie de stocare ("locale") ca în aplicație — alegerea făcută aici rămâne și după login.
+         Prima vizită (nimic salvat): limba browserului, apoi English (același fallback ca în aplicație). -->
+    <script>
+        window.SITE_LANG_STORAGE_KEY = "locale";
+        window.SITE_LANG_DETECT = true;
+
+        // Temă + verificare sesiune, aplicate sincron în <head>, ca să nu apară un flash.
+        (function () {
+            var root = document.documentElement;
+            function readPref() {
+                try {
+                    var stored = localStorage.getItem("theme"); // aceeași cheie ca frontend/js/theme.js
+                    return stored === "light" || stored === "dark" || stored === "system" ? stored : "dark";
+                } catch (err) {
+                    return "dark";
+                }
+            }
+            var pref = readPref();
+            var resolved = pref === "system"
+                ? (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+                : pref;
+            root.setAttribute("data-theme", resolved);
+
+            try {
+                if (localStorage.getItem("token")) {
+                    root.classList.add("session-check");
+                    // Plasă de siguranță: dacă session-redirect.js nu rulează/nu răspunde, pagina se afișează oricum.
+                    setTimeout(function () { root.classList.remove("session-check"); }, 4000);
+                }
+            } catch (err) { /* stocare indisponibilă — vitrina se afișează normal */ }
+        })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ElectricalVPF",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://electricalvpf.app/",
+        "offers": [
+            { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "EUR" },
+            { "@type": "Offer", "name": "Pro", "price": "49.00", "priceCurrency": "EUR" }
+        ]
+    }
+    </script>
 </head>
 
 <body>
@@ -31,9 +96,9 @@
     <!-- 11. NAVIGATION -->
     <header class="site-header">
         <div class="container nav-container">
-            <a href="https://electricalvpf.app" class="logo-link" target="_blank" aria-label="ElectricalVPF">
-                <img class="logo-mark logo-mark-dark" src="img/favicon-dark.png" alt="">
-                <img class="logo-mark logo-mark-light" src="img/favicon-light.png" alt="">
+            <a href="/" class="logo-link" aria-label="ElectricalVPF">
+                <img class="logo-mark logo-mark-dark" src="site/img/favicon-dark.png" alt="">
+                <img class="logo-mark logo-mark-light" src="site/img/favicon-light.png" alt="">
                 <span class="logo">Electrical<span>VPF</span></span>
             </a>
             <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Deschide meniul"
@@ -41,7 +106,21 @@
                 aria-controls="mobile-nav-drawer">☰</button>
             <nav class="nav-links">
                 <a href="#product" data-i18n="product">Produs</a>
-                <a href="#features" data-i18n="features">Funcționalități</a>
+                <div class="nav-dropdown" id="features-dropdown">
+                    <button class="nav-dropdown-toggle" id="features-dropdown-toggle" type="button"
+                        aria-expanded="false" aria-controls="features-dropdown-menu">
+                        <span data-i18n="features">Funcționalități</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="nav-dropdown-menu" id="features-dropdown-menu" aria-hidden="true">
+                        <a href="#features" data-i18n="features">Funcționalități</a>
+                        <div class="nav-dropdown-separator" role="separator"></div>
+                        <span class="nav-dropdown-group" data-i18n="nav.tools.free">Unelte Gratuite</span>
+                        <a href="#calculator-tool" data-i18n="nav.tools.calculator"
+                            data-i18n-title="nav.tools.calculatorTooltip"
+                            title="Calcul secțiune și cădere tensiune JT - interioare până în 10kW">Calculator JT</a>
+                    </div>
+                </div>
                 <a href="#workflow" data-i18n="workflow">Flux de lucru</a>
                 <a href="#pricing" data-i18n="pricing">Prețuri</a>
 
@@ -53,9 +132,7 @@
                     <span class="icon-moon">🌙</span>
                     <span class="icon-sun">☀️</span>
                 </button>
-                <a href="https://electricalvpf.app/frontend/login.html" class="btn-secondary" target="_blank" data-i18n="login">Autentificare</a>
-                <a href="https://electricalvpf.app/frontend/register.html" class="btn-primary" target="_blank" data-i18n="startFree">Începe
-                    gratuit</a>
+                <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="btn-secondary" data-i18n="login">Autentificare</a>
             </nav>
         </div>
         <div id="mobile-nav-overlay" class="mobile-nav-overlay" hidden></div>
@@ -69,6 +146,10 @@
             <nav class="mobile-nav-links" aria-label="Navigare mobilă" data-i18n-aria-label="mobileNavigationLabel">
                 <a href="#product" data-i18n="product">Produs</a>
                 <a href="#features" data-i18n="features">Funcționalități</a>
+                <span class="mobile-nav-group" data-i18n="nav.tools.free">Unelte Gratuite</span>
+                <a href="#calculator-tool" data-i18n="nav.tools.calculator"
+                    data-i18n-title="nav.tools.calculatorTooltip"
+                    title="Calcul secțiune și cădere tensiune JT - interioare până în 10kW">Calculator JT</a>
                 <a href="#workflow" data-i18n="workflow">Flux de lucru</a>
                 <a href="#pricing" data-i18n="pricing">Prețuri</a>
                 <a href="https://electricalvpf.com/service.html" target="_blank" data-i18n="electricalServices">Servicii
@@ -81,8 +162,8 @@
                     <span class="icon-moon">🌙</span>
                     <span class="icon-sun">☀️</span>
                 </button>
-                <a href="https://electricalvpf.app/frontend/login.html" class="btn-secondary" target="_blank" data-i18n="login">Autentificare</a>
-                <a href="https://electricalvpf.app/frontend/register.html" class="btn-primary" target="_blank" data-i18n="startFree">Începe
+                <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="btn-secondary" data-i18n="login">Autentificare</a>
+                <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary" data-i18n="startFree">Începe
                     gratuit</a>
             </div>
         </aside>
@@ -92,41 +173,96 @@
     <section id="product" class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <span class="badge-tag" data-i18n="heroTag">ERP & CRM pentru Electricieni</span>
-                <h1>ElectricalVPF <span data-i18n="heroTitleSuffix">ERP & CRM</span></h1>
+                <!-- "ERP & CRM" rămâne doar în <title>/meta/JSON-LD (SEO) — limbaj de software, nu al electricianului.
+                     Titlul e mesajul singur în față; brandul e deja în antet. -->
+                <h1 data-i18n="heroTitle">Software de teren, construit de electricieni pentru electricieni</h1>
                 <p class="hero-subtitle" data-i18n="heroSubtitle">Platforma software completă dedicată firmelor de
                     instalații electrice și profesioniștilor. Gestionează proiecte, devize, clienți și facturare
                     dintr-un singur workspace optimizat.</p>
                 <div class="hero-buttons">
-                    <a href="https://electricalvpf.app/frontend/register.html" class="btn-primary btn-lg" target="_blank" data-i18n="startFree">Începe gratuit</a>
+                    <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary btn-lg" data-i18n="startFree">Începe gratuit</a>
                     <a href="#features" class="btn-outline btn-lg" data-i18n="explore">Explorează platforma</a>
                 </div>
+                <!-- Dovadă de profesionalism, discretă. Fiecare afirmație e verificată în cod: Stripe Checkout (plăți),
+                     JWT + Turnstile (autentificare), modulul Contracte, paginile legale + interfața în 10 limbi. -->
+                <div class="hero-proof">
+                    <i class="fas fa-shield-halved" aria-hidden="true"></i>
+                    <div>
+                        <strong data-i18n="heroProofTitle">Construit pentru utilizare profesională</strong>
+                        <p data-i18n="heroProofText">Infrastructură cloud, plăți securizate, autentificare, contracte și
+                            documente legale în 10 limbi.</p>
+                    </div>
+                </div>
+                <div class="hero-proof calc-tool-intro">
+                    <i class="fas fa-bolt" aria-hidden="true"></i>
+                    <div>
+                        <strong class="calc-tool-section-title"><span>ElectricalVPF</span> <i>/ JT</i> <em data-i18n="calcWidgetKicker">(Joasă Tensiune)</em></strong>
+                        <p data-i18n="calcWidgetIntro">Nu mai ghici ce cablu și ce protecție să alegi. Introdu puterea și lungimea traseului, iar Calculatorul JT îți oferă rapid secțiunea recomandată, protecția nominală, curentul de calcul și căderea de tensiune — înainte să cumperi materialele sau să prezinți soluția clientului.</p>
+                    </div>
+                </div>
+                <section id="calculator-tool" class="calc-widget" aria-labelledby="calc-widget-title">
+                    <div class="calc-widget-heading">
+                        <div>
+                            <strong id="calc-widget-title" data-i18n="calcWidgetTitle">Calculator JT Rapid</strong>
+                        </div>
+                        <span data-i18n="calcWidgetScope">Circuite interioare până la 10 kW</span>
+                    </div>
+                    <form novalidate>
+                        <label><span data-i18n="calcPowerLabel">Putere (kW)</span><input name="power" type="number" min="0.1" max="10" step=".1" inputmode="decimal" aria-describedby="calcPowerError" required><small id="calcPowerError" class="calc-field-error" role="alert"></small></label>
+                        <label><span data-i18n="calcLengthLabel">Lungime traseu (m)</span><input name="length" type="number" min="1" step="1" inputmode="numeric" aria-describedby="calcLengthError" required><small id="calcLengthError" class="calc-field-error" role="alert"></small></label>
+                        <label><span data-i18n="calcVoltageLabel">Alimentare</span><select name="voltage" aria-describedby="calcVoltageError"><option value="230">230 V</option><option value="400">400 V</option></select><small id="calcVoltageError" class="calc-field-error" role="alert"></small></label>
+                        <button type="submit" data-i18n="calcBtn">Calculează</button>
+                    </form>
+                    <div id="calcWidgetResult" class="calc-widget-result" role="status" aria-live="polite"></div>
+                    <details class="calc-widget-details">
+                        <summary data-i18n="calcTechnicalDetails">Detalii tehnice</summary>
+                        <div id="calcTechnicalCopy"></div>
+                    </details>
+                </section>
             </div>
             <div class="hero-mockup-wrapper">
+                <!-- Preview General Panel — aceleași clase și aceleași valori vizuale ca pagina reală
+                     (frontend/general-panel.html: .kpi-card/.kpi-icon/.kpi-title/.kpi-value, .content-card,
+                     tabel + badge-uri de status). Stilurile sunt în site/style.css ("Preview General Panel").
+                     Datele sunt DEMO. Adresa din bară e doar text (imagine, nu browser real). Tot corpul panoului e UN singur
+                     link [data-panel-link] spre login; site/session-redirect.js îl îndreaptă spre General Panel
+                     când există o sesiune. -->
                 <div class="mini-dashboard-mockup">
                     <div class="mockup-topbar">
                         <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-                        <span class="mockup-title">electricalvpf.app/dashboard</span>
+                        <span class="mockup-title">electricalvpf.app/general-panel</span>
                     </div>
-                    <div class="mockup-body">
-                        <div class="mockup-stats-row">
-                            <div class="m-card"><span data-i18n="revenue">Venituri</span><strong>€24,560</strong></div>
-                            <div class="m-card"><span data-i18n="projects">Proiecte</span><strong>24</strong></div>
-                            <div class="m-card"><span data-i18n="clients">Clienți</span><strong>125</strong></div>
-                        </div>
-                        <div class="mockup-table">
-                            <div class="m-tr header">
-                                <span data-i18n="project">Proiect</span><span data-i18n="client">Client</span><span
-                                    data-i18n="status">Status</span><span data-i18n="value">Valoare</span>
+                    <a class="mockup-body" href="https://electricalvpf.app/frontend/login.html?returnSite=eu" data-panel-link>
+                        <div class="gp-preview">
+                            <div class="gp-kpi-row">
+                                <div class="kpi-card">
+                                    <span class="kpi-icon kpi-icon-revenue" aria-hidden="true"><i class="fas fa-euro-sign"></i></span>
+                                    <span class="kpi-data"><span class="kpi-title" data-i18n="revenue">Venituri</span><strong class="kpi-value">€24,560</strong></span>
+                                </div>
+                                <div class="kpi-card">
+                                    <span class="kpi-icon kpi-icon-work" aria-hidden="true"><i class="fas fa-folder-open"></i></span>
+                                    <span class="kpi-data"><span class="kpi-title" data-i18n="projects">Proiecte</span><strong class="kpi-value">24</strong></span>
+                                </div>
+                                <div class="kpi-card">
+                                    <span class="kpi-icon kpi-icon-clients" aria-hidden="true"><i class="fas fa-users"></i></span>
+                                    <span class="kpi-data"><span class="kpi-title" data-i18n="clients">Clienți</span><strong class="kpi-value">125</strong></span>
+                                </div>
                             </div>
-                            <div class="m-tr"><span>Instalație Rezidențială</span><span>Ion Popescu</span><span
-                                    class="status-badge" data-i18n="inProgress">În desfășurare</span><span>€4,200</span>
+                            <div class="content-card">
+                                <div class="gp-table-scroll">
+                                    <table class="gp-table">
+                                        <thead>
+                                            <tr><th data-i18n="project">Proiect</th><th data-i18n="client">Client</th><th data-i18n="status">Status</th><th data-i18n="value">Valoare</th></tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td class="fw-semibold">Instalație Rezidențială</td><td>Ion Popescu</td><td><span class="badge badge-in-progress" data-i18n="inProgress">În desfășurare</span></td><td class="fw-bold">€4,200</td></tr>
+                                            <tr><td class="fw-semibold">Tablou Industrial</td><td>S.C. Electra</td><td><span class="badge badge-completed" data-i18n="completed">Finalizat</span></td><td class="fw-bold">€12,800</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <div class="m-tr"><span>Tablou Industrial</span><span>S.C. Electra</span><span
-                                    class="status-badge green"
-                                    data-i18n="completed">Finalizat</span><span>€12,800</span></div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -134,14 +270,89 @@
 
     <!-- 9. TRUST / PROFESSIONALISM -->
     <section class="trust-bar">
+        <!-- Fiecare cuvânt deschide o „dovadă" (site/proofs.js): fapte verificabile + „Începe gratuit". -->
         <div class="container trust-grid">
-            <div class="trust-item"><span>⚡</span> <span data-i18n="professional">Profesional</span></div>
-            <div class="trust-item"><span>🔒</span> <span data-i18n="secure">Securizat</span></div>
-            <div class="trust-item"><span>☁️</span> <span data-i18n="cloudBased">În cloud</span></div>
-            <div class="trust-item"><span>🌐</span> <span data-i18n="accessibleAnywhere">Accesibil de oriunde</span>
+            <button type="button" class="trust-item" data-proof="pro" aria-haspopup="dialog" aria-expanded="false"><span aria-hidden="true">⚡</span> <span data-i18n="professional">Profesional</span><i class="fas fa-angle-right proof-chevron" aria-hidden="true"></i></button>
+            <button type="button" class="trust-item" data-proof="sec" aria-haspopup="dialog" aria-expanded="false"><span aria-hidden="true">🔒</span> <span data-i18n="secure">Securizat</span><i class="fas fa-angle-right proof-chevron" aria-hidden="true"></i></button>
+            <button type="button" class="trust-item" data-proof="cloud" aria-haspopup="dialog" aria-expanded="false"><span aria-hidden="true">☁️</span> <span data-i18n="cloudBased">În cloud</span><i class="fas fa-angle-right proof-chevron" aria-hidden="true"></i></button>
+            <button type="button" class="trust-item" data-proof="acc" aria-haspopup="dialog" aria-expanded="false"><span aria-hidden="true">🌐</span> <span data-i18n="accessibleAnywhere">Accesibil de oriunde</span><i class="fas fa-angle-right proof-chevron" aria-hidden="true"></i></button>
+            <button type="button" class="trust-item" data-proof="for" aria-haspopup="dialog" aria-expanded="false"><span aria-hidden="true">💡</span> <span data-i18n="builtForElectricalBusinesses">Creat pentru firme de instalații electrice</span><i class="fas fa-angle-right proof-chevron" aria-hidden="true"></i></button>
+        </div>
+    </section>
+
+    <!-- 3½. TELEFON — „Biroul firmei tale, în buzunar". Avantaj central: aplicație web făcută pentru telefon, fără instalare,
+         fără update-uri manuale. Desenul e SVG (fără text de tradus, în afară de URL); textele vin din site/proofs-i18n.js
+         (chei phone_*, generate de site/tools/build-proofs-i18n.js din site/tools/phone-copy.js). Butonul deschide fereastra
+         „dovadă" (site/proofs.js). NU se afirmă „AI" — aplicația nu are funcții de inteligență artificială. -->
+    <section id="phone" class="phone-section">
+        <div class="container phone-grid">
+            <div class="phone-copy">
+                <span class="badge-tag phone-kicker" data-i18n="phone_k">Făcut pentru telefon</span>
+                <h2 data-i18n="phone_t">Biroul firmei tale, în buzunar.</h2>
+                <p class="phone-l" data-i18n="phone_l">Fără instalare. Fără update-uri. Fără încă o aplicație de ținut la zi.</p>
+                <p class="phone-b" data-i18n="phone_b">Ești pe teren? Deschizi browserul și ai activitatea firmei la îndemână: clienți, lucrări, oferte,
+                    contracte, facturi și rapoarte — într-un singur loc.</p>
+                <p class="phone-p" data-i18n="phone_p">Ai deja destule aplicații pe telefon. ElectricalVPF nu-ți mai cere una.</p>
+                <button type="button" class="btn-primary btn-lg phone-btn" data-proof="phone" aria-haspopup="dialog"
+                    aria-expanded="false"><span data-i18n="phone_btn">Vezi cum merge pe telefon</span> <i
+                        class="fas fa-arrow-right" aria-hidden="true"></i></button>
             </div>
-            <div class="trust-item"><span>💡</span> <span data-i18n="builtForElectricalBusinesses">Creat pentru firme de
-                    instalații electrice</span></div>
+
+            <div class="phone-art" role="img" aria-label="Un telefon cu ElectricalVPF deschis în browser"
+                data-i18n-aria-label="phone_aria">
+                <svg class="phone-svg" viewBox="0 0 220 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                    focusable="false">
+                    <!-- corp + butoane laterale -->
+                    <rect class="ph-btn" x="2" y="108" width="4" height="34" rx="2" />
+                    <rect class="ph-btn" x="214" y="136" width="4" height="58" rx="2" />
+                    <rect class="ph-shell" x="6" y="6" width="208" height="448" rx="36" />
+                    <rect class="ph-screen" x="16" y="18" width="188" height="424" rx="28" />
+                    <rect class="ph-island" x="88" y="26" width="44" height="10" rx="5" />
+                    <!-- bara browserului: dovada că rulează în browser, fără instalare -->
+                    <rect class="ph-bar" x="28" y="48" width="164" height="24" rx="12" />
+                    <circle class="ph-accent" cx="42" cy="60" r="3.2" />
+                    <text class="ph-url" x="112" y="64" text-anchor="middle">electricalvpf.app</text>
+                    <!-- antet aplicație -->
+                    <circle class="ph-accent" cx="46" cy="100" r="13" />
+                    <polygon class="ph-bolt" points="49,89 42,101 47,101 44,111 53,97 48,97" />
+                    <rect class="ph-title" x="66" y="93" width="70" height="8" rx="4" />
+                    <rect class="ph-line" x="66" y="107" width="44" height="6" rx="3" />
+                    <!-- două carduri (KPI) -->
+                    <rect class="ph-card" x="28" y="128" width="78" height="56" rx="10" />
+                    <rect class="ph-line" x="38" y="140" width="34" height="6" rx="3" />
+                    <rect class="ph-accent" x="38" y="154" width="26" height="13" rx="4" />
+                    <rect class="ph-card" x="114" y="128" width="78" height="56" rx="10" />
+                    <rect class="ph-line" x="124" y="140" width="34" height="6" rx="3" />
+                    <rect class="ph-green" x="124" y="154" width="26" height="13" rx="4" />
+                    <!-- listă de lucrări -->
+                    <rect class="ph-card" x="28" y="200" width="164" height="46" rx="10" />
+                    <rect class="ph-title" x="40" y="212" width="70" height="7" rx="3.5" />
+                    <rect class="ph-line" x="40" y="226" width="48" height="6" rx="3" />
+                    <rect class="ph-accent" x="146" y="215" width="34" height="16" rx="8" />
+                    <rect class="ph-card" x="28" y="254" width="164" height="46" rx="10" />
+                    <rect class="ph-title" x="40" y="266" width="56" height="7" rx="3.5" />
+                    <rect class="ph-line" x="40" y="280" width="62" height="6" rx="3" />
+                    <rect class="ph-green" x="146" y="269" width="34" height="16" rx="8" />
+                    <rect class="ph-card" x="28" y="308" width="164" height="46" rx="10" />
+                    <rect class="ph-title" x="40" y="320" width="82" height="7" rx="3.5" />
+                    <rect class="ph-line" x="40" y="334" width="40" height="6" rx="3" />
+                    <rect class="ph-accent" x="146" y="323" width="34" height="16" rx="8" />
+                    <!-- buton -->
+                    <rect class="ph-accent" x="28" y="372" width="164" height="38" rx="12" />
+                    <rect class="ph-cta-line" x="82" y="388" width="56" height="6" rx="3" />
+                    <rect class="ph-home" x="90" y="428" width="40" height="4" rx="2" />
+                </svg>
+
+                <!-- ce NU mai ai de făcut: insigna roșie de actualizări și descărcarea, tăiate -->
+                <span class="phone-chip chip-no chip-update" aria-hidden="true"><i class="fas fa-grip"></i><b
+                        class="chip-badge">3</b></span>
+                <span class="phone-chip chip-no chip-install" aria-hidden="true"><i class="fas fa-download"></i></span>
+                <!-- ce primești: fluxul firmei, în buzunar (aceleași iconițe ca în aplicație) -->
+                <span class="phone-chip chip-mod mod-1" aria-hidden="true"><i class="fas fa-users"></i></span>
+                <span class="phone-chip chip-mod mod-2" aria-hidden="true"><i class="fas fa-file-signature"></i></span>
+                <span class="phone-chip chip-mod mod-3" aria-hidden="true"><i class="fas fa-file-invoice-dollar"></i></span>
+                <span class="phone-chip chip-mod mod-4" aria-hidden="true"><i class="fas fa-chart-line"></i></span>
+            </div>
         </div>
     </section>
 
@@ -154,29 +365,31 @@
                     absolut asupra afacerii tale.</p>
             </div>
             <div class="grid-3">
+                <!-- Titluri = numele modulelor din aplicație (nav.*), descrieri = aceleași texte ca tooltip-urile din
+                     secțiunea Planuri (plans.moduleTooltip.*) — nimic scris separat pentru vitrină. -->
                 <div class="feature-card">
-                    <div class="icon">⚡</div>
-                    <h3 data-i18n="feature1Title">Gestionarea proiectelor</h3>
-                    <p data-i18n="feature1Desc">Coordonează eficient șantiere multiple și etapele de execuție tehnică.
-                    </p>
+                    <div class="icon"><i class="fas fa-folder-open" aria-hidden="true"></i></div>
+                    <h3 data-i18n="planMod_work">Lucrări</h3>
+                    <p data-i18n="planTip_work">Solicitările de la teren (cu poze și status) și lucrările tale, într-un
+                        singur loc - de la primul apel până la facturare.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="icon">📦</div>
-                    <h3 data-i18n="feature2Title">Controlul costurilor și materialelor</h3>
-                    <p data-i18n="feature2Desc">Monitorizează stocurile, consumul de materiale și cheltuielile aferente
-                        fiecărui proiect.</p>
+                    <div class="icon"><i class="fas fa-boxes-stacked" aria-hidden="true"></i></div>
+                    <h3 data-i18n="planMod_materials">Materiale</h3>
+                    <p data-i18n="planTip_materials">Gestionează materialele necesare pentru lucrări, urmărește
+                        necesarul și păstrează materialele organizate pe proiect.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="icon">📝</div>
-                    <h3 data-i18n="feature3Title">Crearea ofertelor profesionale</h3>
-                    <p data-i18n="feature3Desc">Generează oferte clare și devize detaliate care inspiră încredere
-                        clienților tăi.</p>
+                    <div class="icon"><i class="fas fa-file-signature" aria-hidden="true"></i></div>
+                    <h3 data-i18n="planMod_offers">Oferte</h3>
+                    <p data-i18n="planTip_offers">Estimezi costul, trimiți oferta clientului și vezi ofertele
+                        acceptate, gata de facturat - totul într-un singur loc.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. WORKFLOW -->
+    <!-- 3. WORKFLOW — aceiași pași, în aceeași ordine, ca lista modulelor comerciale. -->
     <section id="workflow" class="section-padding bg-darker">
         <div class="container">
             <div class="section-header">
@@ -185,22 +398,32 @@
                     de la primul contact până la încasare.</p>
             </div>
             <div class="workflow-chain">
-                <div class="workflow-step"><span>01</span><strong data-i18n="client">Client</strong></div>
+                <div class="workflow-step"><i class="fas fa-users" aria-hidden="true"></i><span>01</span><strong
+                        data-i18n="planMod_clients">Clienți</strong></div>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><span>02</span><strong data-i18n="project">Proiect</strong></div>
+                <div class="workflow-step"><i class="fas fa-folder-open" aria-hidden="true"></i><span>02</span><strong
+                        data-i18n="planMod_work">Lucrări</strong></div>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><span>03</span><strong data-i18n="estimate">Estimare</strong></div>
+                <div class="workflow-step"><i class="fas fa-calculator" aria-hidden="true"></i><span>03</span><strong
+                        data-i18n="planMod_electricCalculator">Calculator Electric</strong></div>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><span>04</span><strong data-i18n="quote">Ofertă</strong></div>
+                <div class="workflow-step"><i class="fas fa-boxes-stacked" aria-hidden="true"></i><span>04</span><strong
+                        data-i18n="planMod_materials">Materiale</strong></div>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><span>05</span><strong data-i18n="approval">Aprobare</strong></div>
+                <div class="workflow-step"><i class="fas fa-file-signature" aria-hidden="true"></i><span>05</span><strong
+                        data-i18n="planMod_offers">Oferte</strong></div>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><span>06</span><strong data-i18n="invoice">Factură</strong></div>
+                <div class="workflow-step"><i class="fas fa-file-contract" aria-hidden="true"></i><span>06</span><strong
+                        data-i18n="planMod_contracts">Contracte</strong></div>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><span>07</span><strong data-i18n="payment">Plată</strong></div>
+                <div class="workflow-step"><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i><span>07</span><strong
+                        data-i18n="planMod_invoices">Facturi</strong></div>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><span>08</span><strong data-i18n="financialOverview">Situație
-                        financiară</strong></div>
+                <div class="workflow-step"><i class="fas fa-chart-line" aria-hidden="true"></i><span>08</span><strong
+                        data-i18n="planMod_reports">Rapoarte</strong></div>
+                <span class="arrow">→</span>
+                <div class="workflow-step"><i class="fas fa-route" aria-hidden="true"></i><span>09</span><strong
+                        data-i18n="planMod_jobStatus">Stadiu Lucrări</strong></div>
             </div>
         </div>
     </section>
@@ -227,12 +450,6 @@
                     <p class="p-desc pc-desc" data-i18n="planFreeDesc">Pentru a testa ERP-ul cu volum redus de
                         activitate.</p>
                     <ul class="plan-modules pc-list">
-                        <li class="plan-module included" data-module="dashboard" tabindex="0"><span
-                                class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
-                                class="plan-mod-label" data-i18n="planMod_dashboard">Panou General</span></li>
-                        <li class="plan-module excluded" data-module="practicalGuide" tabindex="0"><span
-                                class="plan-mod-icon"><i class="fas fa-lock" aria-hidden="true"></i></span><span
-                                class="plan-mod-label" data-i18n="planMod_practicalGuide">Ghid Practic</span></li>
                         <li class="plan-module included" data-module="clients" tabindex="0"><span
                                 class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
                                 class="plan-mod-label"><span data-i18n="planMod_clients">Clienți</span><span
@@ -240,29 +457,34 @@
                         <li class="plan-module included" data-module="work" tabindex="0"><span
                                 class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
                                 class="plan-mod-label"><span data-i18n="planMod_work">Lucrări</span><span
-                                    data-i18n="planFreeWork"> - maximum 2 lucrări</span></span></li>
-                        <li class="plan-module excluded" data-module="electricCalculator" tabindex="0"><span
-                                class="plan-mod-icon"><i class="fas fa-lock" aria-hidden="true"></i></span><span
-                                class="plan-mod-label" data-i18n="planMod_electricCalculator">Calculator
-                                Electric</span></li>
+                                    data-i18n="planFreeWork"> - maximum 3 lucrări</span></span></li>
+                        <li class="plan-module included" data-module="electricCalculator" tabindex="0"><span
+                                class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
+                                class="plan-mod-label" data-i18n="planFreeCalculator">Calculator Electric - maximum 10 calcule salvate</span></li>
                         <li class="plan-module included" data-module="materials" tabindex="0"><span
                                 class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
-                                class="plan-mod-label" data-i18n="planMod_materials">Materiale</span></li>
+                                class="plan-mod-label"><span data-i18n="planMod_materials">Materiale</span><span
+                                    data-i18n="planFreeMaterials"> - maximum 20 materiale</span></span></li>
                         <li class="plan-module included" data-module="offers" tabindex="0"><span
                                 class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
                                 class="plan-mod-label"><span data-i18n="planMod_offers">Oferte</span><span
-                                    data-i18n="planFreeQuotes"> - maximum 2 oferte</span></span></li>
+                                    data-i18n="planFreeQuotes"> - maximum 3 oferte</span></span></li>
+                        <li class="plan-module included" data-module="invoices" tabindex="0"><span
+                                class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
+                                class="plan-mod-label"><span data-i18n="planMod_invoices">Facturi</span><span
+                                    data-i18n="planFreeInvoices"> - maximum 2 facturi</span></span></li>
+                        <li class="plan-module included" data-module="reports" tabindex="0"><span
+                                class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
+                                class="plan-mod-label"><span data-i18n="planMod_reports">Rapoarte</span><span
+                                    data-i18n="planFreeReports"> - maximum 5 rapoarte</span></span></li>
                         <li class="plan-module excluded" data-module="contracts" tabindex="0"><span
                                 class="plan-mod-icon"><i class="fas fa-lock" aria-hidden="true"></i></span><span
                                 class="plan-mod-label" data-i18n="planMod_contracts">Contracte</span></li>
-                        <li class="plan-module included" data-module="invoices" tabindex="0"><span
-                                class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
-                                class="plan-mod-label" data-i18n="planMod_invoices">Facturi</span></li>
-                        <li class="plan-module included" data-module="reports" tabindex="0"><span
-                                class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
-                                class="plan-mod-label" data-i18n="planMod_reports">Rapoarte</span></li>
+                        <li class="plan-module excluded" data-module="jobStatus" tabindex="0"><span
+                                class="plan-mod-icon"><i class="fas fa-lock" aria-hidden="true"></i></span><span
+                                class="plan-mod-label" data-i18n="planMod_jobStatus">Stadiu Lucrări</span></li>
                     </ul>
-                    <a href="https://electricalvpf.app/frontend/register.html" target="_blank" class="btn-outline pc-cta" data-i18n="startFree">Începe gratuit</a>
+                    <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-outline pc-cta" data-i18n="freeForever">Gratuit pentru totdeauna</a>
                 </div>
 
                 <!-- PRO -->
@@ -289,39 +511,35 @@
                     <p class="p-desc pc-desc" data-i18n="planProDesc">Pentru firme care vor control complet asupra
                         activității.</p>
                     <ul class="plan-modules pc-list">
-                        <li class="plan-module included" data-module="dashboard" tabindex="0"><span
-                                class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
-                                class="plan-mod-label" data-i18n="planMod_dashboard">Panou General</span></li>
-                        <li class="plan-module included" data-module="practicalGuide" tabindex="0"><span
-                                class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
-                                class="plan-mod-label" data-i18n="planMod_practicalGuide">Ghid Practic</span></li>
                         <li class="plan-module included" data-module="clients" tabindex="0"><span
                                 class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
-                                class="plan-mod-label" data-i18n="planMod_clients">Clienți</span></li>
+                                class="plan-mod-label"><span data-i18n="planMod_clients">Clienți</span><span data-i18n="planProClients"> - clienți nelimitați</span></span></li>
                         <li class="plan-module included" data-module="work" tabindex="0"><span
                                 class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
-                                class="plan-mod-label" data-i18n="planMod_work">Lucrări</span></li>
+                                class="plan-mod-label"><span data-i18n="planMod_work">Lucrări</span><span data-i18n="planProWork"> - lucrări nelimitate</span></span></li>
                         <li class="plan-module included" data-module="electricCalculator" tabindex="0"><span
                                 class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
-                                class="plan-mod-label" data-i18n="planMod_electricCalculator">Calculator
-                                Electric</span></li>
+                                class="plan-mod-label" data-i18n="planProCalculator">Calculator Electric - calcule salvate nelimitate</span></li>
                         <li class="plan-module included" data-module="materials" tabindex="0"><span
                                 class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
-                                class="plan-mod-label" data-i18n="planMod_materials">Materiale</span></li>
+                                class="plan-mod-label"><span data-i18n="planMod_materials">Materiale</span><span data-i18n="planProMaterials"> - materiale nelimitate</span></span></li>
                         <li class="plan-module included" data-module="offers" tabindex="0"><span
                                 class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
-                                class="plan-mod-label" data-i18n="planMod_offers">Oferte</span></li>
+                                class="plan-mod-label"><span data-i18n="planMod_offers">Oferte</span><span data-i18n="planProQuotes"> - oferte nelimitate</span></span></li>
                         <li class="plan-module included" data-module="contracts" tabindex="0"><span
                                 class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
-                                class="plan-mod-label" data-i18n="planMod_contracts">Contracte</span></li>
+                                class="plan-mod-label"><span data-i18n="planMod_contracts">Contracte</span><span data-i18n="planProContracts"> - contracte nelimitate</span></span></li>
                         <li class="plan-module included" data-module="invoices" tabindex="0"><span
                                 class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
-                                class="plan-mod-label" data-i18n="planMod_invoices">Facturi</span></li>
+                                class="plan-mod-label"><span data-i18n="planMod_invoices">Facturi</span><span data-i18n="planProInvoices"> - facturi nelimitate</span></span></li>
                         <li class="plan-module included" data-module="reports" tabindex="0"><span
                                 class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
-                                class="plan-mod-label" data-i18n="planMod_reports">Rapoarte</span></li>
+                                class="plan-mod-label"><span data-i18n="planMod_reports">Rapoarte</span><span data-i18n="planProReports"> - rapoarte nelimitate</span></span></li>
+                        <li class="plan-module included" data-module="jobStatus" tabindex="0"><span
+                                class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span
+                                class="plan-mod-label" data-i18n="planMod_jobStatus">Stadiu Lucrări</span></li>
                     </ul>
-                    <a href="https://electricalvpf.app/frontend/register.html" target="_blank" class="btn-primary pc-cta" data-i18n="startFree">Începe gratuit</a>
+                    <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary pc-cta" id="proPlanCta" data-i18n="planProCtaMonthly">Treci la Pro - €49/lună</a>
                 </div>
 
             </div>
@@ -332,32 +550,51 @@
     <footer class="site-footer">
         <div class="container footer-flex">
             <p>&copy; 2026 <span data-i18n="footerText">ElectricalVPF. Toate drepturile rezervate.</span></p>
-            <p><span data-i18n="presentationHosted">Site-ul de prezentare este găzduit pe</span>
-                <strong>electricalvpf.eu</strong> | <span data-i18n="appRunning">Aplicația rulează pe</span>
-                <strong>electricalvpf.app</strong>
-            </p>
+            <nav class="footer-legal" aria-label="Legal">
+                <a href="https://electricalvpf.app/frontend/legal/terms.html" data-legal="terms" data-i18n="legalTerms">Termeni și Condiții</a>
+                <a href="https://electricalvpf.app/frontend/legal/privacy.html" data-legal="privacy"
+                    data-i18n="legalPrivacy">Confidențialitate</a>
+                <a href="https://electricalvpf.app/frontend/legal/cookies.html" data-legal="cookies" data-i18n="legalCookies">Cookie-uri</a>
+                <a href="https://electricalvpf.app/frontend/legal/refund-policy.html" data-legal="refund-policy"
+                    data-i18n="legalRefund">Rambursare &amp; Anulare</a>
+                <a href="https://electricalvpf.app/frontend/legal/legal-notice.html" data-legal="legal-notice"
+                    data-i18n="legalNotice">Date de identificare</a>
+            </nav>
         </div>
     </footer>
 
     <!-- Scripturi -->
-    <script src="translations.js?v=20260921-plans"></script>
-    <script src="plans-i18n.js?v=20260921-plans"></script>
-    <script src="language-dropdown.js?v=20260921-plans"></script>
-    <script src="plans.js?v=20260921-plans"></script>
+    <!-- config.js e fișierul aplicației (nemodificat): de aici vine API_BASE_URL folosit la verificarea sesiunii. -->
+    <script src="frontend/js/config.js"></script>
+    <script src="site/translations.js?v=20260923-go-pro"></script>
+    <script src="site/plans-i18n.js?v=20260924-job-status"></script>
+    <script src="site/proofs-i18n.js?v=20260923-guide-hidden"></script>
+    <script src="site/language-dropdown.js?v=20260921-site1"></script>
+    <script src="site/plans.js?v=20260924-job-status"></script>
+    <script src="site/proofs.js?v=20260923-guide-hidden"></script>
+    <script src="site/jt-pending.js?v=20260923-jt-delete"></script>
+    <script src="site/jt-offer-flow.js?v=20260923-jt-i18n"></script>
+    <script type="module" src="site/calculator-jt-widget.js?v=20260923-jt-i18n"></script>
     <script>
-        // Inițializare Dark / Light mode
-        const htmlElement = document.documentElement;
-        const savedTheme = localStorage.getItem('electricalvpf_theme') || 'dark';
-        htmlElement.setAttribute('data-theme', savedTheme);
-
+        // Dark / Light mode — aceeași cheie ("theme") ca aplicația, deci alegerea rămâne și după login.
         document.querySelectorAll('[data-theme-toggle]').forEach((toggleBtn) => {
             toggleBtn.addEventListener('click', () => {
-                const currentTheme = htmlElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                htmlElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('electricalvpf_theme', newTheme);
+                const root = document.documentElement;
+                const newTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', newTheme);
+                try { localStorage.setItem('theme', newTheme); } catch (err) { /* stocare indisponibilă */ }
             });
         });
+
+        // Linkurile legale au un fișier separat per limbă (terms.html = română, terms-en.html etc.).
+        function updateLegalLinks() {
+            const lang = document.documentElement.lang;
+            document.querySelectorAll('a[data-legal]').forEach((a) => {
+                const suffix = !lang || lang === 'ro' ? '' : '-' + lang;
+                a.setAttribute('href', 'https://electricalvpf.app/frontend/legal/' + a.getAttribute('data-legal') + suffix + '.html');
+            });
+        }
+        document.addEventListener('site:lang-applied', updateLegalLinks);
 
         // Inițializare control limbă cu steaguri
         document.addEventListener('DOMContentLoaded', () => {
@@ -370,8 +607,58 @@
             const menuClose = document.getElementById('mobile-menu-close');
             const drawer = document.getElementById('mobile-nav-drawer');
             const overlay = document.getElementById('mobile-nav-overlay');
-            const internalLinks = drawer.querySelectorAll('a[href^="#"]');
+            const internalLinks = drawer.querySelectorAll('a');
             let lastFocusedElement;
+
+            // "Produs" înseamnă începutul paginii. O ancoră nativă către
+            // #product ar alinia hero-ul sub headerul sticky, deci tratăm
+            // exclusiv această destinație ca scroll la poziția inițială.
+            document.querySelectorAll('a[href="#product"]').forEach((link) => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    if (window.location.hash !== '#product') {
+                        window.history.pushState(null, '', '#product');
+                    }
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+
+            const featuresDropdown = document.getElementById('features-dropdown');
+            const featuresDropdownToggle = document.getElementById('features-dropdown-toggle');
+            const featuresDropdownMenu = document.getElementById('features-dropdown-menu');
+            let featuresDropdownCloseTimer;
+
+            const canHoverFeaturesDropdown = () =>
+                window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+            const setFeaturesDropdownOpen = (isOpen) => {
+                featuresDropdown.classList.toggle('is-open', isOpen);
+                featuresDropdownToggle.setAttribute('aria-expanded', String(isOpen));
+                featuresDropdownMenu.setAttribute('aria-hidden', String(!isOpen));
+            };
+
+            featuresDropdownToggle.addEventListener('click', () => {
+                clearTimeout(featuresDropdownCloseTimer);
+                setFeaturesDropdownOpen(!featuresDropdown.classList.contains('is-open'));
+            });
+            featuresDropdown.addEventListener('mouseenter', () => {
+                if (!canHoverFeaturesDropdown()) return;
+                clearTimeout(featuresDropdownCloseTimer);
+                setFeaturesDropdownOpen(true);
+            });
+            featuresDropdown.addEventListener('mouseleave', () => {
+                if (!canHoverFeaturesDropdown()) return;
+                featuresDropdownCloseTimer = setTimeout(() => setFeaturesDropdownOpen(false), 150);
+            });
+            featuresDropdownMenu.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => setFeaturesDropdownOpen(false));
+            });
+            document.addEventListener('mousedown', (event) => {
+                if (!featuresDropdown.contains(event.target)) {
+                    clearTimeout(featuresDropdownCloseTimer);
+                    setFeaturesDropdownOpen(false);
+                }
+            });
 
             const closeMobileMenu = () => {
                 drawer.classList.remove('is-open');
@@ -399,10 +686,17 @@
             overlay.addEventListener('click', closeMobileMenu);
             internalLinks.forEach((link) => link.addEventListener('click', closeMobileMenu));
             document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && featuresDropdown.classList.contains('is-open')) {
+                    setFeaturesDropdownOpen(false);
+                    featuresDropdownToggle.focus();
+                }
                 if (event.key === 'Escape' && drawer.classList.contains('is-open')) closeMobileMenu();
             });
         });
     </script>
+
+    <!-- Sesiune validă -> direct în dashboard (vezi site/session-redirect.js). Ultimul, după config.js. -->
+    <script src="site/session-redirect.js?v=20260923-gp-preview"></script>
 </body>
 
 </html>

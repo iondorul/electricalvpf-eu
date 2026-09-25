@@ -130,6 +130,12 @@ class LanguageDropdownControl {
       if (dict[key]) el.setAttribute("aria-label", dict[key]);
     });
 
+    document.querySelectorAll("[data-i18n-title]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-title");
+      const value = dict[key] || (translations.en && translations.en[key]);
+      if (value) el.setAttribute("title", value);
+    });
+
     const title = document.querySelector("title[data-i18n]");
     if (title && dict[title.dataset.i18n])
       document.title = dict[title.dataset.i18n];

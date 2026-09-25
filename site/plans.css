@@ -10,7 +10,13 @@
    Free și Pro au blocuri diferite deasupra listei (comutatorul Lunar/Anual,
    insigna de reducere) — fără subgrid, lista de module ar începe la înălțimi
    diferite și lacătele nu s-ar mai compara "pe orizontală". */
+/* Mai lat decât .pricing-grid (800px) exact cât trebuie ca rândul cel mai lung,
+   "Electric Calculator - maximum 10 saved calculations" (EN), să rămână pe un rând pe
+   desktop: carduri 385px → 472px (minimul măsurat 467px + ~5px rezervă de randare).
+   Cele două coloane rămân egale (1fr/1fr); sub această lățime, grila se strânge odată
+   cu containerul și textul se rupe natural. */
 .plans-grid {
+    max-width: 974px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 30px;
     row-gap: 24px;
@@ -32,6 +38,10 @@
         display: grid;
         grid-row: span 7;
         grid-template-rows: subgrid;
+        /* Coloană explicită pe toată lățimea: justify-content din .pricing-card
+           (space-between/flex-start) ar strânge altfel coloana la lățimea conținutului,
+           iar butonul CTA nu ar mai umple cardul. */
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .plan-card .pc-name { grid-row: 1; }
