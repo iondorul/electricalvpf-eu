@@ -10,8 +10,8 @@
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
     --text-heading: #f8fafc;
-    --accent-color: #eab308;
-    --accent-hover: #ca8a04;
+    --accent-color: #ffc107; /* = logo dark (site/img/favicon-dark.png) */
+    --accent-hover: #e0a800;
     --hero-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     --final-gradient: linear-gradient(180deg, #090d16 0%, #1e293b 100%);
     --shadow-color: rgba(0, 0, 0, 0.5);
@@ -28,8 +28,8 @@
     --text-main: #0f172a;
     --text-muted: #64748b;
     --text-heading: #0f172a;
-    --accent-color: #d97706;
-    --accent-hover: #b45309;
+    --accent-color: #ff6600; /* = logo light (site/img/favicon-light.png) */
+    --accent-hover: #e65c00;
     --hero-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     --final-gradient: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);
     --shadow-color: rgba(15, 23, 42, 0.08);
@@ -93,14 +93,14 @@ h1, h2, h3 {
 /* Badges & Tags */
 .badge-tag {
     display: inline-block;
-    background-color: rgba(234, 179, 8, 0.1);
+    background-color: color-mix(in srgb, var(--accent-color) 10%, transparent);
     color: var(--accent-color);
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.875rem;
     font-weight: 600;
     margin-bottom: 20px;
-    border: 1px solid rgba(234, 179, 8, 0.2);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 20%, transparent);
 }
 
 .box-tag {
@@ -140,6 +140,28 @@ a { text-decoration: none; }
 }
 .btn-secondary:hover { background-color: var(--accent-color); color: #0f172a; }
 
+/* Login (antet + meniul mobil): iconiță „intrare" înaintea textului. Culoarea
+   vine din currentColor, deci urmează accentul temei (dark/light) și devine
+   închisă odată cu textul la hover. Textul e într-un <span data-i18n> separat,
+   ca traducerea (textContent) să nu șteargă iconița. */
+.btn-login {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.btn-login i {
+    font-size: 0.95em;
+    transition: transform 0.2s ease;
+}
+.btn-login:hover i,
+.btn-login:focus-visible i { transform: translateX(2px); }
+@media (prefers-reduced-motion: reduce) {
+    .btn-login i { transition: none; }
+    .btn-login:hover i,
+    .btn-login:focus-visible i { transform: none; }
+}
+
 .btn-outline {
     background-color: transparent;
     color: var(--text-main);
@@ -178,12 +200,251 @@ a { text-decoration: none; }
     transform: scale(1.05);
 }
 
-/* Gestionare iconițe steluță/semilună în funcție de mod */
-[data-theme="dark"] .theme-toggle-btn .icon-sun { display: inline-block; }
-[data-theme="dark"] .theme-toggle-btn .icon-moon { display: none; }
+/* Ajutor „?" (ca în aplicație) — meniu cu 3 secțiuni egale: LIMBĂ · AFIȘARE · CONTACT (site/help-menu.js).
+   O singură regulă peste tot: antet mic uppercase → un rând → același separator fin.
+   Rânduri: aceeași înălțime, același font (medium, nu bold), aceeași coloană de iconițe.
+   Iconițele sunt cercuri de 40px; ținta de atingere e TOT rândul (52px), nu doar cercul.
+   Calm: 1px, fără umbre noi; accentul de brand doar pe iconițe. */
+/* „?”: inelul și cercul plin sunt în ACELAȘI SVG, cu același centru (20,20) — un caracter de font
+   (fa-circle-question) nu stă exact în centrul casetei lui și ieșea deplasat față de inel. */
+.help-toggle-mark { fill: var(--text-muted); stroke: none; }
+/* Hover pe TOATE cercurile („?", Limbă, Afișare, Contact): se schimbă DOAR culoarea conturului de 1px
+   (galben pe întunecat, portocaliu pe luminos = --accent-color). Fundalul și iconița rămân neschimbate.
+   Fără scale (mărirea cu fracțiuni de pixel rupea conturul), fără umbre, fără pseudo-elemente. */
+.help-toggle-btn {
+    position: relative;
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    transform: none;
+    transition: none;
+}
+/* A single unfilled vector stroke keeps the outline uniform around the circle. */
+.help-toggle-outline {
+    position: absolute;
+    inset: -1px;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    stroke: var(--border-color);
+    shape-rendering: geometricPrecision;
+}
+.help-toggle-btn:hover,
+.help-toggle-btn:focus-visible,
+.help-dropdown.is-open .help-toggle-btn {
+    border-color: transparent;
+    outline: none;
+    transform: none;
+}
+.help-toggle-btn:hover .help-toggle-outline,
+.help-toggle-btn:focus-visible .help-toggle-outline,
+.help-dropdown.is-open .help-toggle-outline { stroke: var(--accent-color); }
 
-[data-theme="light"] .theme-toggle-btn .icon-sun { display: none; }
-[data-theme="light"] .theme-toggle-btn .icon-moon { display: inline-block; }
+/* Meniul stă centrat sub buton (poziția din .nav-dropdown-menu, ca „Funcționalități"). Lățimea urmează
+   textul (fără rupere pe două rânduri), dar nu iese din ecran. */
+.help-menu {
+    width: max-content;
+    min-width: 270px;
+    max-width: calc(100vw - 32px);
+    padding: 6px;
+}
+/* „Punte" invizibilă peste golul dintre buton și meniu: la hover meniul nu se închide pe drum. */
+.help-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -14px; height: 14px; }
+
+/* Antetele de secțiune — identice (desktop + meniul lateral). */
+.help-menu .help-section-title,
+.mobile-help .help-section-title {
+    display: block;
+    padding: 8px 10px 4px;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+/* Separatorul dintre secțiuni — aceeași linie, același spațiu. */
+.help-sep {
+    height: 1px;
+    margin: 6px 4px;
+    background: var(--border-color);
+}
+
+/* Rândurile — aceeași înălțime, tipografie și coloană de iconițe. */
+.help-menu-item,
+.help-lang .lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px !important;
+    width: 100%;
+    position: relative;
+    min-height: 52px;
+    padding: 6px 10px !important;
+    border: 0 !important;
+    border-radius: 6px !important;
+    background: transparent !important;
+    color: var(--text-main) !important;
+    font: inherit;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    line-height: 1.3;
+    text-align: left;
+    cursor: pointer;
+}
+.help-menu-item:hover,
+.help-menu-item:focus-visible,
+.help-lang .lang-btn:hover,
+.help-lang .lang-dropdown-wrapper.is-open .lang-btn { background: var(--bg-card) !important; outline: none; }
+
+.help-menu-icon {
+    position: relative;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1;
+    transition: none;
+}
+.help-menu-icon::before,
+.help-lang .lang-btn::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    background: var(--border-color);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='19.5' fill='none' stroke='black' stroke-width='1' shape-rendering='geometricPrecision'/%3E%3C/svg%3E") center / 40px 40px no-repeat;
+}
+.help-menu-icon::before { inset: -1px; }
+.help-theme-item .help-menu-icon { color: var(--accent-color); }
+.help-menu [data-help-contact] .help-menu-icon { color: #60a5fa; }
+.help-menu [data-help-about] .help-menu-icon { color: #c4a0ff; }
+[data-theme="light"] .help-menu [data-help-contact] .help-menu-icon { color: #2563eb; }
+[data-theme="light"] .help-menu [data-help-about] .help-menu-icon { color: #7c3aed; }
+.help-menu-item:hover .help-menu-icon::before,
+.help-menu-item:focus-visible .help-menu-icon::before { background: var(--accent-color); }
+.help-menu-text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.help-menu-label { white-space: nowrap; }
+.help-menu-state { font-size: 0.72rem; font-weight: 400; color: var(--text-muted); white-space: nowrap; }
+@media (prefers-reduced-motion: no-preference) {
+    .help-theme-item .help-menu-icon i { transition: transform 0.3s ease; }
+    .help-theme-item:hover .help-menu-icon i { transform: rotate(-20deg); }
+}
+
+/* Limba: același rând. Cercul de 40px e un element separat (::before), iar steagul stă DREPTUNGHIULAR,
+   la proporțiile lui (20×15), centrat în cerc — nu se mai taie în oval. Lista se desface în meniu
+   (acordeon). !important: controlul (language-dropdown.js) își scrie stilurile inline. */
+.help-lang .lang-dropdown-wrapper { display: block !important; }
+.help-lang .lang-btn::before {
+    left: 10px;
+    top: 6px;
+}
+.help-lang .lang-btn:hover::before,
+.help-lang .lang-btn:focus-visible::before,
+.help-lang .lang-dropdown-wrapper.is-open .lang-btn::before { background: var(--accent-color); }
+.help-lang .lang-btn img {
+    position: relative;
+    flex: 0 0 auto;
+    width: 20px !important;
+    height: 15px !important;
+    margin: 0 10px;
+    border-radius: 2px !important;
+    object-fit: contain;
+}
+.help-lang .lang-btn-name { display: inline !important; }
+.help-lang .lang-btn-code { color: var(--text-muted); font-size: 0.78rem !important; font-weight: 400; }
+.help-lang .lang-btn-code::before { content: "(" !important; }
+.help-lang .lang-btn-code::after { content: ")" !important; }
+.help-lang .lang-caret { margin-left: auto; color: var(--text-muted); }
+.help-lang .lang-menu {
+    position: static !important;
+    min-width: 0 !important;
+    max-height: 230px !important;
+    padding: 2px 0 4px !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+.help-lang .lang-option { padding: 8px 10px 8px 22px !important; border-radius: 6px; font-size: 0.85rem !important; }
+
+/* Scrollbar-ul listei de limbi: subțire (6px), rotunjit, fără săgeți, integrat în meniu, în ambele teme. */
+.help-lang {
+    --help-scroll-track: rgba(15, 23, 42, 0.04);
+    --help-scroll-thumb: #cbd5e1;
+    --help-scroll-thumb-hover: #94a3b8;
+}
+[data-theme="dark"] .help-lang {
+    --help-scroll-track: #172033;
+    --help-scroll-thumb: #475569;
+    --help-scroll-thumb-hover: #64748b;
+}
+.help-lang .lang-menu::-webkit-scrollbar { width: 6px; }
+.help-lang .lang-menu::-webkit-scrollbar-track { background: var(--help-scroll-track); border-radius: 999px; }
+.help-lang .lang-menu::-webkit-scrollbar-thumb { background: var(--help-scroll-thumb); border-radius: 999px; }
+.help-lang .lang-menu::-webkit-scrollbar-thumb:hover { background: var(--help-scroll-thumb-hover); }
+.help-lang .lang-menu::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+/* Firefox (fără ::-webkit-scrollbar). În Chrome proprietățile standard ar anula stilurile de mai sus. */
+@supports not selector(::-webkit-scrollbar) {
+    .help-lang .lang-menu {
+        scrollbar-width: thin;
+        scrollbar-color: var(--help-scroll-thumb) var(--help-scroll-track);
+    }
+}
+.help-lang .lang-option:hover,
+.help-lang .lang-option.active { background: var(--bg-card); }
+
+/* Același meniu „?" stă pe desktop în bara de navigare, pe mobil în antet lângă ☰ (help-menu.js îl mută).
+   Meniul lateral rămâne doar pentru navigare. */
+.help-slot { display: contents; }
+.header-mobile-actions { display: none; }
+@media (max-width: 1099px) {
+    .header-mobile-actions { display: flex; align-items: center; gap: 10px; }
+    /* Pe mobil panoul stă fix sub antet (top setat din JS), aliniat la dreapta, fără să iasă din ecran.
+       Selectorul e mai specific decât .nav-dropdown-menu (definit mai jos în fișier). */
+    .help-dropdown .nav-dropdown-menu.help-menu {
+        position: fixed;
+        left: auto;
+        right: 16px;
+        top: 72px;
+        max-width: calc(100vw - 32px);
+        transform: translateY(6px);
+    }
+    .help-dropdown.is-open .nav-dropdown-menu.help-menu { transform: none; }
+    .help-menu::before { display: none; }
+}
+
+/* Fereastra Contact — aceleași clase .plan-window* ca ferestrele „dovadă". */
+.help-contact-window .help-contact-intro { font-size: 0.92rem; font-weight: 600; line-height: 1.55; margin: 0 0 14px; }
+.help-contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 0;
+    border-top: 1px solid rgba(20, 13, 0, 0.15);
+}
+.help-contact-row > i { width: 18px; margin-top: 4px; text-align: center; color: #140d00; opacity: 0.75; }
+.help-contact-row > i.fa-whatsapp { font-size: 1.28em; margin-top: 1px; }
+.help-contact-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.7; }
+/* Proporții: titlu 1.28rem > subtitlu 0.92rem > valori 0.875rem > etichete 0.72rem. */
+.help-contact-row a { color: #140d00; font-size: 0.875rem; font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
+.help-contact-row a:hover { opacity: 0.75; }
+/* Alegerea programului de email (Gmail · Outlook · Yahoo · aplicația · copiază) — discret, 1px. */
+.help-mail-choices { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.help-mail-choices[hidden] { display: none; }
+.help-contact-row .help-mail-choice {
+    display: inline-flex; align-items: center; justify-content: center; min-height: 28px; padding: 3px 10px;
+    border: 1px solid rgba(20, 13, 0, 0.28); border-radius: 999px; background: transparent;
+    color: #140d00; font: inherit; font-size: 0.78rem; font-weight: 600; cursor: pointer;
+}
+.help-contact-row .help-mail-choice:hover { opacity: 1; border-color: #140d00; }
+.help-contact-row .help-mail-copy { width: 28px; padding: 0; }
+.help-mail-copy i { font-size: 0.8rem; }
 
 /* Navigation */
 .site-header {
@@ -255,16 +516,16 @@ a { text-decoration: none; }
 .calc-widget form { display: grid; grid-template-columns: 1fr 1fr 105px auto; gap: 10px; margin-top: 18px; align-items: end; }
 .calc-widget label { display: grid; gap: 6px; color: #94a3b8; font-size: .7rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
 .calc-widget input, .calc-widget select { min-width: 0; min-height: 44px; padding: 10px 11px; background: rgba(2, 6, 23, .34); border: 1px solid rgba(148, 163, 184, .3); color: #f8fafc; border-radius: 7px; font: inherit; font-weight: 700; transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease; }
-.calc-widget input:focus, .calc-widget select:focus { outline: 0; border-color: var(--accent-color); background: rgba(2, 6, 23, .5); box-shadow: 0 0 0 3px rgba(251, 191, 36, .13); }
+.calc-widget input:focus, .calc-widget select:focus { outline: 0; border-color: var(--accent-color); background: rgba(2, 6, 23, .5); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 13%, transparent); }
 .calc-widget input.is-invalid, .calc-widget select.is-invalid { border-color: #fb7185; background: rgba(190, 24, 93, .1); box-shadow: 0 0 0 3px rgba(251, 113, 133, .12); }
 .calc-widget .calc-field-error { display: none; min-height: 1.1em; color: #fda4af; font-size: .68rem; font-weight: 650; letter-spacing: 0; line-height: 1.35; text-transform: none; }
 .calc-widget input.is-invalid + .calc-field-error, .calc-widget select.is-invalid + .calc-field-error { display: block; }
-.calc-widget button { min-height: 44px; padding: 10px 16px; border: 1px solid rgba(255, 255, 255, .14); border-radius: 7px; background: var(--accent-color); color: #111827; font-weight: 800; letter-spacing: .02em; cursor: pointer; box-shadow: 0 8px 18px rgba(245, 158, 11, .16); transition: transform .18s ease, filter .18s ease, box-shadow .18s ease; }
-.calc-widget button:hover { filter: brightness(1.06); box-shadow: 0 10px 24px rgba(245, 158, 11, .25); transform: translateY(-1px); }
+.calc-widget button { min-height: 44px; padding: 10px 16px; border: 1px solid rgba(255, 255, 255, .14); border-radius: 7px; background: var(--accent-color); color: #111827; font-weight: 800; letter-spacing: .02em; cursor: pointer; box-shadow: 0 8px 18px color-mix(in srgb, var(--accent-color) 16%, transparent); transition: transform .18s ease, filter .18s ease, box-shadow .18s ease; }
+.calc-widget button:hover { filter: brightness(1.06); box-shadow: 0 10px 24px color-mix(in srgb, var(--accent-color) 25%, transparent); transform: translateY(-1px); }
 .calc-widget-result { display: grid; margin-top: 18px; border-top: 1px solid rgba(148, 163, 184, .24); opacity: 0; transform: translateY(5px); transition: opacity .28s ease, transform .28s ease; }
 .calc-widget-result.is-visible { opacity: 1; transform: translateY(0); }
 .calc-save-action { padding-top: 14px; border-top: 1px solid rgba(148, 163, 184, .24); }
-.calc-widget .calc-save-button { width: 100%; display: flex; align-items: center; justify-content: space-between; background: transparent; color: var(--accent-color); border-color: rgba(251, 191, 36, .45); box-shadow: none; }
+.calc-widget .calc-save-button { width: 100%; display: flex; align-items: center; justify-content: space-between; background: transparent; color: var(--accent-color); border-color: color-mix(in srgb, var(--accent-color) 45%, transparent); box-shadow: none; }
 .calc-widget .calc-save-button span { font-size: 1.15rem; }
 .jt-save-backdrop { position: fixed; z-index: 10001; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(2, 6, 23, .68); backdrop-filter: blur(8px); }
 .jt-save-panel { position: relative; width: min(100%, 510px); max-height: min(720px, calc(100vh - 40px)); overflow: auto; padding: 28px; border: 1px solid rgba(148, 163, 184, .3); border-radius: 16px; background: linear-gradient(145deg, #111b2d, #0b1220); box-shadow: 0 28px 80px rgba(0, 0, 0, .45); color: #e2e8f0; }
@@ -275,14 +536,14 @@ a { text-decoration: none; }
 .jt-save-panel p { margin: 0 0 18px; color: #94a3b8; line-height: 1.55; }
 .jt-save-list { display: grid; gap: 8px; margin: 16px 0; }
 .jt-save-quote { display: grid; grid-template-columns: 1fr auto; gap: 3px 12px; padding: 13px; text-align: left; border: 1px solid rgba(148, 163, 184, .25); border-radius: 9px; background: rgba(30, 41, 59, .52); color: #e2e8f0; cursor: pointer; font: inherit; }
-.jt-save-quote:hover { border-color: rgba(251, 191, 36, .65); background: rgba(51, 65, 85, .68); }
+.jt-save-quote:hover { border-color: color-mix(in srgb, var(--accent-color) 65%, transparent); background: rgba(51, 65, 85, .68); }
 .jt-save-quote strong { color: #f8fafc; font-size: .9rem; }.jt-save-quote span { color: #94a3b8; font-size: .78rem; }.jt-save-quote em { grid-row: 1 / span 2; grid-column: 2; align-self: center; color: var(--accent-color); font-size: .7rem; font-style: normal; text-transform: capitalize; }
 .jt-save-primary, .jt-save-secondary { display: inline-flex; justify-content: center; align-items: center; min-height: 42px; padding: 10px 14px; border-radius: 8px; font: inherit; font-size: .88rem; font-weight: 750; text-decoration: none; cursor: pointer; }
 .jt-save-primary { background: var(--accent-color); border: 1px solid var(--accent-color); color: #111827; }.jt-save-secondary { margin-top: 10px; width: 100%; background: transparent; border: 1px solid rgba(148, 163, 184, .35); color: #dbe5f3; }.jt-save-error { color: #fca5a5 !important; }.jt-save-empty, .jt-save-loading { padding: 14px 0; color: #94a3b8; font-size: .85rem; }
 .jt-offer-backdrop { position: fixed; z-index: 11000; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(2, 6, 23, .72); backdrop-filter: blur(9px); }
 .jt-offer-panel { position: relative; width: min(100%, 510px); max-height: calc(100vh - 40px); overflow: auto; padding: 28px; border: 1px solid rgba(148, 163, 184, .3); border-radius: 16px; background: linear-gradient(145deg, #111b2d, #0b1220); box-shadow: 0 28px 80px rgba(0, 0, 0, .45); color: #e2e8f0; font-family: Inter, sans-serif; }
-.jt-offer-panel.is-busy { opacity: .62; pointer-events: none; }.jt-offer-close { position: absolute; right: 15px; top: 12px; border: 0; background: transparent; color: #94a3b8; font-size: 1.5rem; cursor: pointer; }.jt-offer-kicker { color: #fbbf24; font-size: .72rem; font-weight: 800; letter-spacing: .06em; }.jt-offer-panel h3 { margin: 8px 28px 8px 0; color: #f8fafc; font-size: 1.35rem; }.jt-offer-panel p { color: #94a3b8; line-height: 1.55; }.jt-offer-benefits { display: grid; gap: 8px; margin: 18px 0; padding: 0; list-style: none; color: #dbe5f3; font-size: .9rem; }.jt-offer-benefits li::before { content: "✓"; margin-right: 8px; color: #fbbf24; font-weight: 800; }
-.jt-offer-primary, .jt-offer-secondary { display: flex; align-items: center; justify-content: center; min-height: 43px; margin-top: 10px; padding: 10px 14px; border-radius: 8px; font: inherit; font-size: .88rem; font-weight: 750; text-decoration: none; }.jt-offer-primary { border: 1px solid #fbbf24; background: #fbbf24; color: #111827; }.jt-offer-secondary { border: 1px solid rgba(148, 163, 184, .35); background: transparent; color: #dbe5f3; }.jt-offer-list { display: grid; gap: 8px; margin: 16px 0; }.jt-offer-quote { display: grid; grid-template-columns: 1fr auto; gap: 3px 12px; padding: 13px; border: 1px solid rgba(148, 163, 184, .25); border-radius: 9px; background: rgba(30, 41, 59, .52); color: #e2e8f0; text-align: left; cursor: pointer; font: inherit; }.jt-offer-quote:hover { border-color: rgba(251, 191, 36, .65); background: rgba(51, 65, 85, .68); }.jt-offer-quote strong { color: #f8fafc; font-size: .9rem; }.jt-offer-quote span { color: #94a3b8; font-size: .78rem; }.jt-offer-quote em { grid-column: 2; grid-row: 1 / span 2; align-self: center; color: #fbbf24; font-size: .7rem; font-style: normal; text-transform: capitalize; }.jt-offer-quote b { grid-column: 1 / -1; color: #fbbf24; font-size: .72rem; }.jt-offer-error { color: #fca5a5 !important; }
+.jt-offer-panel.is-busy { opacity: .62; pointer-events: none; }.jt-offer-close { position: absolute; right: 15px; top: 12px; border: 0; background: transparent; color: #94a3b8; font-size: 1.5rem; cursor: pointer; }.jt-offer-kicker { color: #ffc107; font-size: .72rem; font-weight: 800; letter-spacing: .06em; }.jt-offer-panel h3 { margin: 8px 28px 8px 0; color: #f8fafc; font-size: 1.35rem; }.jt-offer-panel p { color: #94a3b8; line-height: 1.55; }.jt-offer-benefits { display: grid; gap: 8px; margin: 18px 0; padding: 0; list-style: none; color: #dbe5f3; font-size: .9rem; }.jt-offer-benefits li::before { content: "✓"; margin-right: 8px; color: #ffc107; font-weight: 800; }
+.jt-offer-primary, .jt-offer-secondary { display: flex; align-items: center; justify-content: center; min-height: 43px; margin-top: 10px; padding: 10px 14px; border-radius: 8px; font: inherit; font-size: .88rem; font-weight: 750; text-decoration: none; }.jt-offer-primary { border: 1px solid #ffc107; background: #ffc107; color: #111827; }.jt-offer-secondary { border: 1px solid rgba(148, 163, 184, .35); background: transparent; color: #dbe5f3; }.jt-offer-list { display: grid; gap: 8px; margin: 16px 0; }.jt-offer-quote { display: grid; grid-template-columns: 1fr auto; gap: 3px 12px; padding: 13px; border: 1px solid rgba(148, 163, 184, .25); border-radius: 9px; background: rgba(30, 41, 59, .52); color: #e2e8f0; text-align: left; cursor: pointer; font: inherit; }.jt-offer-quote:hover { border-color: color-mix(in srgb, var(--accent-color) 65%, transparent); background: rgba(51, 65, 85, .68); }.jt-offer-quote strong { color: #f8fafc; font-size: .9rem; }.jt-offer-quote span { color: #94a3b8; font-size: .78rem; }.jt-offer-quote em { grid-column: 2; grid-row: 1 / span 2; align-self: center; color: #ffc107; font-size: .7rem; font-style: normal; text-transform: capitalize; }.jt-offer-quote b { grid-column: 1 / -1; color: #ffc107; font-size: .72rem; }.jt-offer-error { color: #fca5a5 !important; }
 .calc-result-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 48px; border-bottom: 1px solid rgba(148, 163, 184, .2); }
 .calc-result-row span { color: #94a3b8; font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
 .calc-result-row strong { color: #f8fafc; font-size: 1.05rem; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
@@ -318,7 +579,7 @@ a { text-decoration: none; }
 [data-theme="light"] .calc-widget input,
 [data-theme="light"] .calc-widget select { background: #fff; border-color: #cbd5e1; color: #0f172a; }
 [data-theme="light"] .calc-widget input:focus,
-[data-theme="light"] .calc-widget select:focus { background: #fff; border-color: #d97706; box-shadow: 0 0 0 3px rgba(217, 119, 6, .12); }
+[data-theme="light"] .calc-widget select:focus { background: #fff; border-color: var(--accent-color); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 12%, transparent); }
 [data-theme="light"] .calc-widget-result,
 [data-theme="light"] .calc-result-row { border-color: #dbe3ee; }
 
@@ -350,12 +611,14 @@ a { text-decoration: none; }
     white-space: nowrap;
 }
 
-.nav-dropdown-toggle .fa-chevron-down {
+.nav-dropdown-toggle .fa-chevron-down,
+.lang-btn .lang-caret {
     font-size: 0.8em;
     opacity: .7;
     transition: transform 200ms ease;
 }
-.nav-dropdown.is-open .nav-dropdown-toggle .fa-chevron-down { transform: rotate(180deg); }
+.nav-dropdown.is-open .nav-dropdown-toggle .fa-chevron-down,
+.lang-dropdown-wrapper.is-open .lang-caret { transform: rotate(180deg); }
 .nav-dropdown.is-open .nav-dropdown-toggle,
 .nav-dropdown-toggle:hover,
 .nav-dropdown-toggle:focus-visible { color: var(--text-heading); }
@@ -503,12 +766,29 @@ a { text-decoration: none; }
     font-weight: 600;
 }
 .mobile-nav-links a:hover { color: var(--accent-color); }
+.mobile-features > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 8px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-main);
+    font-size: 1rem;
+    font-weight: 600;
+    list-style: none;
+    cursor: pointer;
+}
+.mobile-features > summary::-webkit-details-marker { display: none; }
+.mobile-features > summary:hover { color: var(--accent-color); }
+.mobile-features > summary i { font-size: 0.75rem; }
+.mobile-features[open] > summary i { transform: rotate(180deg); }
+.mobile-features-items { display: flex; flex-direction: column; padding-left: 12px; }
+.mobile-features-items .mobile-nav-group { margin-top: 0; border-top: 0; }
 
 .mobile-nav-actions {
     gap: 14px;
     margin-top: auto;
 }
-.mobile-nav-actions .theme-toggle-btn { align-self: flex-start; }
 .mobile-nav-actions .btn-secondary,
 .mobile-nav-actions .btn-primary { width: 100%; text-align: center; }
 
@@ -528,14 +808,15 @@ body.mobile-menu-open { overflow: hidden; }
 }
 
 .hero-content h1 {
-    font-size: 2.25rem;
+    font-size: 1.9rem; /* titlul în română pe 2 rânduri în coloana de 560px, cu rezervă */
+    font-weight: 500;
     margin-bottom: 20px;
     line-height: 1.25;
     text-wrap: balance;
 }
 
 .hero-subtitle {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     color: var(--text-muted);
     margin-bottom: 30px;
 }
@@ -892,7 +1173,7 @@ a.mockup-body:focus-visible { outline: 2px solid var(--accent-color); outline-of
 }
 .sc-box span { color: var(--text-muted); font-size: 0.85rem; display: block; margin-bottom: 5px; }
 .sc-box h3 { font-size: 1.5rem; color: var(--text-heading); }
-.sc-box.highlight { border-color: var(--accent-color); background-color: rgba(234, 179, 8, 0.05); }
+.sc-box.highlight { border-color: var(--accent-color); background-color: color-mix(in srgb, var(--accent-color) 5%, transparent); }
 
 .sc-main-area {
     display: grid;
@@ -1005,9 +1286,6 @@ a.mockup-body:focus-visible { outline: 2px solid var(--accent-color); outline-of
     .grid-2 { grid-template-columns: 1fr; }
     .sc-main-area { grid-template-columns: 1fr; }
     .hero-content h1 { font-size: 1.85rem; }
-    .nav-links { display: none; }
-    .mobile-menu-toggle { display: inline-flex; }
-    .mobile-nav-drawer { display: flex; }
 }
 /* Iconițe FA deasupra numărului fiecărui pas din secțiunea Flux de lucru (aceleași iconițe ca în sidebar-ul aplicației) */
 .workflow-step i {
@@ -1068,7 +1346,7 @@ a.mockup-body:focus-visible { outline: 2px solid var(--accent-color); outline-of
 
 /* Titlul e o propoziție lungă (mai ales în TR/PL/RU/UK) — mai mic pe ecrane înguste, ca să nu ocupe jumătate din ecran */
 @media (max-width: 1100px) {
-    .hero-content h1 { font-size: 2rem; }
+    .hero-content h1 { font-size: 1.65rem; }
 }
 
 @media (max-width: 600px) {
@@ -1091,7 +1369,7 @@ button.trust-item {
 button.trust-item:hover,
 button.trust-item[aria-expanded="true"] {
     color: var(--text-heading);
-    background-color: rgba(234, 179, 8, 0.08);
+    background-color: color-mix(in srgb, var(--accent-color) 8%, transparent);
 }
 
 button.trust-item:focus-visible {
@@ -1247,7 +1525,7 @@ button.trust-item[aria-expanded="true"] .proof-chevron { transform: rotate(90deg
     width: 78%;
     aspect-ratio: 1;
     transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(234, 179, 8, 0.18) 0%, rgba(234, 179, 8, 0) 68%);
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent-color) 18%, transparent) 0%, color-mix(in srgb, var(--accent-color) 0%, transparent) 68%);
     pointer-events: none;
 }
 
@@ -1281,6 +1559,9 @@ button.trust-item[aria-expanded="true"] .proof-chevron { transform: rotate(90deg
 [data-theme="light"] .ph-island { fill: #0f172a; }
 
 .phone-chip {
+    padding: 0;
+    font-family: inherit;
+    cursor: help;
     position: absolute;
     display: flex;
     align-items: center;
@@ -1294,6 +1575,91 @@ button.trust-item[aria-expanded="true"] .proof-chevron { transform: rotate(90deg
     font-size: 1.35rem;
     box-shadow: 0 14px 32px var(--shadow-color);
     animation: phoneFloat 6.5s ease-in-out infinite;
+}
+
+.phone-chip:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 4px; }
+.phone-chip {
+    transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+.phone-chip.is-tip-active {
+    border-color: color-mix(in srgb, var(--accent-color) 65%, var(--border-color));
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-color) 10%, transparent), 0 14px 32px var(--shadow-color);
+}
+.phone-tip {
+    --tip-surface: color-mix(in srgb, var(--bg-card) 94%, transparent);
+    position: fixed;
+    z-index: 1100;
+    width: max-content;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px 12px 11px;
+    border: 1px solid color-mix(in srgb, var(--accent-color) 18%, var(--border-color));
+    border-radius: 14px;
+    background: var(--tip-surface);
+    background-image: linear-gradient(125deg, color-mix(in srgb, var(--accent-color) 7%, transparent), transparent 65%);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    color: var(--text-main);
+    box-shadow: 0 12px 32px -8px var(--shadow-color), 0 2px 6px var(--shadow-color), inset 0 1px 0 color-mix(in srgb, var(--text-main) 7%, transparent);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: var(--tip-arrow-x, 50%) bottom;
+    transform: translateY(6px) scale(.96);
+    transition: opacity 160ms ease, transform 220ms cubic-bezier(.16, 1, .3, 1), visibility 160ms;
+}
+.phone-tip-icon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 30px;
+    height: 30px;
+    border-radius: 9px;
+    color: var(--accent-color);
+    background: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent-color) 14%, transparent);
+    font-size: 13px;
+}
+.phone-tip-copy { min-width: 0; text-wrap: pretty; }
+.phone-tip .phone-tip-icon { align-self: flex-start; }
+.phone-tip-title {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 650;
+    line-height: 1.4;
+    color: var(--text-heading);
+}
+.phone-tip-description {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--text-muted);
+}
+.phone-tip::after {
+    content: "";
+    position: absolute;
+    left: calc(var(--tip-arrow-x, 50%) - 4px);
+    bottom: -5px;
+    width: 8px;
+    height: 8px;
+    background: var(--bg-card);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    transform: rotate(45deg);
+}
+.phone-tip[data-side="below"] { transform-origin: var(--tip-arrow-x, 50%) top; transform: translateY(-6px) scale(.96); }
+.phone-tip[data-side="below"]::after { top: -5px; bottom: auto; transform: rotate(225deg); }
+.phone-tip.is-open { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+@media (prefers-reduced-motion: reduce) {
+    .phone-tip, .phone-tip[data-side] { transition: none; transform: none; }
+    .phone-chip { transition: none; }
 }
 
 /* Tăiat = nu mai ai de făcut asta */
@@ -1328,7 +1694,7 @@ button.trust-item[aria-expanded="true"] .proof-chevron { transform: rotate(90deg
 }
 
 /* Primit = fluxul firmei, în buzunar */
-.chip-mod { color: var(--accent-color); border-color: rgba(234, 179, 8, 0.35); }
+.chip-mod { color: var(--accent-color); border-color: color-mix(in srgb, var(--accent-color) 35%, transparent); }
 
 .chip-update { top: 6%; left: 2%; animation-delay: -1s; }
 .chip-install { top: 64%; left: 0; animation-delay: -3s; }
@@ -1365,4 +1731,206 @@ button.trust-item[aria-expanded="true"] .proof-chevron { transform: rotate(90deg
     .phone-copy h2 { font-size: 1.7rem; }
     .phone-chip { width: 46px; height: 46px; border-radius: 14px; font-size: 1.1rem; }
     .phone-svg { width: min(250px, 66%); }
+}
+
+/* Hero — primul ecran pe telefon (≤600px). Pe ecrane mai late nu se schimbă nimic:
+   „Autentificare" din hero e ascuns (e deja în antet), „Explorează platforma" rămâne. */
+.hero-btn-signin { display: none; }
+
+@media (max-width: 600px) {
+    /* Antet mai compact: brandul rămâne clar, dar nu mai ia un sfert din ecran */
+    .site-header { padding: 10px 0; }
+    .logo-link { gap: 9px; }
+    .logo-mark { width: 36px; height: 36px; }
+    .logo { font-size: 1.3rem; letter-spacing: -0.01em; }
+    .mobile-menu-toggle { width: 42px; height: 42px; font-size: 1.3rem; border-radius: 10px; }
+
+    .hero { padding: 36px 0 56px; }
+    .hero-content h1 { margin-bottom: 14px; }
+    .hero-subtitle { font-size: 1rem; line-height: 1.6; margin-bottom: 26px; }
+
+    /* Perechea de acțiuni: aceeași lățime, înălțime și rază, una sub alta — rezistă la
+       etichetele lungi din toate cele 10 limbi. Ierarhia vine din umplere, nu din mărime. */
+    .hero-buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .hero-buttons .btn-lg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 52px;
+        padding: 12px 20px;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.2;
+        text-align: center;
+    }
+    .hero-btn-explore { display: none !important; }
+    .hero-btn-signin {
+        color: var(--text-heading);
+        background-color: var(--bg-card);
+        border-color: var(--border-color);
+    }
+    .hero-btn-signin i { color: var(--accent-color); }
+    .hero-btn-signin:hover,
+    .hero-btn-signin:focus-visible { border-color: var(--accent-color); }
+
+    .hero-proof { margin-top: 28px; }
+}
+
+/* Meniul de sus pe desktop. Fiecare element rămâne pe un singur rând; butonul de limbă
+   arată doar steagul și codul (numele complet e în listă și în meniul mobil). Sub 1100px
+   meniul complet nu mai încape în nicio limbă, așa că antetul trece pe butonul de meniu. */
+.nav-links > a,
+.nav-links .btn-login { white-space: nowrap; }
+.lang-btn-code::before { content: "("; }
+.lang-btn-code::after { content: ")"; }
+.nav-links .lang-btn-name { display: none; }
+.nav-links .lang-btn-code { font-size: 0.85rem !important; font-weight: 600; }
+.nav-links .lang-btn-code::before,
+.nav-links .lang-btn-code::after { content: none; }
+
+@media (max-width: 1279px) {
+    .nav-links { gap: 14px; }
+    .nav-links a:not(.btn-secondary):not(.btn-primary),
+    .nav-dropdown-toggle { font-size: 0.9rem; }
+}
+
+@media (max-width: 1099px) {
+    .nav-links { display: none; }
+    .mobile-menu-toggle { display: inline-flex; }
+    .mobile-nav-drawer { display: flex; }
+}
+
+/* Butoanele pline de accent în modul luminos: exact portocaliul logo-ului luminos
+   (site/img/favicon-light.png = #ff6600) + text alb — decizia proprietarului: butoanele
+   poartă culoarea logo-ului, ca în modul întunecat. Contrast alb/#ff6600 = 2.9:1 (sub 4.5:1
+   recomandat pentru text normal; text închis ar avea 6.1:1). Modul întunecat rămâne
+   galben cu text închis. Linkurile și accentele rămân pe --accent-color. */
+[data-theme="light"] .btn-primary,
+[data-theme="light"] .calc-widget button[type="submit"] {
+    background-color: var(--accent-color);
+    color: #ffffff;
+}
+[data-theme="light"] .btn-primary:hover,
+[data-theme="light"] .btn-primary:focus-visible,
+[data-theme="light"] .calc-widget button[type="submit"]:hover {
+    background-color: var(--accent-hover);
+    color: #ffffff;
+}
+[data-theme="light"] .calc-widget button[type="submit"] {
+    border-color: transparent;
+    box-shadow: 0 8px 18px color-mix(in srgb, var(--accent-color) 20%, transparent);
+}
+[data-theme="light"] .calc-widget button[type="submit"]:hover {
+    filter: none;
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--accent-color) 28%, transparent);
+}
+
+/* Telefonul desenat: în modul luminos fulgerul și „butonul" de pe ecran sunt albe, ca logo-ul
+   luminos (fulger alb pe portocaliu) și ca butoanele reale. */
+[data-theme="light"] .ph-bolt,
+[data-theme="light"] .ph-cta-line { fill: #ffffff; }
+
+/* Restul elementelor pline cu accent, în modul luminos: portocaliul logo-ului + alb,
+   ca butoanele. „Recomandat" (eticheta planului), butoanele de salvare din Calculatorul JT
+   și hover-ul butoanelor cu contur. Tooltip-urile/ferestrele cu text lung rămân cu text închis. */
+[data-theme="light"] .popular-tag,
+[data-theme="light"] .jt-save-primary,
+[data-theme="light"] .btn-secondary:hover { color: #ffffff; }
+
+/* „Recomandat" e și link: aceeași destinație ca butonul Go Pro (înregistrare), același aspect. */
+a.popular-tag { transition: background-color 0.2s ease; }
+a.popular-tag:hover,
+a.popular-tag:focus-visible { background-color: var(--accent-hover); }
+a.popular-tag:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 2px; }
+
+/* Tooltip-ul pașilor din „Flux de lucru" (site/workflow-tips.js) — aceeași familie ca meniul
+   „Funcționalități" (.nav-dropdown-menu): același chenar, rază, umbră, fundal, spațiere,
+   tipografie și aceeași animație (200ms ease-out, alunecare de 4px). Titlul folosește chiar
+   clasa .nav-dropdown-group; textul are stilul rândurilor din meniu. */
+.wf-tip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    display: grid;
+    min-width: 220px;
+    max-width: 280px;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-header);
+    box-shadow: 0 12px 28px var(--shadow-color);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(4px);
+    transition: opacity 200ms ease-out, transform 200ms ease-out, visibility 200ms ease-out;
+    visibility: hidden;
+}
+.wf-tip.is-above { transform: translateY(-4px); }
+.wf-tip.is-open {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+/* Titlul: iconița modulului (accent) + numele, în culoarea titlurilor, font subțire (400) —
+   un titlu gros ar concura cu pașii de dedesubt. Descrierea: mai mică și estompată.
+   Ierarhia vine din culoare, mărime și iconiță, nu din grosime. */
+.wf-tip-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 10px 2px;
+    color: var(--text-heading);
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.3;
+}
+.wf-tip-title i {
+    width: 18px;
+    color: var(--accent-color);
+    font-size: 0.95rem;
+    text-align: center;
+}
+.wf-tip-text {
+    margin: 0;
+    padding: 4px 10px 9px 37px;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.workflow-step .wf-tip-source[hidden] { display: none; }
+/* Pașii sunt linkuri spre modulele aplicației (login.html?return=<modul>). */
+a.workflow-step { display: block; color: inherit; cursor: pointer; border-radius: 8px; }
+a.workflow-step strong { transition: color 0.2s ease; }
+a.workflow-step:hover strong,
+a.workflow-step:focus-visible strong { color: var(--accent-color); }
+.workflow-step:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+    .wf-tip { transition: none; }
+}
+
+/* Explorează (#features): toate cele 8 module, 2 rânduri × 4 coloane pe desktop — aceleași
+   carduri (.feature-card), doar mai compacte ca să încapă 4 pe rând. */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+.features-grid .feature-card { padding: 20px; }
+.features-grid .feature-card .icon { font-size: 1.4rem; margin-bottom: 12px; }
+.features-grid .feature-card h3 { font-size: 1.02rem; margin-bottom: 8px; }
+.features-grid .feature-card p { font-size: 0.875rem; line-height: 1.55; }
+
+@media (max-width: 1099px) {
+    .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+    .features-grid { grid-template-columns: 1fr; gap: 14px; }
 }

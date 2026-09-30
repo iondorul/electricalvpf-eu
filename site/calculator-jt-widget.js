@@ -21,7 +21,7 @@ function escapeHtml(value) {
 }
 
 async function authenticated() {
-  const token = localStorage.getItem("token");
+  const token = AuthSession.getToken();
   if (!token) return false;
   try {
     const response = await fetch(apiUrl("/auth/me"), { headers: { Authorization: `Bearer ${token}` } });
@@ -49,7 +49,7 @@ async function attachToQuote(quoteId, quoteNumber) {
   try {
     const response = await fetch(apiUrl(`/quotes/${quoteId}/calculations`), {
       method: "POST",
-      headers: { "Content-Type": "application/json", Authorization: `Bearer ${localStorage.getItem("token")}` },
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${AuthSession.getToken()}` },
       body: JSON.stringify({ calculation_source: "PublicQuick", calculation_version: `jt-${pending.version}`, input_data: pending.input, result_data: pending.result }),
     });
     const payload = await response.json().catch(() => ({}));
@@ -75,7 +75,7 @@ async function openQuoteSelector() {
   const panel = showSavePanel(`<button class="jt-save-close" data-jt-close aria-label="Închide">×</button><span class="jt-save-kicker">CALCULATOR JT</span><h3>Unde vrei să salvezi calculul?</h3><p class="jt-save-copy">Alege o ofertă existentă sau continuă fluxul normal pentru una nouă.</p><div class="jt-save-list"><span class="jt-save-loading">Se încarcă ofertele…</span></div><p class="jt-save-error" hidden>Calculul nu a putut fi salvat. Rămâne disponibil și poți reîncerca.</p><button class="jt-save-secondary" data-jt-new>+ Creează ofertă nouă</button>`);
   panel.querySelector("[data-jt-new]").addEventListener("click", () => { window.location.href = "https://electricalvpf.app/frontend/clients.html?jt-pending=1"; });
   try {
-    const response = await fetch(apiUrl("/quotes?page=1&limit=50"), { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
+    const response = await fetch(apiUrl("/quotes?page=1&limit=50"), { headers: { Authorization: `Bearer ${AuthSession.getToken()}` } });
     const data = await response.json();
     if (!response.ok || !data.success) throw new Error("quotes unavailable");
     const list = panel.querySelector(".jt-save-list");

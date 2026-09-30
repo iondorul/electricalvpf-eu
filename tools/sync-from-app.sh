@@ -16,14 +16,17 @@ cd "$(dirname "$0")/.."
 SRC="${SRC:-../electricalvpf.app}"
 APP_URL="https://electricalvpf.app"
 
-# Ce intră în vitrină. frontend/js/config.js (CONFIG.API_BASE_URL) și
-# frontend/js/calculator-core.js (import ES module din calculator-jt-widget.js)
-# sunt singurele fișiere din aplicație încărcate efectiv de pagină.
+# Ce intră în vitrină. Singurele fișiere din aplicație încărcate efectiv de pagină:
+#   frontend/js/config.js        — CONFIG.API_BASE_URL, AuthSession
+#   frontend/js/calculator-core.js — import ES module din calculator-jt-widget.js
+#   frontend/locales/*.json      — site/module-previews.js (previzualizările din
+#                                   „Explorează”) le citește cu fetch same-origin
 PATHS=(
   index.html
   site
   frontend/js/config.js
   frontend/js/calculator-core.js
+  frontend/locales
   LICENSE.txt
   READ-ME.txt
 )
@@ -51,6 +54,7 @@ sed -i \
   -e "s#\`frontend/\${page}\`#\`$APP_URL/frontend/\${page}\`#g" \
   -e "s#= \"frontend/#= \"$APP_URL/frontend/#g" \
   -e "s#return \"frontend/#return \"$APP_URL/frontend/#g" \
+  -e "s#\"frontend/\" +#\"$APP_URL/frontend/\" +#g" \
   site/*.js
 sed -i -e "s#= \"/frontend/#= \"$APP_URL/frontend/#g" site/session-redirect.js
 
@@ -71,9 +75,9 @@ if grep -q 'id="saveJTCalculation"' site/calculator-jt-widget.js; then
 fi
 
 # Verificare: nu trebuie să mai rămână nicio legătură relativă spre frontend/
-# în afară de cele două fișiere copiate local.
+# în afară de fișierele copiate local.
 leftover=$(grep -nE "[\"'\`]/?frontend/" index.html site/*.js \
-  | grep -vE 'frontend/js/(config|calculator-core)\.js|includes\("/frontend/"\)' || true)
+  | grep -vE 'frontend/js/(config|calculator-core)\.js|frontend/locales/|includes\("/frontend/"\)' || true)
 if [ -n "$leftover" ]; then
   echo "ATENȚIE: linkuri relative rămase spre frontend/:" >&2
   echo "$leftover" >&2
@@ -85,4 +89,12 @@ if [ -n "$missing" ]; then
   echo "$missing" >&2
   exit 1
 fi
+# Fiecare limbă din LOCALES (site/module-previews.js) trebuie să aibă dicționarul
+# local, altfel previzualizările din „Explorează” rămân fără texte.
+for lc in $(grep -oE 'var LOCALES = \[[^]]*\]' site/module-previews.js | grep -oE '"[a-z]{2}"' | tr -d '"'); do
+  if [ ! -s "frontend/locales/$lc.json" ]; then
+    echo "ATENȚIE: lipsește frontend/locales/$lc.json (necesar pentru site/module-previews.js)." >&2
+    exit 1
+  fi
+done
 echo "OK — vitrina sincronizată. Verifică: git status && git diff"

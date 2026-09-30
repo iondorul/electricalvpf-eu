@@ -13,7 +13,7 @@ const translations = {
     "nav.tools.free": "Free Tools",
     "nav.tools.calculator": "Cable Calculator",
     "nav.tools.calculatorTooltip": "Calculate cable size and voltage drop",
-    login: "Login",
+    login: "Sign In",
     startFree: "Start Free",
     freeForever: "Free Forever",
     planProCtaMonthly: "Go Pro - €49/mo",
@@ -25,8 +25,19 @@ const translations = {
     heroProofTitle:
       "Your data stays yours",
     heroTitle:
-      "Field software, built by electricians for electricians",
+      "Field software, built by electricians for electrical contractors",
     explore: "Explore the Platform",
+    exploreShort: "Explore",
+    previewHint: "Preview",
+    wfTip_clients: "The people you work for, their details at hand.",
+    wfTip_work: "Every job, from the first request to the finish.",
+    wfTip_electricCalculator: "The right cable and protection, before you buy.",
+    wfTip_materials: "You know what's in stock and what to buy.",
+    wfTip_offers: "The customer knows the price before you start.",
+    wfTip_contracts: "The deal in writing, so it isn't just words.",
+    wfTip_invoices: "What you've done gets billed and followed until paid.",
+    wfTip_reports: "Your company's numbers, in plain words.",
+    wfTip_jobStatus: "You always know where each job stands.",
     featuresTitle:
       "Made for an electrician's everyday work.",
     featuresSubtitle:
@@ -43,6 +54,19 @@ const translations = {
     pageTitle:
       "ElectricalVPF ERP & CRM - Complete solution for electrical installation firms",
     themeToggleLabel: "Toggle display mode",
+    helpLabel: "Help",
+    helpLanguageGroup: "Language",
+    helpDisplayGroup: "Display",
+    themeToDark: "Change to Dark Mode",
+    themeToLight: "Change to Light Mode",
+    themeNowDark: "Screen now: Dark",
+    themeNowLight: "Screen now: Light",
+    helpContactItem: "Contact",
+    helpContactRow: "Email, phone, website",
+    helpContactIntro: "Have a question or found a problem? Get in touch — we'll get back to you as fast as we can.",
+    helpEmailLabel: "Email",
+    helpPhoneLabel: "Phone",
+    helpWebsiteLabel: "Website",
     revenue: "Revenue",
     projects:
       "Work",
@@ -89,8 +113,19 @@ const translations = {
     heroProofTitle:
       "Datele tale rămân ale tale",
     heroTitle:
-      "Software de teren, construit de electricieni pentru electricieni",
+      "Software de teren, construit de electricieni pentru firme electrice",
     explore: "Explorează platforma",
+    exploreShort: "Explorează",
+    previewHint: "Previzualizare",
+    wfTip_clients: "Oamenii pentru care muncești, cu datele lor la îndemână.",
+    wfTip_work: "Fiecare lucrare, de la cerere până la capăt.",
+    wfTip_electricCalculator: "Cablul și protecția potrivite, înainte să cumperi.",
+    wfTip_materials: "Știi ce ai în stoc și ce trebuie cumpărat.",
+    wfTip_offers: "Clientul știe prețul înainte să începi.",
+    wfTip_contracts: "Înțelegerea scrisă, ca să nu rămână doar vorbă.",
+    wfTip_invoices: "Ce ai lucrat se cere și se urmărește până la plată.",
+    wfTip_reports: "Cifrele firmei, spuse pe înțeles.",
+    wfTip_jobStatus: "Știi oricând unde a rămas fiecare lucrare.",
     featuresTitle:
       "Făcut pentru munca unui electrician.",
     featuresSubtitle:
@@ -107,6 +142,19 @@ const translations = {
     pageTitle:
       "ElectricalVPF ERP & CRM - Soluția completă pentru firme de instalații electrice",
     themeToggleLabel: "Comută modul de afișare",
+    helpLabel: "Ajutor",
+    helpLanguageGroup: "Limbă",
+    helpDisplayGroup: "Afișare",
+    themeToDark: "Schimbă pe modul întunecat",
+    themeToLight: "Schimbă pe modul luminos",
+    themeNowDark: "Ecran acum: întunecat",
+    themeNowLight: "Ecran acum: luminos",
+    helpContactItem: "Contact",
+    helpContactRow: "Email, telefon, website",
+    helpContactIntro: "Ai o întrebare sau ai găsit o problemă? Scrie-ne — răspundem cât de repede putem.",
+    helpEmailLabel: "Email",
+    helpPhoneLabel: "Telefon",
+    helpWebsiteLabel: "Website",
     revenue: "Venituri",
     projects:
       "Lucrări",
@@ -153,8 +201,19 @@ const translations = {
     heroProofTitle:
       "Ваші дані залишаються вашими",
     heroTitle:
-      "Програма для роботи на об’єкті, створена електриками для електриків",
+      "Програма для роботи на об’єкті, створена електриками для електромонтажних компаній",
     explore: "Дослідити платформу",
+    exploreShort: "Огляд",
+    previewHint: "Попередній перегляд",
+    wfTip_clients: "Люди, для яких ви працюєте, і їхні дані під рукою.",
+    wfTip_work: "Кожна робота — від заявки до завершення.",
+    wfTip_electricCalculator: "Правильний кабель і захист — ще до покупки.",
+    wfTip_materials: "Ви знаєте, що є на складі і що треба купити.",
+    wfTip_offers: "Клієнт знає ціну до початку робіт.",
+    wfTip_contracts: "Домовленість на папері, а не лише на словах.",
+    wfTip_invoices: "Виконана робота виставляється і відстежується до оплати.",
+    wfTip_reports: "Цифри вашої фірми простими словами.",
+    wfTip_jobStatus: "Ви завжди знаєте, на якому етапі кожна робота.",
     featuresTitle:
       "Зроблено для щоденної роботи електрика.",
     featuresSubtitle:
@@ -171,6 +230,19 @@ const translations = {
     pageTitle:
       "ElectricalVPF ERP & CRM - Повне рішення для електромонтажних компаній",
     themeToggleLabel: "Перемкнути режим відображення",
+    helpLabel: "Довідка",
+    helpLanguageGroup: "Мова",
+    helpDisplayGroup: "Відображення",
+    themeToDark: "Увімкнути темний режим",
+    themeToLight: "Увімкнути світлий режим",
+    themeNowDark: "Екран зараз: темний",
+    themeNowLight: "Екран зараз: світлий",
+    helpContactItem: "Контакти",
+    helpContactRow: "Email, телефон, сайт",
+    helpContactIntro: "Маєте питання чи знайшли проблему? Напишіть нам — відповімо якнайшвидше.",
+    helpEmailLabel: "Email",
+    helpPhoneLabel: "Телефон",
+    helpWebsiteLabel: "Сайт",
     revenue: "Дохід",
     projects:
       "Роботи",
@@ -197,7 +269,7 @@ const translations = {
     mobileMenuTitle: "Menü",
     mobileMenuOpenLabel: "Menüyü aç",
     mobileMenuCloseLabel: "Menüyü kapat",
-    mobileNavigationLabel: "Mobil navigasyon",
+    mobileNavigationLabel: "Mobil menü",
     features: "Özellikler",
     workflow: "İş Akışı",
     pricing: "Fiyatlandırma",
@@ -211,29 +283,53 @@ const translations = {
     planProCtaMonthly: "Pro'ya Geç - €49/ay",
     planProCtaYearly: "Pro'ya Geç - €470.40/yıl",
     heroSubtitle:
-      "Evraklara daha az zaman kaybı. İşlere ve müşterilere daha çok zaman. Hepsi tek bir yerde: Müşteriler, İşler, Elektrik Hesap Makinesi, Malzemeler, Teklifler, Sözleşmeler, Faturalar, Raporlar.",
+      "Evrak işlerine daha az, işlerinize ve müşterilerinize daha çok zaman ayırın. Hepsi tek bir yerde: Müşteriler, İşler, Elektrik Hesap Makinesi, Malzemeler, Teklifler, Sözleşmeler, Faturalar, Raporlar.",
     heroProofText:
       "İstediğiniz zaman dışa aktarın, Pro'yu istediğiniz zaman cezasız iptal edin. Ödeme Stripe üzerinden yapılır; kart bilgileriniz bize ulaşmaz.",
     heroProofTitle:
       "Verileriniz sizin kalır",
     heroTitle:
-      "Sahada kullanılan yazılım, elektrikçiler tarafından elektrikçiler için geliştirildi",
+      "Elektrikçilerin elektrik firmaları için geliştirdiği saha yazılımı",
     explore: "Platformu Keşfet",
+    exploreShort: "Keşfet",
+    previewHint: "Önizleme",
+    wfTip_clients: "Müşterilerinizin bilgileri elinizin altında.",
+    wfTip_work: "Her iş, ilk talepten bitişe kadar.",
+    wfTip_electricCalculator: "Satın almadan önce doğru kabloyu ve korumayı belirleyin.",
+    wfTip_materials: "Stokta ne olduğunu ve ne alınacağını bilirsiniz.",
+    wfTip_offers: "Müşteri, işe başlamadan fiyatı bilir.",
+    wfTip_contracts: "Anlaşma yazılı olur, sözde kalmaz.",
+    wfTip_invoices: "Yaptığınız iş faturalanır ve ödenene kadar takip edilir.",
+    wfTip_reports: "Firmanızın rakamları, anlaşılır dille.",
+    wfTip_jobStatus: "Her işin hangi aşamada olduğunu her zaman bilirsiniz.",
     featuresTitle:
-      "Bir elektrikçinin günlük işi için yapıldı.",
+      "Elektrikçilerin günlük işleri için tasarlandı.",
     featuresSubtitle:
       "İşler, malzemeler ve teklifler; her gün kullandığınız şekliyle.",
     workflowTitle:
-      "İlk telefondan tahsilata kadar",
+      "İlk aramadan tahsilata kadar",
     workflowSubtitle:
       "Bir işin her adımı, tek bir akışta.",
     pricingTitle:
-      "Ne kadar tutar",
-    pricingSubtitle: "İşletmeniz için doğru planı seçin. Gizli maliyet yok.",
+      "Fiyatlar",
+    pricingSubtitle: "İşletmenizin büyüklüğüne uygun planı seçin. Gizli ücret yok.",
     footerText: "ElectricalVPF. Tüm hakları saklıdır.",
     pageTitle:
       "ElectricalVPF ERP & CRM - Elektrik tesisat firmaları için eksiksiz çözüm",
     themeToggleLabel: "Görünüm modunu değiştir",
+    helpLabel: "Yardım",
+    helpLanguageGroup: "Dil",
+    helpDisplayGroup: "Görünüm",
+    themeToDark: "Koyu moda geç",
+    themeToLight: "Açık moda geç",
+    themeNowDark: "Ekran şu an: Koyu",
+    themeNowLight: "Ekran şu an: Açık",
+    helpContactItem: "İletişim",
+    helpContactRow: "E-posta, telefon, web sitesi",
+    helpContactIntro: "Bir sorunuz mu var ya da bir sorun mu buldunuz? Bize ulaşın — en kısa sürede yanıt vereceğiz.",
+    helpEmailLabel: "E-posta",
+    helpPhoneLabel: "Telefon",
+    helpWebsiteLabel: "Web Sitesi",
     revenue: "Gelir",
     projects:
       "İşler",
@@ -281,8 +377,19 @@ const translations = {
     heroProofTitle:
       "Twoje dane zostają Twoje",
     heroTitle:
-      "Oprogramowanie do pracy w terenie, stworzone przez elektryków dla elektryków",
+      "Oprogramowanie do pracy w terenie, stworzone przez elektryków dla firm elektrycznych",
     explore: "Poznaj platformę",
+    exploreShort: "Poznaj",
+    previewHint: "Podgląd",
+    wfTip_clients: "Ludzie, dla których pracujesz, i ich dane pod ręką.",
+    wfTip_work: "Każde zlecenie — od zgłoszenia do końca.",
+    wfTip_electricCalculator: "Właściwy kabel i zabezpieczenie, zanim kupisz.",
+    wfTip_materials: "Wiesz, co masz na stanie i co trzeba kupić.",
+    wfTip_offers: "Klient zna cenę, zanim zaczniesz.",
+    wfTip_contracts: "Umowa na piśmie, a nie tylko słowa.",
+    wfTip_invoices: "Wykonana praca trafia na fakturę i jest śledzona aż do zapłaty.",
+    wfTip_reports: "Liczby Twojej firmy, prostym językiem.",
+    wfTip_jobStatus: "Zawsze wiesz, na jakim etapie jest każde zlecenie.",
     featuresTitle:
       "Zrobione pod codzienną pracę elektryka.",
     featuresSubtitle:
@@ -299,6 +406,19 @@ const translations = {
     pageTitle:
       "ElectricalVPF ERP & CRM - Kompletne rozwiązanie dla firm instalacji elektrycznych",
     themeToggleLabel: "Przełącz tryb wyświetlania",
+    helpLabel: "Pomoc",
+    helpLanguageGroup: "Język",
+    helpDisplayGroup: "Wyświetlanie",
+    themeToDark: "Przełącz na tryb ciemny",
+    themeToLight: "Przełącz na tryb jasny",
+    themeNowDark: "Ekran teraz: ciemny",
+    themeNowLight: "Ekran teraz: jasny",
+    helpContactItem: "Kontakt",
+    helpContactRow: "E-mail, telefon, strona",
+    helpContactIntro: "Masz pytanie lub znalazłeś problem? Napisz do nas — odpowiemy najszybciej jak to możliwe.",
+    helpEmailLabel: "Email",
+    helpPhoneLabel: "Telefon",
+    helpWebsiteLabel: "Strona internetowa",
     revenue:
       "Przychód",
     projects:
@@ -347,8 +467,19 @@ const translations = {
     heroProofTitle:
       "Ваши данные остаются вашими",
     heroTitle:
-      "Программа для работы на объекте, созданная электриками для электриков",
+      "Программа для работы на объекте, созданная электриками для электромонтажных компаний",
     explore: "Изучить платформу",
+    exploreShort: "Обзор",
+    previewHint: "Предпросмотр",
+    wfTip_clients: "Люди, для которых вы работаете, и их данные под рукой.",
+    wfTip_work: "Каждая работа — от заявки до завершения.",
+    wfTip_electricCalculator: "Правильный кабель и защита — ещё до покупки.",
+    wfTip_materials: "Вы знаете, что есть на складе и что нужно купить.",
+    wfTip_offers: "Клиент знает цену до начала работ.",
+    wfTip_contracts: "Договорённость на бумаге, а не только на словах.",
+    wfTip_invoices: "Выполненная работа выставляется и отслеживается до оплаты.",
+    wfTip_reports: "Цифры вашей фирмы простыми словами.",
+    wfTip_jobStatus: "Вы всегда знаете, на каком этапе каждая работа.",
     featuresTitle:
       "Сделано для повседневной работы электрика.",
     featuresSubtitle:
@@ -365,6 +496,19 @@ const translations = {
     pageTitle:
       "ElectricalVPF ERP & CRM - Полное решение для электромонтажных компаний",
     themeToggleLabel: "Переключить режим отображения",
+    helpLabel: "Помощь",
+    helpLanguageGroup: "Язык",
+    helpDisplayGroup: "Отображение",
+    themeToDark: "Включить тёмный режим",
+    themeToLight: "Включить светлый режим",
+    themeNowDark: "Экран сейчас: тёмный",
+    themeNowLight: "Экран сейчас: светлый",
+    helpContactItem: "Контакты",
+    helpContactRow: "Email, телефон, сайт",
+    helpContactIntro: "Есть вопрос или нашли проблему? Напишите нам — ответим как можно быстрее.",
+    helpEmailLabel: "Email",
+    helpPhoneLabel: "Телефон",
+    helpWebsiteLabel: "Сайт",
     revenue: "Доход",
     projects:
       "Работы",
@@ -411,8 +555,19 @@ const translations = {
     heroProofTitle:
       "I tuoi dati restano tuoi",
     heroTitle:
-      "Software da cantiere, creato da elettricisti per elettricisti",
+      "Software da cantiere, creato da elettricisti per imprese elettriche",
     explore: "Esplora la Piattaforma",
+    exploreShort: "Esplora",
+    previewHint: "Anteprima",
+    wfTip_clients: "Le persone per cui lavori, con i loro dati a portata di mano.",
+    wfTip_work: "Ogni lavoro, dalla richiesta alla fine.",
+    wfTip_electricCalculator: "Il cavo e la protezione giusti, prima di comprare.",
+    wfTip_materials: "Sai cosa hai in magazzino e cosa comprare.",
+    wfTip_offers: "Il cliente conosce il prezzo prima che tu cominci.",
+    wfTip_contracts: "L'accordo per iscritto, perché non restino solo parole.",
+    wfTip_invoices: "Il lavoro fatto si fattura e si segue fino al pagamento.",
+    wfTip_reports: "I numeri della tua azienda, detti in modo chiaro.",
+    wfTip_jobStatus: "Sai sempre a che punto è ogni lavoro.",
     featuresTitle:
       "Fatto per il lavoro di tutti i giorni di un elettricista.",
     featuresSubtitle:
@@ -429,6 +584,19 @@ const translations = {
     pageTitle:
       "ElectricalVPF ERP & CRM - La soluzione completa per le aziende di impianti elettrici",
     themeToggleLabel: "Cambia modalità di visualizzazione",
+    helpLabel: "Aiuto",
+    helpLanguageGroup: "Lingua",
+    helpDisplayGroup: "Visualizzazione",
+    themeToDark: "Passa alla modalità scura",
+    themeToLight: "Passa alla modalità chiara",
+    themeNowDark: "Schermo ora: scuro",
+    themeNowLight: "Schermo ora: chiaro",
+    helpContactItem: "Contatto",
+    helpContactRow: "Email, telefono, sito web",
+    helpContactIntro: "Hai una domanda o hai trovato un problema? Scrivici — ti risponderemo il prima possibile.",
+    helpEmailLabel: "Email",
+    helpPhoneLabel: "Telefono",
+    helpWebsiteLabel: "Sito web",
     revenue: "Ricavi",
     projects:
       "Lavori",
@@ -474,8 +642,19 @@ const translations = {
     heroProofTitle:
       "Je gegevens blijven van jou",
     heroTitle:
-      "Software voor op locatie, gebouwd door elektriciens voor elektriciens",
+      "Software voor op locatie, gebouwd door elektriciens voor elektrotechnische bedrijven",
     explore: "Verken het Platform",
+    exploreShort: "Verken",
+    previewHint: "Voorbeeld",
+    wfTip_clients: "De mensen voor wie je werkt, hun gegevens bij de hand.",
+    wfTip_work: "Elke klus, van aanvraag tot oplevering.",
+    wfTip_electricCalculator: "De juiste kabel en beveiliging, vóór je koopt.",
+    wfTip_materials: "Je weet wat er op voorraad is en wat je moet kopen.",
+    wfTip_offers: "De klant kent de prijs voordat je begint.",
+    wfTip_contracts: "De afspraak op papier, zodat het geen praatjes blijven.",
+    wfTip_invoices: "Gedaan werk wordt gefactureerd en gevolgd tot het betaald is.",
+    wfTip_reports: "De cijfers van je bedrijf, in gewone taal.",
+    wfTip_jobStatus: "Je weet altijd hoe ver elke klus is.",
     featuresTitle:
       "Gemaakt voor het dagelijkse werk van een elektricien.",
     featuresSubtitle:
@@ -492,6 +671,19 @@ const translations = {
     pageTitle:
       "ElectricalVPF ERP & CRM - Complete oplossing voor elektrotechnische installatiebedrijven",
     themeToggleLabel: "Weergavemodus wijzigen",
+    helpLabel: "Help",
+    helpLanguageGroup: "Taal",
+    helpDisplayGroup: "Weergave",
+    themeToDark: "Overschakelen naar donkere modus",
+    themeToLight: "Overschakelen naar lichte modus",
+    themeNowDark: "Scherm nu: donker",
+    themeNowLight: "Scherm nu: licht",
+    helpContactItem: "Contact",
+    helpContactRow: "E-mail, telefoon, website",
+    helpContactIntro: "Heb je een vraag of een probleem gevonden? Neem contact op — we reageren zo snel mogelijk.",
+    helpEmailLabel: "E-mail",
+    helpPhoneLabel: "Telefoon",
+    helpWebsiteLabel: "Website",
     revenue: "Omzet",
     projects:
       "Werk",
@@ -537,8 +729,19 @@ const translations = {
     heroProofTitle:
       "Dataene dine forblir dine",
     heroTitle:
-      "Programvare for feltarbeid, bygget av elektrikere for elektrikere",
+      "Programvare for feltarbeid, bygget av elektrikere for elektrofirmaer",
     explore: "Utforsk Plattformen",
+    exploreShort: "Utforsk",
+    previewHint: "Forhåndsvisning",
+    wfTip_clients: "Folkene du jobber for, med opplysningene deres for hånden.",
+    wfTip_work: "Hver jobb, fra forespørsel til ferdig.",
+    wfTip_electricCalculator: "Riktig kabel og vern, før du kjøper.",
+    wfTip_materials: "Du vet hva du har på lager og hva som må kjøpes.",
+    wfTip_offers: "Kunden vet prisen før du begynner.",
+    wfTip_contracts: "Avtalen skriftlig, så det ikke bare blir ord.",
+    wfTip_invoices: "Utført arbeid faktureres og følges opp til det er betalt.",
+    wfTip_reports: "Firmaets tall, sagt rett frem.",
+    wfTip_jobStatus: "Du vet alltid hvor langt hver jobb har kommet.",
     featuresTitle:
       "Laget for elektrikerens hverdag.",
     featuresSubtitle:
@@ -555,6 +758,19 @@ const translations = {
     pageTitle:
       "ElectricalVPF ERP & CRM - Komplett løsning for elektroinstallasjonsbedrifter",
     themeToggleLabel: "Bytt visningsmodus",
+    helpLabel: "Hjelp",
+    helpLanguageGroup: "Språk",
+    helpDisplayGroup: "Visning",
+    themeToDark: "Bytt til mørk modus",
+    themeToLight: "Bytt til lys modus",
+    themeNowDark: "Skjermen nå: mørk",
+    themeNowLight: "Skjermen nå: lys",
+    helpContactItem: "Kontakt",
+    helpContactRow: "E-post, telefon, nettside",
+    helpContactIntro: "Har du et spørsmål eller funnet et problem? Ta kontakt — vi svarer så raskt vi kan.",
+    helpEmailLabel: "E-post",
+    helpPhoneLabel: "Telefon",
+    helpWebsiteLabel: "Nettside",
     revenue:
       "Omsetning",
     projects:
@@ -601,8 +817,19 @@ const translations = {
     heroProofTitle:
       "Din data förblir din",
     heroTitle:
-      "Mjukvara för arbete på plats, byggd av elektriker för elektriker",
+      "Mjukvara för arbete på plats, byggd av elektriker för elfirmor",
     explore: "Utforska plattformen",
+    exploreShort: "Utforska",
+    previewHint: "Förhandsvisning",
+    wfTip_clients: "Människorna du jobbar för, med uppgifterna till hands.",
+    wfTip_work: "Varje jobb, från förfrågan till färdigt.",
+    wfTip_electricCalculator: "Rätt kabel och skydd, innan du köper.",
+    wfTip_materials: "Du vet vad som finns i lager och vad som ska köpas.",
+    wfTip_offers: "Kunden vet priset innan du börjar.",
+    wfTip_contracts: "Överenskommelsen skriftligt, så att det inte bara blir ord.",
+    wfTip_invoices: "Utfört arbete faktureras och följs upp tills det är betalt.",
+    wfTip_reports: "Företagets siffror, sagda rakt på sak.",
+    wfTip_jobStatus: "Du vet alltid hur långt varje jobb har kommit.",
     featuresTitle:
       "Gjort för elektrikerns vardag.",
     featuresSubtitle:
@@ -619,6 +846,19 @@ const translations = {
     pageTitle:
       "ElectricalVPF ERP och CRM - Komplett lösning för elinstallationsföretag",
     themeToggleLabel: "Ändra visningsläge",
+    helpLabel: "Hjälp",
+    helpLanguageGroup: "Språk",
+    helpDisplayGroup: "Visning",
+    themeToDark: "Byt till mörkt läge",
+    themeToLight: "Byt till ljust läge",
+    themeNowDark: "Skärmen nu: mörkt",
+    themeNowLight: "Skärmen nu: ljust",
+    helpContactItem: "Kontakt",
+    helpContactRow: "E-post, telefon, webbplats",
+    helpContactIntro: "Har du en fråga eller hittat ett problem? Hör av dig — vi svarar så snabbt vi kan.",
+    helpEmailLabel: "E-post",
+    helpPhoneLabel: "Telefon",
+    helpWebsiteLabel: "Webbplats",
     revenue: "Intäkter",
     projects:
       "Arbete",
@@ -691,10 +931,10 @@ Object.assign(translations.sv, {
   calcNoResult: "Ingen lamplig standardarea hittades for dessa forenklade antaganden.",
 });
 Object.assign(translations.tr, {
-  calcWidgetScope: "10 kW'a kadar ic devreler", calcPowerLabel: "Guc (kW)", calcLengthLabel: "Hat uzunlugu (m)", calcVoltageLabel: "Besleme",
-  calcWidgetIntro: "Hangi kabloyu ve korumayı seçeceğinizi tahmin etmeyin. Gücü ve hat uzunluğunu girin; alçak gerilim hesaplayıcısı malzeme almadan veya çözümü müşteriye sunmadan önce önerilen kesiti, nominal korumayı, hesap akımını ve gerilim düşümünü hızla verir.",
-  calcWidgetAssumption: "Bakir, boru/duvarda (B2), maksimum gerilim dusumu %5.", calcValidation: "0,1 ile 10 kW arasynda guc ve 0 m'den buyuk hat uzunlugu girin.",
-  calcNoResult: "Bu basit varsayimlar icin uygun standart kesit bulunamadi.",
+  calcWidgetScope: "10 kW'a kadar iç tesisat devreleri", calcPowerLabel: "Güç (kW)", calcLengthLabel: "Hat uzunluğu (m)", calcVoltageLabel: "Besleme",
+  calcWidgetIntro: "Kablo ve koruma seçimini tahmine bırakmayın. Gücü ve hat uzunluğunu girin; AG hesaplayıcısı önerilen kesiti, koruma cihazının anma akımını, hesap akımını ve gerilim düşümünü hızla göstersin. Malzeme almadan veya müşteriye çözüm sunmadan önce sonucu görün.",
+  calcWidgetAssumption: "Bakir, boru/duvarda (B2), maksimum gerilim dusumu %5.", calcValidation: "0,1–10 kW arasında güç ve 0 m'den büyük hat uzunluğu girin.",
+  calcNoResult: "Bu basitleştirilmiş varsayımlara uygun standart kesit bulunamadı.",
 });
 Object.assign(translations.uk, {
   calcWidgetScope: "Vnutrishni lantsiuhy do 10 kW", calcPowerLabel: "Potuzhnist (kW)", calcLengthLabel: "Dovzhyna trasy (m)", calcVoltageLabel: "Zhyvlennia",
@@ -760,7 +1000,7 @@ Object.assign(translations.tr, {
   calcTechnicalDetails: "Teknik ayrıntılar",
   calcWidgetAssumption: "Hesap koşulları: Cu/PVC kablo, boruda/duvarda (B2), tek devre, 30°C, en fazla %5 gerilim düşümü.",
   calcWidgetReferenceConditions: "Dikkat: Kablolar gruplanmışsa, sıcaklık daha yüksekse veya montaj yöntemi farklıysa gerekli kesit değişebilir.",
-  calcWidgetSafety: "Gösterilen koruma aşırı yük içindir. Son kontrolde kısa devre, hata döngüsü ve korumanın kesme kapasitesi de bulunmalıdır.",
+  calcWidgetSafety: "Gösterilen koruma aşırı yük içindir. Tesisatın son kontrolünde kısa devre, arıza döngüsü ve koruma cihazının kesme kapasitesi de kontrol edilmelidir.",
 });
 Object.assign(translations.uk, {
   calcTechnicalDetails: "Технічні деталі",
@@ -777,5 +1017,29 @@ Object.assign(translations.no, { calcWidgetKicker: "(Lavspenning)", calcTechnica
 Object.assign(translations.pl, { calcWidgetKicker: "(Niskie Napięcie)", calcTechnicalHtml: "<p><b>Warunki obliczeń:</b> kabel <mark>Cu/PVC</mark>, w rurze/na ścianie (<mark>B2</mark>), jeden obwód, temperatura <mark>30°C</mark>, maksymalny spadek <mark>5%</mark>.</p><p><b class=\"calc-detail-warning\">Uwaga:</b> <mark>zgrupowane kable</mark>, <mark>wyższa temperatura</mark> lub <mark>inna metoda montażu</mark> mogą wymagać innego przekroju.</p><p>Pokazane zabezpieczenie dotyczy <mark>przeciążenia</mark>. Kontrola końcowa musi obejmować <mark>zwarcie</mark>, <mark>pętlę zwarcia</mark> i <mark>zdolność wyłączania</mark>.</p>" });
 Object.assign(translations.ru, { calcWidgetKicker: "(Низкое напряжение)", calcTechnicalHtml: "<p><b>Условия расчёта:</b> кабель <mark>Cu/PVC</mark>, в трубе/на стене (<mark>B2</mark>), одна цепь, температура <mark>30°C</mark>, максимальное падение <mark>5%</mark>.</p><p><b class=\"calc-detail-warning\">Внимание:</b> <mark>группировка кабелей</mark>, <mark>более высокая температура</mark> или <mark>другой способ монтажа</mark> могут требовать другое сечение.</p><p>Указанная защита предназначена от <mark>перегрузки</mark>. Проверка должна включать <mark>короткое замыкание</mark>, <mark>петлю повреждения</mark> и <mark>отключающую способность</mark>.</p>" });
 Object.assign(translations.sv, { calcWidgetKicker: "(Lågspänning)", calcTechnicalHtml: "<p><b>Beräkningsvillkor:</b> <mark>Cu/PVC</mark>-kabel, i rör/på vägg (<mark>B2</mark>), en krets, temperatur <mark>30°C</mark>, maximalt spänningsfall <mark>5%</mark>.</p><p><b class=\"calc-detail-warning\">Observera:</b> <mark>grupperade kablar</mark>, <mark>högre temperatur</mark> eller <mark>annan installationsmetod</mark> kan kräva annan area.</p><p>Det visade skyddet gäller <mark>överbelastning</mark>. Slutkontrollen måste omfatta <mark>kortslutning</mark>, <mark>felströmsslinga</mark> och <mark>brytförmåga</mark>.</p>" });
-Object.assign(translations.tr, { calcWidgetKicker: "(Alçak Gerilim)", calcTechnicalHtml: "<p><b>Hesap koşulları:</b> <mark>Cu/PVC</mark> kablo, boruda/duvarda (<mark>B2</mark>), tek devre, sıcaklık <mark>30°C</mark>, en fazla gerilim düşümü <mark>%5</mark>.</p><p><b class=\"calc-detail-warning\">Dikkat:</b> <mark>gruplanmış kablolar</mark>, <mark>daha yüksek sıcaklık</mark> veya <mark>farklı montaj yöntemi</mark> farklı kesit gerektirebilir.</p><p>Gösterilen koruma <mark>aşırı yük</mark> içindir. Son kontrolde <mark>kısa devre</mark>, <mark>hata döngüsü</mark> ve <mark>kesme kapasitesi</mark> bulunmalıdır.</p>" });
+Object.assign(translations.tr, { calcWidgetKicker: "(Alçak Gerilim)", calcTechnicalHtml: "<p><b>Hesap koşulları:</b> <mark>Cu/PVC</mark> kablo, boruda/duvarda (<mark>B2</mark>), tek devre, sıcaklık <mark>30°C</mark>, en fazla gerilim düşümü <mark>%5</mark>.</p><p><b class=\"calc-detail-warning\">Dikkat:</b> <mark>gruplanmış kablolar</mark>, <mark>daha yüksek sıcaklık</mark> veya <mark>farklı montaj yöntemi</mark> farklı kesit gerektirebilir.</p><p>Gösterilen koruma <mark>aşırı yük</mark> içindir. Son kontrolde <mark>kısa devre</mark>, <mark>arıza döngüsü</mark> ve <mark>kesme kapasitesi</mark> kontrol edilmelidir.</p>" });
 Object.assign(translations.uk, { calcWidgetKicker: "(Низька Напруга)", calcTechnicalHtml: "<p><b>Умови розрахунку:</b> кабель <mark>Cu/PVC</mark>, у трубі/на стіні (<mark>B2</mark>), одне коло, температура <mark>30°C</mark>, максимальне падіння <mark>5%</mark>.</p><p><b class=\"calc-detail-warning\">Увага:</b> <mark>згруповані кабелі</mark>, <mark>вища температура</mark> або <mark>інший спосіб монтажу</mark> можуть вимагати іншого перерізу.</p><p>Показаний захист призначений від <mark>перевантаження</mark>. Перевірка має включати <mark>коротке замикання</mark>, <mark>петлю пошкодження</mark> та <mark>відключаючу здатність</mark>.</p>" });
+
+// Compact benefits for the six floating phone icons.
+Object.assign(translations.en, {"phoneTip_updates": "Updates take care of themselves.", "phoneTip_install": "Open your browser, no install needed.", "phoneTip_clients": "Keep client details at hand.", "phoneTip_quotes": "Send quotes from the job site.", "phoneTip_invoices": "Know which invoices await payment.", "phoneTip_reports": "See how your business is doing."});
+Object.assign(translations.ro, {"phoneTip_updates": "Actualizările vin singure.", "phoneTip_install": "Deschizi browserul, fără instalare.", "phoneTip_clients": "Datele clienților, la îndemână.", "phoneTip_quotes": "Trimiți oferta din teren.", "phoneTip_invoices": "Știi ce facturi ai de încasat.", "phoneTip_reports": "Vezi cum merge firma."});
+Object.assign(translations.it, {"phoneTip_updates": "Gli aggiornamenti arrivano da soli.", "phoneTip_install": "Apri il browser, senza installare nulla.", "phoneTip_clients": "I dati dei clienti, sempre a portata di mano.", "phoneTip_quotes": "Invii preventivi dal cantiere.", "phoneTip_invoices": "Sai quali fatture devi incassare.", "phoneTip_reports": "Vedi come va la tua attività."});
+Object.assign(translations.nl, {"phoneTip_updates": "Updates komen vanzelf.", "phoneTip_install": "Open je browser, zonder installatie.", "phoneTip_clients": "Klantgegevens altijd bij de hand.", "phoneTip_quotes": "Verstuur offertes vanaf de werkplek.", "phoneTip_invoices": "Weet welke facturen nog openstaan.", "phoneTip_reports": "Zie hoe je bedrijf draait."});
+Object.assign(translations.no, {"phoneTip_updates": "Oppdateringene kommer av seg selv.", "phoneTip_install": "Åpne nettleseren, uten installasjon.", "phoneTip_clients": "Kundeopplysningene er alltid for hånden.", "phoneTip_quotes": "Send tilbud fra arbeidsstedet.", "phoneTip_invoices": "Se hvilke fakturaer som er ubetalt.", "phoneTip_reports": "Se hvordan bedriften går."});
+Object.assign(translations.pl, {"phoneTip_updates": "Aktualizacje przychodzą same.", "phoneTip_install": "Otwierasz przeglądarkę, bez instalacji.", "phoneTip_clients": "Dane klientów zawsze pod ręką.", "phoneTip_quotes": "Wysyłasz oferty prosto z budowy.", "phoneTip_invoices": "Wiesz, które faktury czekają na zapłatę.", "phoneTip_reports": "Widzisz, jak idzie firmie."});
+Object.assign(translations.ru, {"phoneTip_updates": "Обновления приходят сами.", "phoneTip_install": "Откройте браузер — без установки.", "phoneTip_clients": "Данные клиентов всегда под рукой.", "phoneTip_quotes": "Отправляйте предложения прямо с объекта.", "phoneTip_invoices": "Знайте, какие счета ещё не оплачены.", "phoneTip_reports": "Смотрите, как идут дела у фирмы."});
+Object.assign(translations.sv, {"phoneTip_updates": "Uppdateringarna kommer av sig själva.", "phoneTip_install": "Öppna webbläsaren, utan installation.", "phoneTip_clients": "Kunduppgifterna finns nära till hands.", "phoneTip_quotes": "Skicka offerter från arbetsplatsen.", "phoneTip_invoices": "Se vilka fakturor som är obetalda.", "phoneTip_reports": "Se hur det går för företaget."});
+Object.assign(translations.tr, {"phoneTip_updates": "Güncellemeler kendiliğinden gelir.", "phoneTip_install": "Kurulum yapmadan tarayıcıyı açın.", "phoneTip_clients": "Müşteri bilgileri elinizin altında.", "phoneTip_quotes": "Teklifleri sahadan gönderin.", "phoneTip_invoices": "Ödeme bekleyen faturaları görün.", "phoneTip_reports": "İşletmenizin gidişatını görün."});
+Object.assign(translations.uk, {"phoneTip_updates": "Оновлення надходять самі.", "phoneTip_install": "Відкрийте браузер — без встановлення.", "phoneTip_clients": "Дані клієнтів завжди під рукою.", "phoneTip_quotes": "Надсилайте пропозиції просто з об’єкта.", "phoneTip_invoices": "Знайте, які рахунки ще не сплачені.", "phoneTip_reports": "Бачте, як ідуть справи у фірми."});
+
+// Explanations under the floating phone tooltip titles.
+Object.assign(translations.ro, {"phoneTip_updates_description": "Când deschizi ElectricalVPF în browserul telefonului, primești actualizările aplicației fără să apeși vreun buton de update.", "phoneTip_install_description": "Intri pe electricalvpf.app din browserul telefonului și te autentifici. Nu descarci și nu instalezi o aplicație.", "phoneTip_clients_description": "Deschizi lista clienților pe telefon și găsești datele lor de contact, chiar de la lucrare.", "phoneTip_quotes_description": "Pregătești oferta pe telefon și o trimiți clientului, fără să aștepți întoarcerea la birou.", "phoneTip_invoices_description": "Verifici facturile pe telefon și vezi care sunt plătite și ce sume mai ai de încasat.", "phoneTip_reports_description": "Deschizi rapoartele pe telefon și urmărești veniturile și cheltuielile înregistrate ale firmei."});
+Object.assign(translations.en, {"phoneTip_updates_description": "When you open ElectricalVPF in your phone’s browser, app updates arrive without pressing an update button.", "phoneTip_install_description": "Visit electricalvpf.app in your phone’s browser and sign in. There is no app to download or install.", "phoneTip_clients_description": "Open your client list on your phone and find contact details while you are on the job.", "phoneTip_quotes_description": "Prepare a quote on your phone and send it to the client without waiting to get back to the office.", "phoneTip_invoices_description": "Check invoices on your phone to see which are paid and how much is still owed.", "phoneTip_reports_description": "Open reports on your phone to track your business’s recorded income and expenses."});
+Object.assign(translations.it, {"phoneTip_updates_description": "Quando apri ElectricalVPF nel browser del telefono, ricevi gli aggiornamenti senza premere alcun pulsante.", "phoneTip_install_description": "Vai su electricalvpf.app dal browser del telefono e accedi. Non devi scaricare né installare un’app.", "phoneTip_clients_description": "Apri l’elenco clienti sul telefono e trovi i loro recapiti anche mentre sei in cantiere.", "phoneTip_quotes_description": "Prepari il preventivo sul telefono e lo invii al cliente senza aspettare di tornare in ufficio.", "phoneTip_invoices_description": "Controlli le fatture sul telefono e vedi quali sono pagate e quanto devi ancora incassare.", "phoneTip_reports_description": "Apri i report sul telefono e segui le entrate e le spese registrate della tua attività."});
+Object.assign(translations.nl, {"phoneTip_updates_description": "Wanneer je ElectricalVPF in de browser op je telefoon opent, ontvang je appupdates zonder op een updateknop te drukken.", "phoneTip_install_description": "Ga naar electricalvpf.app in de browser op je telefoon en log in. Je hoeft geen app te downloaden of te installeren.", "phoneTip_clients_description": "Open je klantenlijst op je telefoon en vind contactgegevens terwijl je op de werkplek bent.", "phoneTip_quotes_description": "Maak een offerte op je telefoon en stuur die naar de klant, zonder eerst terug te gaan naar kantoor.", "phoneTip_invoices_description": "Bekijk facturen op je telefoon en zie welke betaald zijn en welk bedrag nog openstaat.", "phoneTip_reports_description": "Open rapporten op je telefoon en volg de geregistreerde inkomsten en uitgaven van je bedrijf."});
+Object.assign(translations.no, {"phoneTip_updates_description": "Når du åpner ElectricalVPF i nettleseren på telefonen, får du appoppdateringer uten å trykke på en oppdateringsknapp.", "phoneTip_install_description": "Gå til electricalvpf.app i nettleseren på telefonen og logg inn. Du trenger ikke laste ned eller installere en app.", "phoneTip_clients_description": "Åpne kundelisten på telefonen og finn kontaktopplysninger mens du er på jobb.", "phoneTip_quotes_description": "Lag tilbudet på telefonen og send det til kunden uten å vente til du er tilbake på kontoret.", "phoneTip_invoices_description": "Sjekk fakturaene på telefonen og se hvilke som er betalt, og hvor mye som gjenstår.", "phoneTip_reports_description": "Åpne rapportene på telefonen og følg bedriftens registrerte inntekter og utgifter."});
+Object.assign(translations.pl, {"phoneTip_updates_description": "Gdy otwierasz ElectricalVPF w przeglądarce telefonu, otrzymujesz aktualizacje aplikacji bez naciskania przycisku aktualizacji.", "phoneTip_install_description": "Wejdź na electricalvpf.app w przeglądarce telefonu i zaloguj się. Nie pobierasz ani nie instalujesz aplikacji.", "phoneTip_clients_description": "Otwierasz listę klientów na telefonie i znajdujesz ich dane kontaktowe także podczas pracy na budowie.", "phoneTip_quotes_description": "Przygotowujesz ofertę na telefonie i wysyłasz ją klientowi bez czekania na powrót do biura.", "phoneTip_invoices_description": "Sprawdzasz faktury na telefonie i widzisz, które są opłacone i ile pozostało do zapłaty.", "phoneTip_reports_description": "Otwierasz raporty na telefonie i śledzisz zapisane przychody i wydatki firmy."});
+Object.assign(translations.ru, {"phoneTip_updates_description": "Когда вы открываете ElectricalVPF в браузере телефона, обновления приложения приходят без нажатия кнопки обновления.", "phoneTip_install_description": "Откройте electricalvpf.app в браузере телефона и войдите в аккаунт. Скачивать и устанавливать приложение не нужно.", "phoneTip_clients_description": "Откройте список клиентов на телефоне и найдите их контакты прямо на объекте.", "phoneTip_quotes_description": "Подготовьте предложение на телефоне и отправьте клиенту, не дожидаясь возвращения в офис.", "phoneTip_invoices_description": "Проверьте счета на телефоне: какие оплачены и сколько ещё должны заплатить клиенты.", "phoneTip_reports_description": "Откройте отчёты на телефоне и следите за внесёнными доходами и расходами фирмы."});
+Object.assign(translations.sv, {"phoneTip_updates_description": "När du öppnar ElectricalVPF i telefonens webbläsare får du appens uppdateringar utan att trycka på någon uppdateringsknapp.", "phoneTip_install_description": "Gå till electricalvpf.app i telefonens webbläsare och logga in. Ingen app behöver laddas ner eller installeras.", "phoneTip_clients_description": "Öppna kundlistan på telefonen och hitta kontaktuppgifter direkt på arbetsplatsen.", "phoneTip_quotes_description": "Skapa offerten på telefonen och skicka den till kunden utan att vänta tills du är tillbaka på kontoret.", "phoneTip_invoices_description": "Kontrollera fakturorna på telefonen och se vilka som är betalda och hur mycket som återstår.", "phoneTip_reports_description": "Öppna rapporterna på telefonen och följ företagets registrerade intäkter och utgifter."});
+Object.assign(translations.tr, {"phoneTip_updates_description": "Telefonunuzun tarayıcısında ElectricalVPF’yi açtığınızda, güncelleme düğmesine basmadan uygulama güncellemelerini alırsınız.", "phoneTip_install_description": "Telefonunuzun tarayıcısından electricalvpf.app adresine gidip giriş yapın. Uygulama indirmeniz veya kurmanız gerekmez.", "phoneTip_clients_description": "Sahadayken telefonunuzdan müşteri listesini açıp iletişim bilgilerine ulaşın.", "phoneTip_quotes_description": "Teklifi telefonunuzda hazırlayıp ofise dönmeyi beklemeden müşteriye gönderin.", "phoneTip_invoices_description": "Faturaları telefonunuzdan kontrol edin; hangilerinin ödendiğini ve ne kadar alacağınız kaldığını görün.", "phoneTip_reports_description": "Raporları telefonunuzda açın ve işletmenizin kayıtlı gelir ve giderlerini takip edin."});
+Object.assign(translations.uk, {"phoneTip_updates_description": "Коли ви відкриваєте ElectricalVPF у браузері телефона, оновлення застосунку надходять без натискання кнопки оновлення.", "phoneTip_install_description": "Відкрийте electricalvpf.app у браузері телефона й увійдіть в обліковий запис. Завантажувати та встановлювати застосунок не потрібно.", "phoneTip_clients_description": "Відкрийте список клієнтів на телефоні та знайдіть їхні контакти просто на об’єкті.", "phoneTip_quotes_description": "Підготуйте пропозицію на телефоні й надішліть клієнту, не чекаючи повернення до офісу.", "phoneTip_invoices_description": "Перевірте рахунки на телефоні: які вже сплачені та скільки ще мають сплатити клієнти.", "phoneTip_reports_description": "Відкрийте звіти на телефоні та стежте за внесеними доходами й витратами фірми."});

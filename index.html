@@ -22,11 +22,14 @@
     <!-- Aceeași versiune Font Awesome ca aplicația (frontend/*.html) — iconițele modulelor din secțiunea Planuri. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="site/style.css?v=20260923-gp-preview">
-    <link rel="stylesheet" href="site/plans.css?v=20260923-pricing-974">
+    <link rel="stylesheet" href="site/style.css?v=20260929-hero-subtitle">
+    <link rel="stylesheet" href="site/about.css?v=20260930-about-ambient-duo">
+    <link rel="stylesheet" href="site/cosmos.css?v=20260929-cosmos">
+    <link rel="stylesheet" href="site/plans.css?v=20260927-logo-colors">
+    <link rel="stylesheet" href="site/module-previews.css?v=20260929-close-ring">
     <style>
         .lang-option:hover {
-            background-color: rgba(234, 179, 8, 0.1);
+            background-color: color-mix(in srgb, var(--accent-color) 10%, transparent);
             color: var(--accent-color);
         }
 
@@ -66,7 +69,8 @@
             root.setAttribute("data-theme", resolved);
 
             try {
-                if (localStorage.getItem("token")) {
+                // Tokenul stă în localStorage („Ține-mă minte”) sau în sessionStorage — vezi AuthSession în frontend/js/config.js.
+                if (localStorage.getItem("token") || sessionStorage.getItem("token")) {
                     root.classList.add("session-check");
                     // Plasă de siguranță: dacă session-redirect.js nu rulează/nu răspunde, pagina se afișează oricum.
                     setTimeout(function () { root.classList.remove("session-check"); }, 4000);
@@ -101,38 +105,78 @@
                 <img class="logo-mark logo-mark-light" src="site/img/favicon-light.png" alt="">
                 <span class="logo">Electrical<span>VPF</span></span>
             </a>
-            <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Deschide meniul"
-                data-i18n-aria-label="mobileMenuOpenLabel" aria-expanded="false"
-                aria-controls="mobile-nav-drawer">☰</button>
+            <!-- Pe mobil, meniul „?" (Ajutor) e mutat aici de site/help-menu.js — separat de meniul de navigare. -->
+            <div class="header-mobile-actions">
+                <div id="help-slot-mobile" class="help-slot"></div>
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Deschide meniul"
+                    data-i18n-aria-label="mobileMenuOpenLabel" aria-expanded="false"
+                    aria-controls="mobile-nav-drawer">☰</button>
+            </div>
             <nav class="nav-links">
                 <a href="#product" data-i18n="product">Produs</a>
+                <a href="#features" data-i18n="exploreShort">Explorează</a>
                 <div class="nav-dropdown" id="features-dropdown">
                     <button class="nav-dropdown-toggle" id="features-dropdown-toggle" type="button"
                         aria-expanded="false" aria-controls="features-dropdown-menu">
                         <span data-i18n="features">Funcționalități</span>
                         <i class="fas fa-chevron-down" aria-hidden="true"></i>
                     </button>
-                    <div class="nav-dropdown-menu" id="features-dropdown-menu" aria-hidden="true">
-                        <a href="#features" data-i18n="features">Funcționalități</a>
-                        <div class="nav-dropdown-separator" role="separator"></div>
-                        <span class="nav-dropdown-group" data-i18n="nav.tools.free">Unelte Gratuite</span>
-                        <a href="#calculator-tool" data-i18n="nav.tools.calculator"
-                            data-i18n-title="nav.tools.calculatorTooltip"
-                            title="Calcul secțiune și cădere tensiune JT - interioare până în 10kW">Calculator JT</a>
+                    <!-- Aceeași regulă ca meniul „?": antet mic → rând de 52px cu cerc de 40px → text 14px + explicație mică.
+                         „Funcționalități" nu se mai repetă aici: „Explorează" duce deja la #features. -->
+                    <div class="nav-dropdown-menu help-menu features-menu" id="features-dropdown-menu" aria-hidden="true">
+                        <span class="help-section-title" data-i18n="nav.tools.free">Unelte Gratuite</span>
+                        <a href="#calculator-tool" class="help-menu-item">
+                            <span class="help-menu-icon"><i class="fas fa-calculator" aria-hidden="true"></i></span>
+                            <span class="help-menu-text">
+                                <span class="help-menu-label" data-i18n="nav.tools.calculator">Calculator JT</span>
+                                <span class="help-menu-state" data-i18n="nav.tools.calculatorTooltip">Calcul secțiune și cădere tensiune JT - interioare până în 10kW</span>
+                            </span>
+                        </a>
                     </div>
                 </div>
                 <a href="#workflow" data-i18n="workflow">Flux de lucru</a>
                 <a href="#pricing" data-i18n="pricing">Prețuri</a>
 
-                <!-- Controlul refolosibil pentru limbă -->
-                <div id="language-control-container"></div>
 
-                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Comută modul de afișare"
-                    data-i18n-aria-label="themeToggleLabel" data-theme-toggle>
-                    <span class="icon-moon">🌙</span>
-                    <span class="icon-sun">☀️</span>
-                </button>
-                <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="btn-secondary" data-i18n="login">Autentificare</a>
+                <!-- Ajutor „?" (ca în aplicație): Limbă · Afișare (luminos/întunecat) · Contact — site/help-menu.js -->
+                <div id="help-slot-desktop" class="help-slot">
+                    <div class="nav-dropdown help-dropdown" id="help-dropdown">
+                        <button class="theme-toggle-btn help-toggle-btn" id="help-dropdown-toggle" type="button"
+                            aria-label="Ajutor" data-i18n-aria-label="helpLabel"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="help-dropdown-menu">
+                            <svg class="help-toggle-outline" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="19.5" fill="none" stroke-width="1" /><path class="help-toggle-mark" transform="translate(11.5 11.5) scale(0.033203125)" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM169.8 165.3c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" /></svg>
+                        </button>
+                        <div class="nav-dropdown-menu help-menu" id="help-dropdown-menu" aria-hidden="true">
+                            <span class="help-section-title" data-i18n="helpLanguageGroup">Limbă</span>
+                            <div id="language-control-container" class="help-lang" data-click-only></div>
+                            <div class="help-sep" role="separator"></div>
+                            <span class="help-section-title" data-i18n="helpDisplayGroup">Afișare</span>
+                            <button type="button" class="help-menu-item help-theme-item" data-theme-toggle>
+                                <span class="help-menu-icon"><i class="fas fa-sun" data-theme-icon aria-hidden="true"></i></span>
+                                <span class="help-menu-text">
+                                    <span class="help-menu-label" data-theme-label>Schimbă pe modul luminos</span>
+                                    <span class="help-menu-state" data-theme-state>Ecran acum: întunecat</span>
+                                </span>
+                            </button>
+                            <div class="help-sep" role="separator"></div>
+                            <span class="help-section-title" data-i18n="helpContactItem">Contact</span>
+                            <button type="button" class="help-menu-item" data-help-contact>
+                                <span class="help-menu-icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
+                                <span class="help-menu-label" data-i18n="helpContactRow">Email, telefon, website</span>
+                            </button>
+                            <div class="help-sep" role="separator"></div>
+                            <span class="help-section-title" data-about-text="section">Despre</span>
+                            <button type="button" class="help-menu-item" data-help-about aria-haspopup="dialog">
+                                <span class="help-menu-icon"><i class="fas fa-rocket" aria-hidden="true"></i></span>
+                                <span class="help-menu-text">
+                                    <span class="help-menu-label">ElectricalVPF</span>
+                                    <span class="help-menu-state" data-about-text="menu">Omul, experiența și AI-ul din spatele aplicației</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="btn-secondary btn-login"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span data-i18n="login">Autentificare</span></a>
             </nav>
         </div>
         <div id="mobile-nav-overlay" class="mobile-nav-overlay" hidden></div>
@@ -145,24 +189,23 @@
             </div>
             <nav class="mobile-nav-links" aria-label="Navigare mobilă" data-i18n-aria-label="mobileNavigationLabel">
                 <a href="#product" data-i18n="product">Produs</a>
-                <a href="#features" data-i18n="features">Funcționalități</a>
-                <span class="mobile-nav-group" data-i18n="nav.tools.free">Unelte Gratuite</span>
-                <a href="#calculator-tool" data-i18n="nav.tools.calculator"
-                    data-i18n-title="nav.tools.calculatorTooltip"
-                    title="Calcul secțiune și cădere tensiune JT - interioare până în 10kW">Calculator JT</a>
+                <a href="#features" data-i18n="exploreShort">Explorează</a>
+                <details class="mobile-features">
+                    <summary><span data-i18n="features">Funcționalități</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+                    <div class="mobile-features-items">
+                        <span class="mobile-nav-group" data-i18n="nav.tools.free">Unelte Gratuite</span>
+                        <a href="#calculator-tool" data-i18n="nav.tools.calculator"
+                            data-i18n-title="nav.tools.calculatorTooltip"
+                            title="Calcul secțiune și cădere tensiune JT - interioare până în 10kW">Calculator JT</a>
+                    </div>
+                </details>
                 <a href="#workflow" data-i18n="workflow">Flux de lucru</a>
                 <a href="#pricing" data-i18n="pricing">Prețuri</a>
                 <a href="https://electricalvpf.com/service.html" target="_blank" data-i18n="electricalServices">Servicii
                     electrice</a>
             </nav>
             <div class="mobile-nav-actions">
-                <div id="language-control-mobile"></div>
-                <button id="theme-toggle-mobile" class="theme-toggle-btn" type="button"
-                    aria-label="Comută modul de afișare" data-i18n-aria-label="themeToggleLabel" data-theme-toggle>
-                    <span class="icon-moon">🌙</span>
-                    <span class="icon-sun">☀️</span>
-                </button>
-                <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="btn-secondary" data-i18n="login">Autentificare</a>
+                <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="btn-secondary btn-login"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span data-i18n="login">Autentificare</span></a>
                 <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary" data-i18n="startFree">Începe
                     gratuit</a>
             </div>
@@ -175,13 +218,16 @@
             <div class="hero-content">
                 <!-- "ERP & CRM" rămâne doar în <title>/meta/JSON-LD (SEO) — limbaj de software, nu al electricianului.
                      Titlul e mesajul singur în față; brandul e deja în antet. -->
-                <h1 data-i18n="heroTitle">Software de teren, construit de electricieni pentru electricieni</h1>
+                <h1 data-i18n="heroTitle">Software de teren, construit de electricieni pentru firme electrice</h1>
                 <p class="hero-subtitle" data-i18n="heroSubtitle">Platforma software completă dedicată firmelor de
                     instalații electrice și profesioniștilor. Gestionează proiecte, devize, clienți și facturare
                     dintr-un singur workspace optimizat.</p>
+                <!-- Pe telefon (≤600px): perechea „cont nou / autentificare" — Explorează platforma trece în meniul
+                     mobil. Pe ecrane mai late rămâne Explorează (autentificarea e deja în antet). -->
                 <div class="hero-buttons">
                     <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary btn-lg" data-i18n="startFree">Începe gratuit</a>
-                    <a href="#features" class="btn-outline btn-lg" data-i18n="explore">Explorează platforma</a>
+                    <a href="#features" class="btn-outline btn-lg hero-btn-explore" data-i18n="explore">Explorează platforma</a>
+                    <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="btn-outline btn-lg btn-login hero-btn-signin"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span data-i18n="login">Autentificare</span></a>
                 </div>
                 <!-- Dovadă de profesionalism, discretă. Fiecare afirmație e verificată în cod: Stripe Checkout (plăți),
                      JWT + Turnstile (autentificare), modulul Contracte, paginile legale + interfața în 10 limbi. -->
@@ -221,6 +267,27 @@
                 </section>
             </div>
             <div class="hero-mockup-wrapper">
+                <!-- Scena cosmică (site/cosmos.css): orbite lente, nucleul cu fulger și sloganul
+                     „Experiență umană · Era AI” (tradus de site/about.js, cheia „era”). Decorativă. -->
+                <div class="hero-cosmos" aria-hidden="true">
+                    <svg class="cosmos-orbits" viewBox="0 0 520 300" preserveAspectRatio="xMidYMid meet">
+                        <g transform="rotate(-18 260 150)">
+                            <ellipse id="cosmosOrbitA" class="cosmos-orbit" cx="260" cy="150" rx="230" ry="66"/>
+                            <circle class="cosmos-planet" r="3.2">
+                                <animateMotion dur="90s" repeatCount="indefinite" path="M30,150 a230,66 0 1,0 460,0 a230,66 0 1,0 -460,0"/>
+                            </circle>
+                        </g>
+                        <g transform="rotate(24 260 150)">
+                            <ellipse class="cosmos-orbit cosmos-orbit--cross" cx="260" cy="150" rx="178" ry="50"/>
+                            <circle class="cosmos-planet cosmos-planet--small" r="2.2">
+                                <animateMotion dur="140s" repeatCount="indefinite" begin="-60s" path="M438,150 a178,50 0 1,0 -356,0 a178,50 0 1,0 356,0"/>
+                            </circle>
+                        </g>
+                        <ellipse class="cosmos-orbit cosmos-orbit--faint" cx="260" cy="150" rx="258" ry="112"/>
+                    </svg>
+                    <span class="cosmos-core"><svg viewBox="0 0 30 38"><path d="M18 3 5 22h10l-3 13 13-20H15Z"/></svg></span>
+                    <span class="cosmos-caption" data-about-text="era">Experiență umană · Era AI</span>
+                </div>
                 <!-- Preview General Panel — aceleași clase și aceleași valori vizuale ca pagina reală
                      (frontend/general-panel.html: .kpi-card/.kpi-icon/.kpi-title/.kpi-value, .content-card,
                      tabel + badge-uri de status). Stilurile sunt în site/style.css ("Preview General Panel").
@@ -298,7 +365,7 @@
                         class="fas fa-arrow-right" aria-hidden="true"></i></button>
             </div>
 
-            <div class="phone-art" role="img" aria-label="Un telefon cu ElectricalVPF deschis în browser"
+            <div class="phone-art" role="group" aria-label="Un telefon cu ElectricalVPF deschis în browser"
                 data-i18n-aria-label="phone_aria">
                 <svg class="phone-svg" viewBox="0 0 220 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                     focusable="false">
@@ -344,14 +411,14 @@
                 </svg>
 
                 <!-- ce NU mai ai de făcut: insigna roșie de actualizări și descărcarea, tăiate -->
-                <span class="phone-chip chip-no chip-update" aria-hidden="true"><i class="fas fa-grip"></i><b
-                        class="chip-badge">3</b></span>
-                <span class="phone-chip chip-no chip-install" aria-hidden="true"><i class="fas fa-download"></i></span>
+                <button type="button" class="phone-chip chip-no chip-update" data-phone-tip="updates" data-i18n-aria-label="phoneTip_updates" aria-label="Actualizările vin singure."><i aria-hidden="true" class="fas fa-grip"></i><b
+                        aria-hidden="true" class="chip-badge">3</b><span hidden data-i18n="phoneTip_updates">Actualizările vin singure.</span><span hidden data-i18n="phoneTip_updates_description">Când deschizi ElectricalVPF în browserul telefonului, primești actualizările aplicației fără să apeși vreun buton de update.</span></button>
+                <button type="button" class="phone-chip chip-no chip-install" data-phone-tip="install" data-i18n-aria-label="phoneTip_install" aria-label="Deschizi browserul, fără instalare."><i aria-hidden="true" class="fas fa-download"></i><span hidden data-i18n="phoneTip_install">Deschizi browserul, fără instalare.</span><span hidden data-i18n="phoneTip_install_description">Intri pe electricalvpf.app din browserul telefonului și te autentifici. Nu descarci și nu instalezi o aplicație.</span></button>
                 <!-- ce primești: fluxul firmei, în buzunar (aceleași iconițe ca în aplicație) -->
-                <span class="phone-chip chip-mod mod-1" aria-hidden="true"><i class="fas fa-users"></i></span>
-                <span class="phone-chip chip-mod mod-2" aria-hidden="true"><i class="fas fa-file-signature"></i></span>
-                <span class="phone-chip chip-mod mod-3" aria-hidden="true"><i class="fas fa-file-invoice-dollar"></i></span>
-                <span class="phone-chip chip-mod mod-4" aria-hidden="true"><i class="fas fa-chart-line"></i></span>
+                <button type="button" class="phone-chip chip-mod mod-1" data-phone-tip="clients" data-i18n-aria-label="phoneTip_clients" aria-label="Datele clienților, la îndemână."><i aria-hidden="true" class="fas fa-users"></i><span hidden data-i18n="phoneTip_clients">Datele clienților, la îndemână.</span><span hidden data-i18n="phoneTip_clients_description">Deschizi lista clienților pe telefon și găsești datele lor de contact, chiar de la lucrare.</span></button>
+                <button type="button" class="phone-chip chip-mod mod-2" data-phone-tip="quotes" data-i18n-aria-label="phoneTip_quotes" aria-label="Trimiți oferta din teren."><i aria-hidden="true" class="fas fa-file-signature"></i><span hidden data-i18n="phoneTip_quotes">Trimiți oferta din teren.</span><span hidden data-i18n="phoneTip_quotes_description">Pregătești oferta pe telefon și o trimiți clientului, fără să aștepți întoarcerea la birou.</span></button>
+                <button type="button" class="phone-chip chip-mod mod-3" data-phone-tip="invoices" data-i18n-aria-label="phoneTip_invoices" aria-label="Știi ce facturi ai de încasat."><i aria-hidden="true" class="fas fa-file-invoice-dollar"></i><span hidden data-i18n="phoneTip_invoices">Știi ce facturi ai de încasat.</span><span hidden data-i18n="phoneTip_invoices_description">Verifici facturile pe telefon și vezi care sunt plătite și ce sume mai ai de încasat.</span></button>
+                <button type="button" class="phone-chip chip-mod mod-4" data-phone-tip="reports" data-i18n-aria-label="phoneTip_reports" aria-label="Vezi cum merge firma."><i aria-hidden="true" class="fas fa-chart-line"></i><span hidden data-i18n="phoneTip_reports">Vezi cum merge firma.</span><span hidden data-i18n="phoneTip_reports_description">Deschizi rapoartele pe telefon și urmărești veniturile și cheltuielile înregistrate ale firmei.</span></button>
             </div>
         </div>
     </section>
@@ -364,26 +431,57 @@
                 <p data-i18n="featuresSubtitle">Optimizat pentru specificul industriei electrice, oferind control
                     absolut asupra afacerii tale.</p>
             </div>
-            <div class="grid-3">
-                <!-- Titluri = numele modulelor din aplicație (nav.*), descrieri = aceleași texte ca tooltip-urile din
-                     secțiunea Planuri (plans.moduleTooltip.*) — nimic scris separat pentru vitrină. -->
-                <div class="feature-card">
+            <div class="features-grid">
+                <!-- Toate modulele, în ordinea din „Flux de lucru" (fără Stadiu Lucrări), 2 rânduri × 4.
+                     Titluri = numele modulelor din aplicație (planMod_*), descrieri = aceleași texte ca
+                     tooltip-urile din secțiunea Planuri (planTip_*, site/plans-i18n.js) — nimic scris separat. -->
+                <div class="feature-card" data-preview="clients" role="button" tabindex="0" aria-haspopup="dialog">
+                    <div class="icon"><i class="fas fa-users" aria-hidden="true"></i></div>
+                    <h3 data-i18n="planMod_clients">Clienți</h3>
+                    <p data-i18n="planTip_clients">Clienți potențiali și clienți, într-un singur loc - de la primul contact până la istoricul complet al fiecărui client.</p>
+                    <span class="fc-preview"><i class="fas fa-eye" aria-hidden="true"></i><span data-i18n="previewHint">Previzualizare</span></span>
+                </div>
+                <div class="feature-card" data-preview="work" role="button" tabindex="0" aria-haspopup="dialog">
                     <div class="icon"><i class="fas fa-folder-open" aria-hidden="true"></i></div>
                     <h3 data-i18n="planMod_work">Lucrări</h3>
-                    <p data-i18n="planTip_work">Solicitările de la teren (cu poze și status) și lucrările tale, într-un
-                        singur loc - de la primul apel până la facturare.</p>
+                    <p data-i18n="planTip_work">Solicitările de la teren (cu poze și status) și lucrările tale, într-un singur loc - de la primul apel până la facturare.</p>
+                    <span class="fc-preview"><i class="fas fa-eye" aria-hidden="true"></i><span data-i18n="previewHint">Previzualizare</span></span>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card" data-preview="electricCalculator" role="button" tabindex="0" aria-haspopup="dialog">
+                    <div class="icon"><i class="fas fa-calculator" aria-hidden="true"></i></div>
+                    <h3 data-i18n="planMod_electricCalculator">Calculator Electric</h3>
+                    <p data-i18n="planTip_electricCalculator">Calculezi pe loc secțiunea cablului, disjunctorul și tipul de RCD, conform normativului.</p>
+                    <span class="fc-preview"><i class="fas fa-eye" aria-hidden="true"></i><span data-i18n="previewHint">Previzualizare</span></span>
+                </div>
+                <div class="feature-card" data-preview="materials" role="button" tabindex="0" aria-haspopup="dialog">
                     <div class="icon"><i class="fas fa-boxes-stacked" aria-hidden="true"></i></div>
                     <h3 data-i18n="planMod_materials">Materiale</h3>
-                    <p data-i18n="planTip_materials">Gestionează materialele necesare pentru lucrări, urmărește
-                        necesarul și păstrează materialele organizate pe proiect.</p>
+                    <p data-i18n="planTip_materials">Gestionează materialele necesare pentru lucrări, urmărește necesarul și păstrează materialele organizate pe proiect.</p>
+                    <span class="fc-preview"><i class="fas fa-eye" aria-hidden="true"></i><span data-i18n="previewHint">Previzualizare</span></span>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card" data-preview="offers" role="button" tabindex="0" aria-haspopup="dialog">
                     <div class="icon"><i class="fas fa-file-signature" aria-hidden="true"></i></div>
                     <h3 data-i18n="planMod_offers">Oferte</h3>
-                    <p data-i18n="planTip_offers">Estimezi costul, trimiți oferta clientului și vezi ofertele
-                        acceptate, gata de facturat - totul într-un singur loc.</p>
+                    <p data-i18n="planTip_offers">Estimezi costul, trimiți oferta clientului și vezi ofertele acceptate, gata de facturat - totul într-un singur loc.</p>
+                    <span class="fc-preview"><i class="fas fa-eye" aria-hidden="true"></i><span data-i18n="previewHint">Previzualizare</span></span>
+                </div>
+                <div class="feature-card" data-preview="contracts" role="button" tabindex="0" aria-haspopup="dialog">
+                    <div class="icon"><i class="fas fa-file-contract" aria-hidden="true"></i></div>
+                    <h3 data-i18n="planMod_contracts">Contracte</h3>
+                    <p data-i18n="planTip_contracts">Generezi contractul din ofertă sau de la zero, PDF gata de trimis pe email către client.</p>
+                    <span class="fc-preview"><i class="fas fa-eye" aria-hidden="true"></i><span data-i18n="previewHint">Previzualizare</span></span>
+                </div>
+                <div class="feature-card" data-preview="invoices" role="button" tabindex="0" aria-haspopup="dialog">
+                    <div class="icon"><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i></div>
+                    <h3 data-i18n="planMod_invoices">Facturi</h3>
+                    <p data-i18n="planTip_invoices">Emiți factura, urmărești plata și ai evidența clară a banilor încasați.</p>
+                    <span class="fc-preview"><i class="fas fa-eye" aria-hidden="true"></i><span data-i18n="previewHint">Previzualizare</span></span>
+                </div>
+                <div class="feature-card" data-preview="reports" role="button" tabindex="0" aria-haspopup="dialog">
+                    <div class="icon"><i class="fas fa-chart-line" aria-hidden="true"></i></div>
+                    <h3 data-i18n="planMod_reports">Rapoarte</h3>
+                    <p data-i18n="planTip_reports">Vezi dintr-o privire ce ai facturat, ce ai încasat și ce profit ai făcut pe fiecare proiect.</p>
+                    <span class="fc-preview"><i class="fas fa-eye" aria-hidden="true"></i><span data-i18n="previewHint">Previzualizare</span></span>
                 </div>
             </div>
         </div>
@@ -398,32 +496,32 @@
                     de la primul contact până la încasare.</p>
             </div>
             <div class="workflow-chain">
-                <div class="workflow-step"><i class="fas fa-users" aria-hidden="true"></i><span>01</span><strong
-                        data-i18n="planMod_clients">Clienți</strong></div>
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=clients" data-app-page="customers.html"><i class="fas fa-users" aria-hidden="true"></i><span>01</span><strong
+                        data-i18n="planMod_clients">Clienți</strong><span class="wf-tip-source" data-i18n="wfTip_clients" hidden>Oamenii pentru care muncești, cu datele lor la îndemână.</span></a>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><i class="fas fa-folder-open" aria-hidden="true"></i><span>02</span><strong
-                        data-i18n="planMod_work">Lucrări</strong></div>
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=work" data-app-page="jobs.html"><i class="fas fa-folder-open" aria-hidden="true"></i><span>02</span><strong
+                        data-i18n="planMod_work">Lucrări</strong><span class="wf-tip-source" data-i18n="wfTip_work" hidden>Fiecare lucrare, de la cerere până la capăt.</span></a>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><i class="fas fa-calculator" aria-hidden="true"></i><span>03</span><strong
-                        data-i18n="planMod_electricCalculator">Calculator Electric</strong></div>
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=electricCalculator" data-app-page="electric-calculator.html"><i class="fas fa-calculator" aria-hidden="true"></i><span>03</span><strong
+                        data-i18n="planMod_electricCalculator">Calculator Electric</strong><span class="wf-tip-source" data-i18n="wfTip_electricCalculator" hidden>Cablul și protecția potrivite, înainte să cumperi.</span></a>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><i class="fas fa-boxes-stacked" aria-hidden="true"></i><span>04</span><strong
-                        data-i18n="planMod_materials">Materiale</strong></div>
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=materials" data-app-page="materials.html"><i class="fas fa-boxes-stacked" aria-hidden="true"></i><span>04</span><strong
+                        data-i18n="planMod_materials">Materiale</strong><span class="wf-tip-source" data-i18n="wfTip_materials" hidden>Știi ce ai în stoc și ce trebuie cumpărat.</span></a>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><i class="fas fa-file-signature" aria-hidden="true"></i><span>05</span><strong
-                        data-i18n="planMod_offers">Oferte</strong></div>
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=offers" data-app-page="offers.html"><i class="fas fa-file-signature" aria-hidden="true"></i><span>05</span><strong
+                        data-i18n="planMod_offers">Oferte</strong><span class="wf-tip-source" data-i18n="wfTip_offers" hidden>Clientul știe prețul înainte să începi.</span></a>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><i class="fas fa-file-contract" aria-hidden="true"></i><span>06</span><strong
-                        data-i18n="planMod_contracts">Contracte</strong></div>
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=contracts" data-app-page="contracts.html"><i class="fas fa-file-contract" aria-hidden="true"></i><span>06</span><strong
+                        data-i18n="planMod_contracts">Contracte</strong><span class="wf-tip-source" data-i18n="wfTip_contracts" hidden>Înțelegerea scrisă, ca să nu rămână doar vorbă.</span></a>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i><span>07</span><strong
-                        data-i18n="planMod_invoices">Facturi</strong></div>
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=invoices" data-app-page="invoices.html"><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i><span>07</span><strong
+                        data-i18n="planMod_invoices">Facturi</strong><span class="wf-tip-source" data-i18n="wfTip_invoices" hidden>Ce ai lucrat se cere și se urmărește până la plată.</span></a>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><i class="fas fa-chart-line" aria-hidden="true"></i><span>08</span><strong
-                        data-i18n="planMod_reports">Rapoarte</strong></div>
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=reports" data-app-page="reports.html"><i class="fas fa-chart-line" aria-hidden="true"></i><span>08</span><strong
+                        data-i18n="planMod_reports">Rapoarte</strong><span class="wf-tip-source" data-i18n="wfTip_reports" hidden>Cifrele firmei, spuse pe înțeles.</span></a>
                 <span class="arrow">→</span>
-                <div class="workflow-step"><i class="fas fa-route" aria-hidden="true"></i><span>09</span><strong
-                        data-i18n="planMod_jobStatus">Stadiu Lucrări</strong></div>
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=jobStatus" data-app-page="job-status.html"><i class="fas fa-route" aria-hidden="true"></i><span>09</span><strong
+                        data-i18n="planMod_jobStatus">Stadiu Lucrări</strong><span class="wf-tip-source" data-i18n="wfTip_jobStatus" hidden>Știi oricând unde a rămas fiecare lucrare.</span></a>
             </div>
         </div>
     </section>
@@ -489,7 +587,7 @@
 
                 <!-- PRO -->
                 <div class="pricing-card featured plan-card">
-                    <div class="popular-tag" data-i18n="planProBadge">Recomandat</div>
+                    <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="popular-tag" data-i18n="planProBadge">Recomandat</a>
                     <h3 class="pc-name" data-i18n="proPlan">Pro</h3>
                     <div class="pc-billing">
                         <span class="plan-billing-label active" id="billingLabelMonthly"
@@ -565,26 +663,24 @@
 
     <!-- Scripturi -->
     <!-- config.js e fișierul aplicației (nemodificat): de aici vine API_BASE_URL folosit la verificarea sesiunii. -->
-    <script src="frontend/js/config.js"></script>
-    <script src="site/translations.js?v=20260923-go-pro"></script>
+    <script src="frontend/js/config.js?v=20260928-remember"></script>
+    <script src="site/translations.js?v=20260929-hero-firms"></script>
     <script src="site/plans-i18n.js?v=20260924-job-status"></script>
     <script src="site/proofs-i18n.js?v=20260923-guide-hidden"></script>
-    <script src="site/language-dropdown.js?v=20260921-site1"></script>
+    <script src="site/language-dropdown.js?v=20260928-help4"></script>
+    <script src="site/help-menu.js?v=20260929-mail-choices"></script>
+    <script src="site/about.js?v=20260930-about-ambient-duo"></script>
+    <script src="site/cosmos.js?v=20260929-cosmos" defer></script>
     <script src="site/plans.js?v=20260924-job-status"></script>
     <script src="site/proofs.js?v=20260923-guide-hidden"></script>
+    <script src="site/phone-tips.js?v=20260927-phone-tips-v3"></script>
+    <script src="site/workflow-tips.js?v=20260928-remember"></script>
+    <script src="site/module-previews.js?v=20260929-close-ring"></script>
     <script src="site/jt-pending.js?v=20260923-jt-delete"></script>
-    <script src="site/jt-offer-flow.js?v=20260923-jt-i18n"></script>
-    <script type="module" src="site/calculator-jt-widget.js?v=20260923-jt-i18n"></script>
+    <script src="site/jt-offer-flow.js?v=20260928-remember"></script>
+    <script type="module" src="site/calculator-jt-widget.js?v=20260928-remember"></script>
     <script>
-        // Dark / Light mode — aceeași cheie ("theme") ca aplicația, deci alegerea rămâne și după login.
-        document.querySelectorAll('[data-theme-toggle]').forEach((toggleBtn) => {
-            toggleBtn.addEventListener('click', () => {
-                const root = document.documentElement;
-                const newTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                root.setAttribute('data-theme', newTheme);
-                try { localStorage.setItem('theme', newTheme); } catch (err) { /* stocare indisponibilă */ }
-            });
-        });
+        // Dark / Light mode: vezi site/help-menu.js (butonul „?" → Afișare).
 
         // Linkurile legale au un fișier separat per limbă (terms.html = română, terms-en.html etc.).
         function updateLegalLinks() {
@@ -600,7 +696,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof LanguageDropdownControl !== 'undefined') {
                 new LanguageDropdownControl('language-control-container');
-                new LanguageDropdownControl('language-control-mobile');
             }
 
             const menuToggle = document.getElementById('mobile-menu-toggle');
@@ -696,7 +791,7 @@
     </script>
 
     <!-- Sesiune validă -> direct în dashboard (vezi site/session-redirect.js). Ultimul, după config.js. -->
-    <script src="site/session-redirect.js?v=20260923-gp-preview"></script>
+    <script src="site/session-redirect.js?v=20260928-remember"></script>
 </body>
 
 </html>

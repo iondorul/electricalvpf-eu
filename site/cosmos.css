@@ -1,0 +1,125 @@
+/* Cosmosul vitrinei: cerul înstelat (canvas fix, site/cosmos.js) + scena din dreapta hero-ului
+   (orbite, nucleul cu fulger, „Experiență umană · Era AI”). Calm absolut: mișcări foarte lente,
+   fără nimic brusc; totul static la prefers-reduced-motion. Stelele doar pe tema întunecată. */
+
+/* ---------- Cerul înstelat ---------- */
+.cosmos-sky {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: none;
+}
+[data-theme="dark"] .cosmos-sky { display: block; }
+
+/* Pe întuneric, fundalurile secțiunilor devin ușor transparente, ca cerul să se vadă peste tot.
+   Cardurile, meniurile și antetul rămân opace (lizibilitate neschimbată). */
+[data-theme="dark"] .hero,
+[data-theme="dark"] .phone-section {
+    background: linear-gradient(135deg, rgba(15, 23, 42, .28) 0%, rgba(30, 41, 59, .5) 100%);
+}
+[data-theme="dark"] .bg-darker,
+[data-theme="dark"] .trust-bar,
+[data-theme="dark"] .site-footer {
+    background-color: rgba(9, 13, 22, .55);
+}
+
+/* ---------- Scena din hero ---------- */
+.hero-mockup-wrapper { align-self: start; }
+
+.hero-cosmos {
+    position: relative;
+    height: 300px;
+    margin: -24px 0 28px;
+    display: grid;
+    place-items: center;
+    isolation: isolate;
+    pointer-events: none;
+    user-select: none;
+}
+/* Lumina blândă din spatele nucleului. */
+.hero-cosmos::before {
+    content: "";
+    position: absolute;
+    inset: 8% 14%;
+    z-index: -1;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at 50% 55%, rgba(72, 104, 170, .30), rgba(72, 104, 170, 0) 68%);
+    filter: blur(8px);
+}
+.cosmos-orbits {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+.cosmos-orbit { fill: none; stroke: rgba(156, 204, 235, .30); stroke-width: 1; }
+.cosmos-orbit--cross { stroke: rgba(185, 163, 229, .22); }
+.cosmos-orbit--faint { stroke: rgba(156, 204, 235, .10); stroke-dasharray: 1 7; stroke-linecap: round; }
+.cosmos-planet { fill: #e6f7ff; filter: drop-shadow(0 0 6px rgba(138, 221, 255, .9)); }
+.cosmos-planet--small { fill: #f4f8ff; }
+
+.cosmos-core {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 92px;
+    height: 92px;
+    border-radius: 26px;
+    border: 1px solid rgba(210, 233, 255, .38);
+    background: linear-gradient(140deg, #344664, #0a1121 75%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18), 0 0 60px rgba(150, 199, 250, .16);
+    transform: rotate(-8deg);
+    animation: cosmos-float 11s ease-in-out infinite alternate;
+}
+.cosmos-core svg {
+    width: 38px;
+    height: 48px;
+    fill: none;
+    stroke: #dbf5ff;
+    stroke-width: 1.3;
+    stroke-linejoin: round;
+    transform: rotate(8deg);
+}
+.cosmos-caption {
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: #92b6cc;
+}
+
+@keyframes cosmos-float {
+    from { transform: rotate(-8deg) translateY(4px); }
+    to { transform: rotate(-8deg) translateY(-6px); }
+}
+
+/* Tema luminoasă: aceeași scenă, în tonuri de ardezie (fără stele pe fundal). */
+[data-theme="light"] .hero-cosmos::before {
+    background: radial-gradient(ellipse at 50% 55%, rgba(100, 116, 139, .16), rgba(100, 116, 139, 0) 68%);
+}
+[data-theme="light"] .cosmos-orbit { stroke: rgba(71, 85, 105, .28); }
+[data-theme="light"] .cosmos-orbit--cross { stroke: rgba(109, 90, 160, .22); }
+[data-theme="light"] .cosmos-planet { fill: #475569; filter: none; }
+[data-theme="light"] .cosmos-caption { color: #64748b; }
+
+@media (max-width: 968px) {
+    .hero-cosmos { height: 240px; margin: 8px 0 20px; }
+    .cosmos-core { width: 78px; height: 78px; border-radius: 22px; }
+}
+@media (max-width: 600px) {
+    .hero-cosmos { height: 190px; margin: 24px 0 16px; }
+    .cosmos-core { width: 60px; height: 60px; border-radius: 18px; }
+    .cosmos-core svg { width: 26px; height: 33px; }
+    .cosmos-caption { font-size: 10px; letter-spacing: .24em; bottom: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .cosmos-core { animation: none; }
+}

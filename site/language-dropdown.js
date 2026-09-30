@@ -54,6 +54,14 @@ class LanguageDropdownControl {
     if (!this.container) return;
     this.render();
     this.attachEvents();
+    // Desktop and hamburger controls share the page language, even while hidden.
+    document.addEventListener("site:lang-applied", (event) => {
+      const lang = event.detail?.lang;
+      if (!this.isSupported(lang) || lang === this.currentLang) return;
+      this.currentLang = lang;
+      this.render();
+      this.attachEvents();
+    });
     this.applyLanguage(this.currentLang);
   }
 
@@ -65,16 +73,16 @@ class LanguageDropdownControl {
     this.container.innerHTML = `
             <div class="lang-dropdown-wrapper" style="position: relative; display: inline-block;">
                 <button id="${this.toggleId}" class="lang-btn" style="background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); padding: 8px 14px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 0.9rem;">
-                    <img src="https://flagcdn.com/20x15/${currentLangObj.flagCode}.png" alt="${currentLangObj.name}" style="width: 20px; height: 15px; border-radius: 2px; object-fit: cover;">
-                    <span>${currentLangObj.name} <span aria-hidden="true" style="font-size: 0.75rem; letter-spacing: 0.04em;">(${currentLangObj.code.toUpperCase()})</span></span>
-                    <span style="font-size: 0.7rem; opacity: 0.7;">▼</span>
+                    <img src="https://flagcdn.com/20x15/${currentLangObj.flagCode}.png" srcset="https://flagcdn.com/40x30/${currentLangObj.flagCode}.png 2x" alt="${currentLangObj.name}" style="width: 20px; height: 15px; border-radius: 2px; object-fit: cover;">
+                    <span class="lang-btn-label"><span class="lang-btn-name">${currentLangObj.name} </span><span class="lang-btn-code" aria-hidden="true" style="font-size: 0.75rem; letter-spacing: 0.04em;">${currentLangObj.code.toUpperCase()}</span></span>
+                    <i class="fas fa-chevron-down lang-caret" aria-hidden="true"></i>
                 </button>
                 <div id="${this.menuId}" class="lang-menu" style="display: none; position: absolute; right: 0; top: 115%; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; box-shadow: 0 10px 25px var(--shadow-color); z-index: 1000; min-width: 190px; max-height: 260px; overflow-y: auto; padding: 6px 0;">
                     ${this.languages
                       .map(
                         (lang) => `
                         <div class="lang-option ${lang.code === this.currentLang ? "active" : ""}" data-code="${lang.code}" style="padding: 9px 14px; display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.9rem; color: var(--text-main); transition: background 0.15s;">
-                            <img src="https://flagcdn.com/20x15/${lang.flagCode}.png" alt="${lang.name}" style="width: 20px; height: 15px; border-radius: 2px; object-fit: cover;">
+                            <img src="https://flagcdn.com/20x15/${lang.flagCode}.png" srcset="https://flagcdn.com/40x30/${lang.flagCode}.png 2x" alt="${lang.name}" style="width: 20px; height: 15px; border-radius: 2px; object-fit: cover;">
                             <span>${lang.name} <span aria-hidden="true" style="font-size: 0.75rem; letter-spacing: 0.04em;">(${lang.code.toUpperCase()})</span></span>
                         </div>
                     `,
@@ -88,18 +96,54 @@ class LanguageDropdownControl {
   attachEvents() {
     const btn = document.getElementById(this.toggleId);
     const menu = document.getElementById(this.menuId);
+    const wrapper = btn.parentElement;
+    let closeTimer;
+    const setOpen = (open) => {
+      clearTimeout(closeTimer);
+      wrapper.classList.toggle("is-open", open);
+      menu.style.display = open ? "block" : "none";
+      btn.setAttribute("aria-expanded", String(open));
+      menu.setAttribute("aria-hidden", String(!open));
+    };
+    btn.type = "button";
+    btn.setAttribute("aria-controls", this.menuId);
+    setOpen(false);
+    // data-click-only: în meniul „?” (Ajutor) lista se deschide doar la click, ca acordeon —
+    // la hover ar sări peste rândurile de dedesubt (Afișare, Contact).
+    const canHover = () =>
+      !this.container.hasAttribute("data-click-only") && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    wrapper.addEventListener("mouseenter", () => {
+      if (canHover()) setOpen(true);
+    });
+    wrapper.addEventListener("mouseleave", () => {
+      if (canHover()) closeTimer = setTimeout(() => setOpen(false), 150);
+    });
+    wrapper.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        btn.focus();
+      }
+    });
+    wrapper.addEventListener("focusout", (event) => {
+      // Touch browsers may blur the toggle without focusing the tapped option.
+      // Let the option/outside click handle that case after the tap completes.
+      if (event.relatedTarget && !wrapper.contains(event.relatedTarget)) setOpen(false);
+    });
 
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
-      menu.style.display = menu.style.display === "block" ? "none" : "block";
+      setOpen(!wrapper.classList.contains("is-open"));
     });
 
-    document.addEventListener("click", () => {
-      menu.style.display = "none";
-    });
+    if (this.closeOnOutsideClick) document.removeEventListener("click", this.closeOnOutsideClick);
+    this.closeOnOutsideClick = (event) => {
+      if (!wrapper.contains(event.target)) setOpen(false);
+    };
+    document.addEventListener("click", this.closeOnOutsideClick);
 
     menu.querySelectorAll(".lang-option").forEach((option) => {
       option.addEventListener("click", () => {
+        setOpen(false);
         const selectedLang = option.getAttribute("data-code");
         this.currentLang = selectedLang;
         try {

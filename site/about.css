@@ -1,0 +1,65 @@
+/* A small desktop-style window, suspended above a quiet orbital backdrop. */
+.about-window {
+    --about-ink: #edf4ff;
+    width: min(540px, calc(100vw - 32px));
+    max-height: calc(100dvh - 32px);
+    margin: auto;
+    padding: 0;
+    border: 1px solid #8aadc64d;
+    border-radius: 20px;
+    color: var(--about-ink);
+    background: #090f1c;
+    box-shadow: 0 28px 100px #0009, 0 0 70px #527ec51c;
+    overflow: auto;
+    font-family: Inter, sans-serif;
+    color-scheme: dark;
+}
+.about-window::backdrop { background: #020815b8; backdrop-filter: blur(9px); }
+.about-window[open] { animation: about-arrive .6s cubic-bezier(.16,1,.3,1) both; }
+.about-bar { display:flex; align-items:center; justify-content:space-between; padding:13px 18px; border-bottom:1px solid #ffffff12; }
+.about-bar-label { font-size:10px; letter-spacing:.19em; color:#a3b5cb; text-transform:uppercase; }
+.about-controls { display:flex; align-items:center; gap:10px; margin-left:12px; }
+.about-sound { display:block; flex:0 0 32px; width:32px; height:32px; padding:0; border:0; border-radius:50%; background:transparent; color:#a3b5cb; cursor:pointer; transition:color .2s, filter .2s; }
+.about-sound[hidden] { display:none; }
+.about-sound svg { display:block; width:32px; height:32px; fill:none; stroke:currentColor; stroke-width:1.25; stroke-linecap:round; stroke-linejoin:round; }
+.about-sound[aria-pressed="true"] { color:#a4ddec; filter:drop-shadow(0 0 5px #8addff40); }
+.about-sound:hover { color:#fff; }
+.about-sound:focus-visible { outline:2px solid #a4ddec; outline-offset:3px; }
+.about-sound .about-sound-waves, .about-sound[aria-pressed="true"] .about-sound-muted { display:none; }
+.about-sound[aria-pressed="true"] .about-sound-waves { display:block; }
+/* Butonul X: cerc + X desenate în SVG (cerc perfect, contur continuu). Normal: culoarea
+   textului din bară („Despre / ElectricalVPF”); la hover: inel și X albe. Fără umplere,
+   fără mărire. */
+.about-close { display:block; flex:0 0 32px; width:32px; height:32px; padding:0; margin:0; border:0; border-radius:50%; background:transparent; color:#a3b5cb; line-height:0; cursor:pointer; transition:color .15s ease; }
+.about-close svg { display:block; width:32px; height:32px; overflow:visible; }
+.about-close circle { fill:none; stroke:currentColor; stroke-width:1.25; }
+.about-close path { fill:none; stroke:currentColor; stroke-width:1.75; stroke-linecap:round; }
+.about-close:hover, .about-close:focus-visible { color:#ffffff; }
+.about-close:focus-visible { outline:none; }
+.about-cosmos { position:relative; height:158px; overflow:hidden; display:grid; place-items:center; isolation:isolate; background:radial-gradient(ellipse at 50% 110%,#32477999,transparent 67%); }
+.about-sky { position:absolute; inset:0; width:100%; height:100%; z-index:-1; }
+.about-orbits { position:absolute; left:50%; top:0; width:540px; height:158px; margin-left:-270px; overflow:visible; }
+.about-orbit-line { fill:none; stroke:#9ccceb50; stroke-width:1; }
+.about-orbit-line--cross { stroke:#b9a3e52e; }
+.about-planet { fill:#d4f4ff; filter:drop-shadow(0 0 5px #8addff); }
+.about-planet--small { fill:#f4f8ff; }
+@keyframes about-float { from { transform:rotate(-8deg) translateY(3px); } to { transform:rotate(-8deg) translateY(-4px); } }
+.about-core { position:relative; animation:about-float 9s ease-in-out infinite alternate; display:grid; place-items:center; width:66px; height:66px; border-radius:20px; transform:rotate(-8deg); border:1px solid #d2e9ff66; background:linear-gradient(140deg,#344664,#0a1121 75%); box-shadow:inset 0 1px 0 #fff3,0 0 50px #96c7fa26; }
+.about-core svg { width:30px; height:38px; fill:none; stroke:#dbf5ff; stroke-width:1.3; transform:rotate(8deg); }
+.about-coordinate { position:absolute; bottom:10px; font-size:9px; letter-spacing:.26em; color:#92b6cc; text-transform:uppercase; }
+.about-content { padding:9px 32px 26px; }
+.about-window h2 { font-size:32px; font-weight:500; letter-spacing:-1.4px; margin:0 0 5px; color:#f0f6ff; }
+.about-tagline { margin:0 0 23px; color:#a5c6de; font-size:13px; line-height:1.6; }
+.about-block { display:grid; grid-template-columns:27px 1fr; gap:10px; margin-top:18px; }
+.about-number { font-size:10px; font-family:monospace; color:#8cbad5; padding-top:3px; }
+.about-window h3 { margin:0 0 7px; font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#e0ebfa; }
+.about-window p.about-copy { margin:0; font-size:12px; line-height:1.8; color:#b7c4d5; }
+.about-tools { display:flex; gap:6px; flex-wrap:wrap; margin:12px 0 0; padding:0; list-style:none; }
+.about-tools li { border:1px solid #9dbbd32e; border-radius:5px; padding:5px 8px; font-size:10px; color:#d1dfed; background:#b7d3ff05; }
+.about-footer { margin-top:24px; padding-top:13px; border-top:1px solid #ffffff16; display:flex; gap:9px; align-items:baseline; font-size:10px; line-height:1.7; color:#8fa3ba; }
+.about-footer span:first-child { color:#a4d2e4; }
+[data-theme="light"] .about-window::backdrop { background:#d8e1eca8; }
+.help-menu [data-help-about] .help-menu-state { white-space:normal; max-width:265px; }
+@keyframes about-arrive { from { opacity:0; transform:translateY(18px) scale(.95); filter:blur(5px); } to { opacity:1; transform:none; filter:none; } }
+@media (max-width:480px) { .about-content { padding:6px 23px 23px; } .about-cosmos { height:132px; } .about-window h2 { font-size:29px; } }
+@media (prefers-reduced-motion:reduce) { .about-window[open], .about-core { animation:none; } }

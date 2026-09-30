@@ -49,7 +49,7 @@
   }
 
   async function hasSession() {
-    const token = localStorage.getItem("token");
+    const token = AuthSession.getToken();
     if (!token) return false;
     try { return (await fetch(api("/auth/me"), { headers: { Authorization: `Bearer ${token}` } })).ok; }
     catch (_) { return false; }
@@ -63,7 +63,7 @@
     try {
       const response = await fetch(api(`/quotes/${quoteId}/calculations`), {
         method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${AuthSession.getToken()}` },
         body: JSON.stringify({
           calculation_source: calculation.source,
           calculation_version: calculation.version,
@@ -128,7 +128,7 @@
     const active = panel(`${closeButton()}<span class="jt-offer-kicker">${text(activeCalculation.kickerKey, "ELECTRIC CALCULATOR")}</span><h3>${text("jtOffer.selectTitle", "Where do you want to save the calculation?")}</h3><p>${text("jtOffer.selectText", "Choose an existing quote or create a new one through the normal flow.")}</p><div class="jt-offer-list"><span>${text("jtOffer.loadingQuotes", "Loading quotes…")}</span></div><p class="jt-offer-error" hidden>${text("jtOffer.saveError", "The calculation could not be saved. It is still available and you can try again.")}</p><a class="jt-offer-secondary" href="${frontendUrl("customers.html")}#clients">${text("jtOffer.createNew", "+ Create new quote")}</a>${activeCalculation.pendingCreatedAt ? deleteControls() : ""}`);
     bindDelete(active);
     try {
-      const response = await fetch(api("/quotes?page=1&limit=50"), { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
+      const response = await fetch(api("/quotes?page=1&limit=50"), { headers: { Authorization: `Bearer ${AuthSession.getToken()}` } });
       const data = await response.json();
       if (!response.ok || !data.success) throw new Error("quotes unavailable");
       const list = active.querySelector(".jt-offer-list");

@@ -14,7 +14,8 @@ Conținutul repo-ului:
 | Cale | Proveniență |
 |---|---|
 | `index.html`, `site/` | din `.app`, cu linkurile rescrise de scriptul de sync |
-| `frontend/js/config.js`, `frontend/js/calculator-core.js` | din `.app`, neschimbate — singurele fișiere ale aplicației încărcate de pagină |
+| `frontend/js/config.js`, `frontend/js/calculator-core.js` | din `.app`, neschimbate — încărcate de pagină (`CONFIG`, `AuthSession`, calculul JT) |
+| `frontend/locales/*.json` | din `.app`, neschimbate — citite cu `fetch` same-origin de `site/module-previews.js` (previzualizările din „Explorează”); fără ele ferestrele rămân fără texte |
 | `LICENSE.txt`, `READ-ME.txt` | din `.app` — licența template-ului HTML Codex (CC-BY, atribuirea e obligatorie) |
 | `CNAME` | propriu `.eu` — trebuie să conțină exact `electricalvpf.eu` |
 | `tools/sync-from-app.sh` | propriu `.eu` — scriptul de sincronizare |
@@ -37,16 +38,18 @@ Conținutul repo-ului:
 
 Toate ajustările pentru `.eu` trăiesc în acest script, NU ca editări manuale — altfel se pierd la următorul sync.
 
-1. Șterge și recopiază din `.app` HEAD: `index.html`, `site/`, `frontend/js/config.js`, `frontend/js/calculator-core.js`,
+1. Șterge și recopiază din `.app` HEAD: `index.html`, `site/`, `frontend/js/config.js`, `frontend/js/calculator-core.js`, `frontend/locales/`,
    `LICENSE.txt`, `READ-ME.txt`. Exclude `site/tools/` (unelte de build ale `.app`).
 2. Scrie `CNAME` = `electricalvpf.eu`.
 3. Rescrie linkurile relative `frontend/...` în `https://electricalvpf.app/frontend/...` (login, register,
-   pagini legale, erp-plans etc.). Lasă locale `frontend/js/config.js` și importul `../frontend/js/calculator-core.js`.
+   pagini legale, erp-plans etc.), inclusiv forma `"frontend/" + page`. Lasă locale `frontend/js/config.js`,
+   importul `../frontend/js/calculator-core.js` și `fetch("frontend/locales/…")`.
 4. Adaugă `?returnSite=eu` (sau `&returnSite=eu`) pe toate linkurile Login/Register spre `.app`.
 5. Elimină butonul „Salvează în ofertă” din calculator (rândul cu `id="saveJTCalculation"` din
    `site/calculator-jt-widget.js`). Motiv: calculul salvat în `localStorage` pe `.eu` nu e vizibil pe `.app`
    (domenii diferite), deci fluxul calcul → ofertă nu poate funcționa cross-domain. Calculatorul în sine merge normal.
-6. Verificări finale: niciun link relativ spre `frontend/` rămas, niciun link Login/Register fără `returnSite=eu`.
+6. Verificări finale: niciun link relativ spre `frontend/` rămas, niciun link Login/Register fără `returnSite=eu`,
+   fiecare limbă din `LOCALES` (`site/module-previews.js`) are `frontend/locales/<limbă>.json` local.
 
 Dacă utilizatorul cere o nouă diferență permanentă între `.eu` și `.app`, adaug-o ca regulă în script
 (cu verificare care eșuează zgomotos), nu ca editare directă în `index.html`/`site/`.
@@ -75,6 +78,10 @@ Alte lucruri de verificat după un sync mai mare:
   - EU → Login / Register → „Back to website” → `https://electricalvpf.eu/`;
   - APP → Login / Register → „Back to website” → `https://electricalvpf.app/`;
   - calculatorul de pe `.eu` calculează (ex. 3,5 kW / 25 m / 230 V → 3×1.5 mm² Cu), fără butonul de salvare;
+  - previzualizările din „Explorează” (click pe fiecare `.feature-card[data-preview]`, fereastra `.rp-modal`):
+    textul de pe `.eu` trebuie să fie identic cu cel de pe `.app`, în câteva limbi (setează `localStorage.locale`
+    înainte de încărcare, ex. `en`, `ro`, `uk`); atenție la fals pozitive (domeniile de email demo `*.co.uk`);
+  - nicio cerere 404 către `electricalvpf.eu` (semn că pagina încarcă un fișier din aplicație necopiat);
   - nicio eroare JS pe pagină.
   Raportează PASS/FAIL per flux.
 
