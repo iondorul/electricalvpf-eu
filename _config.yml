@@ -1,0 +1,5 @@
+# GitHub Pages (Jekyll): fișierele interne rămân în repo, dar nu se publică pe electricalvpf.eu.
+exclude:
+  - CLAUDE.md
+  - tools
+  - .vscode
