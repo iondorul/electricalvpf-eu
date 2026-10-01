@@ -18,6 +18,7 @@ Conținutul repo-ului:
 | `frontend/locales/*.json` | din `.app`, neschimbate — citite cu `fetch` same-origin de `site/module-previews.js` (previzualizările din „Explorează”); fără ele ferestrele rămân fără texte |
 | `LICENSE.txt`, `READ-ME.txt` | din `.app` — licența template-ului HTML Codex (CC-BY, atribuirea e obligatorie) |
 | `CNAME` | propriu `.eu` — trebuie să conțină exact `electricalvpf.eu` |
+| `google637785e7ae7eef62.html` | propriu `.eu` — verificarea proprietății în Google Search Console; NU se șterge (Google re-verifică periodic) |
 | `tools/sync-from-app.sh` | propriu `.eu` — scriptul de sincronizare |
 | `.vscode/settings.json` | propriu `.eu` (Live Server port 5502) |
 
