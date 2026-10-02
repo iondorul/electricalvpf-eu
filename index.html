@@ -649,13 +649,13 @@
         <div class="container footer-flex">
             <p>&copy; 2026 <span data-i18n="footerText">ElectricalVPF. Toate drepturile rezervate.</span></p>
             <nav class="footer-legal" aria-label="Legal">
-                <a href="https://electricalvpf.app/frontend/legal/terms.html" data-legal="terms" data-i18n="legalTerms">Termeni și Condiții</a>
-                <a href="https://electricalvpf.app/frontend/legal/privacy.html" data-legal="privacy"
+                <a href="https://electricalvpf.app/frontend/legal/terms.html?returnSite=eu" data-legal="terms" data-i18n="legalTerms">Termeni și Condiții</a>
+                <a href="https://electricalvpf.app/frontend/legal/privacy.html?returnSite=eu" data-legal="privacy"
                     data-i18n="legalPrivacy">Confidențialitate</a>
-                <a href="https://electricalvpf.app/frontend/legal/cookies.html" data-legal="cookies" data-i18n="legalCookies">Cookie-uri</a>
-                <a href="https://electricalvpf.app/frontend/legal/refund-policy.html" data-legal="refund-policy"
+                <a href="https://electricalvpf.app/frontend/legal/cookies.html?returnSite=eu" data-legal="cookies" data-i18n="legalCookies">Cookie-uri</a>
+                <a href="https://electricalvpf.app/frontend/legal/refund-policy.html?returnSite=eu" data-legal="refund-policy"
                     data-i18n="legalRefund">Rambursare &amp; Anulare</a>
-                <a href="https://electricalvpf.app/frontend/legal/legal-notice.html" data-legal="legal-notice"
+                <a href="https://electricalvpf.app/frontend/legal/legal-notice.html?returnSite=eu" data-legal="legal-notice"
                     data-i18n="legalNotice">Date de identificare</a>
             </nav>
         </div>
@@ -672,7 +672,7 @@
     <script src="site/about.js?v=20260930-about-ambient-duo"></script>
     <script src="site/cosmos.js?v=20260929-cosmos" defer></script>
     <script src="site/plans.js?v=20260924-job-status"></script>
-    <script src="site/proofs.js?v=20260923-guide-hidden"></script>
+    <script src="site/proofs.js?v=20261002-legal-return"></script>
     <script src="site/phone-tips.js?v=20260927-phone-tips-v3"></script>
     <script src="site/workflow-tips.js?v=20260928-remember"></script>
     <script src="site/module-previews.js?v=20260929-close-ring"></script>
@@ -687,7 +687,7 @@
             const lang = document.documentElement.lang;
             document.querySelectorAll('a[data-legal]').forEach((a) => {
                 const suffix = !lang || lang === 'ro' ? '' : '-' + lang;
-                a.setAttribute('href', 'https://electricalvpf.app/frontend/legal/' + a.getAttribute('data-legal') + suffix + '.html');
+                a.setAttribute('href', 'https://electricalvpf.app/frontend/legal/' + a.getAttribute('data-legal') + suffix + '.html?returnSite=eu');
             });
         }
         document.addEventListener('site:lang-applied', updateLegalLinks);

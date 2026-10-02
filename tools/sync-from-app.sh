@@ -65,6 +65,14 @@ sed -i -E \
   -e "s#($APP_URL/frontend/(login|register)\.html)([\"'\`])#\1?returnSite=eu\3#g" \
   index.html site/*.js
 
+# Paginile legale pe .app: același ?returnSite=eu, ca „Back to website” de acolo
+# să revină aici (return-site.js îl păstrează și la schimbarea limbii/documentului).
+sed -i -E '/frontend\/legal\//s#\.html(["'"'"'`])#.html?returnSite=eu\1#g' index.html site/*.js
+if grep -nE "frontend/legal/" index.html site/*.js | grep -v "returnSite=eu" | grep -q .; then
+  echo "ATENȚIE: linkuri legale fără returnSite=eu." >&2
+  exit 1
+fi
+
 # Fără butonul „Salvează în ofertă” pe .eu: calculul nu poate trece din .eu în
 # .app (localStorage nu se partajează între domenii). Listener-ul lui folosește
 # ?. , deci fără buton calculatorul funcționează neschimbat.

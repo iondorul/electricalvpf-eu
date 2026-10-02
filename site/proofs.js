@@ -83,7 +83,7 @@
   // Linkurile legale au un fișier separat per limbă (terms.html = română, terms-en.html etc.).
   function legalHref(slug) {
     var lang = document.documentElement.lang;
-    return "https://electricalvpf.app/frontend/legal/" + slug + (!lang || lang === "ro" ? "" : "-" + lang) + ".html";
+    return "https://electricalvpf.app/frontend/legal/" + slug + (!lang || lang === "ro" ? "" : "-" + lang) + ".html?returnSite=eu";
   }
 
   var windowEl = null;
