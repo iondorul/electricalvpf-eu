@@ -65,10 +65,11 @@ sed -i -E \
   -e "s#($APP_URL/frontend/(login|register)\.html)([\"'\`])#\1?returnSite=eu\3#g" \
   index.html site/*.js
 
-# Resursa gratuită (modelul de ofertă UK) există doar pe .app.
-sed -i -e "s#href=\"/electrical-quote-template/#href=\"$APP_URL/electrical-quote-template/#g" index.html
-if grep -q 'href="/electrical-quote-template/' index.html; then
-  echo "ATENȚIE: linkul spre modelul de ofertă a rămas relativ." >&2
+# Resursele gratuite (modelul de ofertă UK, modelul de deviz RO) există doar pe .app — atât în href,
+# cât și în scriptul paginii (updateResourceLinks).
+sed -i -E "s#([\"'])/(electrical-quote-template|ro/model-deviz-instalatii-electrice)/#\1$APP_URL/\2/#g" index.html
+if grep -qE "[\"']/(electrical-quote-template|ro/model-deviz-instalatii-electrice)/" index.html; then
+  echo "ATENȚIE: linkuri relative rămase spre resursele gratuite." >&2
   exit 1
 fi
 
