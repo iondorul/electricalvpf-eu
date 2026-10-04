@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- electricalvpf.eu — generat de tools/sync-from-app.sh din sitemap-ul .app: doar paginile publice care există pe .eu. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://electricalvpf.eu/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://electricalvpf.eu/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://electricalvpf.eu/ro/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://electricalvpf.eu/"/>
+  </url>
+  <url>
+    <loc>https://electricalvpf.eu/ro/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://electricalvpf.eu/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://electricalvpf.eu/ro/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://electricalvpf.eu/"/>
+  </url>
+  <url><loc>https://electricalvpf.eu/electrical-quote-template/</loc></url>
+  <url><loc>https://electricalvpf.eu/ro/model-deviz-instalatii-electrice/</loc></url>
+  <url><loc>https://electricalvpf.eu/no/tilbudsmal-elektriker/</loc></url>
+  <url><loc>https://electricalvpf.eu/nl/offerte-sjabloon-elektricien/</loc></url>
+  <url><loc>https://electricalvpf.eu/it/modello-preventivo-elettricista/</loc></url>
+  <url><loc>https://electricalvpf.eu/pl/wzor-oferty-elektryka/</loc></url>
+</urlset>

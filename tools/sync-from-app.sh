@@ -199,4 +199,48 @@ for lc in $(grep -oE 'var LOCALES = \[[^]]*\]' site/module-previews.js | grep -o
     exit 1
   fi
 done
+# ---------------------------------------------------------------------------
+# SEO: .eu e INDEXABIL (decizie PO, 5 octombrie 2026) — ambele domenii sunt intrări în Google.
+# Fiecare pagină .eu e originalul ei: canonical, og:url, og:image, hreflang și JSON-LD trimit la .eu.
+# Rămân pe .app DOAR adresele /frontend/ (Login, Register, paginile legale, return-site.js) — vezi regulile de mai sus.
+EU_URL="https://electricalvpf.eu"
+perl -pi -e 's#https://electricalvpf\.app/(?!frontend/)#https://electricalvpf.eu/#g' "${PAGES[@]}"
+
+# sitemap.xml pentru .eu: din sitemap-ul .app (HEAD), doar paginile publice care există și pe .eu
+# (fără /frontend/ — paginile legale trăiesc doar pe .app), cu domeniul .eu.
+git -C "$SRC" show HEAD:sitemap.xml \
+  | perl -ne 'next if m#<loc>https://electricalvpf\.app/frontend/#; s#https://electricalvpf\.app/#https://electricalvpf.eu/#g; print' \
+  | perl -0pe 's#<!--.*?-->#<!-- electricalvpf.eu — generat de tools/sync-from-app.sh din sitemap-ul .app: doar paginile publice care există pe .eu. -->#s' \
+  > sitemap.xml
+cat > robots.txt <<'ROBOTS'
+# electricalvpf.eu — vitrina publică, indexabilă (generat de tools/sync-from-app.sh).
+User-agent: *
+Allow: /
+
+Sitemap: https://electricalvpf.eu/sitemap.xml
+ROBOTS
+
+# Verificări SEO — orice abatere oprește sincronizarea.
+grep -q '</urlset>' sitemap.xml || { echo "ATENȚIE: sitemap.xml lipsește sau e incomplet." >&2; exit 1; }
+if grep -q 'electricalvpf\.app\|localhost\|/frontend/' sitemap.xml; then
+  echo "ATENȚIE: sitemap.xml conține adrese .app / localhost / frontend." >&2; exit 1
+fi
+locs=$(grep -oE '<loc>[^<]*</loc>' sitemap.xml | sed -E 's#</?loc>##g')
+[ -n "$locs" ] || { echo "ATENȚIE: sitemap.xml fără nicio adresă." >&2; exit 1; }
+while IFS= read -r loc; do
+  local_file="${loc#$EU_URL/}index.html"
+  [ -s "$local_file" ] || { echo "ATENȚIE: sitemap.xml listează '$loc', dar '$local_file' nu există pe .eu." >&2; exit 1; }
+done <<< "$locs"
+grep -qx 'Sitemap: https://electricalvpf.eu/sitemap.xml' robots.txt || { echo "ATENȚIE: robots.txt nu indică sitemap-ul .eu." >&2; exit 1; }
+for page in "${PAGES[@]}"; do
+  url="$EU_URL/${page%index.html}"
+  grep -q "<link rel=\"canonical\" href=\"$url\">" "$page" || { echo "ATENȚIE: $page nu are canonical către $url." >&2; exit 1; }
+  if grep -qiE '<meta[^>]+name="robots"[^>]+noindex' "$page"; then echo "ATENȚIE: $page are noindex." >&2; exit 1; fi
+  if grep -nE 'https://electricalvpf\.app/' "$page" | grep -v 'electricalvpf\.app/frontend/' | grep -q .; then
+    echo "ATENȚIE: $page mai are adrese .app în afara /frontend/." >&2; exit 1
+  fi
+  # fiecare pagină din sitemap e și o pagină copiată (și invers)
+  grep -q "<loc>$url</loc>" sitemap.xml || { echo "ATENȚIE: $url lipsește din sitemap.xml." >&2; exit 1; }
+done
+
 echo "OK — vitrina sincronizată. Verifică: git status && git diff"

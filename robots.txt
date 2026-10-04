@@ -1,0 +1,5 @@
+# electricalvpf.eu — vitrina publică, indexabilă (generat de tools/sync-from-app.sh).
+User-agent: *
+Allow: /
+
+Sitemap: https://electricalvpf.eu/sitemap.xml
