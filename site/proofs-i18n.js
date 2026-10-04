@@ -358,7 +358,7 @@
     "proof_s2": "Inloggning med Cloudflare Turnstile mot botar.",
     "proof_s3": "Betalningar hanteras av Stripe; ElectricalVPF lagrar inga kortuppgifter.",
     "proof_s4": "Datan är din: vi gör inte anspråk på äganderätt till ditt innehåll, och varje konto ser bara sin egen data.",
-    "proof_s5": "Exportera när som helst, från Inställningar → Integritet, som JSON-fil: konto, företagsinställningar, Kunder, Arbete, Uppskattade Offerter, Offerter, Fakturor, Material.",
+    "proof_s5": "Exportera när som helst, från Inställningar → Integritet, som JSON-fil: konto, företagsinställningar, Kunder, Arbeten, Kostnadsberäkningar, Offerter, Fakturor, Material.",
     "proof_c1": "Cloudflare (sidor, DNS, certifikat), Render (applikationen), Neon (PostgreSQL-databas), Stripe (betalningar) och GitHub (källkod, i ett privat repository).",
     "proof_c2": "PostgreSQL-databasen finns i EU (Frankfurt).",
     "proof_c3": "Specialiserade tjänster med offentlig dokumentation: alla leverantörer kan kontrolleras av vem som helst.",

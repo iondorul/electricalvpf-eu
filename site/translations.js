@@ -856,7 +856,7 @@ const translations = {
     planProCtaMonthly: "Uppgradera till Pro - €49/mån",
     planProCtaYearly: "Uppgradera till Pro - €470.40/år",
     heroSubtitle:
-      "Mindre tid förlorad på pappersarbete. Mer tid för jobb och kunder. Allt på ett ställe: Kunder, Arbete, Elektrisk Kalkylator, Material, Offerter, Kontrakt, Fakturor, Rapporter.",
+      "Mindre tid förlorad på pappersarbete. Mer tid för jobb och kunder. Allt på ett ställe: Kunder, Arbeten, Elektrisk kalkylator, Material, Offerter, Kontrakt, Fakturor, Rapporter.",
     heroProofText:
       "Exportera den när som helst och säg upp Pro när som helst utan avgift. Du betalar via Stripe; kortuppgifterna når aldrig oss.",
     heroProofTitle:
@@ -907,15 +907,16 @@ const translations = {
     helpWebsiteLabel: "Webbplats",
     revenue: "Intäkter",
     projects:
-      "Arbete",
+      "Arbeten",
     clients: "Kunder",
     project:
-      "Arbete",
+      "Arbetsnamn",
     client: "Kund",
     status: "Status",
     value: "Värde",
     inProgress: "Pågår",
-    completed: "Slutförd",
+    completed:
+      "Slutfört",
     professional: "Professionell",
     secure: "Säker",
     cloudBased: "Molnbaserad",
