@@ -454,6 +454,13 @@
     .plan-billing-thumb { transition: none; }
 }
 
+/* Tabletă (701–1099px): cardul Pro e în dreapta, iar tooltip-ul pornit din stânga rândului ieșea din ecran
+   (chiar ascuns, lățea pagina → scroll orizontal). Acolo îl ancorăm la dreapta rândului. */
+@media (max-width: 1099px) {
+    .plan-card.featured .plan-tooltip { left: auto; right: 0; }
+    .plan-card.featured .plan-tooltip::after { left: auto; right: 16px; }
+}
+
 /* Pe ecrane înguste, tooltip-ul de hover nu are loc lângă rând — rămâne fereastra la click. */
 @media (hover: none), (max-width: 700px) {
     .plan-tooltip { display: none; }

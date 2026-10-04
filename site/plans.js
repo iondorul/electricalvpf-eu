@@ -196,7 +196,9 @@
   function applyBilling(isYearly) {
     var cfg = isYearly ? BILLING.year : BILLING.month;
     sw.setAttribute("aria-checked", String(isYearly));
-    amountEl.textContent = cfg.amount;
+    amountEl.textContent = document.documentElement.lang === "no"
+      ? (isYearly ? "470,40 €" : "49,00 €")
+      : cfg.amount;
     // data-i18n păstrează perioada corectă și după o schimbare de limbă.
     periodEl.setAttribute("data-i18n", cfg.periodKey);
     periodEl.textContent = t(cfg.periodKey);
@@ -211,6 +213,11 @@
   }
 
   if (sw && amountEl && periodEl && badgeEl && labelMonthly && labelYearly) {
+    function refreshBilling() {
+      applyBilling(sw.getAttribute("aria-checked") === "true");
+    }
+    document.addEventListener("site:lang-applied", refreshBilling);
+    refreshBilling();
     sw.addEventListener("click", function () {
       applyBilling(sw.getAttribute("aria-checked") !== "true");
     });

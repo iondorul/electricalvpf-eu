@@ -126,7 +126,7 @@
       jobs: { officeLighting: "Oppgradering av kontorbelysning", evCharger: "Installasjon av elbillader", dbReplacement: "Utskifting av sikringsskap", warehousePower: "Oppgradering av strømforsyning til lager", emergencyLighting: "Kontroll av nødlys", rewire: "Omlegging av elektrisk anlegg i bolig", fireAlarm: "Installasjon av brannalarm" },
       materials: { cable: "Kabel 3G2,5 mm² (NYM-J)", mcb: "Automatsikring B16, 1P", rcd: "Jordfeilbryter 40 A, 30 mA, type A", led: "LED-panel 60×60, 40 W", board: "Sikringsskap, 12 moduler" },
       units: { m: "m", pcs: "stk" },
-      contracts: { lighting: "Oppgradering av belysning — 3 etasjer", db: "Utskifting av skap og målinger", warehouse: "Strømarbeid på lager", ev: "Elbillader hjemme", emergency: "Service på nødlys" },
+      contracts: { lighting: "Oppgradering av belysning — 3 etasjer", db: "Utskifting av sikringsskap og kontrollmålinger", warehouse: "Elektroarbeid i lagerbygg", ev: "Elbillader hjemme", emergency: "Service på nødlys" },
     },
     sv: {
       demoData: "Demodata",

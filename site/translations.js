@@ -204,8 +204,8 @@ const translations = {
     "nav.tools.calculator": "Кабельний калькулятор",
     "nav.tools.calculatorTooltip": "Розрахунок перерізу кабелю та падіння напруги",
     "nav.resources.free": "Безкоштовні ресурси",
-    "nav.resources.quoteTemplate": "Free Electrical Quote Template",
-    "nav.resources.quoteTemplateTooltip": "Word, Excel і PDF · для електриків у Великій Британії (англійською)",
+    "nav.resources.quoteTemplate": "Кошторис на електромонтажні роботи",
+    "nav.resources.quoteTemplateTooltip": "Word, Excel і PDF · безкоштовно, для електриків в Україні",
     login: "Увійти",
     startFree: "Почати безкоштовно",
     freeForever: "Безкоштовно назавжди",
@@ -743,7 +743,7 @@ const translations = {
   },
   no: {
     product: "Produkt",
-    electricalServices: "Elektriske tjenester",
+    electricalServices: "Elektrotjenester",
     mobileMenuTitle: "Meny",
     mobileMenuOpenLabel: "Åpne menyen",
     mobileMenuCloseLabel: "Lukk menyen",
@@ -759,42 +759,42 @@ const translations = {
     "nav.resources.quoteTemplate": "Gratis tilbudsmal for elektrikere",
     "nav.resources.quoteTemplateTooltip": "Word, Excel og PDF · gratis, på norsk",
     login: "Logg inn",
-    startFree: "Start Gratis",
+    startFree: "Kom i gang gratis",
     freeForever: "Gratis for alltid",
-    planProCtaMonthly: "Oppgrader til Pro - €49/mnd",
-    planProCtaYearly: "Oppgrader til Pro - €470.40/år",
+    planProCtaMonthly: "Oppgrader til Pro - 49 €/md.",
+    planProCtaYearly: "Oppgrader til Pro - 470,40 €/år",
     heroSubtitle:
-      "Mindre tid bortkastet på papirarbeid. Mer tid til jobber og kunder. Alt på ett sted: Kunder, Arbeid, Elektrisk Kalkulator, Materialer, Tilbud, Kontrakter, Fakturaer, Rapporter.",
+      "Mindre papirarbeid. Mer tid til oppdrag og kunder. Alt på ett sted: kunder, oppdrag, elektrokalkulator, materialer, tilbud, kontrakter, fakturaer, rapporter.",
     heroProofText:
       "Eksporter dem når som helst, og si opp Pro når som helst uten gebyr. Du betaler via Stripe; kortopplysningene kommer aldri til oss.",
     heroProofTitle:
       "Dataene dine forblir dine",
     heroTitle:
-      "Programvare for feltarbeid, bygget av elektrikere for elektrofirmaer",
-    explore: "Utforsk Plattformen",
+      "En enklere hverdag for elektrofirmaet ditt",
+    explore: "Utforsk løsningen",
     exploreShort: "Utforsk",
     previewHint: "Forhåndsvisning",
-    wfTip_clients: "Folkene du jobber for, med opplysningene deres for hånden.",
-    wfTip_work: "Hver jobb, fra forespørsel til ferdig.",
-    wfTip_electricCalculator: "Riktig kabel og vern, før du kjøper.",
+    wfTip_clients: "Samle kundeopplysninger og ha dem lett tilgjengelig.",
+    wfTip_work: "Følg oppdraget fra første henvendelse til det er fullført.",
+    wfTip_electricCalculator: "Beregn kabeltverrsnitt og vern før du bestiller.",
     wfTip_materials: "Du vet hva du har på lager og hva som må kjøpes.",
     wfTip_offers: "Kunden vet prisen før du begynner.",
-    wfTip_contracts: "Avtalen skriftlig, så det ikke bare blir ord.",
+    wfTip_contracts: "Få avtalen på plass skriftlig før arbeidet starter.",
     wfTip_invoices: "Utført arbeid faktureres og følges opp til det er betalt.",
-    wfTip_reports: "Firmaets tall, sagt rett frem.",
+    wfTip_reports: "Få en oversikt over inntekter, utgifter og resultater.",
     wfTip_jobStatus: "Du vet alltid hvor langt hver jobb har kommet.",
     featuresTitle:
       "Laget for elektrikerens hverdag.",
     featuresSubtitle:
-      "Jobber, materialer og tilbud, slik du bruker dem hver dag.",
+      "Hold oversikt over oppdrag, materialer og tilbud i en travel hverdag.",
     workflowTitle:
       "Fra første telefonsamtale til betaling",
     workflowSubtitle:
-      "Hvert steg i en jobb, i én arbeidsflyt.",
+      "Samle hele oppdraget i én arbeidsflyt.",
     pricingTitle:
       "Hva det koster",
     pricingSubtitle:
-      "Velg planen som passer din bedrift. Ingen skjulte kostnader.",
+      "Velg abonnementet som passer bedriften din. Ingen skjulte kostnader.",
     footerText: "ElectricalVPF. Alle rettigheter reservert.",
     footerResources: "Ressurser",
     pageTitle:
@@ -805,8 +805,8 @@ const translations = {
     helpDisplayGroup: "Visning",
     themeToDark: "Bytt til mørk modus",
     themeToLight: "Bytt til lys modus",
-    themeNowDark: "Skjermen nå: mørk",
-    themeNowLight: "Skjermen nå: lys",
+    themeNowDark: "Mørk modus er aktiv",
+    themeNowLight: "Lys modus er aktiv",
     helpContactItem: "Kontakt",
     helpContactRow: "E-post, telefon, nettside",
     helpContactIntro: "Har du et spørsmål eller funnet et problem? Ta kontakt — vi svarer så raskt vi kan.",
@@ -816,10 +816,10 @@ const translations = {
     revenue:
       "Omsetning",
     projects:
-      "Arbeid",
+      "Oppdrag",
     clients: "Kunder",
     project:
-      "Arbeidsnavn",
+      "Oppdragsnavn",
     client: "Kunde",
     status: "Status",
     value: "Verdi",

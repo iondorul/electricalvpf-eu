@@ -26,11 +26,11 @@
       footer: "Praktijkervaring. Nieuwe middelen. Menselijke verantwoordelijkheid."
     },
     no: {
-      section: "Om", menu: "Mennesket, erfaringen og KI-en bak applikasjonen", close: "Lukk",
-      era: "Menneskelig erfaring · KI-æraen", tagline: "Fra elektrofaget. Med verktøyene fra en ny æra.",
-      human: "To fagområder. Praktisk erfaring.", humanText: "ElectricalVPF kombinerer utdanning innen dataingeniørfaget med praktisk erfaring fra programvareutvikling og industrielle elektriske installasjoner. Applikasjonen tar utgangspunkt i reelle behov i feltarbeidet og i organiseringen av en bedrift.",
+      section: "Om", menu: "Personen, erfaringen og KI-verktøyene bak løsningen", close: "Lukk",
+      era: "Menneskelig erfaring · KI-æraen", tagline: "Erfaring fra elektrofaget. Nye verktøy i bruk.",
+      human: "To fagområder. Praktisk erfaring.", humanText: "ElectricalVPF kombinerer utdanning innen dataingeniørfaget med praktisk erfaring fra programvareutvikling og industrielle elektriske installasjoner. Løsningen bygger på behovene som oppstår ute på oppdrag og i den daglige driften av et firma.",
       ai: "Utvikling med støtte fra KI", aiText: "ChatGPT, Meta AI, Claude, Codex, Gemini og Copilot ble brukt i utviklingen til ideer, kode og gjennomgang. Mennesker setter retningen og tar beslutningene.",
-      care: "Tillit gjennom etterprøvbart arbeid", careText: "Bedriftsdata krever omtanke. Utviklingen omfatter testing og kodegjennomgang. Bidrag fra KI erstatter ikke kontroll og utgjør ingen sikkerhetssertifisering.",
+      care: "Tillit gjennom etterprøvbart arbeid", careText: "Bedriftens data skal håndteres med omhu. Utviklingen omfatter testing og kodegjennomgang. Bidrag fra KI erstatter ikke kontroll og utgjør ingen sikkerhetssertifisering.",
       footer: "Praktisk erfaring. Nye verktøy. Menneskelig ansvar."
     },
     pl: {

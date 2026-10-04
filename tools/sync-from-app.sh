@@ -47,6 +47,7 @@ PATHS=(
   nl
   it
   pl
+  uk
   LICENSE.txt
   READ-ME.txt
 )
@@ -56,7 +57,7 @@ EXCLUDE=(site/tools)
 git -C "$SRC" rev-parse --verify HEAD >/dev/null
 echo "Sursă: $SRC @ $(git -C "$SRC" log -1 --format='%h %s')"
 
-rm -rf index.html site frontend ro electrical-quote-template no nl it pl
+rm -rf index.html site frontend ro electrical-quote-template no nl it pl uk
 git -C "$SRC" archive --format=tar HEAD "${PATHS[@]}" | tar -x -f -
 for p in "${EXCLUDE[@]}"; do rm -rf "$p"; done
 
@@ -74,8 +75,8 @@ HOME_PAGES=(index.html)
 RESOURCE_PAGES=()
 [ -f electrical-quote-template/index.html ] && RESOURCE_PAGES+=(electrical-quote-template/index.html)
 [ -f ro/model-deviz-instalatii-electrice/index.html ] && RESOURCE_PAGES+=(ro/model-deviz-instalatii-electrice/index.html)
-# Modelele de ofertă NO / NL / IT / PL (pe .app din 2026-10): pagini reale și pe .eu, aceeași rescriere.
-for page in no/*/index.html nl/*/index.html it/*/index.html pl/*/index.html; do
+# Modelele de ofertă NO / NL / IT / PL / UK (pe .app din 2026-10): pagini reale și pe .eu, aceeași rescriere.
+for page in no/*/index.html nl/*/index.html it/*/index.html pl/*/index.html uk/*/index.html; do
   [ -f "$page" ] && RESOURCE_PAGES+=("$page")
 done
 PAGES=("${HOME_PAGES[@]}" "${RESOURCE_PAGES[@]}")

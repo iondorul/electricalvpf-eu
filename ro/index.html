@@ -31,8 +31,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/site/style.css?v=20261002-footer-centered">
     <link rel="stylesheet" href="/site/about.css?v=20261002-about-copilot">
-    <link rel="stylesheet" href="/site/cosmos.css?v=20260929-cosmos">
-    <link rel="stylesheet" href="/site/plans.css?v=20261004-no-mark">
+    <link rel="stylesheet" href="/site/cosmos.css?v=20261005-mobile-cosmos4">
+    <link rel="stylesheet" href="/site/plans.css?v=20261005-tooltip-right">
     <link rel="stylesheet" href="/site/module-previews.css?v=20260929-close-ring">
     <style>
         .lang-option:hover {
@@ -652,18 +652,18 @@
     <!-- Scripturi -->
     <!-- config.js e fișierul aplicației (nemodificat): de aici vine API_BASE_URL folosit la verificarea sesiunii. -->
     <script src="/frontend/js/config.js?v=20260928-remember"></script>
-    <script src="/site/translations.js?v=20261005-swedish"></script>
-    <script src="/site/plans-i18n.js?v=20261005-it-preventivi"></script>
-    <script src="/site/proofs-i18n.js?v=20261005-swedish"></script>
+    <script src="/site/translations.js?v=20261005-uk-koshtorys"></script>
+    <script src="/site/plans-i18n.js?v=no-copy-review-1"></script>
+    <script src="/site/proofs-i18n.js?v=no-copy-review-1"></script>
     <script src="/site/language-dropdown.js?v=20260930-seo-urls"></script>
     <script src="/site/help-menu.js?v=20260929-mail-choices"></script>
-    <script src="/site/about.js?v=20261002-about-copilot"></script>
+    <script src="/site/about.js?v=no-copy-review-1"></script>
     <script src="/site/cosmos.js?v=20260929-cosmos" defer=""></script>
-    <script src="/site/plans.js?v=20260924-job-status"></script>
+    <script src="/site/plans.js?v=no-copy-review-1"></script>
     <script src="/site/proofs.js?v=20260930-seo-urls"></script>
     <script src="/site/phone-tips.js?v=20260927-phone-tips-v3"></script>
     <script src="/site/workflow-tips.js?v=20260930-seo-urls"></script>
-    <script src="/site/module-previews.js?v=20260930-seo-urls"></script>
+    <script src="/site/module-previews.js?v=no-copy-review-1"></script>
     <script src="/site/jt-pending.js?v=20260923-jt-delete"></script>
     <script src="/site/jt-offer-flow.js?v=20260930-seo-urls"></script>
     <!-- Sursa vizitei → linkurile de înregistrare, doar prin URL (fără cookie-uri / stocare). -->
@@ -685,7 +685,7 @@
         // Resursa gratuită (model de ofertă / deviz): româna are modelul românesc, celelalte limbi modelul UK (engleză).
         // Același tabel ca site/tools/build-home-pages.js (RESOURCE_URLS) — pagina statică pornește deja corect.
         function updateResourceLinks() {
-            const urls = { ro: '/ro/model-deviz-instalatii-electrice/', no: '/no/tilbudsmal-elektriker/', nl: '/nl/offerte-sjabloon-elektricien/', it: '/it/modello-preventivo-elettricista/', pl: '/pl/wzor-oferty-elektryka/' };
+            const urls = { ro: '/ro/model-deviz-instalatii-electrice/', no: '/no/tilbudsmal-elektriker/', nl: '/nl/offerte-sjabloon-elektricien/', it: '/it/modello-preventivo-elettricista/', pl: '/pl/wzor-oferty-elektryka/', uk: '/uk/koshtorys-elektromontazhni-roboty/' };
             const url = urls[document.documentElement.lang] || '/electrical-quote-template/';
             document.querySelectorAll('a[data-resource="quote-template"]').forEach((a) => {
                 a.setAttribute('href', url);
