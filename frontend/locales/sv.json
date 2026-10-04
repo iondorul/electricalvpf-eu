@@ -618,13 +618,23 @@
       "invalidTokenDefault": "Återställningslänken är ogiltig eller har löpt ut."
     },
     "confirmEmail": {
-      "subtitle": "Bekräfta e-postadress",
-      "promptMessage": "Klicka på knappen nedan för att bekräfta din e-postadress och aktivera ditt konto.",
-      "confirmButton": "Bekräfta e-postadress",
+      "subtitle": "Bekräfta din e-postadress",
+      "promptMessage": "Tryck på knappen nedan för att bekräfta din e-postadress och aktivera ditt konto.",
+      "confirmButton": "Bekräfta e-postadressen",
       "loading": "Bekräftar e-postadressen...",
-      "success": "Din e-postadress har bekräftats! Du kan logga in nu.",
+      "success": "Din e-postadress har bekräftats! Du kan nu logga in.",
       "goToLogin": "Gå till inloggning",
-      "invalidTokenDefault": "Bekräftelselänken är ogiltig eller har löpt ut."
+      "invalidTokenDefault": "Bekräftelselänken är ogiltig eller har gått ut.",
+      "tokenRequired": "Bekräftelselänken är ogiltig eller ofullständig.",
+      "tokenInvalid": "Bekräftelselänken är ogiltig.",
+      "tokenExpired": "Bekräftelselänken har gått ut.",
+      "failureMessage": "E-postadressen kunde inte bekräftas."
+    },
+    "pageTitle": {
+      "login": "ElectricalVPF ERP | Logga in",
+      "forgotPassword": "ElectricalVPF ERP | Återställ lösenord",
+      "resetPassword": "ElectricalVPF ERP | Nytt lösenord",
+      "confirmEmail": "ElectricalVPF ERP | Bekräfta e-post"
     }
   },
   "electricalWorkTypes": {
@@ -1656,5 +1666,20 @@
     "upgrade": "Uppgradera till PRO",
     "subtext": "Allt du har sparat hittills förblir som det är.",
     "close": "Inte nu"
+  },
+  "units": {
+    "buc": "st",
+    "m": "m",
+    "ml": "lpm",
+    "mp": "m²",
+    "mc": "m³",
+    "kg": "kg",
+    "set": "set",
+    "h": "tim",
+    "rola": "rulle",
+    "pereche": "par",
+    "cutie": "låda",
+    "pachet": "paket",
+    "l": "l"
   }
 }

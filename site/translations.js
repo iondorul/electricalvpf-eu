@@ -388,8 +388,8 @@ const translations = {
     "nav.tools.calculator": "Kalkulator kabla",
     "nav.tools.calculatorTooltip": "Oblicz przekrój kabla i spadek napięcia",
     "nav.resources.free": "Darmowe zasoby",
-    "nav.resources.quoteTemplate": "Free Electrical Quote Template",
-    "nav.resources.quoteTemplateTooltip": "Word, Excel i PDF · dla elektryków w Wielkiej Brytanii (po angielsku)",
+    "nav.resources.quoteTemplate": "Wzór oferty elektryka",
+    "nav.resources.quoteTemplateTooltip": "Word, Excel i PDF · bezpłatnie, dla elektryków w Polsce",
     login: "Zaloguj",
     startFree: "Zacznij za darmo",
     freeForever: "Za darmo na zawsze",
@@ -574,15 +574,15 @@ const translations = {
     "nav.tools.calculator": "Calcolatore cavi",
     "nav.tools.calculatorTooltip": "Calcola la sezione del cavo e la caduta di tensione",
     "nav.resources.free": "Risorse gratuite",
-    "nav.resources.quoteTemplate": "Free Electrical Quote Template",
-    "nav.resources.quoteTemplateTooltip": "Word, Excel e PDF · per elettricisti nel Regno Unito (in inglese)",
+    "nav.resources.quoteTemplate": "Modello preventivo elettricista",
+    "nav.resources.quoteTemplateTooltip": "Word, Excel e PDF gratuiti · per elettricisti in Italia",
     login: "Accedi",
     startFree: "Inizia Gratis",
     freeForever: "Gratis per sempre",
     planProCtaMonthly: "Passa a Pro - €49/mese",
     planProCtaYearly: "Passa a Pro - €470.40/anno",
     heroSubtitle:
-      "Meno tempo perso con le carte. Più tempo per i lavori e per i clienti. Tutto in un unico posto: Clienti, Lavori, Calcolatore Elettrico, Materiali, Offerte, Contratti, Fatture, Report.",
+      "Meno tempo perso con le carte. Più tempo per i lavori e per i clienti. Tutto in un unico posto: Clienti, Lavori, Calcolatore Elettrico, Materiali, Preventivi, Contratti, Fatture, Report.",
     heroProofText:
       "Li esporti quando vuoi e puoi annullare Pro quando vuoi, senza penali. Paghi tramite Stripe: i dati della carta non arrivano a noi.",
     heroProofTitle:
@@ -604,7 +604,7 @@ const translations = {
     featuresTitle:
       "Fatto per il lavoro di tutti i giorni di un elettricista.",
     featuresSubtitle:
-      "Lavori, materiali e offerte, come li usi ogni giorno.",
+      "Lavori, materiali e preventivi, come li usi ogni giorno.",
     workflowTitle:
       "Dalla prima chiamata all'incasso",
     workflowSubtitle:
@@ -665,8 +665,8 @@ const translations = {
     "nav.tools.calculator": "Kabelcalculator",
     "nav.tools.calculatorTooltip": "Bereken kabeldoorsnede en spanningsval",
     "nav.resources.free": "Gratis bronnen",
-    "nav.resources.quoteTemplate": "Free Electrical Quote Template",
-    "nav.resources.quoteTemplateTooltip": "Word, Excel en PDF · voor elektriciens in het VK (in het Engels)",
+    "nav.resources.quoteTemplate": "Gratis offerte-sjabloon voor elektriciens",
+    "nav.resources.quoteTemplateTooltip": "Word, Excel en PDF · gratis, voor elektriciens in Nederland",
     login: "Inloggen",
     startFree: "Start Gratis",
     freeForever: "Voor altijd gratis",
@@ -756,8 +756,8 @@ const translations = {
     "nav.tools.calculator": "Kabelkalkulator",
     "nav.tools.calculatorTooltip": "Beregn kabeltverrsnitt og spenningsfall",
     "nav.resources.free": "Gratis ressurser",
-    "nav.resources.quoteTemplate": "Free Electrical Quote Template",
-    "nav.resources.quoteTemplateTooltip": "Word, Excel og PDF · for elektrikere i Storbritannia (på engelsk)",
+    "nav.resources.quoteTemplate": "Gratis tilbudsmal for elektrikere",
+    "nav.resources.quoteTemplateTooltip": "Word, Excel og PDF · gratis, på norsk",
     login: "Logg inn",
     startFree: "Start Gratis",
     freeForever: "Gratis for alltid",

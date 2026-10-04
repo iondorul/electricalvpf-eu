@@ -116,9 +116,33 @@
     "legendDangerDesc": "Warunki nie są spełnione.",
     "legendInfoTitle": "NIEBIESKI — INFO",
     "legendInfoDesc": "Informacja / zalecenie.",
-    "disclaimer": "Wartości referencyjne wg IEC 60364-5-52 (przewód Cu, izolacja PVC, temperatura otoczenia 30°C, BEZ współczynników korekcyjnych dla grupowania kabli lub innej temperatury otoczenia — dla tras z kilkoma kablami razem lub wysokiej temperatury otoczenia zastosuj współczynniki korekcyjne z normy/przepisów przed zakupem materiału). Sprawdź wynik względem obowiązujących przepisów (I7 / IEC 60364) przed wykonaniem instalacji."
+    "disclaimer": "Wartości referencyjne wg IEC 60364-5-52 (przewód Cu, izolacja PVC, temperatura otoczenia 30°C, BEZ współczynników korekcyjnych dla grupowania kabli lub innej temperatury otoczenia — dla tras z kilkoma kablami razem lub wysokiej temperatury otoczenia zastosuj współczynniki korekcyjne z normy/przepisów przed zakupem materiału). Sprawdź wynik względem obowiązujących przepisów (I7 / IEC 60364) przed wykonaniem instalacji.",
+    "mcbNote": "Dobór wyłącznika nadprądowego sprawdza tylko warunek przeciążeniowy (Ib ≤ In ≤ Iz). Nie sprawdza impedancji pętli zwarcia, prądu zwarciowego, czasu wyłączenia ani zdolności wyłączania; sposób ułożenia przewodów musi odpowiadać rzeczywistej instalacji."
   },
   "practicalGuide": {
+    "title": "Przewodnik Praktyczny",
+    "searchPlaceholder": "Szukaj w książce...",
+    "bookmark": "Zakładka",
+    "markImportant": "Oznacz jako ważne",
+    "edit": "Edytuj",
+    "previous": "Poprzednia",
+    "next": "Następna",
+    "comingSoon": "Wkrótce",
+    "welcomeTitle": "Przewodnik Praktyczny",
+    "welcomeDesc": "Wybierz rozdział ze spisu treści, aby zacząć czytać.",
+    "emptySection": "Ta sekcja nie ma jeszcze treści.",
+    "loadFailed": "Nie udało się wczytać przewodnika.",
+    "progressLabel": "Sekcja {{index}} z {{total}} — Rozdział {{chapter}}",
+    "editTitle": "Edytuj sekcję",
+    "sectionTitleLabel": "Tytuł sekcji",
+    "contentHtmlLabel": "Treść (HTML)",
+    "previewLabel": "Podgląd",
+    "titleRequired": "Tytuł sekcji jest wymagany.",
+    "saveFailed": "Nie udało się zapisać sekcji.",
+    "saved": "Sekcja została zapisana.",
+    "deleteConfirm": "Usunąć tę sekcję? Tej operacji nie można cofnąć.",
+    "deleted": "Sekcja została usunięta.",
+    "addSectionTitle": "Dodaj sekcję",
     "proModal": {
       "title": "Odblokuj Przewodnik Praktyczny z PRO",
       "message": "Twój kompletny przewodnik terenowy na każde zlecenie elektryczne — od pierwszej kontroli po ostateczny odbiór.",
@@ -145,6 +169,7 @@
     "delete": "Usuń",
     "edit": "Edytuj",
     "close": "Zamknij",
+    "ok": "OK",
     "actions": "Działania",
     "search": "Szukaj",
     "loading": "Ładowanie...",
@@ -158,10 +183,12 @@
     "actionCannotBeUndone": "Tej czynności nie można cofnąć.",
     "yesDelete": "Tak, usuń",
     "serverError": "Wystąpił błąd serwera. Spróbuj ponownie.",
+    "retry": "Spróbuj ponownie",
+    "tooManyRequests": "Zbyt wiele żądań. Spróbuj ponownie później.",
     "upgradeToPro": "Przejdź na PRO",
     "emailActivityTitle": "Aktywności Email",
     "emailActivityDate": "Data",
-    "emailActivityEmail": "Email",
+    "emailActivityEmail": "E-mail",
     "emailActivityAction": "Akcja",
     "emailStatusSuccess": "Sukces",
     "emailStatusFailed": "Niepowodzenie",
@@ -184,6 +211,7 @@
     "invoices": "Faktury",
     "materials": "Materiały",
     "reports": "Raporty",
+    "controlPanel": "Panel sterowania",
     "settings": "Ustawienia",
     "leads": "Potencjalni Klienci",
     "workRequests": "Zgłoszenia",
@@ -218,6 +246,7 @@
     "avatarSettings": "Zarządzaj awatarem w Ustawieniach",
     "language": "Język",
     "toggleTheme": "Przełącz motyw",
+    "moreActions": "Więcej działań",
     "defaultUserName": "Użytkownik",
     "defaultUserRole": "Administrator",
     "avatarSaveFailed": "Nie udało się zapisać awatara.",
@@ -230,7 +259,27 @@
   },
   "dashboard": {
     "modal": {
-      "workTitle": "Zlecenie elektryczne"
+      "workTitle": "Zlecenie elektryczne",
+      "workName": "Nazwa zlecenia",
+      "workNumber": "Zlecenie nr",
+      "contactPerson": "Osoba kontaktowa",
+      "priority": "Priorytet",
+      "startDate": "Data rozpoczęcia",
+      "endDate": "Data zakończenia",
+      "completionDate": "Zakończono",
+      "address": "Adres",
+      "description": "Opis",
+      "notes": "Notatki",
+      "viewClient": "Zobacz klienta",
+      "viewWork": "Zobacz zlecenie",
+      "viewQuote": "Zobacz ofertę",
+      "viewInvoice": "Zobacz fakturę",
+      "downloadPdf": "Pobierz PDF",
+      "pdfGenerateFailed": "Nie udało się wygenerować pliku PDF.",
+      "pdfError": "Błąd podczas generowania pliku PDF.",
+      "activityType": "Typ",
+      "timestamp": "Data i godzina",
+      "entityId": "Odniesienie"
     },
     "pageTitle": "Przegląd",
     "welcome": "Witaj ponownie, {{name}}!",
@@ -241,7 +290,8 @@
       "work": "Zlecenia",
       "openQuotes": "Otwarte oferty",
       "invoices": "Faktury",
-      "revenue": "Przychód"
+      "revenue": "Przychód",
+      "loadError": "Nie udało się wczytać tej wartości"
     },
     "recentWork": "Ostatnie zlecenia",
     "viewAll": "Zobacz wszystkie",
@@ -257,7 +307,31 @@
       "planning": "Planowanie"
     },
     "systemActivity": "Aktywność systemu",
+    "sortFilter": {
+      "label": "Sortuj i filtruj",
+      "sortBy": "Sortuj według",
+      "recent": "Najnowsze",
+      "value": "Wartość zlecenia",
+      "name": "Nazwa",
+      "status": "Status",
+      "filterByStatus": "Filtruj według statusu",
+      "allStatuses": "Wszystkie statusy",
+      "reset": "Wyczyść filtry"
+    },
+    "status": {
+      "draft": "Szkic",
+      "planned": "Zaplanowane",
+      "inProgress": "W toku",
+      "onHold": "Wstrzymane",
+      "completed": "Zakończone",
+      "cancelled": "Anulowane"
+    },
+    "error": {
+      "workLoadFailed": "Nie udało się wczytać zleceń.",
+      "activityLoadFailed": "Nie udało się wczytać ostatniej aktywności."
+    },
     "empty": {
+      "noWork": "Brak ostatnich zleceń.",
       "noActivity": "Nie znaleziono ostatniej aktywności."
     },
     "activity": {
@@ -411,6 +485,8 @@
       "typeToConfirm": "Wpisz {{word}}, aby potwierdzić:",
       "confirmDelete": "Potwierdź trwałe usunięcie",
       "deleteConfirmWord": "USUŃ",
+      "exportError": "Nie udało się wyeksportować danych. Spróbuj ponownie.",
+      "deleteError": "Nie udało się usunąć konta. Spróbuj ponownie lub skontaktuj się z pomocą techniczną.",
       "exportSoon": "Eksport danych będzie wkrótce dostępny.",
       "termsSoon": "Regulamin będzie wkrótce dostępny.",
       "privacyPolicySoon": "Polityka prywatności będzie wkrótce dostępna.",
@@ -472,17 +548,17 @@
       "paymentFailedWarning": "Ostatnia płatność nie powiodła się. Stripe automatycznie ponowi próbę płatności w ciągu najbliższych kilku dni — nie musisz teraz nic robić."
     },
     "display": {
-      "desc": "Wybierz wygląd aplikacji — automatycznie podążaj za systemem operacyjnym lub ustaw konkretny tryb.",
+      "desc": "Wybierz wygląd aplikacji — ciemny lub jasny.",
       "system": {
         "label": "System",
-        "desc": "Automatycznie podąża za preferencją systemu operacyjnego."
+        "desc": "Standardowy tryb aplikacji — ciemny."
       },
       "light": {
-        "label": "Light",
+        "label": "Jasny",
         "desc": "Zawsze jasne tło."
       },
       "dark": {
-        "label": "Dark",
+        "label": "Ciemny",
         "desc": "Zawsze ciemne tło."
       }
     },
@@ -1404,7 +1480,39 @@
       "resetSuccessMessage": "Hasło zostało pomyślnie zresetowane! Możesz teraz zalogować się nowym hasłem.",
       "successMessage": "Zalogowano pomyślnie! Przekierowywanie...",
       "invalidCredentials": "Nieprawidłowy e-mail lub hasło!",
-      "missingToken": "Nieprawidłowa odpowiedź serwera (brak tokenu)."
+      "emailNotConfirmedTitle": "Adres e-mail nie został jeszcze potwierdzony",
+      "emailNotConfirmed": "Sprawdź wiadomość otrzymaną przy rejestracji i kliknij link potwierdzający, aby aktywować konto.<br><br>Jeżeli nie możesz znaleźć wiadomości, sprawdź też folder Spam/Wiadomości-śmieci.",
+      "resendConfirmation": "Wyślij ponownie e-mail potwierdzający",
+      "resendConfirmationCooldown": "Ponowne wysłanie możliwe za {{seconds}} s",
+      "resendConfirmationSuccess": "E-mail potwierdzający został wysłany. Sprawdź skrzynkę odbiorczą i folder Spam/Wiadomości-śmieci.",
+      "missingToken": "Nieprawidłowa odpowiedź serwera (brak tokenu).",
+      "diagnostic": {
+        "title": "Logowanie nieudane — diagnostyka",
+        "labelError": "1. Błąd",
+        "labelLocation": "2. Dokładne miejsce",
+        "labelCause": "3. Prawdopodobna przyczyna",
+        "labelSolutions": "4. Proponowane rozwiązania",
+        "networkError": "{{message}}",
+        "networkLocation": "Połączenie z serwerem → POST {{url}}",
+        "networkCause": "Backend nie działa, nie jest osiągalny pod skonfigurowanym adresem lub żądanie zostało zablokowane przez sieć/CORS.",
+        "networkSolutions": "1) Uruchom lokalny backend (start-dev.bat lub \"npm start\" w backend/).<br>2) Sprawdź adres w frontend/js/config.js (CONFIG.API_BASE_URL).<br>3) Otwórz kartę Sieć w DevTools i sprawdź dokładny status żądania.",
+        "turnstileError": "TURNSTILE_VERIFICATION_FAILED (HTTP 400)",
+        "turnstileLocation": "Serwer → weryfikacja Cloudflare Turnstile",
+        "turnstileCause": "Token bezpieczeństwa wygasł, został już użyty lub widżet Turnstile nie wczytał się poprawnie.",
+        "turnstileSolutions": "1) Odśwież stronę (F5) i spróbuj ponownie.<br>2) Sprawdź, czy bloker reklam/rozszerzenie nie blokuje challenges.cloudflare.com.<br>3) Jeżeli problem się powtarza, sprawdź TURNSTILE_SECRET_KEY w backend/.env.",
+        "serverError": "SERVER_ERROR (HTTP 500)",
+        "serverErrorLocation": "Serwer → POST /auth/login → błąd wewnętrzny",
+        "serverErrorCause": "Backend napotkał nieoczekiwany błąd — możliwe, że baza PostgreSQL jest nieosiągalna lub w kodzie jest błąd.",
+        "serverErrorSolutions": "1) Sprawdź okno terminala backendu, aby zobaczyć pełny komunikat błędu.<br>2) Sprawdź, czy baza PostgreSQL działa i jest osiągalna.<br>3) Sprawdź dane dostępowe do bazy w backend/.env.",
+        "unknownCodeError": "{{code}} (HTTP {{status}})",
+        "unknownCodeLocation": "Serwer → POST /auth/login",
+        "unknownCodeCause": "Serwer zwrócił nieznany lub nieoczekiwany kod błędu.",
+        "unknownCodeSolutions": "1) Sprawdź logi backendu, aby poznać szczegóły.<br>2) Sprawdź zdefiniowane kody w backend/constants/authCodes.js.",
+        "missingTokenError": "Brak tokenu JWT w odpowiedzi",
+        "missingTokenLocation": "Serwer → POST /auth/login → odpowiedź HTTP 200 bez tokenu",
+        "missingTokenCause": "Serwer potwierdził uwierzytelnienie, ale nie dołączył prawidłowego tokenu JWT do odpowiedzi.",
+        "missingTokenSolutions": "1) Sprawdź backend/controllers/authController.js#login — musi zwracać { token }.<br>2) Sprawdź JWT_SECRET w backend/.env."
+      }
     },
     "register": {
       "subtitle": "Utwórz nowe konto",
@@ -1439,7 +1547,8 @@
       "subtitle": "Odzyskiwanie hasła do konta",
       "description": "Wprowadź adres e-mail powiązany z Twoim kontem. Jeśli adres istnieje w systemie, otrzymasz link do zresetowania hasła (ważny 1 godzinę).",
       "submit": "Wyślij link resetujący",
-      "genericSuccessMessage": "Jeśli adres istnieje w systemie, otrzymasz e-mail z instrukcjami resetowania."
+      "genericSuccessMessage": "Jeśli adres istnieje w systemie, otrzymasz e-mail z instrukcjami resetowania.",
+      "accountNotFoundMessage": "<strong>Nie znaleziono konta</strong><br>Ten adres e-mail nie jest zarejestrowany w ElectricalVPF. Załóż nowe konto, aby kontynuować.<br><a href=\"register.html\" class=\"alert-link\">Załóż konto</a>"
     },
     "resetPassword": {
       "subtitle": "Ustaw nowe hasło",
@@ -1457,6 +1566,25 @@
       "tokenAndPasswordRequired": "Token i nowe hasło są wymagane.",
       "tokenInvalid": "Link resetujący jest nieprawidłowy.",
       "tokenExpired": "Link resetujący wygasł."
+    },
+    "confirmEmail": {
+      "subtitle": "Potwierdź adres e-mail",
+      "promptMessage": "Naciśnij przycisk poniżej, aby potwierdzić adres e-mail i aktywować konto.",
+      "confirmButton": "Potwierdź adres e-mail",
+      "loading": "Potwierdzanie adresu e-mail...",
+      "success": "Twój adres e-mail został potwierdzony! Możesz się teraz zalogować.",
+      "goToLogin": "Przejdź do logowania",
+      "invalidTokenDefault": "Link potwierdzający jest nieprawidłowy lub wygasł.",
+      "tokenRequired": "Link potwierdzający jest nieprawidłowy lub niekompletny.",
+      "tokenInvalid": "Link potwierdzający jest nieprawidłowy.",
+      "tokenExpired": "Link potwierdzający wygasł.",
+      "failureMessage": "Nie udało się potwierdzić adresu e-mail."
+    },
+    "pageTitle": {
+      "login": "ElectricalVPF ERP | Logowanie",
+      "forgotPassword": "ElectricalVPF ERP | Odzyskiwanie hasła",
+      "resetPassword": "ElectricalVPF ERP | Resetowanie hasła",
+      "confirmEmail": "ElectricalVPF ERP | Potwierdzenie e-maila"
     }
   },
   "electricalWorkTypes": {
@@ -1481,6 +1609,7 @@
     "other": "Inny rodzaj pracy"
   },
   "leads": {
+    "pageTitle": "Potencjalni Klienci",
     "addLead": "Dodaj Potencjalnego Klienta",
     "addNew": "Nowy Potencjalny Klient",
     "editLead": "Edytuj Potencjalnego Klienta",
@@ -1491,7 +1620,7 @@
     "table": {
       "nameCompany": "Nazwa / Firma",
       "phone": "Telefon",
-      "email": "Email",
+      "email": "E-mail",
       "workType": "Rodzaj pracy",
       "followUp": "Następny kontakt",
       "created": "Utworzono",
@@ -1598,6 +1727,136 @@
     }
   },
   "workRequests": {
+    "pageTitle": "Zgłoszenia",
+    "searchPlaceholder": "Szukaj po nr zgłoszenia, tytule lub kliencie...",
+    "newRequest": "Nowe zgłoszenie",
+    "addWorkRequest": "Dodaj zgłoszenie",
+    "createRequest": "Utwórz zgłoszenie",
+    "allStatuses": "Wszystkie statusy",
+    "allPriorities": "Wszystkie priorytety",
+    "status": {
+      "OPEN": "Otwarte",
+      "IN_PROGRESS": "W toku",
+      "WAITING": "Oczekujące",
+      "RESOLVED": "Rozwiązane",
+      "CLOSED": "Zamknięte"
+    },
+    "priority": {
+      "LOW": "Niski",
+      "MEDIUM": "Średni",
+      "HIGH": "Wysoki",
+      "URGENT": "Pilny"
+    },
+    "kpi": {
+      "open": "Otwarte",
+      "inProgress": "W toku",
+      "waiting": "Oczekujące",
+      "overdue": "Po terminie",
+      "resolved": "Rozwiązane"
+    },
+    "table": {
+      "request": "Zgłoszenie",
+      "clientWork": "Klient / Zlecenie",
+      "priority": "Priorytet",
+      "created": "Utworzono"
+    },
+    "loadingList": "Wczytywanie zgłoszeń...",
+    "emptyTitle": "Nie znaleziono zgłoszeń",
+    "emptyDesc": "Kliknij „Nowe zgłoszenie”, aby zapisać pracę z terenu.",
+    "titleLabel": "Co zastałeś na miejscu? *",
+    "titlePlaceholder": "np. Rozdzielnica R3 — przepalony styk L2",
+    "descriptionLabel": "Opis (opcjonalnie)",
+    "descriptionPlaceholder": "Szczegóły problemu...",
+    "locationLabel": "Lokalizacja (opcjonalnie)",
+    "locationPlaceholder": "np. Kraków, ul. Długa ...",
+    "customerLabel": "Klient (opcjonalnie)",
+    "customerLabelRequired": "Klient *",
+    "customerSearchPlaceholder": "Szukaj istniejącego klienta...",
+    "customerRequired": "Klient jest wymagany.",
+    "assignToMe": "Przypisz do mnie",
+    "photosLabel": "📷 Zdjęcia (opcjonalnie)",
+    "photosSelected": {
+      "one": "Wybrano zdjęć: {{n}}",
+      "other": "Wybrano zdjęć: {{n}}"
+    },
+    "deleteConfirmTitle": "Usunąć to zgłoszenie?",
+    "titleRequired": "Tytuł zgłoszenia jest wymagany.",
+    "notFound": "Nie znaleziono zgłoszenia.",
+    "invalidStatus": "Nieprawidłowy status.",
+    "invalidPriority": "Nieprawidłowy priorytet.",
+    "loadError": "Błąd podczas wczytywania zgłoszeń.",
+    "noCustomer": "Brak klienta",
+    "noCustomerFound": "Nie znaleziono klienta.",
+    "noCustomersYet": "Nie masz jeszcze żadnych klientów.",
+    "loadingCustomers": "Wczytywanie klientów...",
+    "customersLoadFailed": "Nie udało się wczytać klientów.",
+    "addNewCustomer": "Dodaj nowego klienta",
+    "created": "Zgłoszenie zostało utworzone!",
+    "saveFailed": "Nie udało się zapisać zgłoszenia.",
+    "deleted": "Zgłoszenie zostało usunięte.",
+    "deleteFailed": "Nie udało się usunąć zgłoszenia.",
+    "assignFailedAfterCreate": "Zgłoszenie {{number}} zostało utworzone, ale przypisanie się nie powiodło. Możesz przypisać je ręcznie na stronie zgłoszenia.",
+    "photosFailedAfterCreate": "Zgłoszenie {{number}} zostało utworzone, ale nie udało się przesłać {{count}} z {{total}} zdjęć. Możesz spróbować ponownie na stronie zgłoszenia.",
+    "paginationInfo": {
+      "one": "{{start}} - {{end}} z {{total}} zgłoszenia",
+      "other": "{{start}} - {{end}} z {{total}} zgłoszeń"
+    },
+    "backToList": "Wróć do Zgłoszeń",
+    "linkedEntities": "Powiązane",
+    "createCustomer": "+ Utwórz klienta",
+    "workLabel": "Zlecenie",
+    "workSearchPlaceholder": "Szukaj istniejącego zlecenia...",
+    "createWork": "+ Utwórz zlecenie",
+    "siteEquipmentSoon": "Obiekt / Urządzenia — w jednej z kolejnych aktualizacji.",
+    "details": "Szczegóły",
+    "assigneeLabel": "Przypisano do",
+    "unassigned": "Nieprzypisane",
+    "photosSectionTitle": "Zdjęcia",
+    "addPhoto": "Dodaj zdjęcie",
+    "noPhotos": "Brak zdjęć.",
+    "photoUnavailable": "Zdjęcie chwilowo niedostępne",
+    "activityTimeline": "Aktywność i komentarze",
+    "commentPlaceholder": "Dodaj komentarz...",
+    "noActivity": "Brak aktywności.",
+    "noWork": "Brak zlecenia",
+    "pipeline": {
+      "field": "Teren",
+      "customer": "Klient",
+      "work": "Zlecenie",
+      "commercial": "Handel",
+      "execution": "Realizacja",
+      "billing": "Rozliczenie"
+    },
+    "updated": "Zgłoszenie zostało zaktualizowane!",
+    "noResultsFound": "Brak wyników.",
+    "linked": "Powiązano!",
+    "invalidLinkEntity": "Nie udało się powiązać wybranego elementu.",
+    "linkFailed": "Nie udało się dokończyć powiązania.",
+    "photoTooLarge": "Zdjęcie przekracza maksymalny rozmiar (30 MB).",
+    "photoInvalidType": "Nieprawidłowy format pliku. Dozwolone są tylko obrazy (JPG, PNG, HEIC, WebP itp.).",
+    "photoRequired": "Wybierz zdjęcie.",
+    "photoUploadFailed": "Nie udało się przesłać zdjęcia.",
+    "photosUploaded": "Zdjęcia zostały przesłane!",
+    "commentRequired": "Komentarz nie może być pusty.",
+    "commentFailed": "Nie udało się dodać komentarza.",
+    "event": {
+      "statusChange": "Zmieniono status z {{from}} na {{to}}",
+      "linkAdded": "Powiązano {{entity}} #{{id}}",
+      "photoAdded": "Dodano zdjęcie"
+    },
+    "storage": {
+      "title": "Miejsce na dane",
+      "freePlan": "Plan Free",
+      "proPlan": "Plan Pro",
+      "usedOfIncluded": "Wykorzystano {{used}} z {{included}}",
+      "remainingLabel": "Pozostało {{remaining}}",
+      "warningMessage": "Zbliżasz się do limitu miejsca w swoim planie.",
+      "blockedMessage": "Osiągnięto limit miejsca — nowych zdjęć nie można przesłać, dopóki nie zwolnisz miejsca lub nie przejdziesz na Pro.",
+      "blockedMessageShort": "Osiągnięto limit miejsca.",
+      "upgradeLink": "Przejdź na Pro",
+      "quotaExceeded": "Osiągnięto limit miejsca w Twoim planie.",
+      "quotaExceededAfterCreate": "Zgłoszenie {{number}} zostało utworzone, ale nie udało się przesłać {{count}} z {{total}} zdjęć — osiągnięto limit miejsca w Twoim planie."
+    },
     "associatedWithRequired": "Powiązano z *",
     "associatedWith": "Powiązano z",
     "customerOption": "Klient",
@@ -1890,7 +2149,7 @@
   "helpContact": {
     "title": "Kontakt",
     "intro": "Masz pytanie lub znalazłeś problem? Napisz do nas — odpowiemy najszybciej jak to możliwe.",
-    "emailLabel": "Email",
+    "emailLabel": "E-mail",
     "phoneLabel": "Telefon",
     "websiteLabel": "Strona internetowa"
   },
@@ -1931,7 +2190,8 @@
       "note1": "Etapy zaznaczają się same na podstawie dokumentów: kosztorys, oferta wysłana lub zaakceptowana, podpisana umowa, wysłana faktura, otrzymana płatność. Zlecenie jest na najdalszym potwierdzonym etapie.",
       "note2": "Tylko dwa etapy zaznaczasz sam: Wizja lokalna i Zlecenie zamknięte. Zlecenie można zamknąć dopiero po etapie Płatność otrzymana."
     },
-    "or": "lub"
+    "or": "lub",
+    "jumpNav": "Kroki procesu pracy"
   },
   "jtOffer": {
     "dialogLabel": "Obliczenie w ofercie",
@@ -2180,5 +2440,29 @@
     "upgrade": "Przejdź na PRO",
     "subtext": "Wszystko, co do tej pory zapisano, pozostaje bez zmian.",
     "close": "Nie teraz"
+  },
+  "units": {
+    "buc": "szt.",
+    "m": "m",
+    "ml": "mb",
+    "mp": "m²",
+    "mc": "m³",
+    "kg": "kg",
+    "set": "kpl.",
+    "h": "godz.",
+    "rola": "rolka",
+    "pereche": "para",
+    "cutie": "pudełko",
+    "pachet": "paczka",
+    "l": "l",
+    "long": {
+      "buc": "szt. (sztuka)",
+      "m": "m (metr)",
+      "ml": "mb (metr bieżący)",
+      "mp": "m² (metr kwadratowy)",
+      "mc": "m³ (metr sześcienny)",
+      "h": "godz. (roboczogodzina)",
+      "l": "l (litr)"
+    }
   }
 }

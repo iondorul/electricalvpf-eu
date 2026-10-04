@@ -116,7 +116,8 @@
     "legendDangerDesc": "Betingelsene er ikke oppfylt.",
     "legendInfoTitle": "BLÅ — INFO",
     "legendInfoDesc": "Informasjon / anbefaling.",
-    "disclaimer": "Referanseverdier iht. IEC 60364-5-52 (Cu-leder, PVC-isolasjon, omgivelsestemperatur 30°C, UTEN korreksjonsfaktorer for kabelgruppering eller annen omgivelsestemperatur — for strekk med flere kabler sammen eller høy omgivelsestemperatur, bruk korreksjonsfaktorene fra standarden/forskriften før du kjøper materiale). Sjekk resultatet mot gjeldende forskrift (I7 / IEC 60364) før utførelse."
+    "disclaimer": "Referanseverdier iht. IEC 60364-5-52 (Cu-leder, PVC-isolasjon, omgivelsestemperatur 30°C, UTEN korreksjonsfaktorer for kabelgruppering eller annen omgivelsestemperatur — for strekk med flere kabler sammen eller høy omgivelsestemperatur, bruk korreksjonsfaktorene fra standarden/forskriften før du kjøper materiale). Sjekk resultatet mot gjeldende forskrift (I7 / IEC 60364) før utførelse.",
+    "mcbNote": "Valget av automatsikring kontrollerer bare den nominelle overbelastningsbetingelsen (Ib ≤ In ≤ Iz). Det kontrollerer ikke sløyfeimpedans, feilstrøm, utkoblingstid eller bryteevne; forlegningsmåten må samsvare med den faktiske installasjonen."
   },
   "practicalGuide": {
     "proModal": {
@@ -145,6 +146,7 @@
     "delete": "Slett",
     "edit": "Rediger",
     "close": "Lukk",
+    "ok": "OK",
     "actions": "Handlinger",
     "search": "Søk",
     "loading": "Laster...",
@@ -158,6 +160,8 @@
     "actionCannotBeUndone": "Denne handlingen kan ikke angres.",
     "yesDelete": "Ja, slett",
     "serverError": "Det oppstod en serverfeil. Prøv igjen.",
+    "retry": "Prøv igjen",
+    "tooManyRequests": "For mange forespørsler. Prøv igjen senere.",
     "upgradeToPro": "Oppgrader til PRO",
     "emailActivityTitle": "E-postaktivitet",
     "emailActivityDate": "Dato",
@@ -184,6 +188,7 @@
     "invoices": "Fakturaer",
     "materials": "Materialer",
     "reports": "Rapporter",
+    "controlPanel": "Kontrollpanel",
     "settings": "Innstillinger",
     "leads": "Potensielle Kunder",
     "workRequests": "Arbeidsordrer",
@@ -218,6 +223,7 @@
     "avatarSettings": "Administrer avatar i Innstillinger",
     "language": "Språk",
     "toggleTheme": "Bytt tema",
+    "moreActions": "Flere handlinger",
     "defaultUserName": "Bruker",
     "defaultUserRole": "Administrator",
     "avatarSaveFailed": "Kunne ikke lagre avataren.",
@@ -230,7 +236,27 @@
   },
   "dashboard": {
     "modal": {
-      "workTitle": "Elektrisk arbeid"
+      "workTitle": "Elektrisk arbeid",
+      "workName": "Navn på arbeidet",
+      "workNumber": "Arbeid nr.",
+      "contactPerson": "Kontaktperson",
+      "priority": "Prioritet",
+      "startDate": "Startdato",
+      "endDate": "Sluttdato",
+      "completionDate": "Fullført",
+      "address": "Adresse",
+      "description": "Beskrivelse",
+      "notes": "Notater",
+      "viewClient": "Vis kunde",
+      "viewWork": "Vis arbeid",
+      "viewQuote": "Vis tilbud",
+      "viewInvoice": "Vis faktura",
+      "downloadPdf": "Last ned PDF",
+      "pdfGenerateFailed": "Kunne ikke generere PDF-en.",
+      "pdfError": "Feil ved generering av PDF-en.",
+      "activityType": "Type",
+      "timestamp": "Tidspunkt",
+      "entityId": "Referanse"
     },
     "pageTitle": "Oversikt",
     "welcome": "Velkommen tilbake, {{name}}!",
@@ -241,7 +267,8 @@
       "work": "Arbeid",
       "openQuotes": "Åpne tilbud",
       "invoices": "Fakturaer",
-      "revenue": "Omsetning"
+      "revenue": "Omsetning",
+      "loadError": "Kunne ikke laste denne verdien"
     },
     "recentWork": "Nylig arbeid",
     "viewAll": "Se alle",
@@ -257,7 +284,31 @@
       "planning": "Planlegging"
     },
     "systemActivity": "Systemaktivitet",
+    "sortFilter": {
+      "label": "Sorter og filtrer",
+      "sortBy": "Sorter etter",
+      "recent": "Nyeste",
+      "value": "Verdi på arbeidet",
+      "name": "Navn",
+      "status": "Status",
+      "filterByStatus": "Filtrer etter status",
+      "allStatuses": "Alle statuser",
+      "reset": "Nullstill filtre"
+    },
+    "status": {
+      "draft": "Utkast",
+      "planned": "Planlagt",
+      "inProgress": "Pågår",
+      "onHold": "På vent",
+      "completed": "Fullført",
+      "cancelled": "Kansellert"
+    },
+    "error": {
+      "workLoadFailed": "Kunne ikke laste arbeid.",
+      "activityLoadFailed": "Kunne ikke laste siste aktivitet."
+    },
     "empty": {
+      "noWork": "Ingen nylige arbeid funnet.",
       "noActivity": "Ingen nylig aktivitet funnet."
     },
     "activity": {
@@ -411,6 +462,8 @@
       "typeToConfirm": "Skriv {{word}} for å bekrefte:",
       "confirmDelete": "Bekreft permanent sletting",
       "deleteConfirmWord": "SLETT",
+      "exportError": "Kunne ikke eksportere dataene dine. Prøv igjen.",
+      "deleteError": "Kunne ikke slette kontoen din. Prøv igjen eller kontakt kundestøtte.",
       "exportSoon": "Dataeksport blir snart tilgjengelig.",
       "termsSoon": "Vilkår og betingelser blir snart tilgjengelig.",
       "privacyPolicySoon": "Personvernerklæringen blir snart tilgjengelig.",
@@ -472,10 +525,10 @@
       "paymentFailedWarning": "Siste betaling mislyktes. Stripe vil automatisk prøve betalingen på nytt i løpet av de neste dagene — du trenger ikke gjøre noe nå."
     },
     "display": {
-      "desc": "Velg hvordan appen ser ut — følg operativsystemet automatisk, eller fest en bestemt modus.",
+      "desc": "Velg hvordan appen ser ut — mørk eller lys.",
       "system": {
         "label": "System",
-        "desc": "Følger automatisk operativsystemets preferanse."
+        "desc": "Appens standardmodus — mørk."
       },
       "light": {
         "label": "Light",
@@ -1400,7 +1453,39 @@
       "resetSuccessMessage": "Passordet ble tilbakestilt! Du kan nå logge inn med det nye passordet.",
       "successMessage": "Innlogging vellykket! Omdirigerer...",
       "invalidCredentials": "Feil e-post eller passord!",
-      "missingToken": "Ugyldig serverrespons (mangler token)."
+      "emailNotConfirmedTitle": "E-posten er ikke bekreftet ennå",
+      "emailNotConfirmed": "Sjekk e-posten du fikk ved registreringen, og klikk på bekreftelseslenken for å aktivere kontoen.<br><br>Finner du ikke e-posten, sjekk også søppelpostmappen.",
+      "resendConfirmation": "Send bekreftelses-e-posten på nytt",
+      "resendConfirmationCooldown": "Kan sendes på nytt om {{seconds}} s",
+      "resendConfirmationSuccess": "Bekreftelses-e-posten er sendt. Sjekk innboksen og søppelpostmappen.",
+      "missingToken": "Ugyldig serverrespons (mangler token).",
+      "diagnostic": {
+        "title": "Innlogging mislyktes — diagnose",
+        "labelError": "1. Feil",
+        "labelLocation": "2. Nøyaktig sted",
+        "labelCause": "3. Sannsynlig årsak",
+        "labelSolutions": "4. Foreslåtte løsninger",
+        "networkError": "{{message}}",
+        "networkLocation": "Tilkobling til serveren → POST {{url}}",
+        "networkCause": "Serveren kjører ikke, kan ikke nås på den konfigurerte adressen, eller forespørselen ble blokkert av nettverk/CORS.",
+        "networkSolutions": "1) Start den lokale serveren (start-dev.bat, eller «npm start» i backend/).<br>2) Sjekk adressen i frontend/js/config.js (CONFIG.API_BASE_URL).<br>3) Åpne Network-fanen i DevTools og sjekk den nøyaktige statusen for forespørselen.",
+        "turnstileError": "TURNSTILE_VERIFICATION_FAILED (HTTP 400)",
+        "turnstileLocation": "Server → Cloudflare Turnstile-verifisering",
+        "turnstileCause": "Sikkerhetstokenet er utløpt, allerede brukt, eller Turnstile-widgeten ble ikke lastet riktig.",
+        "turnstileSolutions": "1) Last inn siden på nytt (F5) og prøv igjen.<br>2) Sjekk om en annonseblokkering/utvidelse blokkerer challenges.cloudflare.com.<br>3) Hvis det fortsetter, sjekk TURNSTILE_SECRET_KEY i backend/.env.",
+        "serverError": "SERVER_ERROR (HTTP 500)",
+        "serverErrorLocation": "Server → POST /auth/login → intern feil",
+        "serverErrorCause": "Serveren fikk en uventet feil — muligens kan ikke PostgreSQL-databasen nås, eller det er en feil i koden.",
+        "serverErrorSolutions": "1) Sjekk serverens terminalvindu for hele feilmeldingen.<br>2) Sjekk om PostgreSQL-databasen kjører og kan nås.<br>3) Sjekk at backend/.env har riktige DB-opplysninger.",
+        "unknownCodeError": "{{code}} (HTTP {{status}})",
+        "unknownCodeLocation": "Server → POST /auth/login",
+        "unknownCodeCause": "Ukjent eller uventet feilkode fra serveren.",
+        "unknownCodeSolutions": "1) Sjekk serverloggene for detaljer.<br>2) Sjekk backend/constants/authCodes.js for de definerte kodene.",
+        "missingTokenError": "JWT-token mangler i svaret",
+        "missingTokenLocation": "Server → POST /auth/login → HTTP 200-svar uten token",
+        "missingTokenCause": "Serveren bekreftet innloggingen, men svaret inneholdt ikke et gyldig JWT-token.",
+        "missingTokenSolutions": "1) Sjekk backend/controllers/authController.js#login — den må returnere { token }.<br>2) Sjekk JWT_SECRET i backend/.env."
+      }
     },
     "register": {
       "subtitle": "Opprett en ny konto",
@@ -1435,7 +1520,8 @@
       "subtitle": "Gjenopprett kontopassordet",
       "description": "Skriv inn e-postadressen knyttet til kontoen din. Hvis adressen finnes i systemet, får du en lenke for å tilbakestille passordet (gyldig i 1 time).",
       "submit": "Send tilbakestillingslenke",
-      "genericSuccessMessage": "Hvis adressen finnes i systemet, får du en e-post med instruksjoner for tilbakestilling."
+      "genericSuccessMessage": "Hvis adressen finnes i systemet, får du en e-post med instruksjoner for tilbakestilling.",
+      "accountNotFoundMessage": "<strong>Fant ikke kontoen</strong><br>Denne e-postadressen er ikke registrert i ElectricalVPF. Registrer en ny konto for å fortsette.<br><a href=\"register.html\" class=\"alert-link\">Opprett en konto</a>"
     },
     "resetPassword": {
       "subtitle": "Angi et nytt passord",
@@ -1453,6 +1539,25 @@
       "tokenAndPasswordRequired": "Token og nytt passord er obligatorisk.",
       "tokenInvalid": "Tilbakestillingslenken er ugyldig.",
       "tokenExpired": "Tilbakestillingslenken har utløpt."
+    },
+    "confirmEmail": {
+      "subtitle": "Bekreft e-postadressen din",
+      "promptMessage": "Trykk på knappen nedenfor for å bekrefte e-postadressen din og aktivere kontoen.",
+      "confirmButton": "Bekreft e-postadressen",
+      "loading": "Bekrefter e-postadressen...",
+      "success": "E-postadressen din er bekreftet! Du kan nå logge inn.",
+      "goToLogin": "Gå til innlogging",
+      "invalidTokenDefault": "Bekreftelseslenken er ugyldig eller utløpt.",
+      "tokenRequired": "Bekreftelseslenken er ugyldig eller ufullstendig.",
+      "tokenInvalid": "Bekreftelseslenken er ugyldig.",
+      "tokenExpired": "Bekreftelseslenken er utløpt.",
+      "failureMessage": "E-postadressen kunne ikke bekreftes."
+    },
+    "pageTitle": {
+      "login": "ElectricalVPF ERP | Logg inn",
+      "forgotPassword": "ElectricalVPF ERP | Glemt passord",
+      "resetPassword": "ElectricalVPF ERP | Tilbakestill passord",
+      "confirmEmail": "ElectricalVPF ERP | Bekreft e-post"
     }
   },
   "electricalWorkTypes": {
@@ -1477,6 +1582,7 @@
     "other": "Annen type arbeid"
   },
   "leads": {
+    "pageTitle": "Potensielle Kunder",
     "addLead": "Legg til Potensiell Kunde",
     "addNew": "Ny Potensiell Kunde",
     "editLead": "Rediger Potensiell Kunde",
@@ -1592,6 +1698,136 @@
     }
   },
   "workRequests": {
+    "pageTitle": "Arbeidsordrer",
+    "searchPlaceholder": "Søk etter ordrenr., tittel eller kunde...",
+    "newRequest": "Ny arbeidsordre",
+    "addWorkRequest": "Legg til arbeidsordre",
+    "createRequest": "Opprett ordre",
+    "allStatuses": "Alle statuser",
+    "allPriorities": "Alle prioriteter",
+    "status": {
+      "OPEN": "Åpen",
+      "IN_PROGRESS": "Pågår",
+      "WAITING": "Venter",
+      "RESOLVED": "Løst",
+      "CLOSED": "Lukket"
+    },
+    "priority": {
+      "LOW": "Lav",
+      "MEDIUM": "Middels",
+      "HIGH": "Høy",
+      "URGENT": "Haster"
+    },
+    "kpi": {
+      "open": "Åpne",
+      "inProgress": "Pågår",
+      "waiting": "Venter",
+      "overdue": "Forfalt",
+      "resolved": "Løst"
+    },
+    "table": {
+      "request": "Ordre",
+      "clientWork": "Kunde / Arbeid",
+      "priority": "Prioritet",
+      "created": "Opprettet"
+    },
+    "loadingList": "Laster arbeidsordrer...",
+    "emptyTitle": "Ingen arbeidsordre funnet",
+    "emptyDesc": "Trykk «Ny arbeidsordre» for å registrere en jobb fra stedet.",
+    "titleLabel": "Hva fant du? *",
+    "titlePlaceholder": "f.eks. Sikringsskap T3 — brent kontakt L2",
+    "descriptionLabel": "Beskrivelse (valgfritt)",
+    "descriptionPlaceholder": "Detaljer om problemet...",
+    "locationLabel": "Sted (valgfritt)",
+    "locationPlaceholder": "f.eks. Bergen, Storgata ...",
+    "customerLabel": "Kunde (valgfritt)",
+    "customerLabelRequired": "Kunde *",
+    "customerSearchPlaceholder": "Søk etter eksisterende kunde...",
+    "customerRequired": "Kunde er påkrevd.",
+    "assignToMe": "Tildel meg",
+    "photosLabel": "📷 Bilder (valgfritt)",
+    "photosSelected": {
+      "one": "{{n}} bilde valgt",
+      "other": "{{n}} bilder valgt"
+    },
+    "deleteConfirmTitle": "Slette denne arbeidsordren?",
+    "titleRequired": "Tittel på arbeidsordren er påkrevd.",
+    "notFound": "Arbeidsordren ble ikke funnet.",
+    "invalidStatus": "Ugyldig status.",
+    "invalidPriority": "Ugyldig prioritet.",
+    "loadError": "Feil ved lasting av arbeidsordrene.",
+    "noCustomer": "Ingen kunde",
+    "noCustomerFound": "Ingen kunde funnet.",
+    "noCustomersYet": "Du har ingen kunder ennå.",
+    "loadingCustomers": "Laster kunder...",
+    "customersLoadFailed": "Kunne ikke laste kunder.",
+    "addNewCustomer": "Legg til ny kunde",
+    "created": "Arbeidsordren er opprettet!",
+    "saveFailed": "Kunne ikke lagre arbeidsordren.",
+    "deleted": "Arbeidsordren er slettet.",
+    "deleteFailed": "Kunne ikke slette arbeidsordren.",
+    "assignFailedAfterCreate": "Arbeidsordre {{number}} ble opprettet, men tildelingen mislyktes. Du kan tildele den manuelt fra ordresiden.",
+    "photosFailedAfterCreate": "Arbeidsordre {{number}} ble opprettet, men {{count}} av {{total}} bilder kunne ikke lastes opp. Du kan prøve igjen fra ordresiden.",
+    "paginationInfo": {
+      "one": "Viser {{start}} - {{end}} av {{total}} arbeidsordre",
+      "other": "Viser {{start}} - {{end}} av {{total}} arbeidsordrer"
+    },
+    "backToList": "Tilbake til arbeidsordrer",
+    "linkedEntities": "Tilknyttet",
+    "createCustomer": "+ Opprett kunde",
+    "workLabel": "Arbeid",
+    "workSearchPlaceholder": "Søk etter eksisterende arbeid...",
+    "createWork": "+ Opprett arbeid",
+    "siteEquipmentSoon": "Anlegg / utstyr — kommer i en senere oppdatering.",
+    "details": "Detaljer",
+    "assigneeLabel": "Ansvarlig",
+    "unassigned": "Ikke tildelt",
+    "photosSectionTitle": "Bilder",
+    "addPhoto": "Legg til bilde",
+    "noPhotos": "Ingen bilder ennå.",
+    "photoUnavailable": "Bildet er midlertidig utilgjengelig",
+    "activityTimeline": "Aktivitet og kommentarer",
+    "commentPlaceholder": "Skriv en kommentar...",
+    "noActivity": "Ingen aktivitet ennå.",
+    "noWork": "Ingen arbeid",
+    "pipeline": {
+      "field": "Stedet",
+      "customer": "Kunde",
+      "work": "Arbeid",
+      "commercial": "Kommersielt",
+      "execution": "Utførelse",
+      "billing": "Fakturering"
+    },
+    "updated": "Arbeidsordren er oppdatert!",
+    "noResultsFound": "Ingen resultater funnet.",
+    "linked": "Tilknyttet!",
+    "invalidLinkEntity": "Kunne ikke knytte til det valgte elementet.",
+    "linkFailed": "Kunne ikke fullføre tilknytningen.",
+    "photoTooLarge": "Bildet er større enn tillatt (30 MB).",
+    "photoInvalidType": "Ugyldig filformat. Bare bildefiler (JPG, PNG, HEIC, WebP osv.) er tillatt.",
+    "photoRequired": "Velg et bilde.",
+    "photoUploadFailed": "Kunne ikke laste opp bildet.",
+    "photosUploaded": "Bildene er lastet opp!",
+    "commentRequired": "Kommentaren kan ikke være tom.",
+    "commentFailed": "Kunne ikke legge til kommentaren.",
+    "event": {
+      "statusChange": "Status endret fra {{from}} til {{to}}",
+      "linkAdded": "Knyttet til {{entity}} #{{id}}",
+      "photoAdded": "Bilde lagt til"
+    },
+    "storage": {
+      "title": "Lagring",
+      "freePlan": "Free-plan",
+      "proPlan": "Pro-plan",
+      "usedOfIncluded": "{{used}} brukt av {{included}}",
+      "remainingLabel": "{{remaining}} igjen",
+      "warningMessage": "Du nærmer deg lagringsgrensen i planen din.",
+      "blockedMessage": "Lagringsgrensen er nådd — nye bilder kan ikke lastes opp før du frigjør plass eller oppgraderer.",
+      "blockedMessageShort": "Lagringsgrensen er nådd.",
+      "upgradeLink": "Oppgrader til Pro",
+      "quotaExceeded": "Du har nådd lagringsgrensen i planen din.",
+      "quotaExceededAfterCreate": "Arbeidsordre {{number}} ble opprettet, men {{count}} av {{total}} bilder mislyktes — du har nådd lagringsgrensen i planen din."
+    },
     "associatedWithRequired": "Tilknyttet *",
     "associatedWith": "Tilknyttet",
     "customerOption": "Kunde",
@@ -1925,7 +2161,8 @@
       "note1": "Trinnene hukes av automatisk ut fra dokumentene: et estimat, et tilbud sendt eller akseptert, en signert kontrakt, en sendt faktura, mottatt betaling. Jobben står på det lengste trinnet som er dokumentert.",
       "note2": "Bare to trinn markerer du selv: Befaring og Jobb lukket. En jobb kan bare lukkes etter Betaling mottatt."
     },
-    "or": "eller"
+    "or": "eller",
+    "jumpNav": "Trinn i arbeidsflyten"
   },
   "jtOffer": {
     "dialogLabel": "Beregning i et tilbud",
@@ -2174,5 +2411,29 @@
     "upgrade": "Oppgrader til PRO",
     "subtext": "Alt du har lagret så langt, forblir som det er.",
     "close": "Ikke nå"
+  },
+  "units": {
+    "buc": "stk",
+    "m": "m",
+    "ml": "lm",
+    "mp": "m²",
+    "mc": "m³",
+    "kg": "kg",
+    "set": "sett",
+    "h": "t",
+    "rola": "rull",
+    "pereche": "par",
+    "cutie": "eske",
+    "pachet": "pakke",
+    "l": "l",
+    "long": {
+      "buc": "stk (stykk)",
+      "m": "m (meter)",
+      "ml": "lm (løpemeter)",
+      "mp": "m² (kvadratmeter)",
+      "mc": "m³ (kubikkmeter)",
+      "h": "t (arbeidstime)",
+      "l": "l (liter)"
+    }
   }
 }

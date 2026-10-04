@@ -116,7 +116,8 @@
     "legendDangerDesc": "Condițiile nu sunt îndeplinite.",
     "legendInfoTitle": "ALBASTRU — INFO",
     "legendInfoDesc": "Informație / recomandare.",
-    "disclaimer": "Valori de referință IEC 60364-5-52 (conductor Cu, izolație PVC, temperatură ambiantă 30°C, FĂRĂ factori de corecție pentru grupare de cabluri sau temperatură diferită de referință — pentru trasee cu mai multe cabluri împreună sau temperaturi ambiante ridicate, aplică factorii de corecție din standard/normativ înainte de a cumpăra materialul). Verifică rezultatul împotriva normativului aplicabil (I7 / IEC 60364) înainte de execuție."
+    "disclaimer": "Valori de referință IEC 60364-5-52 (conductor Cu, izolație PVC, temperatură ambiantă 30°C, FĂRĂ factori de corecție pentru grupare de cabluri sau temperatură diferită de referință — pentru trasee cu mai multe cabluri împreună sau temperaturi ambiante ridicate, aplică factorii de corecție din standard/normativ înainte de a cumpăra materialul). Verifică rezultatul împotriva normativului aplicabil (I7 / IEC 60364) înainte de execuție.",
+    "mcbNote": "Selecția MCB verifică numai condiția nominală de suprasarcină (Ib ≤ In ≤ Iz). Nu verifică impedanța buclei, curentul de defect, timpul de deconectare sau capacitatea de rupere; metoda de pozare trebuie să corespundă instalației reale."
   },
   "legalFooter": {
     "terms": "Termeni și Condiții",
@@ -508,10 +509,10 @@
       "paymentFailedWarning": "Ultima plată a eșuat. Stripe va reîncerca automat plata în zilele următoare — nu trebuie să faci nimic acum."
     },
     "display": {
-      "desc": "Alege cum arată aplicația — urmărește automat sistemul de operare sau fixează un mod anume.",
+      "desc": "Alege cum arată aplicația — întunecat sau luminos.",
       "system": {
         "label": "System",
-        "desc": "Urmărește automat preferința sistemului de operare."
+        "desc": "Modul standard al aplicației — întunecat."
       },
       "light": {
         "label": "Light",
@@ -2290,6 +2291,25 @@
       "tokenAndPasswordRequired": "Token-ul și noua parolă sunt obligatorii.",
       "tokenInvalid": "Linkul de resetare este invalid.",
       "tokenExpired": "Linkul de resetare a expirat."
+    },
+    "confirmEmail": {
+      "subtitle": "Confirmare adresă de email",
+      "promptMessage": "Apasă butonul de mai jos pentru a confirma adresa de email și a-ți activa contul.",
+      "confirmButton": "Confirmă adresa de email",
+      "loading": "Se confirmă adresa de email...",
+      "success": "Emailul tău a fost confirmat cu succes! Te poți autentifica acum.",
+      "goToLogin": "Mergi la autentificare",
+      "invalidTokenDefault": "Linkul de confirmare este invalid sau a expirat.",
+      "tokenRequired": "Linkul de confirmare este invalid sau incomplet.",
+      "tokenInvalid": "Linkul de confirmare este invalid.",
+      "tokenExpired": "Linkul de confirmare a expirat.",
+      "failureMessage": "Nu s-a putut confirma adresa de email."
+    },
+    "pageTitle": {
+      "login": "ElectricalVPF ERP | Autentificare",
+      "forgotPassword": "ElectricalVPF ERP | Recuperare parolă",
+      "resetPassword": "ElectricalVPF ERP | Resetare parolă",
+      "confirmEmail": "ElectricalVPF ERP | Confirmare email"
     }
   },
   "contracts": {
@@ -2596,7 +2616,8 @@
       "note1": "Etapele se bifează singure din documente: o ofertă estimată, o ofertă trimisă sau acceptată, un contract semnat, o factură trimisă, plata încasată. Lucrarea stă la cea mai avansată etapă dovedită.",
       "note2": "Doar două etape le marchezi tu: Vizită pe teren și Lucrare închisă. Lucrarea se poate închide numai după Plată încasată."
     },
-    "or": "sau"
+    "or": "sau",
+    "jumpNav": "Pașii fluxului de lucru"
   },
   "jtOffer": {
     "dialogLabel": "Calcul JT în ofertă",
@@ -2845,5 +2866,29 @@
     "upgrade": "Treci la PRO",
     "subtext": "Tot ce ai salvat până acum rămâne neatins.",
     "close": "Nu acum"
+  },
+  "units": {
+    "buc": "buc",
+    "m": "m",
+    "ml": "ml",
+    "mp": "mp",
+    "mc": "mc",
+    "kg": "kg",
+    "set": "set",
+    "h": "h",
+    "rola": "rolă",
+    "pereche": "pereche",
+    "cutie": "cutie",
+    "pachet": "pachet",
+    "l": "l",
+    "long": {
+      "buc": "buc (bucată)",
+      "m": "m (metru)",
+      "ml": "ml (metru liniar)",
+      "mp": "mp (metru pătrat)",
+      "mc": "mc (metru cub)",
+      "h": "h (oră manoperă)",
+      "l": "l (litru)"
+    }
   }
 }

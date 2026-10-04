@@ -2,7 +2,7 @@
   "workflowGuide": {
     "intro": "Van de eerste klant tot de laatste betaling. Bekijk wat elke module voor je doet en ga direct naar wat je nodig hebt.",
     "example": "Op een echte klus",
-    "open": "Open module",
+    "open": "Module openen",
     "estimatingCancel": "Vóór Voltooid of Geannuleerd:",
     "quotesCancel": "Vanuit Concept, Verzonden of Geaccepteerd:",
     "clients": {
@@ -116,7 +116,8 @@
     "legendDangerDesc": "Voorwaarden niet vervuld.",
     "legendInfoTitle": "BLAUW — INFO",
     "legendInfoDesc": "Informatie / aanbeveling.",
-    "disclaimer": "Referentiewaarden volgens IEC 60364-5-52 (Cu-geleider, PVC-isolatie, omgevingstemperatuur 30°C, ZONDER correctiefactoren voor groepering van kabels of een andere omgevingstemperatuur — pas voor trajecten met meerdere kabels samen of hoge omgevingstemperaturen de correctiefactoren uit de norm/voorschriften toe vóór aankoop van het materiaal). Controleer het resultaat aan de hand van de toepasselijke voorschriften (I7 / IEC 60364) vóór uitvoering."
+    "disclaimer": "Referentiewaarden volgens IEC 60364-5-52 (Cu-geleider, PVC-isolatie, omgevingstemperatuur 30°C, ZONDER correctiefactoren voor groepering van kabels of een andere omgevingstemperatuur — pas voor trajecten met meerdere kabels samen of hoge omgevingstemperaturen de correctiefactoren uit de norm/voorschriften toe vóór aankoop van het materiaal). Controleer het resultaat aan de hand van de toepasselijke voorschriften (I7 / IEC 60364) vóór uitvoering.",
+    "mcbNote": "De keuze van de installatieautomaat controleert alleen de nominale overbelastingsvoorwaarde (Ib ≤ In ≤ Iz). Lusimpedantie, kortsluitstroom, uitschakeltijd en schakelvermogen worden niet gecontroleerd; de installatiemethode moet overeenkomen met de werkelijke installatie."
   },
   "practicalGuide": {
     "proModal": {
@@ -145,6 +146,7 @@
     "delete": "Verwijderen",
     "edit": "Bewerken",
     "close": "Sluiten",
+    "ok": "OK",
     "actions": "Acties",
     "search": "Zoeken",
     "loading": "Laden...",
@@ -158,6 +160,8 @@
     "actionCannotBeUndone": "Deze actie kan niet ongedaan worden gemaakt.",
     "yesDelete": "Ja, verwijderen",
     "serverError": "Er is een serverfout opgetreden. Probeer het opnieuw.",
+    "retry": "Opnieuw proberen",
+    "tooManyRequests": "Te veel verzoeken. Probeer het later opnieuw.",
     "upgradeToPro": "Upgrade naar PRO",
     "emailActivityTitle": "E-mailactiviteiten",
     "emailActivityDate": "Datum",
@@ -184,6 +188,7 @@
     "invoices": "Facturen",
     "materials": "Materialen",
     "reports": "Rapporten",
+    "controlPanel": "Configuratiescherm",
     "settings": "Instellingen",
     "leads": "Potentiële Klanten",
     "workRequests": "Werkverzoeken",
@@ -218,6 +223,7 @@
     "avatarSettings": "Avatar beheren in Instellingen",
     "language": "Taal",
     "toggleTheme": "Thema wisselen",
+    "moreActions": "Meer acties",
     "defaultUserName": "Gebruiker",
     "defaultUserRole": "Beheerder",
     "avatarSaveFailed": "Avatar kon niet worden opgeslagen.",
@@ -230,7 +236,27 @@
   },
   "dashboard": {
     "modal": {
-      "workTitle": "Elektrisch werk"
+      "workTitle": "Elektrisch werk",
+      "workName": "Naam van het werk",
+      "workNumber": "Werk nr.",
+      "contactPerson": "Contactpersoon",
+      "priority": "Prioriteit",
+      "startDate": "Startdatum",
+      "endDate": "Einddatum",
+      "completionDate": "Afgerond op",
+      "address": "Adres",
+      "description": "Omschrijving",
+      "notes": "Notities",
+      "viewClient": "Klant bekijken",
+      "viewWork": "Werk bekijken",
+      "viewQuote": "Offerte bekijken",
+      "viewInvoice": "Factuur bekijken",
+      "downloadPdf": "PDF downloaden",
+      "pdfGenerateFailed": "De PDF kon niet worden gemaakt.",
+      "pdfError": "Fout bij het maken van de PDF.",
+      "activityType": "Type",
+      "timestamp": "Tijdstip",
+      "entityId": "Referentie"
     },
     "pageTitle": "Overzicht",
     "welcome": "Welkom terug, {{name}}!",
@@ -241,7 +267,8 @@
       "work": "Werk",
       "openQuotes": "Openstaande offertes",
       "invoices": "Facturen",
-      "revenue": "Omzet"
+      "revenue": "Omzet",
+      "loadError": "Deze waarde kon niet worden geladen"
     },
     "recentWork": "Recent werk",
     "viewAll": "Alles bekijken",
@@ -257,7 +284,31 @@
       "planning": "Planning"
     },
     "systemActivity": "Systeemactiviteit",
+    "sortFilter": {
+      "label": "Sorteren en filteren",
+      "sortBy": "Sorteren op",
+      "recent": "Meest recent",
+      "value": "Waarde van het werk",
+      "name": "Naam",
+      "status": "Status",
+      "filterByStatus": "Filteren op status",
+      "allStatuses": "Alle statussen",
+      "reset": "Filters wissen"
+    },
+    "status": {
+      "draft": "Concept",
+      "planned": "Gepland",
+      "inProgress": "In uitvoering",
+      "onHold": "Gepauzeerd",
+      "completed": "Afgerond",
+      "cancelled": "Geannuleerd"
+    },
+    "error": {
+      "workLoadFailed": "Het werk kon niet worden geladen.",
+      "activityLoadFailed": "De recente activiteit kon niet worden geladen."
+    },
     "empty": {
+      "noWork": "Geen recent werk gevonden.",
       "noActivity": "Geen recente activiteit gevonden."
     },
     "activity": {
@@ -411,6 +462,8 @@
       "typeToConfirm": "Typ {{word}} ter bevestiging:",
       "confirmDelete": "Definitieve verwijdering bevestigen",
       "deleteConfirmWord": "VERWIJDEREN",
+      "exportError": "Je gegevens konden niet worden geëxporteerd. Probeer het opnieuw.",
+      "deleteError": "Je account kon niet worden verwijderd. Probeer het opnieuw of neem contact op met support.",
       "exportSoon": "Gegevensexport komt binnenkort beschikbaar.",
       "termsSoon": "De algemene voorwaarden komen binnenkort beschikbaar.",
       "privacyPolicySoon": "Het privacybeleid komt binnenkort beschikbaar.",
@@ -472,17 +525,17 @@
       "paymentFailedWarning": "De laatste betaling is mislukt. Stripe probeert de betaling de komende dagen automatisch opnieuw — je hoeft nu niets te doen."
     },
     "display": {
-      "desc": "Kies hoe de app eruitziet — volg automatisch je besturingssysteem of stel een specifieke modus in.",
+      "desc": "Kies hoe de app eruitziet — donker of licht.",
       "system": {
-        "label": "System",
-        "desc": "Volgt automatisch de voorkeur van je besturingssysteem."
+        "label": "Systeem",
+        "desc": "De standaardmodus van de app — donker."
       },
       "light": {
-        "label": "Light",
+        "label": "Licht",
         "desc": "Altijd een lichte achtergrond."
       },
       "dark": {
-        "label": "Dark",
+        "label": "Donker",
         "desc": "Altijd een donkere achtergrond."
       }
     },
@@ -1400,7 +1453,39 @@
       "resetSuccessMessage": "Wachtwoord succesvol opnieuw ingesteld! Je kunt nu inloggen met je nieuwe wachtwoord.",
       "successMessage": "Inloggen gelukt! Doorverwijzen...",
       "invalidCredentials": "Onjuist e-mailadres of wachtwoord!",
-      "missingToken": "Ongeldig serverantwoord (token ontbreekt)."
+      "emailNotConfirmedTitle": "E-mailadres nog niet bevestigd",
+      "emailNotConfirmed": "Controleer de e-mail die je bij de registratie hebt ontvangen en klik op de bevestigingslink om je account te activeren.<br><br>Kun je de e-mail niet vinden? Kijk dan ook in je map Spam/Ongewenst.",
+      "resendConfirmation": "Bevestigingsmail opnieuw versturen",
+      "resendConfirmationCooldown": "Opnieuw versturen kan over {{seconds}}s",
+      "resendConfirmationSuccess": "Bevestigingsmail verstuurd. Controleer je inbox en je map Spam/Ongewenst.",
+      "missingToken": "Ongeldig serverantwoord (token ontbreekt).",
+      "diagnostic": {
+        "title": "Inloggen mislukt — diagnose",
+        "labelError": "1. Fout",
+        "labelLocation": "2. Exacte plaats",
+        "labelCause": "3. Waarschijnlijke oorzaak",
+        "labelSolutions": "4. Voorgestelde oplossingen",
+        "networkError": "{{message}}",
+        "networkLocation": "Verbinding met de server → POST {{url}}",
+        "networkCause": "De backend draait niet, is niet bereikbaar op het ingestelde adres, of het verzoek is geblokkeerd door het netwerk/CORS.",
+        "networkSolutions": "1) Start de lokale backend (start-dev.bat, of \"npm start\" in backend/).<br>2) Controleer het adres in frontend/js/config.js (CONFIG.API_BASE_URL).<br>3) Open het tabblad Netwerk in DevTools en controleer de exacte status van het verzoek.",
+        "turnstileError": "TURNSTILE_VERIFICATION_FAILED (HTTP 400)",
+        "turnstileLocation": "Server → Cloudflare Turnstile-verificatie",
+        "turnstileCause": "Het beveiligingstoken is verlopen, al gebruikt, of de Turnstile-widget is niet goed geladen.",
+        "turnstileSolutions": "1) Laad de pagina opnieuw (F5) en probeer het nog eens.<br>2) Controleer of een adblocker/extensie challenges.cloudflare.com blokkeert.<br>3) Blijft dit gebeuren? Controleer dan TURNSTILE_SECRET_KEY in backend/.env.",
+        "serverError": "SERVER_ERROR (HTTP 500)",
+        "serverErrorLocation": "Server → POST /auth/login → interne fout",
+        "serverErrorCause": "De backend kreeg een onverwachte fout — mogelijk is de PostgreSQL-database niet bereikbaar, of er zit een fout in de code.",
+        "serverErrorSolutions": "1) Bekijk het terminalvenster van de backend voor de volledige foutmelding.<br>2) Controleer of de PostgreSQL-database draait en bereikbaar is.<br>3) Controleer de DB-gegevens in backend/.env.",
+        "unknownCodeError": "{{code}} (HTTP {{status}})",
+        "unknownCodeLocation": "Server → POST /auth/login",
+        "unknownCodeCause": "Onbekende of onverwachte foutcode ontvangen van de server.",
+        "unknownCodeSolutions": "1) Bekijk de logs van de backend voor details.<br>2) Controleer backend/constants/authCodes.js voor de gedefinieerde codes.",
+        "missingTokenError": "JWT-token ontbreekt in het antwoord",
+        "missingTokenLocation": "Server → POST /auth/login → HTTP 200-antwoord zonder token",
+        "missingTokenCause": "De server heeft de authenticatie bevestigd, maar geen geldig JWT-token in het antwoord meegestuurd.",
+        "missingTokenSolutions": "1) Controleer backend/controllers/authController.js#login — die moet { token } teruggeven.<br>2) Controleer JWT_SECRET in backend/.env."
+      }
     },
     "register": {
       "subtitle": "Maak een nieuw account aan",
@@ -1435,7 +1520,8 @@
       "subtitle": "Herstel je accountwachtwoord",
       "description": "Voer het e-mailadres in dat is gekoppeld aan je account. Als het adres in ons systeem bestaat, ontvang je een link om je wachtwoord opnieuw in te stellen (1 uur geldig).",
       "submit": "Verstuur resetlink",
-      "genericSuccessMessage": "Als het adres in ons systeem bestaat, ontvang je een e-mail met instructies om het wachtwoord te resetten."
+      "genericSuccessMessage": "Als het adres in ons systeem bestaat, ontvang je een e-mail met instructies om het wachtwoord te resetten.",
+      "accountNotFoundMessage": "<strong>Account niet gevonden</strong><br>Dit e-mailadres is niet geregistreerd bij ElectricalVPF. Maak een nieuw account aan om verder te gaan.<br><a href=\"register.html\" class=\"alert-link\">Account aanmaken</a>"
     },
     "resetPassword": {
       "subtitle": "Stel een nieuw wachtwoord in",
@@ -1453,6 +1539,25 @@
       "tokenAndPasswordRequired": "Token en nieuw wachtwoord zijn verplicht.",
       "tokenInvalid": "De resetlink is ongeldig.",
       "tokenExpired": "De resetlink is verlopen."
+    },
+    "confirmEmail": {
+      "subtitle": "Bevestig je e-mailadres",
+      "promptMessage": "Klik op de knop hieronder om je e-mailadres te bevestigen en je account te activeren.",
+      "confirmButton": "E-mailadres bevestigen",
+      "loading": "E-mailadres wordt bevestigd...",
+      "success": "Je e-mailadres is bevestigd! Je kunt nu inloggen.",
+      "goToLogin": "Naar inloggen",
+      "invalidTokenDefault": "De bevestigingslink is ongeldig of verlopen.",
+      "tokenRequired": "De bevestigingslink is ongeldig of onvolledig.",
+      "tokenInvalid": "De bevestigingslink is ongeldig.",
+      "tokenExpired": "De bevestigingslink is verlopen.",
+      "failureMessage": "Je e-mailadres kon niet worden bevestigd."
+    },
+    "pageTitle": {
+      "login": "ElectricalVPF ERP | Inloggen",
+      "forgotPassword": "ElectricalVPF ERP | Wachtwoord vergeten",
+      "resetPassword": "ElectricalVPF ERP | Wachtwoord opnieuw instellen",
+      "confirmEmail": "ElectricalVPF ERP | E-mail bevestigen"
     }
   },
   "electricalWorkTypes": {
@@ -1477,6 +1582,7 @@
     "other": "Ander type werk"
   },
   "leads": {
+    "pageTitle": "Potentiële Klanten",
     "addLead": "Potentiële Klant Toevoegen",
     "addNew": "Nieuwe Potentiële Klant",
     "editLead": "Potentiële Klant Bewerken",
@@ -1592,6 +1698,136 @@
     }
   },
   "workRequests": {
+    "pageTitle": "Werkverzoeken",
+    "searchPlaceholder": "Zoek op verzoeknr., titel of klant...",
+    "newRequest": "Nieuw werkverzoek",
+    "addWorkRequest": "Werkverzoek toevoegen",
+    "createRequest": "Verzoek aanmaken",
+    "allStatuses": "Alle statussen",
+    "allPriorities": "Alle prioriteiten",
+    "status": {
+      "OPEN": "Open",
+      "IN_PROGRESS": "In uitvoering",
+      "WAITING": "Wachtend",
+      "RESOLVED": "Opgelost",
+      "CLOSED": "Gesloten"
+    },
+    "priority": {
+      "LOW": "Laag",
+      "MEDIUM": "Gemiddeld",
+      "HIGH": "Hoog",
+      "URGENT": "Urgent"
+    },
+    "kpi": {
+      "open": "Open",
+      "inProgress": "In uitvoering",
+      "waiting": "Wachtend",
+      "overdue": "Te laat",
+      "resolved": "Opgelost"
+    },
+    "table": {
+      "request": "Verzoek",
+      "clientWork": "Klant / Werk",
+      "priority": "Prioriteit",
+      "created": "Aangemaakt"
+    },
+    "loadingList": "Verzoeken worden geladen...",
+    "emptyTitle": "Geen verzoek gevonden",
+    "emptyDesc": "Klik op „Nieuw werkverzoek” om een klus uit het veld vast te leggen.",
+    "titleLabel": "Wat heb je aangetroffen? *",
+    "titlePlaceholder": "bijv. Groepenkast T3 — verbrand contact L2",
+    "descriptionLabel": "Omschrijving (optioneel)",
+    "descriptionPlaceholder": "Details over het probleem...",
+    "locationLabel": "Locatie (optioneel)",
+    "locationPlaceholder": "bijv. Utrecht, Hoofdstraat ...",
+    "customerLabel": "Klant (optioneel)",
+    "customerLabelRequired": "Klant *",
+    "customerSearchPlaceholder": "Zoek een bestaande klant...",
+    "customerRequired": "Een klant is verplicht.",
+    "assignToMe": "Aan mij toewijzen",
+    "photosLabel": "📷 Foto's (optioneel)",
+    "photosSelected": {
+      "one": "{{n}} foto geselecteerd",
+      "other": "{{n}} foto's geselecteerd"
+    },
+    "deleteConfirmTitle": "Dit verzoek verwijderen?",
+    "titleRequired": "De titel van het verzoek is verplicht.",
+    "notFound": "Verzoek niet gevonden.",
+    "invalidStatus": "Ongeldige status.",
+    "invalidPriority": "Ongeldige prioriteit.",
+    "loadError": "Fout bij het laden van de verzoeken.",
+    "noCustomer": "Geen klant",
+    "noCustomerFound": "Geen klant gevonden.",
+    "noCustomersYet": "Je hebt nog geen klanten.",
+    "loadingCustomers": "Klanten worden geladen...",
+    "customersLoadFailed": "De klanten konden niet worden geladen.",
+    "addNewCustomer": "Nieuwe klant toevoegen",
+    "created": "Verzoek succesvol aangemaakt!",
+    "saveFailed": "Het verzoek kon niet worden opgeslagen.",
+    "deleted": "Het verzoek is verwijderd.",
+    "deleteFailed": "Het verzoek kon niet worden verwijderd.",
+    "assignFailedAfterCreate": "Verzoek {{number}} is aangemaakt, maar het toewijzen is mislukt. Je kunt het handmatig toewijzen op de pagina van het verzoek.",
+    "photosFailedAfterCreate": "Verzoek {{number}} is aangemaakt, maar {{count}} van de {{total}} foto's zijn niet geüpload. Je kunt het opnieuw proberen op de pagina van het verzoek.",
+    "paginationInfo": {
+      "one": "{{start}} - {{end}} van {{total}} verzoek",
+      "other": "{{start}} - {{end}} van {{total}} verzoeken"
+    },
+    "backToList": "Terug naar Werkverzoeken",
+    "linkedEntities": "Gekoppeld",
+    "createCustomer": "+ Klant aanmaken",
+    "workLabel": "Werk",
+    "workSearchPlaceholder": "Zoek bestaand werk...",
+    "createWork": "+ Werk aanmaken",
+    "siteEquipmentSoon": "Locatie / Apparatuur — komt in een volgende update.",
+    "details": "Details",
+    "assigneeLabel": "Toegewezen aan",
+    "unassigned": "Niet toegewezen",
+    "photosSectionTitle": "Foto's",
+    "addPhoto": "Foto toevoegen",
+    "noPhotos": "Nog geen foto's.",
+    "photoUnavailable": "Foto tijdelijk niet beschikbaar",
+    "activityTimeline": "Activiteit en opmerkingen",
+    "commentPlaceholder": "Voeg een opmerking toe...",
+    "noActivity": "Nog geen activiteit.",
+    "noWork": "Geen werk",
+    "pipeline": {
+      "field": "Veld",
+      "customer": "Klant",
+      "work": "Werk",
+      "commercial": "Commercieel",
+      "execution": "Uitvoering",
+      "billing": "Facturering"
+    },
+    "updated": "Verzoek succesvol bijgewerkt!",
+    "noResultsFound": "Geen resultaten gevonden.",
+    "linked": "Succesvol gekoppeld!",
+    "invalidLinkEntity": "Het geselecteerde item kon niet worden gekoppeld.",
+    "linkFailed": "De koppeling kon niet worden voltooid.",
+    "photoTooLarge": "De foto is groter dan de maximale grootte (30 MB).",
+    "photoInvalidType": "Ongeldig bestandsformaat. Alleen afbeeldingen (JPG, PNG, HEIC, WebP enz.) zijn toegestaan.",
+    "photoRequired": "Selecteer een foto.",
+    "photoUploadFailed": "De foto kon niet worden geüpload.",
+    "photosUploaded": "Foto's succesvol geüpload!",
+    "commentRequired": "De opmerking mag niet leeg zijn.",
+    "commentFailed": "De opmerking kon niet worden toegevoegd.",
+    "event": {
+      "statusChange": "Status gewijzigd van {{from}} naar {{to}}",
+      "linkAdded": "{{entity}} #{{id}} gekoppeld",
+      "photoAdded": "Foto toegevoegd"
+    },
+    "storage": {
+      "title": "Opslag",
+      "freePlan": "Free-abonnement",
+      "proPlan": "Pro-abonnement",
+      "usedOfIncluded": "{{used}} gebruikt van {{included}}",
+      "remainingLabel": "{{remaining}} resterend",
+      "warningMessage": "Je zit dicht bij de opslaglimiet van je abonnement.",
+      "blockedMessage": "Opslaglimiet bereikt — nieuwe foto's kunnen pas worden geüpload als je ruimte vrijmaakt of upgradet.",
+      "blockedMessageShort": "Opslaglimiet bereikt.",
+      "upgradeLink": "Upgrade naar Pro",
+      "quotaExceeded": "Je hebt de opslaglimiet van je abonnement bereikt.",
+      "quotaExceededAfterCreate": "Verzoek {{number}} is aangemaakt, maar {{count}} van de {{total}} foto's zijn mislukt — je hebt de opslaglimiet van je abonnement bereikt."
+    },
     "associatedWithRequired": "Gekoppeld aan *",
     "associatedWith": "Gekoppeld aan",
     "customerOption": "Klant",
@@ -1925,7 +2161,8 @@
       "note1": "Fases worden vanzelf afgevinkt op basis van documenten: een raming, een verzonden of geaccepteerde offerte, een ondertekend contract, een verzonden factuur, de ontvangen betaling. De klus staat op de verste bewezen fase.",
       "note2": "Maar twee fases markeer je zelf: Locatiebezoek en Werk afgesloten. Een klus kan pas worden afgesloten na Betaling ontvangen."
     },
-    "or": "of"
+    "or": "of",
+    "jumpNav": "Stappen van de werkstroom"
   },
   "jtOffer": {
     "dialogLabel": "Berekening in een offerte",
@@ -2174,5 +2411,29 @@
     "upgrade": "Overstappen naar PRO",
     "subtext": "Alles wat je tot nu toe hebt opgeslagen, blijft zoals het is.",
     "close": "Niet nu"
+  },
+  "units": {
+    "buc": "st.",
+    "m": "m",
+    "ml": "str. m",
+    "mp": "m²",
+    "mc": "m³",
+    "kg": "kg",
+    "set": "set",
+    "h": "u",
+    "rola": "rol",
+    "pereche": "paar",
+    "cutie": "doos",
+    "pachet": "pak",
+    "l": "l",
+    "long": {
+      "buc": "st. (stuk)",
+      "m": "m (meter)",
+      "ml": "str. m (strekkende meter)",
+      "mp": "m² (vierkante meter)",
+      "mc": "m³ (kubieke meter)",
+      "h": "u (arbeidsuur)",
+      "l": "l (liter)"
+    }
   }
 }

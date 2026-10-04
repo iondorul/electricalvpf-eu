@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<!-- Nederlandse versie van het gratis offertesjabloon (zelfde structuur als /ro/model-deviz-instalatii-electrice/). Bestanden: site/downloads/offerte-sjabloon-elektricien.* (site/tools/build-quote-template.py nl). Absolute paden. -->
+<html lang="nl" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gratis offerte-sjabloon voor elektriciens (Word, Excel, PDF) | ElectricalVPF</title>
+    <meta name="description"
+        content="Gratis offerte-sjabloon voor elektriciens: arbeid en materialen op aparte regels, btw alleen voor btw-plichtigen, betalingsvoorwaarden en akkoord. Word, Excel en PDF – zonder account.">
+    <link rel="canonical" href="https://electricalvpf.app/nl/offerte-sjabloon-elektricien/">
+    <link rel="alternate" hreflang="it" href="https://electricalvpf.app/it/modello-preventivo-elettricista/">
+    <link rel="alternate" hreflang="pl" href="https://electricalvpf.app/pl/wzor-oferty-elektryka/">
+    <link rel="alternate" hreflang="nl" href="https://electricalvpf.app/nl/offerte-sjabloon-elektricien/">
+    <link rel="alternate" hreflang="no" href="https://electricalvpf.app/no/tilbudsmal-elektriker/">
+    <link rel="alternate" hreflang="ro" href="https://electricalvpf.app/ro/model-deviz-instalatii-electrice/">
+    <link rel="alternate" hreflang="en-GB" href="https://electricalvpf.app/electrical-quote-template/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ElectricalVPF">
+    <meta property="og:locale" content="nl_NL">
+    <meta property="og:url" content="https://electricalvpf.app/nl/offerte-sjabloon-elektricien/">
+    <meta property="og:title" content="Gratis offerte-sjabloon voor elektriciens (Word, Excel, PDF)">
+    <meta property="og:description"
+        content="Offerte met arbeid en materialen, btw alleen voor btw-plichtigen, wat niet is inbegrepen, betalingsvoorwaarden en akkoord. Zonder account.">
+    <meta property="og:image" content="https://electricalvpf.app/site/img/offerte-sjabloon-elektricien.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="/site/img/favicon-light.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/site/style.css?v=20261002-footer-centered">
+    <link rel="stylesheet" href="/site/cosmos.css?v=20261002-auth-cosmos">
+    <link rel="stylesheet" href="https://electricalvpf.app/frontend/css/back-to-website.css?v=20261002-shared">
+    <style>
+        /* Aceleași tokenuri ca vitrina (site/style.css). Calm: spațiere, borduri de 1px, fără umbre tari. */
+        .qt-header-actions { display: flex; align-items: center; gap: 10px; }
+        .qt-header-actions a { font-size: .9rem; padding: 9px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+        .qt-login { color: var(--text-main); border: 1px solid var(--border-color); }
+        .qt-login:hover { border-color: var(--accent-color); }
+
+        /* „Back to website”: același buton ca pe Login/Register/paginile legale (frontend/css/back-to-website.css);
+           aici stă în pagină, deasupra titlului (antetul cu logo e sus), iar pe tema luminoasă primește
+           aceleași culori ca varianta luminoasă de pe Login. */
+        .qt-hero .auth-back-to-website { position: static; display: flex; width: fit-content; margin-bottom: 24px; }
+        [data-theme="light"] .qt-hero .auth-back-to-website { color: #1f2937; background: #f8fafc; border-color: #64748b; backdrop-filter: none; }
+        [data-theme="light"] .qt-hero .auth-back-to-website:hover, [data-theme="light"] .qt-hero .auth-back-to-website:focus-visible { color: #0f172a; background: #e2e8f0; border-color: #475569; }
+        .qt-hero { padding: 24px 0 24px; }
+        .qt-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 48px; align-items: start; }
+        .qt-kicker { display: inline-block; margin-bottom: 14px; padding: 4px 12px; border: 1px solid color-mix(in srgb, var(--accent-color) 30%, transparent); border-radius: 999px; color: var(--accent-color); font-size: .8rem; font-weight: 600; }
+        .qt-hero h1 { color: var(--text-heading); font-size: 2.3rem; line-height: 1.2; margin-bottom: 14px; }
+        .qt-lead { color: var(--text-muted); font-size: 1.08rem; margin-bottom: 26px; max-width: 34em; }
+
+        .qt-downloads { display: grid; gap: 10px; max-width: 420px; }
+        .qt-download { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 1px solid var(--border-color); border-radius: 12px; background: color-mix(in srgb, var(--bg-card) 88%, transparent); color: var(--text-main); text-decoration: none; transition: border-color .15s ease; }
+        .qt-download:hover, .qt-download:focus-visible { border-color: var(--accent-color); }
+        .qt-download i { font-size: 1.5rem; width: 28px; text-align: center; }
+        .qt-download .fa-file-word { color: #4f8ef7; }
+        .qt-download .fa-file-excel { color: #34a853; }
+        .qt-download .fa-file-pdf { color: #ef6a5b; }
+        .qt-download strong { display: block; font-size: .98rem; }
+        .qt-download span { display: block; color: var(--text-muted); font-size: .82rem; }
+        .qt-download .fa-download { margin-left: auto; font-size: .95rem; color: var(--text-muted); }
+        .qt-free-note { margin-top: 12px; color: var(--text-muted); font-size: .85rem; }
+
+        .qt-after { display: none; max-width: 420px; margin-top: 14px; padding: 14px 16px; border: 1px solid color-mix(in srgb, var(--accent-color) 35%, transparent); border-radius: 12px; font-size: .92rem; }
+        .qt-after.is-visible { display: block; }
+        .qt-after a { color: var(--accent-color); font-weight: 600; }
+
+        .qt-preview { border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; background: #fff; }
+        .qt-preview img { display: block; width: 100%; height: auto; }
+        .qt-preview-caption { margin-top: 8px; color: var(--text-muted); font-size: .8rem; text-align: center; }
+
+        .qt-section { padding: 40px 0; }
+        .qt-section h2 { color: var(--text-heading); font-size: 1.5rem; margin-bottom: 18px; }
+        .qt-checklist { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 28px; list-style: none; }
+        .qt-checklist li { display: flex; gap: 12px; color: var(--text-main); }
+        .qt-checklist i { color: var(--accent-color); margin-top: 5px; }
+        .qt-checklist b { color: var(--text-heading); }
+        .qt-checklist span { color: var(--text-muted); }
+
+        .qt-bridge { padding: 32px; border: 1px solid var(--border-color); border-radius: 16px; background: color-mix(in srgb, var(--bg-card) 85%, transparent); }
+        .qt-bridge h2 { margin-bottom: 10px; }
+        .qt-bridge p { color: var(--text-muted); max-width: 46em; margin-bottom: 18px; }
+        .qt-steps { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; list-style: none; }
+        .qt-steps li { padding: 6px 12px; border: 1px solid var(--border-color); border-radius: 999px; font-size: .85rem; color: var(--text-main); }
+        .qt-steps li i { color: var(--accent-color); margin-right: 6px; }
+        .qt-bridge .btn-primary { display: inline-block; padding: 13px 22px; border-radius: 8px; color: #111827; font-weight: 700; text-decoration: none; }
+        .qt-bridge small { display: block; margin-top: 10px; color: var(--text-muted); }
+
+        .qt-faq details { border-bottom: 1px solid var(--border-color); padding: 14px 0; }
+        .qt-faq summary { cursor: pointer; color: var(--text-heading); font-weight: 600; }
+        .qt-faq details p { margin-top: 10px; color: var(--text-muted); max-width: 52em; }
+        .qt-faq a { color: var(--accent-color); }
+
+        .qt-disclaimer { padding: 8px 0 40px; color: var(--text-muted); font-size: .82rem; }
+        [data-theme="dark"] .site-footer, [data-theme="dark"] .site-header { background-color: rgba(9, 13, 22, .72); }
+
+        @media (max-width: 900px) {
+            .qt-grid { grid-template-columns: 1fr; gap: 32px; }
+            .qt-hero h1 { font-size: 1.8rem; }
+            .qt-checklist { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 560px) {
+            .qt-hero { padding-top: 24px; }
+            .qt-header-actions .qt-login { display: none; }
+            .qt-bridge { padding: 22px; }
+            .logo { font-size: 1.3rem; }
+            .logo-mark { width: 38px; height: 38px; }
+        }
+    </style>
+    <script>
+        // Thema: zelfde sleutel als de voorpagina en de app ("theme"); donker als standaard.
+        (function () {
+            var pref = "dark";
+            try {
+                var stored = localStorage.getItem("theme");
+                if (stored === "light" || stored === "dark" || stored === "system") pref = stored;
+            } catch (err) { /* opslag niet beschikbaar */ }
+            if (pref === "system") pref = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", pref);
+        })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is het offerte-sjabloon gratis?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Ja. Download het als Word, Excel of PDF en gebruik het zo vaak u wilt. Zonder account en zonder e-mailadres." }
+            },
+            {
+                "@type": "Question",
+                "name": "Wat is het verschil tussen een vaste prijs en een richtprijs?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Bij een vaste prijs spreekt u een vast bedrag af. Een richtprijs is een inschatting: de eindprijs kan afwijken. Volgens art. 7:752 lid 2 BW mag de prijs bij een richtprijs niet meer dan 10% hoger uitvallen dan opgegeven, tenzij u de opdrachtgever tijdig waarschuwt voor de overschrijding, zodat die de werkzaamheden kan beperken of vereenvoudigen. Voor meerwerk gelden aparte regels. Controleer de actuele wettekst op wetten.overheid.nl of bij een adviseur. Schrijf in elk geval duidelijk op welke soort prijs het is en wat wel en niet is inbegrepen." }
+            },
+            {
+                "@type": "Question",
+                "name": "Moet ik btw op de offerte zetten?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Btw-plichtige ondernemers berekenen btw, in Nederland geldt voor de meeste leveringen en diensten het standaardtarief van 21%; er bestaan ook een tarief van 9%, 0% en vrijstellingen. Bent u niet btw-plichtig (bijvoorbeeld door de kleineondernemersregeling) of geldt een ander tarief, pas dan de btw-regel aan of verwijder die de btw-regel onder de totalen. Particuliere klanten vergelijken meestal bedragen inclusief btw: zet er dus duidelijk bij of de prijs incl. of excl. btw is." }
+            },
+            {
+                "@type": "Question",
+                "name": "Kan de klant de offerte online accepteren?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Met ElectricalVPF maakt u van de geaccepteerde offerte een contract dat de klant online ondertekent, vanaf de telefoon (PRO-abonnement), en daarna een factuur." }
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="/" class="logo-link" aria-label="ElectricalVPF">
+                <img class="logo-mark logo-mark-dark" src="/site/img/favicon-dark.png" alt="">
+                <img class="logo-mark logo-mark-light" src="/site/img/favicon-light.png" alt="">
+                <span class="logo">Electrical<span>VPF</span></span>
+            </a>
+            <div class="qt-header-actions">
+                <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="qt-login">Inloggen</a>
+                <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary">Begin gratis</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="qt-hero">
+            <div class="container qt-grid">
+                <div>
+                    <a href="/" class="auth-back-to-website">
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        <span>Terug naar de website</span>
+                    </a>
+                    <span class="qt-kicker">Voor elektriciens en installatiebedrijven</span>
+                    <h1>Gratis offerte-sjabloon voor elektriciens (Word, Excel, PDF)</h1>
+                    <p class="qt-lead">Een nette offerte die de klant in één minuut begrijpt: arbeid en materialen op aparte regels,
+                        btw alleen als u btw-plichtig bent, wat niet is inbegrepen, betalingsvoorwaarden en ruimte voor
+                        een handtekening. Een eenvoudig sjabloon voor particuliere klussen. Zonder account, zonder e-mail.</p>
+
+                    <div class="qt-downloads">
+                        <a class="qt-download" href="/site/downloads/offerte-sjabloon-elektricien.docx" download data-download="docx">
+                            <i class="fas fa-file-word" aria-hidden="true"></i>
+                            <div><strong>Word (.docx)</strong><span>Bewerk en verstuur als document</span></div>
+                            <i class="fas fa-download" aria-hidden="true"></i>
+                        </a>
+                        <a class="qt-download" href="/site/downloads/offerte-sjabloon-elektricien.xlsx" download data-download="xlsx">
+                            <i class="fas fa-file-excel" aria-hidden="true"></i>
+                            <div><strong>Excel (.xlsx)</strong><span>Totalen en btw worden automatisch berekend</span></div>
+                            <i class="fas fa-download" aria-hidden="true"></i>
+                        </a>
+                        <a class="qt-download" href="/site/downloads/offerte-sjabloon-elektricien.pdf" download data-download="pdf">
+                            <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                            <div><strong>PDF</strong><span>Print en vul met de hand in</span></div>
+                            <i class="fas fa-download" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <p class="qt-free-note"><i class="fas fa-check" aria-hidden="true"></i> Gratis, voor elke klus, zo vaak u wilt.</p>
+
+                    <div class="qt-after" id="qtAfter" role="status">
+                        Het sjabloon wordt gedownload. De volgende keer maakt u de offerte in een paar minuten op uw telefoon –
+                        <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu">probeer gratis</a>.
+                    </div>
+                </div>
+
+                <figure>
+                    <div class="qt-preview">
+                        <img src="/site/img/offerte-sjabloon-elektricien.png" width="794" height="1123"
+                            alt="Voorbeeld van het gratis offertesjabloon: bedrijfsgegevens, klant, omschrijving van het werk, tabellen voor arbeid en materialen, btw, totalen, voorwaarden en handtekening.">
+                    </div>
+                    <figcaption class="qt-preview-caption">Eén A4-pagina · € · btw alleen voor btw-plichtigen</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="qt-section">
+            <div class="container">
+                <h2>Dit hoort in een offerte voor elektrawerk</h2>
+                <ul class="qt-checklist">
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Een nauwkeurige omschrijving van het werk.</b> <span>Wat u doet, waar en hoe.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Bedrijfsnaam en KvK-nummer.</b> <span>De KvK vraagt u het KvK-nummer te vermelden op onder meer brieven, offertes, facturen, uw website en zakelijke e-mails. Heeft u een btw-identificatienummer, zet dat dan ook op de offerte. Op facturen gelden aanvullende eisen.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Vaste prijs of richtprijs.</b> <span>Maak voor particuliere klanten duidelijk welke soort prijs het is.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Arbeid en materialen op aparte regels.</b> <span>Een klant vertrouwt een prijs meer als hij hem kan volgen.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Btw, alleen als u btw-plichtig bent.</b> <span>Met het juiste tarief – anders laat u de regel weg.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Wat niet is inbegrepen.</b> <span>Breekwerk, herstelwerk, gebreken in de bestaande installatie – zeg het vooraf.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Hoelang de prijs geldt.</b> <span>Materiaalprijzen veranderen; 30 dagen is gebruikelijk.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Documentatie van de installatie, waar van toepassing.</b> <span>Meld in de offerte wat u bij oplevering overhandigt, bijvoorbeeld een keuringsrapport of schema. Welke documenten verplicht zijn, hangt af van het werk; dat is een eis aan het werk, niet aan de offerte zelf.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Betalingsvoorwaarden.</b> <span>Aanbetaling, termijn voor het restant en rekeningnummer.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Akkoord van de klant.</b> <span>Naam, handtekening en datum – voordat u begint.</span></div></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="qt-section">
+            <div class="container">
+                <div class="qt-bridge">
+                    <h2>Wilt u het de volgende keer sneller doen?</h2>
+                    <p>Maak dezelfde offerte in een paar minuten op uw telefoon. De klant ontvangt een nette PDF met
+                        uw bedrijfsgegevens. Zegt de klant ja, dan maakt u van de offerte een contract dat online wordt
+                        ondertekend en daarna een factuur – dezelfde klus, niets wordt twee keer ingetypt.</p>
+                    <ul class="qt-steps">
+                        <li><i class="fas fa-file-invoice" aria-hidden="true"></i>Offerte</li>
+                        <li><i class="fas fa-file-signature" aria-hidden="true"></i>Online ondertekend</li>
+                        <li><i class="fas fa-receipt" aria-hidden="true"></i>Factuur</li>
+                        <li><i class="fas fa-mobile-screen" aria-hidden="true"></i>Vanaf de telefoon</li>
+                    </ul>
+                    <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary">Maak uw eerste offerte gratis</a>
+                    <small>Gratis abonnement, zonder kaart. Online ondertekenen is onderdeel van het PRO-abonnement.</small>
+                </div>
+            </div>
+        </section>
+
+        <section class="qt-section qt-faq">
+            <div class="container">
+                <h2>Vragen</h2>
+                <details>
+                    <summary>Is het offerte-sjabloon gratis?</summary>
+                    <p>Ja. Download het als Word, Excel of PDF en gebruik het zo vaak u wilt. Zonder account en zonder e-mailadres.</p>
+                </details>
+                <details>
+                    <summary>Wat is het verschil tussen een vaste prijs en een richtprijs?</summary>
+                    <p>Bij een vaste prijs spreekt u een vast bedrag af. Een richtprijs is een inschatting: de eindprijs kan afwijken. Volgens art. 7:752 lid 2 BW mag de prijs bij een richtprijs niet meer dan 10% hoger uitvallen dan opgegeven, tenzij u de opdrachtgever tijdig waarschuwt voor de overschrijding, zodat die de werkzaamheden kan beperken of vereenvoudigen. Voor meerwerk gelden aparte regels. Controleer de actuele wettekst op wetten.overheid.nl of bij een adviseur. Schrijf in elk geval duidelijk op welke soort prijs het is en wat wel en niet is inbegrepen.</p>
+                </details>
+                <details>
+                    <summary>Moet ik btw op de offerte zetten?</summary>
+                    <p>Btw-plichtige ondernemers berekenen btw, in Nederland geldt voor de meeste leveringen en diensten het standaardtarief van 21%; er bestaan ook een tarief van 9%, 0% en vrijstellingen. Bent u niet btw-plichtig (bijvoorbeeld door de kleineondernemersregeling) of geldt een ander tarief, pas dan de btw-regel aan of verwijder die de btw-regel onder de totalen. Particuliere klanten vergelijken meestal bedragen inclusief btw: zet er dus duidelijk bij of de prijs incl. of excl. btw is.</p>
+                </details>
+                <details>
+                    <summary>Kan de klant de offerte online accepteren?</summary>
+                    <p>Met ElectricalVPF maakt u van de geaccepteerde offerte een contract dat de klant online ondertekent, vanaf de telefoon (PRO-abonnement), en daarna een factuur.</p>
+                </details>
+                <p class="qt-disclaimer">Sjabloon van ElectricalVPF. Dit is een algemeen sjabloon, geen juridisch of fiscaal advies en
+                    geen factuur – pas het aan op uw bedrijf en de klus.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-flex">
+            <p>&copy; 2026 ElectricalVPF. Alle rechten voorbehouden.</p>
+            <nav class="footer-legal" aria-label="Juridische informatie">
+                <a href="https://electricalvpf.app/frontend/legal/terms-nl.html?returnSite=eu">Algemene voorwaarden</a>
+                <a href="https://electricalvpf.app/frontend/legal/privacy-nl.html?returnSite=eu">Privacy</a>
+                <a href="https://electricalvpf.app/frontend/legal/cookies-nl.html?returnSite=eu">Cookies</a>
+                <a href="https://electricalvpf.app/frontend/legal/refund-policy-nl.html?returnSite=eu">Terugbetaling en annulering</a>
+                <a href="https://electricalvpf.app/frontend/legal/legal-notice-nl.html?returnSite=eu">Juridische informatie</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Sursa vizitei → linkurile de înregistrare, doar prin URL (fără cookie-uri / stocare). -->
+    <script src="/site/attribution.js?v=20260930-attribution"></script>
+    <!-- Același script ca pe Login/Register/legal: venit de pe .eu (?returnSite=eu) → butonul duce înapoi pe .eu. -->
+    <script src="https://electricalvpf.app/frontend/js/return-site.js?v=20261002-legal"></script>
+    <script src="/site/cosmos.js?v=20261002-auth-cosmos" defer></script>
+    <script>
+        // După descărcare: un singur rând, discret, spre aplicație (fără ferestre care apar singure).
+        document.querySelectorAll("[data-download]").forEach(function (link) {
+            link.addEventListener("click", function () {
+                var after = document.getElementById("qtAfter");
+                if (after) after.classList.add("is-visible");
+            });
+        });
+    </script>
+</body>
+
+</html>

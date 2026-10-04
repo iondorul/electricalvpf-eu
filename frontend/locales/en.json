@@ -116,7 +116,8 @@
     "legendDangerDesc": "Conditions are not met.",
     "legendInfoTitle": "BLUE — INFO",
     "legendInfoDesc": "Information / recommendation.",
-    "disclaimer": "Reference values per IEC 60364-5-52 (Cu conductor, PVC insulation, 30°C ambient temperature, WITHOUT correction factors for cable grouping or a different ambient temperature — for runs with several cables together or high ambient temperatures, apply the correction factors from the applicable code/standard before buying materials). Check the result against the applicable code (I7 / IEC 60364) before installation."
+    "disclaimer": "Reference values per IEC 60364-5-52 (Cu conductor, PVC insulation, 30°C ambient temperature, WITHOUT correction factors for cable grouping or a different ambient temperature — for runs with several cables together or high ambient temperatures, apply the correction factors from the applicable code/standard before buying materials). Check the result against the applicable code (I7 / IEC 60364) before installation.",
+    "mcbNote": "The MCB selection checks only the nominal overload condition (Ib ≤ In ≤ Iz). It does not check loop impedance, fault current, disconnection time or breaking capacity; the installation method must match the real installation."
   },
   "legalFooter": {
     "terms": "Terms & Conditions",
@@ -508,10 +509,10 @@
       "paymentFailedWarning": "The last payment failed. Stripe will automatically retry the payment over the next few days — you don't need to do anything now."
     },
     "display": {
-      "desc": "Choose how the app looks — follow your operating system automatically, or pin a specific mode.",
+      "desc": "Choose how the app looks — dark or light.",
       "system": {
         "label": "System",
-        "desc": "Automatically follows your operating system's preference."
+        "desc": "The app's standard mode — dark."
       },
       "light": {
         "label": "Light",
@@ -2285,6 +2286,25 @@
       "tokenAndPasswordRequired": "Token and new password are required.",
       "tokenInvalid": "The reset link is invalid.",
       "tokenExpired": "The reset link has expired."
+    },
+    "confirmEmail": {
+      "subtitle": "Confirm your email address",
+      "promptMessage": "Press the button below to confirm your email address and activate your account.",
+      "confirmButton": "Confirm email address",
+      "loading": "Confirming your email address...",
+      "success": "Your email has been confirmed! You can now log in.",
+      "goToLogin": "Go to login",
+      "invalidTokenDefault": "The confirmation link is invalid or has expired.",
+      "tokenRequired": "The confirmation link is invalid or incomplete.",
+      "tokenInvalid": "The confirmation link is invalid.",
+      "tokenExpired": "The confirmation link has expired.",
+      "failureMessage": "Your email address could not be confirmed."
+    },
+    "pageTitle": {
+      "login": "ElectricalVPF ERP | Login",
+      "forgotPassword": "ElectricalVPF ERP | Password recovery",
+      "resetPassword": "ElectricalVPF ERP | Reset password",
+      "confirmEmail": "ElectricalVPF ERP | Confirm email"
     }
   },
   "contracts": {
@@ -2591,7 +2611,8 @@
       "note1": "Stages tick themselves off from your documents: an estimate, a quote sent or accepted, a signed contract, an invoice sent, the payment received. The job sits at the furthest stage with proof.",
       "note2": "Only two stages are marked by you: Site Visit and Job Closed. A job can only be closed after Payment Received."
     },
-    "or": "or"
+    "or": "or",
+    "jumpNav": "Workflow steps"
   },
   "jtOffer": {
     "dialogLabel": "Calculation in a quote",
@@ -2840,5 +2861,29 @@
     "upgrade": "Upgrade to PRO",
     "subtext": "Everything you have saved so far stays as it is.",
     "close": "Not now"
+  },
+  "units": {
+    "buc": "pcs",
+    "m": "m",
+    "ml": "lin. m",
+    "mp": "m²",
+    "mc": "m³",
+    "kg": "kg",
+    "set": "set",
+    "h": "h",
+    "rola": "roll",
+    "pereche": "pair",
+    "cutie": "box",
+    "pachet": "pack",
+    "l": "l",
+    "long": {
+      "buc": "pcs (piece)",
+      "m": "m (metre)",
+      "ml": "lin. m (linear metre)",
+      "mp": "m² (square metre)",
+      "mc": "m³ (cubic metre)",
+      "h": "h (labour hour)",
+      "l": "l (litre)"
+    }
   }
 }

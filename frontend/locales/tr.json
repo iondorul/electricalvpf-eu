@@ -547,10 +547,10 @@
       "paymentFailedWarning": "Son ödeme başarısız oldu. Stripe önümüzdeki birkaç gün içinde ödemeyi otomatik olarak yeniden deneyecektir — şu an için yapmanız gereken bir şey yok."
     },
     "display": {
-      "desc": "Uygulamanın görünümünü seçin: sistem ayarını izleyin veya açık ya da koyu temayı kullanın.",
+      "desc": "Uygulamanın görünümünü seçin — koyu veya açık.",
       "system": {
         "label": "Sistem",
-        "desc": "İşletim sisteminizin tema ayarını otomatik olarak izler."
+        "desc": "Uygulamanın standart modu — koyu."
       },
       "light": {
         "label": "Açık",
@@ -1561,6 +1561,25 @@
       "tokenAndPasswordRequired": "Sıfırlama belirteci ve yeni şifre zorunludur.",
       "tokenInvalid": "Sıfırlama bağlantısı geçersiz.",
       "tokenExpired": "Sıfırlama bağlantısının süresi doldu."
+    },
+    "confirmEmail": {
+      "subtitle": "E-posta adresinizi onaylayın",
+      "promptMessage": "E-posta adresinizi onaylamak ve hesabınızı etkinleştirmek için aşağıdaki düğmeye basın.",
+      "confirmButton": "E-posta adresini onayla",
+      "loading": "E-posta adresi onaylanıyor...",
+      "success": "E-posta adresiniz onaylandı! Artık giriş yapabilirsiniz.",
+      "goToLogin": "Girişe git",
+      "invalidTokenDefault": "Onay bağlantısı geçersiz veya süresi dolmuş.",
+      "tokenRequired": "Onay bağlantısı geçersiz veya eksik.",
+      "tokenInvalid": "Onay bağlantısı geçersiz.",
+      "tokenExpired": "Onay bağlantısının süresi dolmuş.",
+      "failureMessage": "E-posta adresi onaylanamadı."
+    },
+    "pageTitle": {
+      "login": "ElectricalVPF ERP | Giriş",
+      "forgotPassword": "ElectricalVPF ERP | Şifre kurtarma",
+      "resetPassword": "ElectricalVPF ERP | Şifreyi sıfırla",
+      "confirmEmail": "ElectricalVPF ERP | E-posta onayı"
     }
   },
   "electricalWorkTypes": {
@@ -2777,5 +2796,20 @@
     "upgrade": "PRO'ya geçin",
     "subtext": "Şimdiye kadar kaydettiğiniz her şey olduğu gibi kalır.",
     "close": "Şimdi değil"
+  },
+  "units": {
+    "buc": "adet",
+    "m": "m",
+    "ml": "mtül",
+    "mp": "m²",
+    "mc": "m³",
+    "kg": "kg",
+    "set": "takım",
+    "h": "sa",
+    "rola": "rulo",
+    "pereche": "çift",
+    "cutie": "kutu",
+    "pachet": "paket",
+    "l": "l"
   }
 }

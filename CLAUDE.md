@@ -50,7 +50,7 @@ fără să ceri detalii suplimentare despre ce anume s-a schimbat — pașii 1-3
 
 Toate ajustările pentru `.eu` trăiesc în acest script, NU ca editări manuale — altfel se pierd la următorul sync.
 
-1. Șterge și recopiază din `.app` HEAD: `index.html`, `site/`, `frontend/js/config.js`, `frontend/js/calculator-core.js`, `frontend/locales/`,
+1. Șterge și recopiază din `.app` HEAD: `index.html`, `site/`, `ro/`, paginile-model de ofertă (`electrical-quote-template/`, `no/`, `nl/`, `it/`, `pl/` — adăugate 5 oct 2026 de Claude, cu verificarea hărții `const urls = {…}` din `updateResourceLinks()`: fiecare limbă din hartă trebuie să aibă pagina locală, altfel scriptul se oprește), `frontend/js/config.js`, `frontend/js/calculator-core.js`, `frontend/locales/`,
    `LICENSE.txt`, `READ-ME.txt`. Exclude `site/tools/` (unelte de build ale `.app`).
 2. Scrie `CNAME` = `electricalvpf.eu`.
 3. Rescrie linkurile relative `frontend/...` în `https://electricalvpf.app/frontend/...` (login, register,

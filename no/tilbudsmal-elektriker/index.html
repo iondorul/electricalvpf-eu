@@ -1,34 +1,28 @@
 <!DOCTYPE html>
-<!-- TASK 5 „Conținut pentru venit” (2 octombrie 2026): resursa gratuită pentru România — „Model deviz instalații
-     electrice”. Ținta (verificată în sugestiile Google RO): cine PRODUCE documentul — electricieni, PFA, firme de
-     instalații („model deviz instalatii electrice”, „deviz instalatii electrice excel”, „model simplu deviz lucrari”,
-     „oferta de pret model word”). NU țintim „program devize”, e-Factura, F1–F5 / licitații sau căutările de prețuri
-     (acolo vin proprietarii, nu cumpărătorii PRO). Model simplu, pentru lucrări private. Fișierele: site/downloads/
-     model-deviz-instalatii-electrice.* (site/tools/build-quote-template.py ro). Aceeași structură ca
-     /electrical-quote-template/ (UK); sursa vizitei → înregistrare prin site/attribution.js. Căi absolute. -->
-<html lang="ro" data-theme="dark">
+<!-- Norsk versjon av den gratis tilbudsmalen (samme struktur som /ro/model-deviz-instalatii-electrice/). Filer: site/downloads/tilbudsmal-elektriker.* (site/tools/build-quote-template.py no). Samme URL-slug som RO etter ønske fra eier. Absolutte stier. -->
+<html lang="nb" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Model deviz instalații electrice gratuit (Word, Excel, PDF) | ElectricalVPF</title>
+    <title>Gratis tilbudsmal for elektrikere (Word, Excel, PDF) | ElectricalVPF</title>
     <meta name="description"
-        content="Model gratuit de deviz și ofertă de preț pentru instalații electrice: manoperă și materiale pe rânduri, TVA doar pentru plătitori, condiții de plată și acceptare. Word, Excel și PDF, fără cont.">
-    <link rel="canonical" href="https://electricalvpf.app/ro/model-deviz-instalatii-electrice/">
+        content="Gratis tilbudsmal for elektrikere: arbeid og materialer på egne linjer, MVA kun for MVA-registrerte, betalingsbetingelser og aksept. Word, Excel og PDF – uten konto.">
+    <link rel="canonical" href="https://electricalvpf.app/no/tilbudsmal-elektriker/">
     <link rel="alternate" hreflang="it" href="https://electricalvpf.app/it/modello-preventivo-elettricista/">
     <link rel="alternate" hreflang="pl" href="https://electricalvpf.app/pl/wzor-oferty-elektryka/">
-    <link rel="alternate" hreflang="ro" href="https://electricalvpf.app/ro/model-deviz-instalatii-electrice/">
     <link rel="alternate" hreflang="no" href="https://electricalvpf.app/no/tilbudsmal-elektriker/">
     <link rel="alternate" hreflang="nl" href="https://electricalvpf.app/nl/offerte-sjabloon-elektricien/">
+    <link rel="alternate" hreflang="ro" href="https://electricalvpf.app/ro/model-deviz-instalatii-electrice/">
     <link rel="alternate" hreflang="en-GB" href="https://electricalvpf.app/electrical-quote-template/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ElectricalVPF">
-    <meta property="og:locale" content="ro_RO">
-    <meta property="og:url" content="https://electricalvpf.app/ro/model-deviz-instalatii-electrice/">
-    <meta property="og:title" content="Model deviz instalații electrice (Word, Excel, PDF) — gratuit">
+    <meta property="og:locale" content="nb_NO">
+    <meta property="og:url" content="https://electricalvpf.app/no/tilbudsmal-elektriker/">
+    <meta property="og:title" content="Gratis tilbudsmal for elektrikere (Word, Excel, PDF)">
     <meta property="og:description"
-        content="Deviz și ofertă de preț: manoperă și materiale, TVA doar pentru plătitori, ce nu e inclus, condiții de plată și acceptare. Fără cont.">
-    <meta property="og:image" content="https://electricalvpf.app/site/img/model-deviz-instalatii-electrice.png">
+        content="Tilbud med arbeid og materialer, MVA kun for MVA-registrerte, hva som ikke er inkludert, betalingsbetingelser og aksept. Uten konto.">
+    <meta property="og:image" content="https://electricalvpf.app/site/img/tilbudsmal-elektriker.png">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/png" href="/site/img/favicon-light.png">
 
@@ -115,13 +109,13 @@
         }
     </style>
     <script>
-        // Tema: aceeași cheie ca vitrina și aplicația ("theme"); implicit întunecat.
+        // Tema: samme nøkkel som forsiden og appen ("theme"); mørk som standard.
         (function () {
             var pref = "dark";
             try {
                 var stored = localStorage.getItem("theme");
                 if (stored === "light" || stored === "dark" || stored === "system") pref = stored;
-            } catch (err) { /* stocare indisponibilă */ }
+            } catch (err) { /* lagring utilgjengelig */ }
             if (pref === "system") pref = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
             document.documentElement.setAttribute("data-theme", pref);
         })();
@@ -134,23 +128,23 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "Modelul de deviz este gratuit?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Da. Îl descarci în Word, Excel sau PDF și îl folosești de câte ori vrei. Fără cont și fără email." }
+                "name": "Er tilbudsmalen gratis?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Ja. Last den ned som Word, Excel eller PDF og bruk den så mange ganger du vil. Uten konto og uten e-post." }
             },
             {
                 "@type": "Question",
-                "name": "Deviz sau ofertă de preț — care e diferența?",
-                "acceptedAnswer": { "@type": "Answer", "text": "La lucrările private, cele două denumiri se folosesc des pentru același document: lista lucrărilor și a materialelor, cu prețuri și total. Important e să fie clar ce e inclus, ce nu e inclus și cât timp e valabil prețul." }
+                "name": "Hva er forskjellen på tilbud og prisoverslag?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Med fastpris binder du deg til prisen. Et prisoverslag er et anslag. Overfor private kunder (forbrukere) kan prisen ikke overstige prisoverslaget med mer enn 15 %, med mindre dere har avtalt en annen grense eller du har rett til tillegg for tilleggsarbeid (håndverkertjenesteloven § 32 og § 33). Loven krever at det er tydelig om prisen er fastpris, høyeste pris, prisoverslag eller bare en uforpliktende prisantydning. Skriv det, og hva som er med og ikke er med." }
             },
             {
                 "@type": "Question",
-                "name": "Trebuie să trec TVA în deviz?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Doar dacă ești plătitor de TVA. Cota standard este 21% (de la 1 august 2025). Dacă nu ești plătitor, șterge rândul de TVA de la totaluri." }
+                "name": "Må jeg ta med MVA i tilbudet?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Det er MVA-registrerte som beregner MVA, med standardsats 25 %. Er du ikke MVA-registrert, sletter du MVA-linjen under summene. Overfor private kunder regnes en prisangivelse som inkludert MVA, med mindre kunden forstår at den ikke er det (håndverkertjenesteloven § 32). Skriv derfor tydelig om prisen er med eller uten MVA." }
             },
             {
                 "@type": "Question",
-                "name": "Poate clientul să accepte oferta online?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Cu ElectricalVPF transformi oferta acceptată într-un contract pe care clientul îl semnează online, de pe telefon (planul PRO), apoi în factură." }
+                "name": "Kan kunden godta tilbudet på nett?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Med ElectricalVPF kan du gjøre det aksepterte tilbudet om til en kontrakt som kunden signerer på nett, fra mobilen (PRO-planen), og deretter til en faktura." }
             }
         ]
     }
@@ -166,8 +160,8 @@
                 <span class="logo">Electrical<span>VPF</span></span>
             </a>
             <div class="qt-header-actions">
-                <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="qt-login">Autentificare</a>
-                <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary">Începe gratuit</a>
+                <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="qt-login">Logg inn</a>
+                <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary">Kom i gang gratis</a>
             </div>
         </div>
     </header>
@@ -176,63 +170,65 @@
         <section class="qt-hero">
             <div class="container qt-grid">
                 <div>
-                    <a href="/ro/" class="auth-back-to-website">
+                    <a href="/" class="auth-back-to-website">
                         <i class="fas fa-arrow-left" aria-hidden="true"></i>
-                        <span>Înapoi la site</span>
+                        <span>Tilbake til nettsiden</span>
                     </a>
-                    <span class="qt-kicker">Pentru electricieni și firme de instalații</span>
-                    <h1>Model deviz instalații electrice (Word, Excel, PDF) — gratuit</h1>
-                    <p class="qt-lead">Un deviz – ofertă de preț clar, pe care clientul îl citește într-un minut: manopera și
-                        materialele pe rânduri, TVA doar dacă ești plătitor, ce nu e inclus, condițiile de plată și loc
-                        pentru semnătură. Model simplu, pentru lucrări private. Fără cont, fără email.</p>
+                    <span class="qt-kicker">For elektrikere og installasjonsfirmaer</span>
+                    <h1>Gratis tilbudsmal for elektrikere (Word, Excel, PDF)</h1>
+                    <p class="qt-lead">Et ryddig tilbud kunden forstår på ett minutt: arbeid og materialer på egne linjer,
+                        MVA kun hvis du er MVA-registrert, hva som ikke er med, betalingsbetingelser og plass til
+                        underskrift. En enkel mal for private oppdrag. Uten konto, uten e-post.</p>
 
                     <div class="qt-downloads">
-                        <a class="qt-download" href="/site/downloads/model-deviz-instalatii-electrice.docx" download data-download="docx">
+                        <a class="qt-download" href="/site/downloads/tilbudsmal-elektriker.docx" download data-download="docx">
                             <i class="fas fa-file-word" aria-hidden="true"></i>
-                            <div><strong>Word (.docx)</strong><span>Îl editezi și îl trimiți ca document</span></div>
+                            <div><strong>Word (.docx)</strong><span>Rediger og send som dokument</span></div>
                             <i class="fas fa-download" aria-hidden="true"></i>
                         </a>
-                        <a class="qt-download" href="/site/downloads/model-deviz-instalatii-electrice.xlsx" download data-download="xlsx">
+                        <a class="qt-download" href="/site/downloads/tilbudsmal-elektriker.xlsx" download data-download="xlsx">
                             <i class="fas fa-file-excel" aria-hidden="true"></i>
-                            <div><strong>Excel (.xlsx)</strong><span>Totalurile și TVA-ul se calculează singure</span></div>
+                            <div><strong>Excel (.xlsx)</strong><span>Summer og MVA regnes ut automatisk</span></div>
                             <i class="fas fa-download" aria-hidden="true"></i>
                         </a>
-                        <a class="qt-download" href="/site/downloads/model-deviz-instalatii-electrice.pdf" download data-download="pdf">
+                        <a class="qt-download" href="/site/downloads/tilbudsmal-elektriker.pdf" download data-download="pdf">
                             <i class="fas fa-file-pdf" aria-hidden="true"></i>
-                            <div><strong>PDF</strong><span>Îl printezi și îl completezi de mână</span></div>
+                            <div><strong>PDF</strong><span>Skriv ut og fyll ut for hånd</span></div>
                             <i class="fas fa-download" aria-hidden="true"></i>
                         </a>
                     </div>
-                    <p class="qt-free-note"><i class="fas fa-check" aria-hidden="true"></i> Gratuit, pentru orice lucrare, de câte ori vrei.</p>
+                    <p class="qt-free-note"><i class="fas fa-check" aria-hidden="true"></i> Gratis, til alle oppdrag, så mange ganger du vil.</p>
 
                     <div class="qt-after" id="qtAfter" role="status">
-                        Modelul se descarcă. Data viitoare, fă oferta de pe telefon în câteva minute —
-                        <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu">încearcă gratuit</a>.
+                        Malen lastes ned. Neste gang kan du lage tilbudet fra mobilen på få minutter –
+                        <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu">prøv gratis</a>.
                     </div>
                 </div>
 
                 <figure>
                     <div class="qt-preview">
-                        <img src="/site/img/model-deviz-instalatii-electrice.png" width="794" height="1123"
-                            alt="Previzualizarea modelului gratuit de deviz: datele firmei, beneficiarul, descrierea lucrării, tabelele de manoperă și materiale, TVA, totaluri, condiții și semnătură.">
+                        <img src="/site/img/tilbudsmal-elektriker.png" width="794" height="1123"
+                            alt="Forhåndsvisning av den gratis tilbudsmalen: firmaopplysninger, kunde, beskrivelse av arbeidet, tabeller for arbeid og materialer, MVA, summer, vilkår og underskrift.">
                     </div>
-                    <figcaption class="qt-preview-caption">O pagină A4 · lei · TVA doar pentru plătitori</figcaption>
+                    <figcaption class="qt-preview-caption">Én A4-side · kr · MVA kun for MVA-registrerte</figcaption>
                 </figure>
             </div>
         </section>
 
         <section class="qt-section">
             <div class="container">
-                <h2>Ce trebuie să conțină un deviz pentru instalații electrice</h2>
+                <h2>Dette bør et tilbud på elektrisk arbeid inneholde</h2>
                 <ul class="qt-checklist">
-                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Descrierea exactă a lucrării.</b> <span>Ce faci, unde și cum.</span></div></li>
-                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Manopera și materialele, pe rânduri separate.</b> <span>Clientul are încredere într-un preț pe care îl poate urmări.</span></div></li>
-                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>TVA, doar dacă ești plătitor.</b> <span>Cu cota corectă; altfel nu îl treci deloc.</span></div></li>
-                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Ce nu este inclus.</b> <span>Spargeri, finisaje, defecte existente — spuse de la început.</span></div></li>
-                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Cât timp e valabil prețul.</b> <span>Prețurile materialelor se schimbă; 30 de zile e uzual.</span></div></li>
-                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Documentele de la final, dacă e cazul.</b> <span>Doar cele aplicabile lucrării.</span></div></li>
-                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Condițiile de plată.</b> <span>Avansul, termenul pentru rest și IBAN-ul.</span></div></li>
-                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Acceptarea clientului.</b> <span>Nume, semnătură și dată — înainte să începi.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>En nøyaktig beskrivelse av arbeidet.</b> <span>Hva du gjør, hvor og hvordan.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Firmanavn og organisasjonsnummer.</b> <span>Organisasjonsnummer skal stå på forretningsdokumenter hvis firmaet er registrert i Enhetsregisteret. MVA-registrerte skriver «MVA» bak nummeret.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Fastpris eller prisoverslag.</b> <span>Overfor private kunder skal det være tydelig hvilken type pris det er.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Arbeid og materialer på hver sin linje.</b> <span>Kunden stoler mer på en pris hun kan følge.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>MVA, bare hvis du er MVA-registrert.</b> <span>Med riktig sats – ellers tar du den ikke med.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Hva som ikke er med.</b> <span>Hulltaking, overflater, feil i eksisterende anlegg – si det fra start.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Hvor lenge prisen gjelder.</b> <span>Materialpriser endrer seg; 30 dager er vanlig.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Samsvarserklæring og annen dokumentasjon, der det er aktuelt.</b> <span>For elektriske anlegg skal samsvarserklæring og dokumentasjon leveres til eieren (FEL § 12). Tilbudet kan opplyse om det, men loven krever det ikke i selve tilbudet.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Betalingsbetingelser.</b> <span>Forskudd, frist for resten og kontonummer.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Kundens aksept.</b> <span>Navn, underskrift og dato – før du starter.</span></div></li>
                 </ul>
             </div>
         </section>
@@ -240,61 +236,60 @@
         <section class="qt-section">
             <div class="container">
                 <div class="qt-bridge">
-                    <h2>Vrei să-l faci mai repede data viitoare?</h2>
-                    <p>Faci aceeași ofertă de pe telefon, în câteva minute. Pleacă la client ca PDF curat, cu datele firmei
-                        tale. Când clientul spune da, o transformi într-un contract pe care îl semnează online, apoi în
-                        factură — aceeași lucrare, nimic scris de două ori.</p>
+                    <h2>Vil du gjøre det raskere neste gang?</h2>
+                    <p>Lag det samme tilbudet fra mobilen på få minutter. Det går til kunden som en ryddig PDF med
+                        firmaopplysningene dine. Sier kunden ja, gjør du tilbudet om til en kontrakt som signeres på nett,
+                        og deretter til en faktura – samme jobb, ingenting skrives to ganger.</p>
                     <ul class="qt-steps">
-                        <li><i class="fas fa-file-invoice" aria-hidden="true"></i>Ofertă</li>
-                        <li><i class="fas fa-file-signature" aria-hidden="true"></i>Semnat online</li>
-                        <li><i class="fas fa-receipt" aria-hidden="true"></i>Factură</li>
-                        <li><i class="fas fa-mobile-screen" aria-hidden="true"></i>De pe telefon</li>
+                        <li><i class="fas fa-file-invoice" aria-hidden="true"></i>Tilbud</li>
+                        <li><i class="fas fa-file-signature" aria-hidden="true"></i>Signert på nett</li>
+                        <li><i class="fas fa-receipt" aria-hidden="true"></i>Faktura</li>
+                        <li><i class="fas fa-mobile-screen" aria-hidden="true"></i>Fra mobilen</li>
                     </ul>
-                    <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary">Creează prima ofertă gratuit</a>
-                    <small>Plan Free, fără card. Semnarea online face parte din planul PRO.</small>
+                    <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary">Lag ditt første tilbud gratis</a>
+                    <small>Gratisplan, uten kort. Signering på nett er en del av PRO-planen.</small>
                 </div>
             </div>
         </section>
 
         <section class="qt-section qt-faq">
             <div class="container">
-                <h2>Întrebări</h2>
+                <h2>Spørsmål</h2>
                 <details>
-                    <summary>Modelul de deviz este gratuit?</summary>
-                    <p>Da. Îl descarci în Word, Excel sau PDF și îl folosești de câte ori vrei. Fără cont și fără email.</p>
+                    <summary>Er tilbudsmalen gratis?</summary>
+                    <p>Ja. Last den ned som Word, Excel eller PDF og bruk den så mange ganger du vil. Uten konto og uten e-post.</p>
                 </details>
                 <details>
-                    <summary>Deviz sau ofertă de preț — care e diferența?</summary>
-                    <p>La lucrările private, cele două denumiri se folosesc des pentru același document: lista lucrărilor și a materialelor, cu prețuri și total. Important e să fie clar ce e inclus, ce nu e inclus și cât timp e valabil prețul.</p>
+                    <summary>Hva er forskjellen på tilbud og prisoverslag?</summary>
+                    <p>Med fastpris binder du deg til prisen. Et prisoverslag er et anslag. Overfor private kunder (forbrukere) kan prisen ikke overstige prisoverslaget med mer enn 15 %, med mindre dere har avtalt en annen grense eller du har rett til tillegg for tilleggsarbeid (håndverkertjenesteloven § 32 og § 33). Loven krever at det er tydelig om prisen er fastpris, høyeste pris, prisoverslag eller bare en uforpliktende prisantydning. Skriv det, og hva som er med og ikke er med.</p>
                 </details>
                 <details>
-                    <summary>Trebuie să trec TVA în deviz?</summary>
-                    <p>Doar dacă ești plătitor de TVA. Cota standard este 21% (de la 1 august 2025). Dacă nu ești plătitor, șterge rândul de TVA de la totaluri.</p>
+                    <summary>Må jeg ta med MVA i tilbudet?</summary>
+                    <p>Det er MVA-registrerte som beregner MVA, med standardsats 25 %. Er du ikke MVA-registrert, sletter du MVA-linjen under summene. Overfor private kunder regnes en prisangivelse som inkludert MVA, med mindre kunden forstår at den ikke er det (håndverkertjenesteloven § 32). Skriv derfor tydelig om prisen er med eller uten MVA.</p>
                 </details>
                 <details>
-                    <summary>Poate clientul să accepte oferta online?</summary>
-                    <p>Cu ElectricalVPF transformi oferta acceptată într-un contract pe care clientul îl semnează online, de pe telefon (planul PRO), apoi în factură.</p>
+                    <summary>Kan kunden godta tilbudet på nett?</summary>
+                    <p>Med ElectricalVPF kan du gjøre det aksepterte tilbudet om til en kontrakt som kunden signerer på nett, fra mobilen (PRO-planen), og deretter til en faktura.</p>
                 </details>
-                <p class="qt-disclaimer">Model de la ElectricalVPF. E un model general, nu consultanță juridică sau fiscală, și nu
-                    este factură — adaptează-l firmei tale și lucrării.</p>
+                <p class="qt-disclaimer">Mal fra ElectricalVPF. Dette er en generell mal, ikke juridisk eller skattemessig rådgivning, og
+                    ikke en faktura – tilpass den til firmaet ditt og oppdraget.</p>
             </div>
         </section>
     </main>
 
     <footer class="site-footer">
         <div class="container footer-flex">
-            <p>&copy; 2026 ElectricalVPF. Toate drepturile rezervate.</p>
-            <nav class="footer-legal" aria-label="Informații legale">
-                <a href="https://electricalvpf.app/frontend/legal/terms.html?returnSite=eu">Termeni și Condiții</a>
-                <a href="https://electricalvpf.app/frontend/legal/privacy.html?returnSite=eu">Confidențialitate</a>
-                <a href="https://electricalvpf.app/frontend/legal/cookies.html?returnSite=eu">Cookie-uri</a>
-                <a href="https://electricalvpf.app/frontend/legal/refund-policy.html?returnSite=eu">Rambursare &amp; Anulare</a>
-                <a href="https://electricalvpf.app/frontend/legal/legal-notice.html?returnSite=eu">Date de identificare</a>
+            <p>&copy; 2026 ElectricalVPF. Alle rettigheter forbeholdt.</p>
+            <nav class="footer-legal" aria-label="Juridisk informasjon">
+                <a href="https://electricalvpf.app/frontend/legal/terms-no.html?returnSite=eu">Vilkår og betingelser</a>
+                <a href="https://electricalvpf.app/frontend/legal/privacy-no.html?returnSite=eu">Personvern</a>
+                <a href="https://electricalvpf.app/frontend/legal/cookies-no.html?returnSite=eu">Informasjonskapsler</a>
+                <a href="https://electricalvpf.app/frontend/legal/refund-policy-no.html?returnSite=eu">Refusjon og avbestilling</a>
+                <a href="https://electricalvpf.app/frontend/legal/legal-notice-no.html?returnSite=eu">Juridisk informasjon</a>
             </nav>
         </div>
     </footer>
 
-    <script>window.SITE_PAGE_LANG = "ro";</script>
     <!-- Sursa vizitei → linkurile de înregistrare, doar prin URL (fără cookie-uri / stocare). -->
     <script src="/site/attribution.js?v=20260930-attribution"></script>
     <!-- Același script ca pe Login/Register/legal: venit de pe .eu (?returnSite=eu) → butonul duce înapoi pe .eu. -->
