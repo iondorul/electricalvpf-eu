@@ -16,7 +16,11 @@ cd "$(dirname "$0")/.."
 SRC="${SRC:-../electricalvpf.app}"
 APP_URL="https://electricalvpf.app"
 
-# Ce intră în vitrină. Singurele fișiere din aplicație încărcate efectiv de pagină:
+# Ce intră în vitrină. .eu e o dublură curată a front-end-ului .app — toate
+# paginile publice trebuie să existe fizic aici, nu doar ca linkuri spre .app.
+# Singura excepție (impusă de arhitectură, nu de alegere): Login și Register,
+# care duc mereu spre .app, fiindcă acolo e backend-ul/contul.
+# Singurele fișiere din aplicație încărcate efectiv de pagină:
 #   frontend/js/config.js        — CONFIG.API_BASE_URL, AuthSession
 #   frontend/js/calculator-core.js — import ES module din calculator-jt-widget.js
 #   frontend/locales/*.json      — site/module-previews.js (previzualizările din
@@ -26,6 +30,11 @@ APP_URL="https://electricalvpf.app"
 #                                    paritate completă: window.SITE_PAGE_URLS
 #                                    (vezi mai jos) navighează spre ea, deci
 #                                    trebuie să existe și pe .eu, nu doar pe .app.
+#   electrical-quote-template/index.html,
+#   ro/model-deviz-instalatii-electrice/index.html
+#                                — paginile de reclamă (model ofertă UK / deviz RO)
+#                                  legate din nav/help-menu prin updateResourceLinks();
+#                                  pagini reale pe .eu, vizitatorul rămâne pe .eu.
 PATHS=(
   index.html
   site
@@ -33,19 +42,17 @@ PATHS=(
   frontend/js/calculator-core.js
   frontend/locales
   ro
+  electrical-quote-template
   LICENSE.txt
   READ-ME.txt
 )
 # Unelte de build ale .app (citesc frontend/locales/*.json) — nu au sens aici.
-# ro/model-deviz-instalatii-electrice/ e o resursă de descărcare (ca
-# electrical-quote-template/), nu o pagină a vitrinei — rămâne doar pe .app,
-# linkurile spre ea devin absolute mai jos.
-EXCLUDE=(site/tools ro/model-deviz-instalatii-electrice)
+EXCLUDE=(site/tools)
 
 git -C "$SRC" rev-parse --verify HEAD >/dev/null
 echo "Sursă: $SRC @ $(git -C "$SRC" log -1 --format='%h %s')"
 
-rm -rf index.html site frontend ro
+rm -rf index.html site frontend ro electrical-quote-template
 git -C "$SRC" archive --format=tar HEAD "${PATHS[@]}" | tar -x -f -
 for p in "${EXCLUDE[@]}"; do rm -rf "$p"; done
 
@@ -56,6 +63,14 @@ printf 'electricalvpf.eu\n' > CNAME
 # care se aplică lui index.html trebuie să se aplice identic și acestora.
 HOME_PAGES=(index.html)
 [ -f ro/index.html ] && HOME_PAGES+=(ro/index.html)
+
+# Paginile de reclamă (model ofertă UK / deviz RO): pagini reale pe .eu, cu
+# aceleași tipare de linkuri (frontend/login, frontend/register, frontend/legal,
+# frontend/js/return-site.js) ca paginile home — intră în același tratament.
+RESOURCE_PAGES=()
+[ -f electrical-quote-template/index.html ] && RESOURCE_PAGES+=(electrical-quote-template/index.html)
+[ -f ro/model-deviz-instalatii-electrice/index.html ] && RESOURCE_PAGES+=(ro/model-deviz-instalatii-electrice/index.html)
+PAGES=("${HOME_PAGES[@]}" "${RESOURCE_PAGES[@]}")
 
 # Linkuri spre "frontend/..." (relative) sau "/frontend/..." (absolute pe
 # același domeniu) -> absolute pe .app. Nu atinge src="frontend/js/config.js"
@@ -69,7 +84,15 @@ sed -i \
   -e "s#href=\"/frontend/#href=\"$APP_URL/frontend/#g" \
   -e "s#'frontend/legal/'#'$APP_URL/frontend/legal/'#g" \
   -e "s#'/frontend/legal/'#'$APP_URL/frontend/legal/'#g" \
-  "${HOME_PAGES[@]}"
+  "${PAGES[@]}"
+
+# Scripturi încărcate din /frontend/js/ cu <script src="...">, altele decât
+# config.js și calculator-core.js (copii locale) — ex. return-site.js, folosit
+# pe paginile de reclamă la fel ca pe Login/Register/legal pe .app.
+sed -i \
+  -e "/frontend\/js\/\(config\|calculator-core\)\.js/!s#src=\"frontend/#src=\"$APP_URL/frontend/#g" \
+  -e "/frontend\/js\/\(config\|calculator-core\)\.js/!s#src=\"/frontend/#src=\"$APP_URL/frontend/#g" \
+  "${PAGES[@]}"
 sed -i \
   -e "s#href=\"frontend/#href=\"$APP_URL/frontend/#g" \
   -e "s#href=\"/frontend/#href=\"$APP_URL/frontend/#g" \
@@ -88,15 +111,22 @@ sed -i \
 sed -i -E \
   -e "s#($APP_URL/frontend/(login|register)\.html)\?#\1?returnSite=eu\&#g" \
   -e "s#($APP_URL/frontend/(login|register)\.html)([\"'\`])#\1?returnSite=eu\3#g" \
-  "${HOME_PAGES[@]}" site/*.js
+  "${PAGES[@]}" site/*.js
 
-# Resursele gratuite (modelul de ofertă UK, modelul de deviz RO) există doar pe .app — atât în href,
-# cât și în scriptul paginii (updateResourceLinks).
-sed -i -E "s#([\"'])/(electrical-quote-template|ro/model-deviz-instalatii-electrice)/#\1$APP_URL/\2/#g" "${HOME_PAGES[@]}"
-if grep -qE "[\"']/(electrical-quote-template|ro/model-deviz-instalatii-electrice)/" "${HOME_PAGES[@]}"; then
-  echo "ATENȚIE: linkuri relative rămase spre resursele gratuite." >&2
-  exit 1
-fi
+# Resursele gratuite (modelul de ofertă UK, modelul de deviz RO): de la 2026-10
+# sunt pagini reale pe .eu (vezi PATHS mai sus), NU mai sunt linkuri spre .app —
+# href-urile root-relative ("/electrical-quote-template/",
+# "/ro/model-deviz-instalatii-electrice/") rămân neschimbate, fiindcă paginile
+# există local la aceeași cale. Verificare: updateResourceLinks() din index.html
+# trebuie să trimită la căi care au un index.html local, altfel vizitatorul ar
+# ajunge pe un 404 (ex. dacă .app adaugă o resursă nouă și uităm să o copiem).
+while IFS= read -r url_path; do
+  local_file="${url_path#/}index.html"
+  if [ ! -s "$local_file" ]; then
+    echo "ATENȚIE: updateResourceLinks() trimite la '$url_path' dar '$local_file' nu există local — adaugă resursa în PATHS." >&2
+    exit 1
+  fi
+done < <(grep -oE "setAttribute\('href', ro \? '[^']*' : '[^']*'\)" index.html | grep -oE "'/[^']*/'" | tr -d "'")
 
 # window.SITE_PAGE_URLS: pe .app, fiecare intrare (ex. ro: "/ro/") e o pagină
 # statică separată generată de site/tools/build-home-pages.js. .eu ține
@@ -115,8 +145,8 @@ done < <(grep -oE 'window\.SITE_PAGE_URLS = \{[^}]*\}' index.html | grep -oE '"[
 
 # Paginile legale pe .app: același ?returnSite=eu, ca „Back to website” de acolo
 # să revină aici (return-site.js îl păstrează și la schimbarea limbii/documentului).
-sed -i -E '/frontend\/legal\//s#\.html(["'"'"'`])#.html?returnSite=eu\1#g' "${HOME_PAGES[@]}" site/*.js
-if grep -nE "frontend/legal/" "${HOME_PAGES[@]}" site/*.js | grep -v "returnSite=eu" | grep -q .; then
+sed -i -E '/frontend\/legal\//s#\.html(["'"'"'`])#.html?returnSite=eu\1#g' "${PAGES[@]}" site/*.js
+if grep -nE "frontend/legal/" "${PAGES[@]}" site/*.js | grep -v "returnSite=eu" | grep -q .; then
   echo "ATENȚIE: linkuri legale fără returnSite=eu." >&2
   exit 1
 fi
@@ -132,14 +162,14 @@ fi
 
 # Verificare: nu trebuie să mai rămână nicio legătură relativă spre frontend/
 # în afară de fișierele copiate local.
-leftover=$(grep -nE "[\"'\`]/?frontend/" "${HOME_PAGES[@]}" site/*.js \
+leftover=$(grep -nE "[\"'\`]/?frontend/" "${PAGES[@]}" site/*.js \
   | grep -vE 'frontend/js/(config|calculator-core)\.js|frontend/locales/|includes\("/frontend/"\)|indexOf\("/frontend/' || true)
 if [ -n "$leftover" ]; then
   echo "ATENȚIE: linkuri relative rămase spre frontend/:" >&2
   echo "$leftover" >&2
   exit 1
 fi
-missing=$(grep -nE "$APP_URL/frontend/(login|register)\.html" "${HOME_PAGES[@]}" site/*.js | grep -v 'returnSite=eu' || true)
+missing=$(grep -nE "$APP_URL/frontend/(login|register)\.html" "${PAGES[@]}" site/*.js | grep -v 'returnSite=eu' || true)
 if [ -n "$missing" ]; then
   echo "ATENȚIE: linkuri Login/Register fără returnSite=eu:" >&2
   echo "$missing" >&2

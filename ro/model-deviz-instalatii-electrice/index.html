@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!-- TASK 5 „Conținut pentru venit” (2 octombrie 2026): resursa gratuită pentru România — „Model deviz instalații
+     electrice”. Ținta (verificată în sugestiile Google RO): cine PRODUCE documentul — electricieni, PFA, firme de
+     instalații („model deviz instalatii electrice”, „deviz instalatii electrice excel”, „model simplu deviz lucrari”,
+     „oferta de pret model word”). NU țintim „program devize”, e-Factura, F1–F5 / licitații sau căutările de prețuri
+     (acolo vin proprietarii, nu cumpărătorii PRO). Model simplu, pentru lucrări private. Fișierele: site/downloads/
+     model-deviz-instalatii-electrice.* (site/tools/build-quote-template.py ro). Aceeași structură ca
+     /electrical-quote-template/ (UK); sursa vizitei → înregistrare prin site/attribution.js. Căi absolute. -->
+<html lang="ro" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model deviz instalații electrice gratuit (Word, Excel, PDF) | ElectricalVPF</title>
+    <meta name="description"
+        content="Model gratuit de deviz și ofertă de preț pentru instalații electrice: manoperă și materiale pe rânduri, TVA doar pentru plătitori, condiții de plată și acceptare. Word, Excel și PDF, fără cont.">
+    <link rel="canonical" href="https://electricalvpf.app/ro/model-deviz-instalatii-electrice/">
+    <link rel="alternate" hreflang="ro" href="https://electricalvpf.app/ro/model-deviz-instalatii-electrice/">
+    <link rel="alternate" hreflang="en-GB" href="https://electricalvpf.app/electrical-quote-template/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ElectricalVPF">
+    <meta property="og:locale" content="ro_RO">
+    <meta property="og:url" content="https://electricalvpf.app/ro/model-deviz-instalatii-electrice/">
+    <meta property="og:title" content="Model deviz instalații electrice (Word, Excel, PDF) — gratuit">
+    <meta property="og:description"
+        content="Deviz și ofertă de preț: manoperă și materiale, TVA doar pentru plătitori, ce nu e inclus, condiții de plată și acceptare. Fără cont.">
+    <meta property="og:image" content="https://electricalvpf.app/site/img/model-deviz-instalatii-electrice.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="/site/img/favicon-light.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/site/style.css?v=20261002-footer-centered">
+    <link rel="stylesheet" href="/site/cosmos.css?v=20261002-auth-cosmos">
+    <link rel="stylesheet" href="https://electricalvpf.app/frontend/css/back-to-website.css?v=20261002-shared">
+    <style>
+        /* Aceleași tokenuri ca vitrina (site/style.css). Calm: spațiere, borduri de 1px, fără umbre tari. */
+        .qt-header-actions { display: flex; align-items: center; gap: 10px; }
+        .qt-header-actions a { font-size: .9rem; padding: 9px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+        .qt-login { color: var(--text-main); border: 1px solid var(--border-color); }
+        .qt-login:hover { border-color: var(--accent-color); }
+
+        /* „Back to website”: același buton ca pe Login/Register/paginile legale (frontend/css/back-to-website.css);
+           aici stă în pagină, deasupra titlului (antetul cu logo e sus), iar pe tema luminoasă primește
+           aceleași culori ca varianta luminoasă de pe Login. */
+        .qt-hero .auth-back-to-website { position: static; display: flex; width: fit-content; margin-bottom: 24px; }
+        [data-theme="light"] .qt-hero .auth-back-to-website { color: #1f2937; background: #f8fafc; border-color: #64748b; backdrop-filter: none; }
+        [data-theme="light"] .qt-hero .auth-back-to-website:hover, [data-theme="light"] .qt-hero .auth-back-to-website:focus-visible { color: #0f172a; background: #e2e8f0; border-color: #475569; }
+        .qt-hero { padding: 24px 0 24px; }
+        .qt-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 48px; align-items: start; }
+        .qt-kicker { display: inline-block; margin-bottom: 14px; padding: 4px 12px; border: 1px solid color-mix(in srgb, var(--accent-color) 30%, transparent); border-radius: 999px; color: var(--accent-color); font-size: .8rem; font-weight: 600; }
+        .qt-hero h1 { color: var(--text-heading); font-size: 2.3rem; line-height: 1.2; margin-bottom: 14px; }
+        .qt-lead { color: var(--text-muted); font-size: 1.08rem; margin-bottom: 26px; max-width: 34em; }
+
+        .qt-downloads { display: grid; gap: 10px; max-width: 420px; }
+        .qt-download { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 1px solid var(--border-color); border-radius: 12px; background: color-mix(in srgb, var(--bg-card) 88%, transparent); color: var(--text-main); text-decoration: none; transition: border-color .15s ease; }
+        .qt-download:hover, .qt-download:focus-visible { border-color: var(--accent-color); }
+        .qt-download i { font-size: 1.5rem; width: 28px; text-align: center; }
+        .qt-download .fa-file-word { color: #4f8ef7; }
+        .qt-download .fa-file-excel { color: #34a853; }
+        .qt-download .fa-file-pdf { color: #ef6a5b; }
+        .qt-download strong { display: block; font-size: .98rem; }
+        .qt-download span { display: block; color: var(--text-muted); font-size: .82rem; }
+        .qt-download .fa-download { margin-left: auto; font-size: .95rem; color: var(--text-muted); }
+        .qt-free-note { margin-top: 12px; color: var(--text-muted); font-size: .85rem; }
+
+        .qt-after { display: none; max-width: 420px; margin-top: 14px; padding: 14px 16px; border: 1px solid color-mix(in srgb, var(--accent-color) 35%, transparent); border-radius: 12px; font-size: .92rem; }
+        .qt-after.is-visible { display: block; }
+        .qt-after a { color: var(--accent-color); font-weight: 600; }
+
+        .qt-preview { border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; background: #fff; }
+        .qt-preview img { display: block; width: 100%; height: auto; }
+        .qt-preview-caption { margin-top: 8px; color: var(--text-muted); font-size: .8rem; text-align: center; }
+
+        .qt-section { padding: 40px 0; }
+        .qt-section h2 { color: var(--text-heading); font-size: 1.5rem; margin-bottom: 18px; }
+        .qt-checklist { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 28px; list-style: none; }
+        .qt-checklist li { display: flex; gap: 12px; color: var(--text-main); }
+        .qt-checklist i { color: var(--accent-color); margin-top: 5px; }
+        .qt-checklist b { color: var(--text-heading); }
+        .qt-checklist span { color: var(--text-muted); }
+
+        .qt-bridge { padding: 32px; border: 1px solid var(--border-color); border-radius: 16px; background: color-mix(in srgb, var(--bg-card) 85%, transparent); }
+        .qt-bridge h2 { margin-bottom: 10px; }
+        .qt-bridge p { color: var(--text-muted); max-width: 46em; margin-bottom: 18px; }
+        .qt-steps { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; list-style: none; }
+        .qt-steps li { padding: 6px 12px; border: 1px solid var(--border-color); border-radius: 999px; font-size: .85rem; color: var(--text-main); }
+        .qt-steps li i { color: var(--accent-color); margin-right: 6px; }
+        .qt-bridge .btn-primary { display: inline-block; padding: 13px 22px; border-radius: 8px; color: #111827; font-weight: 700; text-decoration: none; }
+        .qt-bridge small { display: block; margin-top: 10px; color: var(--text-muted); }
+
+        .qt-faq details { border-bottom: 1px solid var(--border-color); padding: 14px 0; }
+        .qt-faq summary { cursor: pointer; color: var(--text-heading); font-weight: 600; }
+        .qt-faq details p { margin-top: 10px; color: var(--text-muted); max-width: 52em; }
+        .qt-faq a { color: var(--accent-color); }
+
+        .qt-disclaimer { padding: 8px 0 40px; color: var(--text-muted); font-size: .82rem; }
+        [data-theme="dark"] .site-footer, [data-theme="dark"] .site-header { background-color: rgba(9, 13, 22, .72); }
+
+        @media (max-width: 900px) {
+            .qt-grid { grid-template-columns: 1fr; gap: 32px; }
+            .qt-hero h1 { font-size: 1.8rem; }
+            .qt-checklist { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 560px) {
+            .qt-hero { padding-top: 24px; }
+            .qt-header-actions .qt-login { display: none; }
+            .qt-bridge { padding: 22px; }
+            .logo { font-size: 1.3rem; }
+            .logo-mark { width: 38px; height: 38px; }
+        }
+    </style>
+    <script>
+        // Tema: aceeași cheie ca vitrina și aplicația ("theme"); implicit întunecat.
+        (function () {
+            var pref = "dark";
+            try {
+                var stored = localStorage.getItem("theme");
+                if (stored === "light" || stored === "dark" || stored === "system") pref = stored;
+            } catch (err) { /* stocare indisponibilă */ }
+            if (pref === "system") pref = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", pref);
+        })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Modelul de deviz este gratuit?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Da. Îl descarci în Word, Excel sau PDF și îl folosești de câte ori vrei. Fără cont și fără email." }
+            },
+            {
+                "@type": "Question",
+                "name": "Deviz sau ofertă de preț — care e diferența?",
+                "acceptedAnswer": { "@type": "Answer", "text": "La lucrările private, cele două denumiri se folosesc des pentru același document: lista lucrărilor și a materialelor, cu prețuri și total. Important e să fie clar ce e inclus, ce nu e inclus și cât timp e valabil prețul." }
+            },
+            {
+                "@type": "Question",
+                "name": "Trebuie să trec TVA în deviz?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Doar dacă ești plătitor de TVA. Cota standard este 21% (de la 1 august 2025). Dacă nu ești plătitor, șterge rândul de TVA de la totaluri." }
+            },
+            {
+                "@type": "Question",
+                "name": "Poate clientul să accepte oferta online?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Cu ElectricalVPF transformi oferta acceptată într-un contract pe care clientul îl semnează online, de pe telefon (planul PRO), apoi în factură." }
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="/" class="logo-link" aria-label="ElectricalVPF">
+                <img class="logo-mark logo-mark-dark" src="/site/img/favicon-dark.png" alt="">
+                <img class="logo-mark logo-mark-light" src="/site/img/favicon-light.png" alt="">
+                <span class="logo">Electrical<span>VPF</span></span>
+            </a>
+            <div class="qt-header-actions">
+                <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="qt-login">Autentificare</a>
+                <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary">Începe gratuit</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="qt-hero">
+            <div class="container qt-grid">
+                <div>
+                    <a href="/ro/" class="auth-back-to-website">
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        <span>Înapoi la site</span>
+                    </a>
+                    <span class="qt-kicker">Pentru electricieni și firme de instalații</span>
+                    <h1>Model deviz instalații electrice (Word, Excel, PDF) — gratuit</h1>
+                    <p class="qt-lead">Un deviz – ofertă de preț clar, pe care clientul îl citește într-un minut: manopera și
+                        materialele pe rânduri, TVA doar dacă ești plătitor, ce nu e inclus, condițiile de plată și loc
+                        pentru semnătură. Model simplu, pentru lucrări private. Fără cont, fără email.</p>
+
+                    <div class="qt-downloads">
+                        <a class="qt-download" href="/site/downloads/model-deviz-instalatii-electrice.docx" download data-download="docx">
+                            <i class="fas fa-file-word" aria-hidden="true"></i>
+                            <div><strong>Word (.docx)</strong><span>Îl editezi și îl trimiți ca document</span></div>
+                            <i class="fas fa-download" aria-hidden="true"></i>
+                        </a>
+                        <a class="qt-download" href="/site/downloads/model-deviz-instalatii-electrice.xlsx" download data-download="xlsx">
+                            <i class="fas fa-file-excel" aria-hidden="true"></i>
+                            <div><strong>Excel (.xlsx)</strong><span>Totalurile și TVA-ul se calculează singure</span></div>
+                            <i class="fas fa-download" aria-hidden="true"></i>
+                        </a>
+                        <a class="qt-download" href="/site/downloads/model-deviz-instalatii-electrice.pdf" download data-download="pdf">
+                            <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                            <div><strong>PDF</strong><span>Îl printezi și îl completezi de mână</span></div>
+                            <i class="fas fa-download" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <p class="qt-free-note"><i class="fas fa-check" aria-hidden="true"></i> Gratuit, pentru orice lucrare, de câte ori vrei.</p>
+
+                    <div class="qt-after" id="qtAfter" role="status">
+                        Modelul se descarcă. Data viitoare, fă oferta de pe telefon în câteva minute —
+                        <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu">încearcă gratuit</a>.
+                    </div>
+                </div>
+
+                <figure>
+                    <div class="qt-preview">
+                        <img src="/site/img/model-deviz-instalatii-electrice.png" width="794" height="1123"
+                            alt="Previzualizarea modelului gratuit de deviz: datele firmei, beneficiarul, descrierea lucrării, tabelele de manoperă și materiale, TVA, totaluri, condiții și semnătură.">
+                    </div>
+                    <figcaption class="qt-preview-caption">O pagină A4 · lei · TVA doar pentru plătitori</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="qt-section">
+            <div class="container">
+                <h2>Ce trebuie să conțină un deviz pentru instalații electrice</h2>
+                <ul class="qt-checklist">
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Descrierea exactă a lucrării.</b> <span>Ce faci, unde și cum.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Manopera și materialele, pe rânduri separate.</b> <span>Clientul are încredere într-un preț pe care îl poate urmări.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>TVA, doar dacă ești plătitor.</b> <span>Cu cota corectă; altfel nu îl treci deloc.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Ce nu este inclus.</b> <span>Spargeri, finisaje, defecte existente — spuse de la început.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Cât timp e valabil prețul.</b> <span>Prețurile materialelor se schimbă; 30 de zile e uzual.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Documentele de la final, dacă e cazul.</b> <span>Doar cele aplicabile lucrării.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Condițiile de plată.</b> <span>Avansul, termenul pentru rest și IBAN-ul.</span></div></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><div><b>Acceptarea clientului.</b> <span>Nume, semnătură și dată — înainte să începi.</span></div></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="qt-section">
+            <div class="container">
+                <div class="qt-bridge">
+                    <h2>Vrei să-l faci mai repede data viitoare?</h2>
+                    <p>Faci aceeași ofertă de pe telefon, în câteva minute. Pleacă la client ca PDF curat, cu datele firmei
+                        tale. Când clientul spune da, o transformi într-un contract pe care îl semnează online, apoi în
+                        factură — aceeași lucrare, nimic scris de două ori.</p>
+                    <ul class="qt-steps">
+                        <li><i class="fas fa-file-invoice" aria-hidden="true"></i>Ofertă</li>
+                        <li><i class="fas fa-file-signature" aria-hidden="true"></i>Semnat online</li>
+                        <li><i class="fas fa-receipt" aria-hidden="true"></i>Factură</li>
+                        <li><i class="fas fa-mobile-screen" aria-hidden="true"></i>De pe telefon</li>
+                    </ul>
+                    <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary">Creează prima ofertă gratuit</a>
+                    <small>Plan Free, fără card. Semnarea online face parte din planul PRO.</small>
+                </div>
+            </div>
+        </section>
+
+        <section class="qt-section qt-faq">
+            <div class="container">
+                <h2>Întrebări</h2>
+                <details>
+                    <summary>Modelul de deviz este gratuit?</summary>
+                    <p>Da. Îl descarci în Word, Excel sau PDF și îl folosești de câte ori vrei. Fără cont și fără email.</p>
+                </details>
+                <details>
+                    <summary>Deviz sau ofertă de preț — care e diferența?</summary>
+                    <p>La lucrările private, cele două denumiri se folosesc des pentru același document: lista lucrărilor și a materialelor, cu prețuri și total. Important e să fie clar ce e inclus, ce nu e inclus și cât timp e valabil prețul.</p>
+                </details>
+                <details>
+                    <summary>Trebuie să trec TVA în deviz?</summary>
+                    <p>Doar dacă ești plătitor de TVA. Cota standard este 21% (de la 1 august 2025). Dacă nu ești plătitor, șterge rândul de TVA de la totaluri.</p>
+                </details>
+                <details>
+                    <summary>Poate clientul să accepte oferta online?</summary>
+                    <p>Cu ElectricalVPF transformi oferta acceptată într-un contract pe care clientul îl semnează online, de pe telefon (planul PRO), apoi în factură.</p>
+                </details>
+                <p class="qt-disclaimer">Model de la ElectricalVPF. E un model general, nu consultanță juridică sau fiscală, și nu
+                    este factură — adaptează-l firmei tale și lucrării.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-flex">
+            <p>&copy; 2026 ElectricalVPF. Toate drepturile rezervate.</p>
+            <nav class="footer-legal" aria-label="Informații legale">
+                <a href="https://electricalvpf.app/frontend/legal/terms.html?returnSite=eu">Termeni și Condiții</a>
+                <a href="https://electricalvpf.app/frontend/legal/privacy.html?returnSite=eu">Confidențialitate</a>
+                <a href="https://electricalvpf.app/frontend/legal/cookies.html?returnSite=eu">Cookie-uri</a>
+                <a href="https://electricalvpf.app/frontend/legal/refund-policy.html?returnSite=eu">Rambursare &amp; Anulare</a>
+                <a href="https://electricalvpf.app/frontend/legal/legal-notice.html?returnSite=eu">Date de identificare</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>window.SITE_PAGE_LANG = "ro";</script>
+    <!-- Sursa vizitei → linkurile de înregistrare, doar prin URL (fără cookie-uri / stocare). -->
+    <script src="/site/attribution.js?v=20260930-attribution"></script>
+    <!-- Același script ca pe Login/Register/legal: venit de pe .eu (?returnSite=eu) → butonul duce înapoi pe .eu. -->
+    <script src="https://electricalvpf.app/frontend/js/return-site.js?v=20261002-legal"></script>
+    <script src="/site/cosmos.js?v=20261002-auth-cosmos" defer></script>
+    <script>
+        // După descărcare: un singur rând, discret, spre aplicație (fără ferestre care apar singure).
+        document.querySelectorAll("[data-download]").forEach(function (link) {
+            link.addEventListener("click", function () {
+                var after = document.getElementById("qtAfter");
+                if (after) after.classList.add("is-visible");
+            });
+        });
+    </script>
+</body>
+
+</html>

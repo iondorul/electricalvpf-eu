@@ -189,7 +189,7 @@
                         </a>
                         <div class="help-sep" role="separator"></div>
                         <span class="help-section-title" data-i18n="nav.resources.free">Resurse Gratuite</span>
-                        <a href="https://electricalvpf.app/ro/model-deviz-instalatii-electrice/" data-resource="quote-template" class="help-menu-item">
+                        <a href="/ro/model-deviz-instalatii-electrice/" data-resource="quote-template" class="help-menu-item">
                             <span class="help-menu-icon"><i class="fas fa-file-lines" aria-hidden="true"></i></span>
                             <span class="help-menu-text">
                                 <span class="help-menu-label" data-i18n="nav.resources.quoteTemplate">Model deviz instalații electrice</span>
@@ -256,7 +256,7 @@
                         <span class="mobile-nav-group" data-i18n="nav.tools.free">Unelte Gratuite</span>
                         <a href="#calculator-tool" data-i18n="nav.tools.calculator" data-i18n-title="nav.tools.calculatorTooltip" title="Calcul secțiune și cădere tensiune JT - interioare până în 10kW">Calculator JT</a>
                         <span class="mobile-nav-group" data-i18n="nav.resources.free">Resurse Gratuite</span>
-                        <a href="https://electricalvpf.app/ro/model-deviz-instalatii-electrice/" data-resource="quote-template" data-i18n="nav.resources.quoteTemplate" data-i18n-title="nav.resources.quoteTemplateTooltip" title="Word, Excel și PDF · gratuit, pentru electricieni">Model deviz instalații electrice</a>
+                        <a href="/ro/model-deviz-instalatii-electrice/" data-resource="quote-template" data-i18n="nav.resources.quoteTemplate" data-i18n-title="nav.resources.quoteTemplateTooltip" title="Word, Excel și PDF · gratuit, pentru electricieni">Model deviz instalații electrice</a>
                     </div>
                 </details>
                 <a href="#workflow" data-i18n="workflow">Flux de lucru</a>
@@ -644,7 +644,7 @@
             </nav>
             <nav class="footer-resources" aria-label="Resources">
                 <span data-i18n="footerResources">Resurse</span>
-                <a href="https://electricalvpf.app/ro/model-deviz-instalatii-electrice/" data-resource="quote-template" data-i18n="nav.resources.quoteTemplate">Model deviz instalații electrice</a>
+                <a href="/ro/model-deviz-instalatii-electrice/" data-resource="quote-template" data-i18n="nav.resources.quoteTemplate">Model deviz instalații electrice</a>
             </nav>
         </div>
     </footer>
@@ -687,7 +687,7 @@
         function updateResourceLinks() {
             const ro = document.documentElement.lang === 'ro';
             document.querySelectorAll('a[data-resource="quote-template"]').forEach((a) => {
-                a.setAttribute('href', ro ? 'https://electricalvpf.app/ro/model-deviz-instalatii-electrice/' : 'https://electricalvpf.app/electrical-quote-template/');
+                a.setAttribute('href', ro ? '/ro/model-deviz-instalatii-electrice/' : '/electrical-quote-template/');
             });
         }
         document.addEventListener('site:lang-applied', updateResourceLinks);
