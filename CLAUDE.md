@@ -8,6 +8,13 @@
 - Flux utilizator: `electricalvpf.eu` → Login/Register → `https://electricalvpf.app/frontend/login.html?returnSite=eu`
   → backend-ul `.app` (`https://api.electricalvpf.app/api`). „Back to website” de pe login/register revine pe `.eu`
   datorită `?returnSite=eu` (vezi „Legături cu .app” mai jos).
+- **De ce există `.eu` ca dublură completă, nu doar un link către `.app`:** e o rezervă — dacă `.app` pică
+  (deploy, incident, DNS etc.), reclama/prezentarea rămâne online pe `.eu`, cu propriul domeniu, independent de
+  `.app`. De-asta regula e strictă: **orice pagină publică trebuie să existe fizic pe `.eu`** (copiată de script,
+  nu doar legată), **singura excepție fiind Login și Register** (și, implicit, orice duce la cont — pagini legale,
+  planuri — care au nevoie de backend-ul `.app`). Nu exclude niciodată o pagină din sync doar ca să "scapi" de o
+  problemă de linkuri — repară regula de rescriere, nu elimina pagina (vezi și paginile de reclamă
+  `electrical-quote-template/` și `ro/model-deviz-instalatii-electrice/`, mirror-uite pentru exact acest motiv).
 
 Conținutul repo-ului:
 
