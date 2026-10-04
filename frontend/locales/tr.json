@@ -219,7 +219,8 @@
     "proPlan": "PRO PLANI",
     "contracts": "Sözleşmeler",
     "sentQuotes": "Gönderilen Teklifler",
-    "controlPanel": "Yönetim Paneli"
+    "controlPanel": "Yönetim Paneli",
+    "estimatedMaterials": "Tahmini Malzemeler"
   },
   "header": {
     "accountSettings": "Hesap / Ayarlar",
@@ -228,6 +229,19 @@
     "logout": "Çıkış Yap",
     "changeAvatar": "Avatarı değiştir",
     "chooseAvatar": "Profilim",
+    "companyLogo": "Firma logosu",
+    "companyLogoIntro": "Tekliflerde ve faturalarda görünür.",
+    "logoAdd": "Logo ekle",
+    "logoDelete": "Logoyu sil",
+    "logoRestore": "Varsayılan logoları geri yükle",
+    "logoRestoreWarning": "Yüklediğiniz tüm logoları kaybedeceksiniz ({{count}}). Yalnızca sistemin varsayılan logoları kalacak. Devam edilsin mi?",
+    "logoRestoreYes": "Evet, geri yükle",
+    "logoSave": "Logoyu kaydet",
+    "logoSaved": "Logo kaydedildi!",
+    "logoSaveFailed": "Logo kaydedilemedi. Tekrar deneyin.",
+    "logoLoadFailed": "Logolar yüklenemedi. Tekrar deneyin.",
+    "logoInvalid": "PNG, JPG veya WEBP bir görsel seçin.",
+    "logoTooLarge": "Görsel çok büyük (en fazla 5 MB).",
     "avatarSettings": "Avatarı Ayarlar'da yönetin",
     "language": "Dil",
     "toggleTheme": "Temayı değiştir",
@@ -433,7 +447,28 @@
       "loadError": "Ayarlar yüklenirken ağ hatası oluştu.",
       "saved": "Şirket bilgileri başarıyla kaydedildi.",
       "saveFailed": "Bilgiler kaydedilemedi.",
-      "nameRequired": "Şirket adı zorunludur."
+      "nameRequired": "Şirket adı zorunludur.",
+      "sectionDocuments": "Belgeler: ülke, para birimi ve KDV",
+      "countrySuggestionHint": "Ülke seçimi para birimini, KDV oranını ve belge dilini doldurur. Bunlar yalnızca önerilerdir: değiştirebilirsiniz.",
+      "countryCode": "Firmanın ülkesi",
+      "chooseCountry": "— Ülke seçin —",
+      "documentLanguage": "Belge dili",
+      "documentLanguageHint": "Yeni teklifler ve faturalar (PDF ve e-posta) bu dilde olacak. Uygulama dilinden farklı olabilir.",
+      "defaultCurrency": "Varsayılan para birimi",
+      "defaultVatRate": "Varsayılan KDV oranı (%)",
+      "vatRegistered": "KDV mükellefi firma",
+      "vatRegisteredHint": "KDV mükellefi değilseniz yeni teklifler ve faturalar KDV eklemez.",
+      "sectionBank": "Banka bilgileri",
+      "bankAccountHint": "IBAN'ı veya IBAN kullanılmayan yerlerde hesap numarasını ve banka kodunu girin (örneğin Birleşik Krallık'ta sort code).",
+      "bic": "BIC / SWIFT",
+      "bankAccountNumber": "Hesap numarası",
+      "bankRoutingCode": "Banka kodu",
+      "currencyChangedInfo": "Mevcut belgeler kendi para birimlerini korur. Yeni para birimini yalnızca yeni teklifler ve sözleşmeler kullanır.",
+      "invalidCountry": "Seçilen ülke listede yok.",
+      "invalidCurrency": "Seçilen para birimi listede yok.",
+      "invalidVatRate": "KDV oranı 0 ile 100 arasında olmalıdır.",
+      "invalidLanguage": "Belge dili listede yok.",
+      "invalidBic": "BIC / SWIFT kodu 8 veya 11 karakterdir."
     },
     "privacy": {
       "title": "Gizlilik",
@@ -454,7 +489,40 @@
       "privacyPolicySoon": "Gizlilik Politikası yakında kullanıma sunulacak.",
       "deleteSoon": "Hesap silme yakında kullanıma sunulacak. Yardım için destek ekibiyle iletişime geçin.",
       "exportError": "Verileriniz dışa aktarılamadı. Lütfen tekrar deneyin.",
-      "deleteError": "Hesabınız silinemedi. Tekrar deneyin veya destek ekibiyle iletişime geçin."
+      "deleteError": "Hesabınız silinemedi. Tekrar deneyin veya destek ekibiyle iletişime geçin.",
+      "deleteModal": {
+        "title": "Hesabı kalıcı olarak silme",
+        "irreversible": "Bu işlem kalıcıdır ve geri alınamaz.",
+        "intro": "Devam ederseniz hesabınızla ilişkili veriler kalıcı olarak silinir, bunlar dahil:",
+        "itemClients": "Müşteriler ve potansiyel müşteriler",
+        "itemWork": "İşler ve iş talepleri",
+        "itemMaterials": "Malzemeler ve tahmini malzemeler",
+        "itemOffers": "Teklifler ve tahminler",
+        "itemContracts": "Sözleşmeler ve ilgili belgeler",
+        "itemInvoices": "Faturalar ve ödemeler",
+        "itemReports": "Raporlar",
+        "itemPhotos": "Fotoğraflar ve hesabınıza bağlı diğer operasyonel veriler",
+        "noRecovery": "Silindikten sonra bu veriler geri getirilemez.",
+        "typeLabel": "Onaylamak için tam olarak yazın:",
+        "phrase": "HESABIMI SİL",
+        "keep": "Hesabımı koru",
+        "confirm": "Hesabı kalıcı olarak sil",
+        "deleting": "Siliniyor…"
+      },
+      "exportModal": {
+        "title": "Hesap verilerini dışa aktar",
+        "intro": "Dışa aktarma; müşteriler, işler, malzemeler, teklifler, sözleşmeler, faturalar, raporlar ve ikincil akıştaki veriler dahil olmak üzere ElectricalVPF hesabınızla ilişkili verileri içerir.",
+        "format": "Dışa aktarma biçimi: JSON",
+        "filesNote": "PDF'ler, fotoğraflar ve imzalar gibi ekli dosyalar dışa aktarmada listelenir ancak JSON dosyasına dahil edilmez. Uygulamadan indirilebilir olmaya devam ederler.",
+        "waitNote": "Dışa aktarmanın hazırlanması birkaç saniye sürebilir.",
+        "limitNote": "24 saatte bir tam dışa aktarma oluşturabilirsiniz.",
+        "create": "Dışa aktarma oluştur",
+        "cancel": "İptal",
+        "preparing": "Dışa aktarma hazırlanıyor…",
+        "success": "Dışa aktarma oluşturuldu ve indirildi.",
+        "nextAvailable": "Bir sonraki dışa aktarma: {{date}}",
+        "cooldown": "Son 24 saatte zaten bir dışa aktarma oluşturdunuz."
+      }
     },
     "billing": {
       "title": "Abonelik ve Ödeme",
@@ -641,7 +709,16 @@
     "notFound": "İş bulunamadı.",
     "nameAndClientRequired": "İş adı ve müşteri zorunludur.",
     "saveFailed": "İş kaydedilemedi.",
-    "deleteFailed": "İş arşivlenemedi."
+    "deleteFailed": "İş arşivlenemedi.",
+    "currencyLabel": "İşin para birimi",
+    "currencyInUse": "Bu işte bu para biriminde zaten malzeme veya belge var, bu yüzden para birimi artık değiştirilemez.",
+    "copyFromRequest": "Bir iş talebinden kopyala (isteğe bağlı)",
+    "copyFromRequestNone": "— Kopyalama —",
+    "chooseClientFirst": "Önce müşteriyi seçin",
+    "noRequestsForClient": "Bu müşterinin talep edilen işi yok — işi sıfırdan doldurun.",
+    "copyFromRequestHelp": "Burada yalnızca bir müşteriye bağlı iş talepleri görünür. Potansiyel müşteriye bağlı olanlar, müşteriye dönüştürülene kadar işe dönüşemez.",
+    "copyFromRequestWhy": "Burada hangi talepler görünür?",
+    "copyLocationPrefix": "Konum"
   },
   "estimating": {
     "viewEstimate": "Tahmini Teklifi Görüntüle",
@@ -735,7 +812,11 @@
     "itemUnitCostInvalid": "#{{index}} numaralı satırın birim maliyeti negatif olamaz.",
     "itemMarginInvalid": "#{{index}} numaralı satırın kâr marjı negatif olamaz.",
     "updateNotFound": "Tahmini teklif bulunamadı veya güncelleme başarısız oldu.",
-    "alreadyArchived": "Tahmini teklif bulunamadı veya zaten arşivlenmiş."
+    "alreadyArchived": "Tahmini teklif bulunamadı veya zaten arşivlenmiş.",
+    "currencyOfWork": "İşin para birimi: {{currency}} — keşifteki tüm fiyatlar bu para birimindedir.",
+    "materialCurrencyMismatch": "“{{material}}” malzemesinin fiyatı {{materialCurrency}}, iş ise {{estimateCurrency}}. Fiyatı {{estimateCurrency}} olan bir malzeme kullanın.",
+    "materialCurrencyUnconfirmed": "“{{material}}” malzemesinin fiyat para birimi henüz onaylanmadı. Malzemeler bölümünden onaylayın.",
+    "workCurrencyMismatch": "Keşif {{estimate}}, seçilen iş ise {{work}}. {{estimate}} cinsinden bir iş seçin."
   },
   "quotes": {
     "draftExists": "Bu tahmini teklif için zaten Taslak durumunda bir teklif var. İkincisini oluşturmak yerine onu düzenleyin.",
@@ -820,7 +901,8 @@
     "itemTable": {
       "category": "Kategori",
       "qty": "Miktar",
-      "unitPrice": "Birim Fiyat"
+      "unitPrice": "Birim Fiyat",
+      "unitPriceRequired": "Birim Fiyat *"
     },
     "workLabel": "İş",
     "subtotalMaterials": "Malzeme Ara Toplamı",
@@ -865,7 +947,58 @@
     "quickFilterLabel": "Hızlı filtreler:",
     "quickFilterAll": "Tümü",
     "currentStatus": "Mevcut Durum",
-    "editStatusHint": "Durumu değiştirdiğinizde düzenleme ekranı kapanır ve Durumu Güncelle penceresi açılır."
+    "editStatusHint": "Durumu değiştirdiğinizde düzenleme ekranı kapanır ve Durumu Güncelle penceresi açılır.",
+    "currencyLabel": "Para birimi",
+    "documentLanguageLabel": "Belge dili",
+    "documentLanguageHint": "PDF ve müşteriye gönderilen e-posta bu dilde olacak.",
+    "calc": {
+      "title": "ELEKTRİK HESAPLARI",
+      "professional": "Profesyonel elektrik hesabı",
+      "quickJt": "Hızlı AG hesabı",
+      "generic": "Elektrik hesabı",
+      "power": "GÜÇ",
+      "length": "UZUNLUK",
+      "supply": "BESLEME",
+      "cable": "ÖNERİLEN KABLO",
+      "protection": "ANMA KORUMASI",
+      "voltageDrop": "GERİLİM DÜŞÜMÜ",
+      "designCurrent": "HESAP AKIMI (Ib)",
+      "cableCapacity": "KABLO TAŞIMA KAPASİTESİ (Iz)",
+      "loadFailed": "Elektrik hesapları yüklenemedi."
+    },
+    "workRequiredLabel": "İş *",
+    "workRequired": "Teklifin hangi iş için olduğunu seçin.",
+    "noEligibleWork": "Aktif bir işiniz yok.",
+    "addWork": "İş ekle",
+    "copyFromEstimate": "Tahmini bir tekliften kopyala (isteğe bağlı)",
+    "copyFromEstimateHint": "Seçilen müşterinin tahmini teklifleri. Kopyalama başlığı, işi ve satırları doldurur — kaydetmeden önce değiştirebilirsiniz.",
+    "selectWork": "İşi seçin...",
+    "loadingEstimates": "Tahmini teklifler yükleniyor...",
+    "copyNone": "— Kopyalama yok: teklifi sıfırdan yazıyorum —",
+    "estimateNotForWork": "Seçilen tahmini teklif artık mevcut değil veya seçilen işe ait değil. Başka birini seçin ya da kopyalamadan devam edin.",
+    "copiedFromEstimate": "Satırlar {{number}} teklifinden kopyalandı. Kaydetmeden önce değiştirebilirsiniz.",
+    "copyFailed": "Tahmini teklif kopyalanamadı. Teklifi sıfırdan yazabilirsiniz.",
+    "newStatusHint": "Yeni bir teklif Taslak olarak başlar. Müşteriye e-postayla gönderdiğinizde Gönderildi olur.",
+    "titleLabel": "Teklif Başlığı *",
+    "acceptance": {
+      "sectionTitle": "Çevrimiçi kabul",
+      "acceptedOnline": "{{name}} tarafından {{date}} tarihinde çevrimiçi kabul edildi.",
+      "downloadAccepted": "Kabul edilen teklifi indir (PDF)",
+      "downloadFailed": "Kabul edilen teklif indirilemedi.",
+      "pending": "Kabul bağlantısı {{email}} adresine gönderildi. Müşteri teklifi henüz kabul etmedi.",
+      "viewed": "Müşteri bağlantıyı {{date}} tarihinde açtı.",
+      "manualTitle": "Müşteri teklifi henüz çevrimiçi kabul etmedi",
+      "manualText": "{{number}} numaralı teklif, müşteri tarafından e-postadaki bağlantı ile kabul edilmedi. Yine de Kabul Edildi olarak işaretlensin mi (örneğin müşteri kâğıt üzerinde veya telefonla kabul etti)?",
+      "manualYes": "Evet, Kabul Edildi olarak işaretle"
+    },
+    "titleTaken": "Bu başlıkla zaten bir teklifiniz var. Başka bir başlık seçin.",
+    "titlePlaceholder": "örn.: Villa Elektrik Tesisatı Teklifi",
+    "titleRequired": "Teklif başlığı zorunludur.",
+    "clientRequired": "Müşteriyi seçin.",
+    "lineItems": "Teklif Satırları (Malzeme / İşçilik)",
+    "chooseClientFirst": "Önce müşteriyi seçin",
+    "noEstimatesForClient": "Bu müşterinin tahmini teklifi yok — teklifi sıfırdan yazın.",
+    "loadingClients": "Müşteriler yükleniyor..."
   },
   "acceptedQuotes": {
     "loadingList": "Kabul edilen teklifler yükleniyor...",
@@ -913,6 +1046,7 @@
     "registerAction": "Kaydet",
     "table": {
       "invoiceNumber": "Fatura Numarası",
+      "quoteTitle": "Teklif başlığı",
       "dueDate": "Vade Tarihi"
     },
     "deleteAllConfirm": "TÜM faturaları silmek istediğinizden emin misiniz? Bu işlem geri alınamaz!",
@@ -922,11 +1056,24 @@
     "loadFailed": "Faturalar yüklenemedi.",
     "networkLoadError": "Faturalar yüklenirken ağ hatası oluştu.",
     "noInvoices": "Kayıtlı fatura yok.",
+    "resendConfirmTitle": "Fatura yeniden gönderilsin mi?",
+    "resendConfirmDesc": "Fatura zaten {{email}} adresine gönderildi. Yeniden göndermek istediğinizden emin misiniz?",
+    "deleteTitle": "Faturayı sil",
+    "deleteConfirmTitle": "Fatura silinsin mi?",
+    "deleteConfirmDesc": "{{number}} numaralı faturayı silmek istediğinizden emin misiniz? Fatura arşivlenecek ve artık listede görünmeyecek.",
+    "deleteConfirmYes": "Evet, faturayı sil",
+    "deleted": "Fatura silindi (arşivlendi).",
+    "deleteFailed": "Fatura silinemedi.",
     "downloadPdf": "PDF İndir",
     "sendByEmailTitle": "Faturayı e-posta ile gönder",
     "noClientEmail": "Müşterinin kayıtlı e-postası yok",
     "cannotRecordPayments": "Ödemeler kaydedilemez",
     "recordPaymentTitle": "Ödeme kaydet",
+    "paymentDoneTitle": "Ödeme kaydedildi",
+    "paymentDoneText": "{{number}} numaralı faturanın ödemesi işlenmiş olarak kaydedildi. Bir şeyi değiştirmek istersen Düzenle düğmesini kullan.",
+    "paymentCanceledTitle": "Fatura iptal edildi",
+    "paymentCanceledText": "{{number}} numaralı faturaya artık ödeme kaydedilemez. Bir şeyi değiştirmek istersen Düzenle düğmesini kullan.",
+    "paymentUnavailableOk": "Anladım",
     "fetchFailed": "Fatura verileri alınamadı.",
     "loadNetworkError": "Fatura yüklenirken ağ hatası oluştu.",
     "paymentRecorded": "Ödeme başarıyla kaydedildi.",
@@ -974,7 +1121,9 @@
       "name": "Ad",
       "category": "Kategori",
       "unitPrice": "Birim Fiyat",
-      "stock": "Stok"
+      "stock": "Stok",
+      "work": "İş",
+      "quantity": "Miktar"
     },
     "loadingList": "Malzemeler yükleniyor...",
     "itemCode": "Ürün Kodu (SKU)",
@@ -1007,7 +1156,21 @@
     "deleteFailed": "Malzeme silinemedi.",
     "deleteNetworkError": "Malzeme silinirken ağ hatası oluştu.",
     "notFound": "Malzeme bulunamadı.",
-    "codeAlreadyExists": "Hesabınızda bu kodla kayıtlı bir malzeme zaten var."
+    "codeAlreadyExists": "Hesabınızda bu kodla kayıtlı bir malzeme zaten var.",
+    "priceAndCurrency": "Birim fiyat ve para birimi",
+    "workRequired": "İş *",
+    "chooseWork": "— İşi seçin —",
+    "quantityOnWork": "İşteki miktar",
+    "noWorkTitle": "Aktif bir işiniz yok",
+    "noWorkText": "Malzemeler her zaman bir işe aittir. Önce işi, sonra işte kullanılan malzemeleri ekleyin.",
+    "addWork": "İş Ekle",
+    "workRequiredMessage": "Malzemenin ait olduğu aktif işi seçin.",
+    "workCurrencyMismatch": "Seçilen işin para birimi malzemeninkinden farklı. Aynı para biriminde bir iş seçin.",
+    "helpWork": "Her malzeme aktif bir işe aittir: maliyet, onu müşteriden geri alması gereken işe yazılır. Talep edilen bir iş için tahmini malzemeler Tahmini Malzemeler sekmesindedir.",
+    "whyWorkLabel": "Neden işi seçiyorum?",
+    "copyFromEstimated": "Tahmini bir malzemeden kopyala (isteğe bağlı)",
+    "copyFromEstimatedNone": "— Kopyalama —",
+    "copyPriceOtherCurrency": "Tahmini fiyat {{estimated}}, iş ise {{work}} cinsinden. Fiyatı işin para biriminde girin — döviz çevirisi yapılmaz."
   },
   "reports": {
     "period": "Dönem",
@@ -1076,7 +1239,9 @@
     "deleteNetworkError": "Silinirken ağ hatası oluştu.",
     "invalidType": "Seçilen rapor türü geçersiz.",
     "notFound": "Rapor bulunamadı.",
-    "deleteForbidden": "Yalnızca Yönetici rolüne sahip kullanıcılar arşivden rapor silebilir."
+    "deleteForbidden": "Yalnızca Yönetici rolüne sahip kullanıcılar arşivden rapor silebilir.",
+    "materialCost": "Maliyet",
+    "materialsTotal": "Toplam malzeme"
   },
   "plans": {
     "pageTitle": "Planlar ve Abonelik",
@@ -1085,6 +1250,9 @@
     "title": "Planlar ve Abonelik",
     "subtitle": "Şirketiniz için doğru planı seçin. İstediğiniz zaman, taahhüt olmadan yükseltebilirsiniz.",
     "free": {
+      "quotesBranding": ", firma logonuz ve ElectricalVPF işaretiyle",
+      "contractsBranding": ", ElectricalVPF işaretiyle",
+      "invoicesBranding": ", firma logonuz ve ElectricalVPF işaretiyle",
       "name": "Free",
       "period": "/ay",
       "desc": "ERP'yi az sayıda kayıtla denemek için.",
@@ -1092,6 +1260,7 @@
       "clientsLimit": " - en fazla 2 müşteri",
       "workLimit": " - en fazla 3 iş",
       "quotesLimit": " - en fazla 3 teklif",
+      "contractsLimit": " - en fazla 1 sözleşme",
       "calculatorLimit": "Elektrik Hesap Makinesi - en fazla 10 kayıtlı hesaplama",
       "materialsLimit": " - en fazla 20 malzeme",
       "invoicesLimit": " - en fazla 2 fatura",
@@ -1099,6 +1268,10 @@
       "downgradeToFree": "Free'ye Geç"
     },
     "pro": {
+      "noMark": "ElectricalVPF işareti olmadan",
+      "quotesWhiteLabel": ", firma logonuzla, ",
+      "contractsWhiteLabel": ", ",
+      "invoicesWhiteLabel": ", firma logonuzla, ",
       "badge": "Önerilen",
       "name": "Pro",
       "billingToggle": {
@@ -1157,6 +1330,7 @@
         "contractsLabel": "Yeni Sözleşme oluşturma",
         "contractsDesc": "- devre dışı (mevcut sözleşmeler etkilenmez)",
         "calculator": "Elektrik Hesap Makinesini tüm özellikleriyle kullanmaya devam edebilirsiniz",
+        "branding": "Teklifler, faturalar ve sözleşmeler “Generated with ElectricalVPF” alt bilgisini alır",
         "storage": "İş Talepleri fotoğraf depolama alanı 10GB'tan 500MB'a düşer (mevcut fotoğraflar korunur)"
       },
       "autoText": "Free planı etkinleştirildi. Ödemesini yaptığınız dönem bitene kadar Pro avantajlarından yararlanmaya devam edebilirsiniz.",
@@ -1681,7 +1855,10 @@
       "upgradeLink": "Pro'ya Yükselt",
       "quotaExceeded": "Planınızın depolama sınırına ulaştınız.",
       "quotaExceededAfterCreate": "{{number}} numaralı talep oluşturuldu, ancak depolama sınırına ulaştığınız için {{total}} fotoğrafın {{count}} tanesi yüklenemedi."
-    }
+    },
+    "currencyLabel": "Talebin para birimi",
+    "currencyInUse": "Bu iş talebinde bu para biriminde zaten tahmini malzeme var, bu yüzden para birimi artık değiştirilemez.",
+    "editRequest": "İş Talebini Düzenle"
   },
   "contracts": {
     "templateLabel": "Sözleşme şablonu *",
@@ -1803,6 +1980,7 @@
     "archiveFailed": "Sözleşme arşivlenirken hata oluştu.",
     "archiveNetworkError": "Sözleşme arşivlenirken ağ hatası oluştu.",
     "proModal": {
+      "freeUsed": "Free planı tek bir sözleşme içerir ve bunu zaten kullandınız.",
       "title": "Sözleşmeleri PRO ile açın",
       "message": "Kabul edilmiş teklifleri saniyeler içinde imzaya hazır yasal sözleşmelere dönüştürün.",
       "benefit1": "Kabul edilmiş bir teklifle otomatik sözleşme oluşturun — müşteri, iş ve tutar otomatik doldurulur",
@@ -2541,5 +2719,63 @@
     },
     "lockedTitle": "Sözleşme gönderildi — değişiklikler yeni bir kopya olarak kaydedilir",
     "lockedShort": "Gönderildi — yalnızca yeni bir kopya kaydedebilirsiniz"
+  },
+  "currency": {
+    "helpLabel": "Para birimi neden değiştirilemiyor?",
+    "helpWork": "İşin para birimi işin tamamında geçerlidir: malzemeler, tahmin, teklif, sözleşme ve fatura. İşte henüz malzeme veya belge yokken değiştirebilirsiniz; ilkinden itibaren kesinleşir ve döviz çevirisi yapılmaz — böylece her tutar ilk fiyattan tahsilata kadar gerçek değerini korur.",
+    "helpMaterial": "Fiyatın para birimi işin para birimidir ve bir daha değişmez — döviz çevirisi olmadan, her fiyat gerçek değerini korur.",
+    "helpDocument": "Para birimi işten gelir ve tüm zincir boyunca aynı kalır: keşif, teklif, sözleşme ve fatura. Değiştirilemez ve döviz çevirisi yapılmaz — tutarların bütünlüğü için.",
+    "helpManualContract": "Elle oluşturulan sözleşmede para birimini şimdi seçersiniz. Sözleşme oluşturulduktan sonra kesinleşir — değiştirilemez ve döviz çevirisi yapılmaz, tutarların bütünlüğü için.",
+    "locked": "Para birimi artık değiştirilemez.",
+    "helpWorkRequest": "Talebin para birimi tahmini malzemelerine geçer. Talepte henüz tahmini malzeme yokken değiştirebilirsiniz; ilkinden itibaren kesinleşir — döviz çevirisi olmadan."
+  },
+  "estimatedMaterials": {
+    "searchPlaceholder": "Malzeme veya iş talebine göre ara...",
+    "add": "Tahmini Malzeme Ekle",
+    "addNew": "Yeni Tahmini Malzeme",
+    "edit": "Tahmini Malzemeyi Düzenle",
+    "table": {
+      "request": "İş Talebi",
+      "total": "Toplam"
+    },
+    "requestRequired": "İş Talebi *",
+    "chooseRequest": "— İş talebini seçin —",
+    "quantity": "Tahmini miktar",
+    "noRequestTitle": "Hiç iş talebiniz yok",
+    "noRequestText": "Tahmini malzemeler her zaman bir iş talebine aittir. Önce talebi ekleyin, sonra malzemeleri tahmin edin.",
+    "addRequest": "İş Talebi Ekle",
+    "requestRequiredMessage": "Tahmini malzemenin ait olduğu iş talebini seçin.",
+    "currencyMismatch": "Seçilen iş talebinin para birimi farklı. Aynı para biriminde bir talep seçin.",
+    "empty": "Tahmini malzeme yok.",
+    "helpRequest": "Tahmini malzemeler bir iş talebine aittir: iş başlamadan önce neye ihtiyaç olduğunu hızlıca tahmin edersiniz. Aktif bir işte kullanılan malzemeler Malzemeler sekmesindedir.",
+    "helpCurrency": "Para birimi iş talebinin para birimidir ve burada seçilmez. Kaydettikten sonra değişmez — döviz çevirisi olmadan.",
+    "whyRequestLabel": "Neden iş talebini seçiyorum?"
+  },
+  "planLimit": {
+    "titles": {
+      "clients": "PRO ile sınırsız müşteri",
+      "quotes": "PRO ile sınırsız teklif",
+      "work": "PRO ile sınırsız iş",
+      "materials": "PRO ile sınırsız malzeme",
+      "invoices": "PRO ile sınırsız fatura",
+      "reports": "PRO ile sınırsız rapor",
+      "calculations": "PRO ile sınırsız kayıtlı hesaplama",
+      "generic": "PRO'ya geçin"
+    },
+    "messages": {
+      "clients": "Free planındaki 2 müşterinin hepsini kullandınız.",
+      "quotes": "Free planındaki 3 teklifin hepsini kullandınız.",
+      "work": "Free planındaki 3 işin hepsini kullandınız.",
+      "materials": "Free planındaki 20 malzemenin hepsini kullandınız.",
+      "invoices": "Free planındaki 2 faturanın hepsini kullandınız.",
+      "reports": "Free planındaki 5 raporun hepsini kaydettiniz.",
+      "calculations": "Free planındaki 10 hesaplamanın hepsini kaydettiniz.",
+      "generic": "Bu işlem için Free planının içerdiği her şeyi kullandınız."
+    },
+    "documents": "ElectricalVPF işareti olmayan belgeler",
+    "also": "PRO ayrıca şunları içerir:",
+    "upgrade": "PRO'ya geçin",
+    "subtext": "Şimdiye kadar kaydettiğiniz her şey olduğu gibi kalır.",
+    "close": "Şimdi değil"
   }
 }

@@ -192,7 +192,8 @@
     "freePlan": "FREE PLAN",
     "proPlan": "PRO PLAN",
     "contracts": "Contracten",
-    "sentQuotes": "Verzonden Offertes"
+    "sentQuotes": "Verzonden Offertes",
+    "estimatedMaterials": "Geschatte Materialen"
   },
   "header": {
     "accountSettings": "Account / Instellingen",
@@ -201,6 +202,19 @@
     "logout": "Uitloggen",
     "changeAvatar": "Avatar wijzigen",
     "chooseAvatar": "Mijn profiel",
+    "companyLogo": "Bedrijfslogo",
+    "companyLogoIntro": "Verschijnt op offertes en facturen.",
+    "logoAdd": "Logo toevoegen",
+    "logoDelete": "Logo verwijderen",
+    "logoRestore": "Standaardlogo's herstellen",
+    "logoRestoreWarning": "Je verliest alle logo's die je hebt geüpload ({{count}}). Alleen de standaardlogo's van het systeem blijven over. Doorgaan?",
+    "logoRestoreYes": "Ja, herstellen",
+    "logoSave": "Logo opslaan",
+    "logoSaved": "Logo succesvol opgeslagen!",
+    "logoSaveFailed": "Het logo kon niet worden opgeslagen. Probeer het opnieuw.",
+    "logoLoadFailed": "De logo's konden niet worden geladen. Probeer het opnieuw.",
+    "logoInvalid": "Kies een PNG-, JPG- of WEBP-afbeelding.",
+    "logoTooLarge": "De afbeelding is te groot (maximaal 5 MB).",
     "avatarSettings": "Avatar beheren in Instellingen",
     "language": "Taal",
     "toggleTheme": "Thema wisselen",
@@ -360,7 +374,28 @@
       "loadError": "Netwerkfout bij het laden van de instellingen.",
       "saved": "Bedrijfsgegevens succesvol opgeslagen.",
       "saveFailed": "Gegevens konden niet worden opgeslagen.",
-      "nameRequired": "Bedrijfsnaam is verplicht."
+      "nameRequired": "Bedrijfsnaam is verplicht.",
+      "sectionDocuments": "Documenten: land, valuta en btw",
+      "countrySuggestionHint": "De keuze van het land vult de valuta, het btw-tarief en de taal van de documenten in. Het zijn alleen suggesties: je kunt ze wijzigen.",
+      "countryCode": "Land van het bedrijf",
+      "chooseCountry": "— Kies het land —",
+      "documentLanguage": "Taal van de documenten",
+      "documentLanguageHint": "Nieuwe offertes en facturen (pdf en e-mail) zijn in deze taal. Die kan verschillen van de taal van de app.",
+      "defaultCurrency": "Standaardvaluta",
+      "defaultVatRate": "Standaard btw-tarief (%)",
+      "vatRegistered": "Btw-plichtig bedrijf",
+      "vatRegisteredHint": "Ben je niet btw-plichtig, dan rekenen nieuwe offertes en facturen geen btw.",
+      "sectionBank": "Bankgegevens",
+      "bankAccountHint": "Vul de IBAN in of, waar geen IBAN wordt gebruikt, het rekeningnummer en de bankcode (bijvoorbeeld de sort code in het VK).",
+      "bic": "BIC / SWIFT",
+      "bankAccountNumber": "Rekeningnummer",
+      "bankRoutingCode": "Bankcode",
+      "currencyChangedInfo": "Bestaande documenten houden hun valuta. Alleen nieuwe offertes en contracten gebruiken de nieuwe.",
+      "invalidCountry": "Het gekozen land staat niet in de lijst.",
+      "invalidCurrency": "De gekozen valuta staat niet in de lijst.",
+      "invalidVatRate": "Het btw-tarief moet tussen 0 en 100 liggen.",
+      "invalidLanguage": "De taal van de documenten staat niet in de lijst.",
+      "invalidBic": "De BIC / SWIFT-code heeft 8 of 11 tekens."
     },
     "privacy": {
       "title": "Privacy",
@@ -379,7 +414,40 @@
       "exportSoon": "Gegevensexport komt binnenkort beschikbaar.",
       "termsSoon": "De algemene voorwaarden komen binnenkort beschikbaar.",
       "privacyPolicySoon": "Het privacybeleid komt binnenkort beschikbaar.",
-      "deleteSoon": "Accountverwijdering komt binnenkort beschikbaar. Neem contact op met de klantenservice voor hulp."
+      "deleteSoon": "Accountverwijdering komt binnenkort beschikbaar. Neem contact op met de klantenservice voor hulp.",
+      "deleteModal": {
+        "title": "Account definitief verwijderen",
+        "irreversible": "Deze actie is definitief en kan niet ongedaan worden gemaakt.",
+        "intro": "Als je doorgaat, worden de gegevens van je account definitief verwijderd, waaronder:",
+        "itemClients": "Klanten en leads",
+        "itemWork": "Klussen en werkverzoeken",
+        "itemMaterials": "Materialen en geschatte materialen",
+        "itemOffers": "Offertes en schattingen",
+        "itemContracts": "Contracten en bijbehorende documenten",
+        "itemInvoices": "Facturen en betalingen",
+        "itemReports": "Rapporten",
+        "itemPhotos": "Foto's en andere operationele gegevens van je account",
+        "noRecovery": "Na verwijdering kunnen deze gegevens niet meer worden hersteld.",
+        "typeLabel": "Typ ter bevestiging precies:",
+        "phrase": "VERWIJDER MIJN ACCOUNT",
+        "keep": "Account behouden",
+        "confirm": "Account definitief verwijderen",
+        "deleting": "Verwijderen…"
+      },
+      "exportModal": {
+        "title": "Je accountgegevens exporteren",
+        "intro": "De export bevat de gegevens van je ElectricalVPF-account, waaronder klanten, klussen, materialen, offertes, contracten, facturen, rapporten en gegevens uit de secundaire workflow.",
+        "format": "Exportformaat: JSON",
+        "filesNote": "Bijlagen zoals pdf's, foto's en handtekeningen worden in de export vermeld, maar niet in het JSON-bestand opgenomen. Je kunt ze blijven downloaden in de applicatie.",
+        "waitNote": "Het voorbereiden van de export kan even duren.",
+        "limitNote": "Je kunt één volledige export per 24 uur maken.",
+        "create": "Export maken",
+        "cancel": "Annuleren",
+        "preparing": "Export wordt voorbereid…",
+        "success": "De export is gemaakt en gedownload.",
+        "nextAvailable": "Volgende export beschikbaar: {{date}}",
+        "cooldown": "Je hebt in de afgelopen 24 uur al een export gemaakt."
+      }
     },
     "billing": {
       "title": "Abonnement en facturering",
@@ -566,7 +634,16 @@
     "notFound": "Werk niet gevonden.",
     "nameAndClientRequired": "Werknaam en klant zijn verplicht.",
     "saveFailed": "Kan het werk niet opslaan.",
-    "deleteFailed": "Kan het werk niet archiveren."
+    "deleteFailed": "Kan het werk niet archiveren.",
+    "currencyLabel": "Valuta van de klus",
+    "currencyInUse": "Deze klus heeft al materialen of documenten in deze valuta, dus de valuta kan niet meer wijzigen.",
+    "copyFromRequest": "Kopieer van een werkverzoek (optioneel)",
+    "copyFromRequestNone": "— Niet kopiëren —",
+    "chooseClientFirst": "Kies eerst de klant",
+    "noRequestsForClient": "Deze klant heeft geen aangevraagde werken — vul het werk vanaf nul in.",
+    "copyFromRequestHelp": "Hier staan alleen werkverzoeken die aan een klant gekoppeld zijn. Verzoeken van een lead worden pas een klus als de lead klant is geworden.",
+    "copyFromRequestWhy": "Welke verzoeken staan hier?",
+    "copyLocationPrefix": "Locatie"
   },
   "estimating": {
     "viewEstimate": "Geraamde offerte bekijken",
@@ -660,7 +737,11 @@
     "itemUnitCostInvalid": "Eenheidsprijs van regel #{{index}} mag niet negatief zijn.",
     "itemMarginInvalid": "Marge van regel #{{index}} mag niet negatief zijn.",
     "updateNotFound": "Geraamde offerte niet gevonden of bijwerken is mislukt.",
-    "alreadyArchived": "Geraamde offerte niet gevonden of al gearchiveerd."
+    "alreadyArchived": "Geraamde offerte niet gevonden of al gearchiveerd.",
+    "currencyOfWork": "Valuta van de klus: {{currency}} — alle prijzen in deze raming zijn in deze valuta.",
+    "materialCurrencyMismatch": "Het materiaal „{{material}}” heeft een prijs in {{materialCurrency}}, maar de klus is in {{estimateCurrency}}. Gebruik een materiaal met een prijs in {{estimateCurrency}}.",
+    "materialCurrencyUnconfirmed": "Bij het materiaal „{{material}}” is de valuta van de prijs nog niet bevestigd. Bevestig die bij Materialen.",
+    "workCurrencyMismatch": "De raming is in {{estimate}}, maar de gekozen klus is in {{work}}. Kies een klus in {{estimate}}."
   },
   "quotes": {
     "draftExists": "Er bestaat al een offerte in Concept voor deze geraamde offerte. Bewerk die in plaats van een tweede te maken.",
@@ -745,7 +826,8 @@
     "itemTable": {
       "category": "Categorie",
       "qty": "Aantal",
-      "unitPrice": "Eenheidsprijs"
+      "unitPrice": "Eenheidsprijs",
+      "unitPriceRequired": "Eenheidsprijs *"
     },
     "workLabel": "Werk",
     "subtotalMaterials": "Subtotaal materialen",
@@ -790,7 +872,58 @@
     "quickFilterLabel": "Snelfilters:",
     "quickFilterAll": "Alle",
     "currentStatus": "Huidige Status",
-    "editStatusHint": "Als je de status wijzigt, verlaat je Bewerken en wordt het venster Status Bijwerken geopend."
+    "editStatusHint": "Als je de status wijzigt, verlaat je Bewerken en wordt het venster Status Bijwerken geopend.",
+    "currencyLabel": "Valuta",
+    "documentLanguageLabel": "Taal van het document",
+    "documentLanguageHint": "De pdf en de e-mail aan de klant zijn in deze taal.",
+    "calc": {
+      "title": "ELEKTRISCHE BEREKENINGEN",
+      "professional": "Professionele elektrische berekening",
+      "quickJt": "Snelle LS-berekening",
+      "generic": "Elektrische berekening",
+      "power": "VERMOGEN",
+      "length": "LENGTE",
+      "supply": "VOEDING",
+      "cable": "AANBEVOLEN KABEL",
+      "protection": "NOMINALE BEVEILIGING",
+      "voltageDrop": "SPANNINGSVAL",
+      "designCurrent": "ONTWERPSTROOM (Ib)",
+      "cableCapacity": "STROOMBELASTBAARHEID KABEL (Iz)",
+      "loadFailed": "De elektrische berekeningen konden niet worden geladen."
+    },
+    "workRequiredLabel": "Werk *",
+    "workRequired": "Kies het werk waarvoor je de offerte maakt.",
+    "noEligibleWork": "Je hebt geen actief werk.",
+    "addWork": "Werk toevoegen",
+    "copyFromEstimate": "Kopiëren uit een geschatte offerte (optioneel)",
+    "copyFromEstimateHint": "De geschatte offertes van de gekozen klant. Kopiëren vult de titel, het werk en de regels in — je kunt ze vóór het opslaan aanpassen.",
+    "selectWork": "Kies het werk...",
+    "loadingEstimates": "Geschatte offertes laden...",
+    "copyNone": "— Niet kopiëren: ik maak de offerte vanaf nul —",
+    "estimateNotForWork": "De gekozen geschatte offerte bestaat niet meer of hoort niet bij het gekozen werk. Kies een andere of ga verder zonder kopiëren.",
+    "copiedFromEstimate": "De regels zijn gekopieerd uit {{number}}. Je kunt ze vóór het opslaan aanpassen.",
+    "copyFailed": "De geschatte offerte kon niet worden gekopieerd. Je kunt de offerte vanaf nul maken.",
+    "newStatusHint": "Een nieuwe offerte begint als Concept. Ze wordt Verzonden wanneer je ze per e-mail naar de klant stuurt.",
+    "titleLabel": "Offertetitel *",
+    "acceptance": {
+      "sectionTitle": "Online acceptatie",
+      "acceptedOnline": "Online geaccepteerd door {{name}} op {{date}}.",
+      "downloadAccepted": "Geaccepteerde offerte downloaden (PDF)",
+      "downloadFailed": "De geaccepteerde offerte kon niet worden gedownload.",
+      "pending": "Acceptatielink verstuurd naar {{email}}. De klant heeft de offerte nog niet geaccepteerd.",
+      "viewed": "De klant opende de link op {{date}}.",
+      "manualTitle": "De klant heeft de offerte nog niet online geaccepteerd",
+      "manualText": "Offerte {{number}} is niet door de klant geaccepteerd via de link in de e-mail. Toch als Geaccepteerd markeren (bijvoorbeeld: de klant accepteerde op papier of telefonisch)?",
+      "manualYes": "Ja, markeer als Geaccepteerd"
+    },
+    "titleTaken": "Je hebt al een offerte met deze titel. Kies een andere titel.",
+    "titlePlaceholder": "bijv. Offerte elektrische installatie villa",
+    "titleRequired": "De offertetitel is verplicht.",
+    "clientRequired": "Kies de klant.",
+    "lineItems": "Offerteregels (materialen / arbeid)",
+    "chooseClientFirst": "Kies eerst de klant",
+    "noEstimatesForClient": "Deze klant heeft geen geschatte offertes — maak de offerte vanaf nul.",
+    "loadingClients": "Klanten laden..."
   },
   "acceptedQuotes": {
     "loadingList": "Geaccepteerde offertes laden...",
@@ -838,6 +971,7 @@
     "registerAction": "Registreren",
     "table": {
       "invoiceNumber": "Factuurnummer",
+      "quoteTitle": "Offertetitel",
       "dueDate": "Vervaldatum"
     },
     "deleteAllConfirm": "Weet je zeker dat je ALLE facturen wilt verwijderen? Deze actie is onomkeerbaar!",
@@ -847,11 +981,24 @@
     "loadFailed": "Facturen konden niet worden geladen.",
     "networkLoadError": "Netwerkfout bij het laden van de facturen.",
     "noInvoices": "Geen facturen geregistreerd.",
+    "resendConfirmTitle": "Factuur opnieuw versturen?",
+    "resendConfirmDesc": "De factuur is al verstuurd naar {{email}}. Weet je zeker dat je hem opnieuw wilt versturen?",
+    "deleteTitle": "Factuur verwijderen",
+    "deleteConfirmTitle": "Factuur verwijderen?",
+    "deleteConfirmDesc": "Weet je zeker dat je factuur {{number}} wilt verwijderen? De factuur wordt gearchiveerd en verschijnt niet meer in de lijst.",
+    "deleteConfirmYes": "Ja, verwijder de factuur",
+    "deleted": "De factuur is verwijderd (gearchiveerd).",
+    "deleteFailed": "De factuur kon niet worden verwijderd.",
     "downloadPdf": "PDF downloaden",
     "sendByEmailTitle": "De factuur per e-mail versturen",
     "noClientEmail": "De klant heeft geen geregistreerd e-mailadres",
     "cannotRecordPayments": "Betalingen kunnen niet worden geregistreerd",
     "recordPaymentTitle": "Betaling registreren",
+    "paymentDoneTitle": "Betaling geregistreerd",
+    "paymentDoneText": "De betaling van factuur {{number}} is als verwerkt geregistreerd. Wil je iets wijzigen, gebruik dan de knop Bewerken.",
+    "paymentCanceledTitle": "De factuur is geannuleerd",
+    "paymentCanceledText": "Op factuur {{number}} kunnen geen betalingen meer worden geregistreerd. Wil je iets wijzigen, gebruik dan de knop Bewerken.",
+    "paymentUnavailableOk": "Begrepen",
     "fetchFailed": "De factuurgegevens konden niet worden opgehaald.",
     "loadNetworkError": "Netwerkfout bij het laden van de factuur.",
     "paymentRecorded": "Betaling succesvol geregistreerd.",
@@ -899,7 +1046,9 @@
       "name": "Naam",
       "category": "Categorie",
       "unitPrice": "Eenheidsprijs",
-      "stock": "Voorraad"
+      "stock": "Voorraad",
+      "work": "Klus",
+      "quantity": "Hoeveelheid"
     },
     "loadingList": "Materialen laden...",
     "itemCode": "Artikelcode (SKU)",
@@ -932,7 +1081,21 @@
     "deleteFailed": "Materiaal kon niet worden verwijderd.",
     "deleteNetworkError": "Netwerkfout bij het verwijderen van het materiaal.",
     "notFound": "Materiaal niet gevonden.",
-    "codeAlreadyExists": "Er bestaat al een materiaal met deze code voor jouw account."
+    "codeAlreadyExists": "Er bestaat al een materiaal met deze code voor jouw account.",
+    "priceAndCurrency": "Eenheidsprijs en valuta",
+    "workRequired": "Klus *",
+    "chooseWork": "— Kies de klus —",
+    "quantityOnWork": "Hoeveelheid op de klus",
+    "noWorkTitle": "Je hebt geen actieve klus",
+    "noWorkText": "Materialen horen altijd bij een klus. Voeg eerst de klus toe, daarna de gebruikte materialen.",
+    "addWork": "Klus toevoegen",
+    "workRequiredMessage": "Kies de actieve klus waar dit materiaal bij hoort.",
+    "workCurrencyMismatch": "De gekozen klus heeft een andere valuta dan het materiaal. Kies een klus in dezelfde valuta.",
+    "helpWork": "Elk materiaal hoort bij een actieve klus: de kosten komen bij de klus die ze bij de klant moet terugverdienen. Geschatte materialen voor een aangevraagde klus staan op het tabblad Geschatte Materialen.",
+    "whyWorkLabel": "Waarom de klus kiezen?",
+    "copyFromEstimated": "Kopieer van een geschat materiaal (optioneel)",
+    "copyFromEstimatedNone": "— Niet kopiëren —",
+    "copyPriceOtherCurrency": "De geschatte prijs is in {{estimated}} en de klus in {{work}}. Vul de prijs in de valuta van de klus in — we rekenen niet om."
   },
   "reports": {
     "period": "Periode",
@@ -1001,7 +1164,9 @@
     "deleteNetworkError": "Netwerkfout bij het verwijderen.",
     "invalidType": "Het geselecteerde rapporttype is ongeldig.",
     "notFound": "Rapport niet gevonden.",
-    "deleteForbidden": "Alleen gebruikers met de rol Beheerder kunnen rapporten uit het archief verwijderen."
+    "deleteForbidden": "Alleen gebruikers met de rol Beheerder kunnen rapporten uit het archief verwijderen.",
+    "materialCost": "Kosten",
+    "materialsTotal": "Totaal materialen"
   },
   "plans": {
     "pageTitle": "Plannen en abonnement",
@@ -1010,6 +1175,9 @@
     "title": "Plannen en abonnement",
     "subtitle": "Kies het plan dat bij jouw bedrijf past. Je kunt op elk moment upgraden, zonder verplichtingen.",
     "free": {
+      "quotesBranding": " met je bedrijfslogo en de ElectricalVPF-vermelding",
+      "contractsBranding": " met de ElectricalVPF-vermelding",
+      "invoicesBranding": " met je bedrijfslogo en de ElectricalVPF-vermelding",
       "name": "Free",
       "period": "/maand",
       "desc": "Om de ERP te testen met een laag activiteitsvolume.",
@@ -1017,6 +1185,7 @@
       "clientsLimit": " - maximaal 2 klanten",
       "workLimit": " - maximaal 3 werkitems",
       "quotesLimit": " - maximaal 3 offertes",
+      "contractsLimit": " - maximaal 1 contract",
       "calculatorLimit": "Elektrische Calculator - maximaal 10 opgeslagen berekeningen",
       "materialsLimit": " - maximaal 20 materialen",
       "invoicesLimit": " - maximaal 2 facturen",
@@ -1024,6 +1193,10 @@
       "downgradeToFree": "Overstappen naar Free"
     },
     "pro": {
+      "noMark": "zonder ElectricalVPF-vermelding",
+      "quotesWhiteLabel": " met je bedrijfslogo, ",
+      "contractsWhiteLabel": ", ",
+      "invoicesWhiteLabel": " met je bedrijfslogo, ",
       "badge": "Aanbevolen",
       "name": "Pro",
       "billingToggle": {
@@ -1082,6 +1255,7 @@
         "contractsLabel": "Nieuwe Contracten aanmaken",
         "contractsDesc": "- uitgeschakeld (bestaande contracten blijven ongewijzigd)",
         "calculator": "De Elektrische Calculator blijft volledig beschikbaar",
+        "branding": "Offertes, facturen en contracten krijgen de voettekst “Generated with ElectricalVPF”",
         "storage": "Fotoruimte voor Werkverzoeken daalt van 10GB naar 500MB (bestaande foto's blijven behouden)"
       },
       "autoText": "Het Free-plan is succesvol geactiveerd, maar je behoudt de voordelen van het Pro-plan tot het einde van de huidige betaalde periode.",
@@ -1442,7 +1616,10 @@
       "benefit4": "Verklein het risico dat belangrijke verzoeken verloren gaan",
       "benefit5": "Krijg meer controle over klussen en klanten",
       "ctaSubtext": "Ontgrendel Werkverzoeken en alle PRO-functies"
-    }
+    },
+    "currencyLabel": "Valuta van het verzoek",
+    "currencyInUse": "Dit werkverzoek heeft al geschatte materialen in deze valuta, dus de valuta kan niet meer wijzigen.",
+    "editRequest": "Werkverzoek bewerken"
   },
   "contracts": {
     "templateLabel": "Contractsjabloon *",
@@ -1564,6 +1741,7 @@
     "archiveFailed": "Fout bij het archiveren van het contract.",
     "archiveNetworkError": "Netwerkfout bij het archiveren van het contract.",
     "proModal": {
+      "freeUsed": "Het Free-abonnement bevat één contract, en dat heb je al gebruikt.",
       "title": "Ontgrendel Contracten met PRO",
       "message": "Zet geaccepteerde offertes binnen enkele seconden om in ondertekeningsklare juridische contracten.",
       "benefit1": "Genereer automatisch een contract vanuit een geaccepteerde offerte, met klant, werk en waarde vooraf ingevuld",
@@ -1938,5 +2116,63 @@
     },
     "lockedTitle": "Contract verzonden — wijzigingen worden opgeslagen als nieuwe kopie",
     "lockedShort": "Verzonden — je kunt alleen een nieuwe kopie opslaan"
+  },
+  "currency": {
+    "helpLabel": "Waarom kan de valuta niet worden gewijzigd?",
+    "helpWork": "De valuta van de klus geldt voor de hele klus: materialen, schatting, offerte, contract en factuur. Je kunt hem wijzigen zolang de klus nog geen materialen of documenten heeft; vanaf het eerste is hij definitief en wordt er nooit omgerekend — zo houdt elk bedrag zijn echte waarde, van de eerste prijs tot de betaling.",
+    "helpMaterial": "De valuta van de prijs is de valuta van de klus en verandert niet meer — zonder omrekening, zodat elke prijs zijn echte waarde houdt.",
+    "helpDocument": "De valuta komt van de klus en blijft gelijk in de hele keten: raming, offerte, contract en factuur. Ze kan niet worden gewijzigd en er wordt niet omgerekend — voor de integriteit van de bedragen.",
+    "helpManualContract": "Bij een handmatig contract kies je nu de valuta. Na het aanmaken is die definitief — ze kan niet meer worden gewijzigd en er wordt niet omgerekend, voor de integriteit van de bedragen.",
+    "locked": "De valuta kan niet meer worden gewijzigd.",
+    "helpWorkRequest": "De valuta van het verzoek gaat over op de geschatte materialen. Je kunt hem wijzigen zolang het verzoek nog geen geschatte materialen heeft; vanaf het eerste is hij definitief — zonder omrekening."
+  },
+  "estimatedMaterials": {
+    "searchPlaceholder": "Zoek op materiaal of werkverzoek...",
+    "add": "Geschat materiaal toevoegen",
+    "addNew": "Nieuw geschat materiaal",
+    "edit": "Geschat materiaal bewerken",
+    "table": {
+      "request": "Werkverzoek",
+      "total": "Totaal"
+    },
+    "requestRequired": "Werkverzoek *",
+    "chooseRequest": "— Kies het werkverzoek —",
+    "quantity": "Geschatte hoeveelheid",
+    "noRequestTitle": "Je hebt geen werkverzoek",
+    "noRequestText": "Geschatte materialen horen altijd bij een werkverzoek. Voeg eerst het verzoek toe en schat daarna de materialen.",
+    "addRequest": "Werkverzoek toevoegen",
+    "requestRequiredMessage": "Kies het werkverzoek waar dit geschatte materiaal bij hoort.",
+    "currencyMismatch": "Het gekozen werkverzoek heeft een andere valuta. Kies er een in dezelfde valuta.",
+    "empty": "Er zijn geen geschatte materialen.",
+    "helpRequest": "Geschatte materialen horen bij een werkverzoek: je schat snel wat nodig is voordat de klus begint. Materialen die op een actieve klus worden gebruikt staan op het tabblad Materialen.",
+    "helpCurrency": "De valuta is die van het werkverzoek en kies je hier niet. Na het opslaan verandert die niet meer — zonder omrekening.",
+    "whyRequestLabel": "Waarom het werkverzoek kiezen?"
+  },
+  "planLimit": {
+    "titles": {
+      "clients": "Onbeperkt klanten met PRO",
+      "quotes": "Onbeperkt offertes met PRO",
+      "work": "Onbeperkt klussen met PRO",
+      "materials": "Onbeperkt materialen met PRO",
+      "invoices": "Onbeperkt facturen met PRO",
+      "reports": "Onbeperkt rapporten met PRO",
+      "calculations": "Onbeperkt opgeslagen berekeningen met PRO",
+      "generic": "Overstappen naar PRO"
+    },
+    "messages": {
+      "clients": "Je hebt de 2 klanten van het Free-abonnement gebruikt.",
+      "quotes": "Je hebt de 3 offertes van het Free-abonnement gebruikt.",
+      "work": "Je hebt de 3 klussen van het Free-abonnement gebruikt.",
+      "materials": "Je hebt de 20 materialen van het Free-abonnement gebruikt.",
+      "invoices": "Je hebt de 2 facturen van het Free-abonnement gebruikt.",
+      "reports": "Je hebt de 5 rapporten van het Free-abonnement opgeslagen.",
+      "calculations": "Je hebt de 10 berekeningen van het Free-abonnement opgeslagen.",
+      "generic": "Je hebt alles gebruikt wat het Free-abonnement voor deze actie bevat."
+    },
+    "documents": "Documenten zonder ElectricalVPF-vermelding",
+    "also": "PRO bevat ook:",
+    "upgrade": "Overstappen naar PRO",
+    "subtext": "Alles wat je tot nu toe hebt opgeslagen, blijft zoals het is.",
+    "close": "Niet nu"
   }
 }

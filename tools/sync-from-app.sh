@@ -42,21 +42,31 @@ for p in "${EXCLUDE[@]}"; do rm -rf "$p"; done
 
 printf 'electricalvpf.eu\n' > CNAME
 
-# Linkuri relative "frontend/..." -> absolute pe .app. Nu atinge
-# src="frontend/js/config.js" (copie locală) și nici importul
-# "../frontend/js/calculator-core.js".
+# Linkuri spre "frontend/..." (relative) sau "/frontend/..." (absolute pe
+# același domeniu) -> absolute pe .app. Nu atinge src="frontend/js/config.js"
+# (copie locală), importul "../frontend/js/calculator-core.js", fetch-ul
+# same-origin "frontend/locales/..." / "/frontend/locales/..." (module-previews.js,
+# merge neschimbat pe .eu fiindcă locale-urile sunt copiate local) și verificările
+# gen pathname.includes("/frontend/") sau href.indexOf("/frontend/...") care
+# citesc o valoare existentă, nu scriu un link.
 sed -i \
   -e "s#href=\"frontend/#href=\"$APP_URL/frontend/#g" \
+  -e "s#href=\"/frontend/#href=\"$APP_URL/frontend/#g" \
   -e "s#'frontend/legal/'#'$APP_URL/frontend/legal/'#g" \
+  -e "s#'/frontend/legal/'#'$APP_URL/frontend/legal/'#g" \
   index.html
 sed -i \
   -e "s#href=\"frontend/#href=\"$APP_URL/frontend/#g" \
+  -e "s#href=\"/frontend/#href=\"$APP_URL/frontend/#g" \
   -e "s#\`frontend/\${page}\`#\`$APP_URL/frontend/\${page}\`#g" \
+  -e "s#\`/frontend/\${page}\`#\`$APP_URL/frontend/\${page}\`#g" \
   -e "s#= \"frontend/#= \"$APP_URL/frontend/#g" \
+  -e "s#= \"/frontend/#= \"$APP_URL/frontend/#g" \
   -e "s#return \"frontend/#return \"$APP_URL/frontend/#g" \
+  -e "s#return \"/frontend/#return \"$APP_URL/frontend/#g" \
   -e "s#\"frontend/\" +#\"$APP_URL/frontend/\" +#g" \
+  -e "s#\"/frontend/\" +#\"$APP_URL/frontend/\" +#g" \
   site/*.js
-sed -i -e "s#= \"/frontend/#= \"$APP_URL/frontend/#g" site/session-redirect.js
 
 # Login/Register pe .app: ?returnSite=eu face ca „Back to website” să revină
 # aici (frontend/js/return-site.js din .app, listă fixă de destinații).
@@ -93,7 +103,7 @@ fi
 # Verificare: nu trebuie să mai rămână nicio legătură relativă spre frontend/
 # în afară de fișierele copiate local.
 leftover=$(grep -nE "[\"'\`]/?frontend/" index.html site/*.js \
-  | grep -vE 'frontend/js/(config|calculator-core)\.js|frontend/locales/|includes\("/frontend/"\)' || true)
+  | grep -vE 'frontend/js/(config|calculator-core)\.js|frontend/locales/|includes\("/frontend/"\)|indexOf\("/frontend/' || true)
 if [ -n "$leftover" ]; then
   echo "ATENȚIE: linkuri relative rămase spre frontend/:" >&2
   echo "$leftover" >&2

@@ -48,6 +48,9 @@
     "title": "Planer & Prenumeration",
     "subtitle": "Välj rätt plan för ditt företag. Du kan uppgradera när som helst, utan bindningstid.",
     "free": {
+      "quotesBranding": " med din företagslogotyp och ElectricalVPF-märkning",
+      "contractsBranding": " med ElectricalVPF-märkning",
+      "invoicesBranding": " med din företagslogotyp och ElectricalVPF-märkning",
       "name": "Free",
       "period": "/månad",
       "desc": "För att testa ERP-systemet med låg aktivitetsvolym.",
@@ -55,6 +58,7 @@
       "clientsLimit": " - högst 2 kunder",
       "workLimit": " - högst 3 arbeten",
       "quotesLimit": " - högst 3 offerter",
+      "contractsLimit": " - högst 1 avtal",
       "calculatorLimit": "Elektrisk Kalkylator - högst 10 sparade beräkningar",
       "materialsLimit": " - högst 20 material",
       "invoicesLimit": " - högst 2 fakturor",
@@ -62,6 +66,10 @@
       "downgradeToFree": "Nedgradera till Free"
     },
     "pro": {
+      "noMark": "utan ElectricalVPF-märkning",
+      "quotesWhiteLabel": " med din företagslogotyp, ",
+      "contractsWhiteLabel": ", ",
+      "invoicesWhiteLabel": " med din företagslogotyp, ",
       "badge": "Rekommenderas",
       "name": "Pro",
       "billingToggle": {
@@ -120,6 +128,7 @@
         "contractsLabel": "Skapande av nya Kontrakt",
         "contractsDesc": "- inaktiverat (befintliga kontrakt förblir opåverkade)",
         "calculator": "Elektrisk Kalkylator förblir fullt tillgänglig",
+        "branding": "Offerter, fakturor och avtal får sidfoten ”Generated with ElectricalVPF”",
         "storage": "Fotolagring för Arbetsordrar minskar från 10GB till 500MB (befintliga foton behålls)"
       },
       "autoText": "Free-planen har aktiverats, men du behåller Pro-planens fördelar tills den nuvarande betalda perioden löper ut.",
@@ -359,7 +368,8 @@
     "freePlan": "GRATISPLAN",
     "proPlan": "PRO-PLAN",
     "contracts": "Kontrakt",
-    "sentQuotes": "Skickade offerter"
+    "sentQuotes": "Skickade offerter",
+    "estimatedMaterials": "Uppskattat material"
   },
   "header": {
     "accountSettings": "Konto / Inställningar",
@@ -367,6 +377,19 @@
     "logout": "Logga ut",
     "changeAvatar": "Byt avatar",
     "chooseAvatar": "Min profil",
+    "companyLogo": "Företagslogga",
+    "companyLogoIntro": "Visas på offerter och fakturor.",
+    "logoAdd": "Lägg till logga",
+    "logoDelete": "Ta bort logga",
+    "logoRestore": "Återställ standardloggor",
+    "logoRestoreWarning": "Du förlorar alla loggor du har laddat upp ({{count}}). Endast systemets standardloggor finns kvar. Fortsätta?",
+    "logoRestoreYes": "Ja, återställ",
+    "logoSave": "Spara logga",
+    "logoSaved": "Loggan har sparats!",
+    "logoSaveFailed": "Loggan kunde inte sparas. Försök igen.",
+    "logoLoadFailed": "Loggorna kunde inte laddas. Försök igen.",
+    "logoInvalid": "Välj en PNG-, JPG- eller WEBP-bild.",
+    "logoTooLarge": "Bilden är för stor (högst 5 MB).",
     "settings": "Inställningar",
     "avatarSettings": "Hantera avatar i Inställningar",
     "toggleTheme": "Byt tema",
@@ -799,7 +822,16 @@
     "notFound": "Arbetet hittades inte.",
     "nameAndClientRequired": "Arbetsnamn och kund krävs.",
     "saveFailed": "Det gick inte att spara arbetet.",
-    "deleteFailed": "Det gick inte att arkivera arbetet."
+    "deleteFailed": "Det gick inte att arkivera arbetet.",
+    "currencyLabel": "Jobbets valuta",
+    "currencyInUse": "Arbetet har redan material eller dokument i den här valutan, så valutan kan inte längre ändras.",
+    "copyFromRequest": "Kopiera från en arbetsorder (valfritt)",
+    "copyFromRequestNone": "— Kopiera inte —",
+    "chooseClientFirst": "Välj kunden först",
+    "noRequestsForClient": "Kunden har inga begärda arbeten — fyll i arbetet från grunden.",
+    "copyFromRequestHelp": "Här visas bara arbetsordrar kopplade till en kund. De som är kopplade till en lead kan inte bli ett arbete förrän leaden har blivit kund.",
+    "copyFromRequestWhy": "Vilka ordrar visas här?",
+    "copyLocationPrefix": "Plats"
   },
   "workRequests": {
     "associatedWithRequired": "Kopplad till *",
@@ -826,7 +858,10 @@
       "benefit4": "Minska risken att viktiga förfrågningar går förlorade",
       "benefit5": "Få mer kontroll över jobb och kunder",
       "ctaSubtext": "Lås upp Arbetsordrar och alla PRO-funktioner"
-    }
+    },
+    "currencyLabel": "Orderns valuta",
+    "currencyInUse": "Arbetsordern har redan uppskattat material i den här valutan, så valutan kan inte längre ändras.",
+    "editRequest": "Redigera arbetsorder"
   },
   "contracts": {
     "templateLabel": "Avtalsmall *",
@@ -948,6 +983,7 @@
     "archiveFailed": "Fel vid arkivering av kontrakt.",
     "archiveNetworkError": "Nätverksfel vid arkivering av kontrakt.",
     "proModal": {
+      "freeUsed": "Free-planen inkluderar ett avtal, och det har du redan använt.",
       "title": "Lås upp Kontrakt med PRO",
       "message": "Omvandla accepterade offerter till signeringsklara juridiska kontrakt på några sekunder.",
       "benefit1": "Skapa automatiskt ett kontrakt från en accepterad offert, med kund, arbete och värde ifyllt i förväg",
@@ -1130,6 +1166,64 @@
       "loadError": "Nätverksfel vid laddning av mall.",
       "saved": "Mallen har sparats.",
       "saveFailed": "Kunde inte spara mallen."
+    },
+    "company": {
+      "sectionDocuments": "Dokument: land, valuta och moms",
+      "countrySuggestionHint": "Valet av land fyller i valuta, momssats och dokumentspråk. Det är bara förslag: du kan ändra dem.",
+      "countryCode": "Företagets land",
+      "chooseCountry": "— Välj land —",
+      "documentLanguage": "Dokumentspråk",
+      "documentLanguageHint": "Nya offerter och fakturor (PDF och mejl) blir på det här språket. Det kan skilja sig från appens språk.",
+      "defaultCurrency": "Standardvaluta",
+      "defaultVatRate": "Standardmomssats (%)",
+      "vatRegistered": "Momsregistrerat företag",
+      "vatRegisteredHint": "Om du inte är momsregistrerad lägger nya offerter och fakturor inte till moms.",
+      "sectionBank": "Bankuppgifter",
+      "bankAccountHint": "Fyll i IBAN eller, där IBAN inte används, kontonummer och bankkod (till exempel sort code i Storbritannien).",
+      "bic": "BIC / SWIFT",
+      "bankAccountNumber": "Kontonummer",
+      "bankRoutingCode": "Bankkod",
+      "currencyChangedInfo": "Befintliga dokument behåller sin valuta. Bara nya offerter och avtal använder den nya.",
+      "invalidCountry": "Det valda landet finns inte i listan.",
+      "invalidCurrency": "Den valda valutan finns inte i listan.",
+      "invalidVatRate": "Momssatsen måste vara mellan 0 och 100.",
+      "invalidLanguage": "Dokumentspråket finns inte i listan.",
+      "invalidBic": "BIC / SWIFT-koden har 8 eller 11 tecken."
+    },
+    "privacy": {
+      "deleteModal": {
+        "title": "Radera kontot permanent",
+        "irreversible": "Den här åtgärden är permanent och kan inte ångras.",
+        "intro": "Om du fortsätter raderas data som hör till ditt konto permanent, bland annat:",
+        "itemClients": "Kunder och leads",
+        "itemWork": "Arbeten och arbetsordrar",
+        "itemMaterials": "Material och uppskattat material",
+        "itemOffers": "Offerter och uppskattningar",
+        "itemContracts": "Avtal och tillhörande dokument",
+        "itemInvoices": "Fakturor och betalningar",
+        "itemReports": "Rapporter",
+        "itemPhotos": "Foton och annan driftdata kopplad till ditt konto",
+        "noRecovery": "Efter raderingen kan dessa data inte återställas.",
+        "typeLabel": "Skriv exakt för att bekräfta:",
+        "phrase": "RADERA MITT KONTO",
+        "keep": "Behåll kontot",
+        "confirm": "Radera kontot permanent",
+        "deleting": "Raderar…"
+      },
+      "exportModal": {
+        "title": "Exportera dina kontouppgifter",
+        "intro": "Exporten innehåller data som hör till ditt ElectricalVPF-konto, bland annat kunder, arbeten, material, offerter, avtal, fakturor, rapporter och data från det sekundära arbetsflödet.",
+        "format": "Exportformat: JSON",
+        "filesNote": "Bifogade filer som PDF:er, foton och signaturer listas i exporten men ingår inte i JSON-filen. De kan fortfarande laddas ner i applikationen.",
+        "waitNote": "Det kan ta en stund att förbereda exporten.",
+        "limitNote": "Du kan skapa en fullständig export var 24:e timme.",
+        "create": "Skapa export",
+        "cancel": "Avbryt",
+        "preparing": "Förbereder exporten…",
+        "success": "Exporten har skapats och laddats ner.",
+        "nextAvailable": "Nästa export tillgänglig: {{date}}",
+        "cooldown": "Du har redan skapat en export de senaste 24 timmarna."
+      }
     }
   },
   "estimating": {
@@ -1139,7 +1233,11 @@
       "on_hold": "Väntar",
       "completed": "Slutfört",
       "cancelled": "Avbrutet"
-    }
+    },
+    "currencyOfWork": "Jobbets valuta: {{currency}} — alla priser i kalkylen är i denna valuta.",
+    "materialCurrencyMismatch": "Materialet ”{{material}}” har pris i {{materialCurrency}}, men jobbet är i {{estimateCurrency}}. Använd ett material med pris i {{estimateCurrency}}.",
+    "materialCurrencyUnconfirmed": "Materialet ”{{material}}” har ännu ingen bekräftad valuta för priset. Bekräfta den under Material.",
+    "workCurrencyMismatch": "Kalkylen är i {{estimate}}, men det valda jobbet är i {{work}}. Välj ett jobb i {{estimate}}."
   },
   "sentQuotes": {
     "loadingList": "Laddar skickade offerter...",
@@ -1177,7 +1275,61 @@
     "quickFilterLabel": "Snabbfilter:",
     "quickFilterAll": "Alla",
     "currentStatus": "Aktuell Status",
-    "editStatusHint": "Om du ändrar status lämnar du Redigera och fönstret Uppdatera Status öppnas."
+    "editStatusHint": "Om du ändrar status lämnar du Redigera och fönstret Uppdatera Status öppnas.",
+    "currencyLabel": "Valuta",
+    "documentLanguageLabel": "Dokumentspråk",
+    "documentLanguageHint": "PDF:en och mejlet till kunden blir på det här språket.",
+    "calc": {
+      "title": "ELEKTRISKA BERÄKNINGAR",
+      "professional": "Professionell elektrisk beräkning",
+      "quickJt": "Snabb lågspänningsberäkning",
+      "generic": "Elektrisk beräkning",
+      "power": "EFFEKT",
+      "length": "LÄNGD",
+      "supply": "MATNING",
+      "cable": "REKOMMENDERAD KABEL",
+      "protection": "MÄRKSKYDD",
+      "voltageDrop": "SPÄNNINGSFALL",
+      "designCurrent": "DIMENSIONERANDE STRÖM (Ib)",
+      "cableCapacity": "KABELNS STRÖMVÄRDE (Iz)",
+      "loadFailed": "De elektriska beräkningarna kunde inte läsas in."
+    },
+    "workRequiredLabel": "Arbete *",
+    "workRequired": "Välj arbetet som offerten gäller.",
+    "noEligibleWork": "Du har inget aktivt arbete.",
+    "addWork": "Lägg till arbete",
+    "copyFromEstimate": "Kopiera från en uppskattad offert (valfritt)",
+    "copyFromEstimateHint": "Den valda kundens uppskattade offerter. Kopieringen fyller i titel, arbete och rader — du kan ändra dem innan du sparar.",
+    "selectWork": "Välj arbetet...",
+    "loadingEstimates": "Laddar uppskattade offerter...",
+    "copyNone": "— Ingen kopiering: jag skriver offerten från grunden —",
+    "estimateNotForWork": "Den valda uppskattade offerten finns inte längre eller hör inte till det valda arbetet. Välj en annan eller fortsätt utan kopiering.",
+    "copiedFromEstimate": "Raderna kopierades från {{number}}. Du kan ändra dem innan du sparar.",
+    "copyFailed": "Den uppskattade offerten kunde inte kopieras. Du kan skriva offerten från grunden.",
+    "newStatusHint": "En ny offert börjar som Utkast. Den blir Skickad när du mejlar den till kunden.",
+    "titleLabel": "Offerttitel *",
+    "acceptance": {
+      "sectionTitle": "Godkännande online",
+      "acceptedOnline": "Godkänd online av {{name}} {{date}}.",
+      "downloadAccepted": "Ladda ner den godkända offerten (PDF)",
+      "downloadFailed": "Den godkända offerten kunde inte laddas ner.",
+      "pending": "Godkännandelänk skickad till {{email}}. Kunden har inte godkänt offerten ännu.",
+      "viewed": "Kunden öppnade länken {{date}}.",
+      "manualTitle": "Kunden har inte godkänt offerten online ännu",
+      "manualText": "Offert {{number}} har inte godkänts av kunden via länken i e-postmeddelandet. Markera ändå offerten som Godkänd (till exempel godkänd på papper eller per telefon)?",
+      "manualYes": "Ja, markera som Godkänd"
+    },
+    "titleTaken": "Du har redan en offert med den här titeln. Välj en annan titel.",
+    "titlePlaceholder": "t.ex. Offert elinstallation villa",
+    "titleRequired": "Offerttiteln är obligatorisk.",
+    "clientRequired": "Välj kunden.",
+    "lineItems": "Offertrader (material / arbete)",
+    "chooseClientFirst": "Välj kunden först",
+    "noEstimatesForClient": "Kunden har inga uppskattade offerter — skriv offerten från grunden.",
+    "itemTable": {
+      "unitPriceRequired": "Á-pris *"
+    },
+    "loadingClients": "Laddar kunder..."
   },
   "invoices": {
     "emailActionSent": "Faktura skickad",
@@ -1263,7 +1415,25 @@
     "saveToQuote": "Spara i offert"
   },
   "materials": {
-    "detailsTitle": "Materialdetaljer: {{code}}"
+    "detailsTitle": "Materialdetaljer: {{code}}",
+    "priceAndCurrency": "Enhetspris och valuta",
+    "table": {
+      "work": "Arbete",
+      "quantity": "Antal"
+    },
+    "workRequired": "Arbete *",
+    "chooseWork": "— Välj arbetet —",
+    "quantityOnWork": "Antal på arbetet",
+    "noWorkTitle": "Du har inget aktivt arbete",
+    "noWorkText": "Material hör alltid till ett arbete. Lägg först till arbetet, sedan materialet som används där.",
+    "addWork": "Lägg till ett arbete",
+    "workRequiredMessage": "Välj det aktiva arbete som materialet hör till.",
+    "workCurrencyMismatch": "Det valda arbetet har en annan valuta än materialet. Välj ett arbete i samma valuta.",
+    "helpWork": "Varje material hör till ett aktivt arbete: kostnaden hamnar på arbetet som ska ta igen den från kunden. Uppskattat material för en arbetsorder finns på fliken Uppskattat material.",
+    "whyWorkLabel": "Varför välja arbetet?",
+    "copyFromEstimated": "Kopiera från uppskattat material (valfritt)",
+    "copyFromEstimatedNone": "— Kopiera inte —",
+    "copyPriceOtherCurrency": "Det uppskattade priset är i {{estimated}} och arbetet i {{work}}. Ange priset i arbetets valuta — vi gör ingen valutaomräkning."
   },
   "clients": {
     "detailsTitle": "Kunddetaljer: {{name}}"
@@ -1424,5 +1594,67 @@
     },
     "lockedTitle": "Avtal skickat — ändringar sparas som en ny kopia",
     "lockedShort": "Skickat — du kan bara spara en ny kopia"
+  },
+  "currency": {
+    "helpLabel": "Varför kan valutan inte ändras?",
+    "helpWork": "Arbetets valuta gäller hela arbetet: material, uppskattning, offert, avtal och faktura. Du kan ändra den så länge arbetet inte har något material eller några dokument ännu; från det första är den slutgiltig och ingen valutaomräkning görs — så behåller varje belopp sitt verkliga värde, från första priset till betalningen.",
+    "helpMaterial": "Prisets valuta är arbetets valuta och ändras inte därefter — utan omräkning, så att varje pris behåller sitt verkliga värde.",
+    "helpDocument": "Valutan kommer från jobbet och är densamma genom hela kedjan: kalkyl, offert, avtal och faktura. Den kan inte ändras och ingen valutaomräkning görs — för beloppens integritet.",
+    "helpManualContract": "För ett manuellt avtal väljer du valutan nu. När avtalet har skapats är den slutgiltig — den kan inte ändras och ingen omräkning görs, för beloppens integritet.",
+    "locked": "Valutan kan inte längre ändras.",
+    "helpWorkRequest": "Orderns valuta följer med till dess uppskattade material. Du kan ändra den så länge ordern inte har något uppskattat material ännu; från det första är den slutgiltig — utan valutaomräkning."
+  },
+  "estimatedMaterials": {
+    "searchPlaceholder": "Sök efter material eller arbetsorder...",
+    "add": "Lägg till uppskattat material",
+    "addNew": "Nytt uppskattat material",
+    "edit": "Redigera uppskattat material",
+    "table": {
+      "request": "Arbetsorder",
+      "total": "Totalt"
+    },
+    "requestRequired": "Arbetsorder *",
+    "chooseRequest": "— Välj arbetsordern —",
+    "quantity": "Uppskattat antal",
+    "noRequestTitle": "Du har ingen arbetsorder",
+    "noRequestText": "Uppskattat material hör alltid till en arbetsorder. Lägg först till ordern och uppskatta sedan materialet.",
+    "addRequest": "Lägg till arbetsorder",
+    "requestRequiredMessage": "Välj den arbetsorder som det uppskattade materialet hör till.",
+    "currencyMismatch": "Den valda arbetsordern har en annan valuta. Välj en i samma valuta.",
+    "empty": "Det finns inget uppskattat material.",
+    "helpRequest": "Uppskattat material hör till en arbetsorder: du uppskattar snabbt vad som behövs innan arbetet börjar. Material som används på ett aktivt arbete finns på fliken Material.",
+    "helpCurrency": "Valutan är arbetsorderns valuta och väljs inte här. Efter sparandet ändras den inte — utan valutaomräkning.",
+    "whyRequestLabel": "Varför välja arbetsordern?"
+  },
+  "reports": {
+    "materialCost": "Kostnad",
+    "materialsTotal": "Totalt material"
+  },
+  "planLimit": {
+    "titles": {
+      "clients": "Obegränsat antal kunder med PRO",
+      "quotes": "Obegränsat antal offerter med PRO",
+      "work": "Obegränsat antal jobb med PRO",
+      "materials": "Obegränsat antal material med PRO",
+      "invoices": "Obegränsat antal fakturor med PRO",
+      "reports": "Obegränsat antal rapporter med PRO",
+      "calculations": "Obegränsat antal sparade beräkningar med PRO",
+      "generic": "Uppgradera till PRO"
+    },
+    "messages": {
+      "clients": "Du har använt de 2 kunder som ingår i Free-planen.",
+      "quotes": "Du har använt de 3 offerter som ingår i Free-planen.",
+      "work": "Du har använt de 3 jobb som ingår i Free-planen.",
+      "materials": "Du har använt de 20 material som ingår i Free-planen.",
+      "invoices": "Du har använt de 2 fakturor som ingår i Free-planen.",
+      "reports": "Du har sparat de 5 rapporter som ingår i Free-planen.",
+      "calculations": "Du har sparat de 10 beräkningar som ingår i Free-planen.",
+      "generic": "Du har använt allt Free-planen innehåller för den här åtgärden."
+    },
+    "documents": "Dokument utan ElectricalVPF-märkning",
+    "also": "PRO innehåller också:",
+    "upgrade": "Uppgradera till PRO",
+    "subtext": "Allt du har sparat hittills förblir som det är.",
+    "close": "Inte nu"
   }
 }

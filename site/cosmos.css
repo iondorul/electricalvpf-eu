@@ -12,7 +12,8 @@
     pointer-events: none;
     display: none;
 }
-[data-theme="dark"] .cosmos-sky { display: block; }
+[data-theme="dark"] .cosmos-sky,
+.cosmos-sky.cosmos-sky--always { display: block; }
 
 /* Pe întuneric, fundalurile secțiunilor devin ușor transparente, ca cerul să se vadă peste tot.
    Cardurile, meniurile și antetul rămân opace (lizibilitate neschimbată). */

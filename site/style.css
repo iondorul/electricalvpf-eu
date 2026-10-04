@@ -1934,3 +1934,15 @@ a.workflow-step:focus-visible strong { color: var(--accent-color); }
 @media (max-width: 560px) {
     .features-grid { grid-template-columns: 1fr; gap: 14px; }
 }
+
+/* Subsolul vitrinei (și al resurselor): centrat, pe trei niveluri calme — linkurile legale, apoi
+   „Resources”, apoi drepturile de autor sub o linie fină. Ordinea vizuală vine din CSS (order), HTML-ul
+   rămâne: ©, Legal, Resources. */
+.site-footer { padding: 40px 0 30px; }
+.site-footer .footer-flex { flex-direction: column; justify-content: center; align-items: center; gap: 18px; text-align: center; }
+.site-footer .footer-legal { order: 1; justify-content: center; gap: 8px 28px; }
+.footer-resources { order: 2; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px 12px; }
+.footer-resources span { color: var(--text-muted); font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; opacity: .8; }
+.footer-resources a { color: var(--text-main); }
+.footer-resources a:hover { color: var(--accent-color); }
+.site-footer .footer-flex > p { order: 3; width: min(100%, 760px); padding-top: 20px; border-top: 1px solid color-mix(in srgb, var(--border-color) 70%, transparent); font-size: .8rem; }

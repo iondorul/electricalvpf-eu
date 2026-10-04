@@ -11,8 +11,11 @@ const translations = {
     pricing: "Pricing",
     calcWidgetTitle: "Quick Cable Calculator", calcBtn: "Calculate",
     "nav.tools.free": "Free Tools",
-    "nav.tools.calculator": "Cable Calculator",
-    "nav.tools.calculatorTooltip": "Calculate cable size and voltage drop",
+    "nav.tools.calculator": "Cable Calculator (IEC 60364)",
+    "nav.tools.calculatorTooltip": "Cable size and voltage drop · IEC 60364 tables, not BS 7671",
+    "nav.resources.free": "Free Resources",
+    "nav.resources.quoteTemplate": "Free Electrical Quote Template",
+    "nav.resources.quoteTemplateTooltip": "Word, Excel and PDF · for UK electricians",
     login: "Sign In",
     startFree: "Start Free",
     freeForever: "Free Forever",
@@ -51,8 +54,12 @@ const translations = {
     pricingSubtitle:
       "Choose the right plan for your business size. No hidden fees.",
     footerText: "ElectricalVPF. All rights reserved.",
+    footerResources: "Resources",
     pageTitle:
       "ElectricalVPF ERP & CRM - Complete solution for electrical installation firms",
+    // Meta description (SEO doar EN/RO — paginile statice / și /ro/).
+    metaDescription:
+      "Field software built by electricians for electrical contractors: quotes, contracts signed online, invoices, clients and jobs in one place. Start free.",
     themeToggleLabel: "Toggle display mode",
     helpLabel: "Help",
     helpLanguageGroup: "Language",
@@ -101,6 +108,9 @@ const translations = {
     "nav.tools.free": "Unelte Gratuite",
     "nav.tools.calculator": "Calculator JT",
     "nav.tools.calculatorTooltip": "Calcul secțiune și cădere tensiune JT - interioare până în 10kW",
+    "nav.resources.free": "Resurse Gratuite",
+    "nav.resources.quoteTemplate": "Model deviz instalații electrice",
+    "nav.resources.quoteTemplateTooltip": "Word, Excel și PDF · gratuit, pentru electricieni",
     login: "Autentificare",
     startFree: "Începe gratuit",
     freeForever: "Gratuit pentru totdeauna",
@@ -139,8 +149,12 @@ const translations = {
     pricingSubtitle:
       "Alege planul potrivit pentru dimensiunea afacerii tale. Fără costuri ascunse.",
     footerText: "ElectricalVPF. Toate drepturile rezervate.",
+    footerResources: "Resurse",
     pageTitle:
       "ElectricalVPF ERP & CRM - Soluția completă pentru firme de instalații electrice",
+    // Meta description (SEO doar EN/RO — paginile statice / și /ro/).
+    metaDescription:
+      "Software de teren construit de electricieni pentru firme electrice: oferte, contracte semnate online, facturi, clienți și lucrări, într-un loc. Începe gratuit.",
     themeToggleLabel: "Comută modul de afișare",
     helpLabel: "Ajutor",
     helpLanguageGroup: "Limbă",
@@ -189,6 +203,9 @@ const translations = {
     "nav.tools.free": "Безкоштовні інструменти",
     "nav.tools.calculator": "Кабельний калькулятор",
     "nav.tools.calculatorTooltip": "Розрахунок перерізу кабелю та падіння напруги",
+    "nav.resources.free": "Безкоштовні ресурси",
+    "nav.resources.quoteTemplate": "Free Electrical Quote Template",
+    "nav.resources.quoteTemplateTooltip": "Word, Excel і PDF · для електриків у Великій Британії (англійською)",
     login: "Увійти",
     startFree: "Почати безкоштовно",
     freeForever: "Безкоштовно назавжди",
@@ -227,6 +244,7 @@ const translations = {
     pricingSubtitle:
       "Оберіть план, який підходить вашому бізнесу. Жодних прихованих витрат.",
     footerText: "ElectricalVPF. Всі права захищені.",
+    footerResources: "Ресурси",
     pageTitle:
       "ElectricalVPF ERP & CRM - Повне рішення для електромонтажних компаній",
     themeToggleLabel: "Перемкнути режим відображення",
@@ -277,6 +295,9 @@ const translations = {
     "nav.tools.free": "Ücretsiz Araçlar",
     "nav.tools.calculator": "Kablo Hesaplayıcı",
     "nav.tools.calculatorTooltip": "Kablo kesitini ve gerilim düşümünü hesaplayın",
+    "nav.resources.free": "Ücretsiz Kaynaklar",
+    "nav.resources.quoteTemplate": "Free Electrical Quote Template",
+    "nav.resources.quoteTemplateTooltip": "Word, Excel ve PDF · Birleşik Krallık elektrikçileri için (İngilizce)",
     login: "Giriş Yap",
     startFree: "Ücretsiz Başla",
     freeForever: "Sonsuza Kadar Ücretsiz",
@@ -314,6 +335,7 @@ const translations = {
       "Fiyatlar",
     pricingSubtitle: "İşletmenizin büyüklüğüne uygun planı seçin. Gizli ücret yok.",
     footerText: "ElectricalVPF. Tüm hakları saklıdır.",
+    footerResources: "Kaynaklar",
     pageTitle:
       "ElectricalVPF ERP & CRM - Elektrik tesisat firmaları için eksiksiz çözüm",
     themeToggleLabel: "Görünüm modunu değiştir",
@@ -365,6 +387,9 @@ const translations = {
     "nav.tools.free": "Darmowe narzędzia",
     "nav.tools.calculator": "Kalkulator kabla",
     "nav.tools.calculatorTooltip": "Oblicz przekrój kabla i spadek napięcia",
+    "nav.resources.free": "Darmowe zasoby",
+    "nav.resources.quoteTemplate": "Free Electrical Quote Template",
+    "nav.resources.quoteTemplateTooltip": "Word, Excel i PDF · dla elektryków w Wielkiej Brytanii (po angielsku)",
     login: "Zaloguj",
     startFree: "Zacznij za darmo",
     freeForever: "Za darmo na zawsze",
@@ -403,6 +428,7 @@ const translations = {
     pricingSubtitle:
       "Wybierz plan odpowiedni dla swojej firmy. Bez ukrytych kosztów.",
     footerText: "ElectricalVPF. Wszelkie prawa zastrzeżone.",
+    footerResources: "Zasoby",
     pageTitle:
       "ElectricalVPF ERP & CRM - Kompletne rozwiązanie dla firm instalacji elektrycznych",
     themeToggleLabel: "Przełącz tryb wyświetlania",
@@ -455,6 +481,9 @@ const translations = {
     "nav.tools.free": "Бесплатные инструменты",
     "nav.tools.calculator": "Калькулятор кабеля",
     "nav.tools.calculatorTooltip": "Расчёт сечения кабеля и падения напряжения",
+    "nav.resources.free": "Бесплатные ресурсы",
+    "nav.resources.quoteTemplate": "Free Electrical Quote Template",
+    "nav.resources.quoteTemplateTooltip": "Word, Excel и PDF · для электриков в Великобритании (на английском)",
     login: "Войти",
     startFree: "Начать бесплатно",
     freeForever: "Бесплатно навсегда",
@@ -493,6 +522,7 @@ const translations = {
     pricingSubtitle:
       "Выберите план для вашего бизнеса. Никаких скрытых затрат.",
     footerText: "ElectricalVPF. Все права защищены.",
+    footerResources: "Ресурсы",
     pageTitle:
       "ElectricalVPF ERP & CRM - Полное решение для электромонтажных компаний",
     themeToggleLabel: "Переключить режим отображения",
@@ -543,6 +573,9 @@ const translations = {
     "nav.tools.free": "Strumenti gratuiti",
     "nav.tools.calculator": "Calcolatore cavi",
     "nav.tools.calculatorTooltip": "Calcola la sezione del cavo e la caduta di tensione",
+    "nav.resources.free": "Risorse gratuite",
+    "nav.resources.quoteTemplate": "Free Electrical Quote Template",
+    "nav.resources.quoteTemplateTooltip": "Word, Excel e PDF · per elettricisti nel Regno Unito (in inglese)",
     login: "Accedi",
     startFree: "Inizia Gratis",
     freeForever: "Gratis per sempre",
@@ -581,6 +614,7 @@ const translations = {
     pricingSubtitle:
       "Scegli il piano giusto per le dimensioni della tua azienda.",
     footerText: "ElectricalVPF. Tutti i diritti riservati.",
+    footerResources: "Risorse",
     pageTitle:
       "ElectricalVPF ERP & CRM - La soluzione completa per le aziende di impianti elettrici",
     themeToggleLabel: "Cambia modalità di visualizzazione",
@@ -630,6 +664,9 @@ const translations = {
     "nav.tools.free": "Gratis tools",
     "nav.tools.calculator": "Kabelcalculator",
     "nav.tools.calculatorTooltip": "Bereken kabeldoorsnede en spanningsval",
+    "nav.resources.free": "Gratis bronnen",
+    "nav.resources.quoteTemplate": "Free Electrical Quote Template",
+    "nav.resources.quoteTemplateTooltip": "Word, Excel en PDF · voor elektriciens in het VK (in het Engels)",
     login: "Inloggen",
     startFree: "Start Gratis",
     freeForever: "Voor altijd gratis",
@@ -668,6 +705,7 @@ const translations = {
     pricingSubtitle:
       "Kies het juiste plan voor je bedrijf. Geen verborgen kosten.",
     footerText: "ElectricalVPF. Alle rechten voorbehouden.",
+    footerResources: "Bronnen",
     pageTitle:
       "ElectricalVPF ERP & CRM - Complete oplossing voor elektrotechnische installatiebedrijven",
     themeToggleLabel: "Weergavemodus wijzigen",
@@ -717,6 +755,9 @@ const translations = {
     "nav.tools.free": "Gratis verktøy",
     "nav.tools.calculator": "Kabelkalkulator",
     "nav.tools.calculatorTooltip": "Beregn kabeltverrsnitt og spenningsfall",
+    "nav.resources.free": "Gratis ressurser",
+    "nav.resources.quoteTemplate": "Free Electrical Quote Template",
+    "nav.resources.quoteTemplateTooltip": "Word, Excel og PDF · for elektrikere i Storbritannia (på engelsk)",
     login: "Logg inn",
     startFree: "Start Gratis",
     freeForever: "Gratis for alltid",
@@ -755,6 +796,7 @@ const translations = {
     pricingSubtitle:
       "Velg planen som passer din bedrift. Ingen skjulte kostnader.",
     footerText: "ElectricalVPF. Alle rettigheter reservert.",
+    footerResources: "Ressurser",
     pageTitle:
       "ElectricalVPF ERP & CRM - Komplett løsning for elektroinstallasjonsbedrifter",
     themeToggleLabel: "Bytt visningsmodus",
@@ -805,6 +847,9 @@ const translations = {
     "nav.tools.free": "Gratis verktyg",
     "nav.tools.calculator": "Kabelkalkylator",
     "nav.tools.calculatorTooltip": "Beräkna kabelarea och spänningsfall",
+    "nav.resources.free": "Gratis resurser",
+    "nav.resources.quoteTemplate": "Free Electrical Quote Template",
+    "nav.resources.quoteTemplateTooltip": "Word, Excel och PDF · för elektriker i Storbritannien (på engelska)",
     login: "Logga in",
     startFree: "Kom igång gratis",
     freeForever: "Gratis för alltid",
@@ -843,6 +888,7 @@ const translations = {
     pricingSubtitle:
       "Välj rätt plan för företagets storlek. Inga dolda avgifter.",
     footerText: "ElectricalVPF. Alla rättigheter förbehållna.",
+    footerResources: "Resurser",
     pageTitle:
       "ElectricalVPF ERP och CRM - Komplett lösning för elinstallationsföretag",
     themeToggleLabel: "Ändra visningsläge",
@@ -884,7 +930,7 @@ const translations = {
 // dictionary so the widget follows the language selector immediately.
 Object.assign(translations.en, {
   calcWidgetScope: "Indoor circuits up to 10 kW", calcPowerLabel: "Power (kW)", calcLengthLabel: "Route length (m)", calcVoltageLabel: "Supply",
-  calcWidgetIntro: "Stop guessing which cable and protection to choose. Enter the power and route length, and the JT Calculator quickly gives you the recommended section, nominal protection, calculation current and voltage drop — before you buy materials or present the solution to the client.",
+  calcWidgetIntro: "Stop guessing which cable and protection to choose. Enter the power and route length, and the calculator quickly gives you the recommended section, nominal protection, calculation current and voltage drop — before you buy materials or present the solution to the client.",
   calcWidgetAssumption: "Copper, in conduit/wall (B2), maximum voltage drop 5%.", calcValidation: "Enter a power from 0.1 to 10 kW and a route length above 0 m.",
   calcNoResult: "No suitable standard section was found for these simplified assumptions.",
 });
@@ -951,7 +997,7 @@ Object.assign(translations.en, { calcTechnicalDetails: "Technical details", calc
 Object.assign(translations.ro, { calcTechnicalDetails: "Detalii tehnice", calcResultCable: "Cablu recomandat", calcResultProtection: "Protecție nominală", calcResultVoltageDrop: "Cădere de tensiune", calcResultCurrent: "Curent de calcul (Ib)", calcResultCapacity: "Capacitate cablu (Iz)", calcResultOk: "OK" });
 
 Object.assign(translations.en, {
-  calcWidgetAssumption: "Calculation conditions: Cu/PVC cable, installed in conduit/on a wall (B2), one circuit, 30°C, maximum voltage drop 5%.",
+  calcWidgetAssumption: "Calculation conditions (IEC 60364-5-52 reference tables, not BS 7671): Cu/PVC cable, installed in conduit/on a wall (B2), one circuit, 30°C, maximum voltage drop 5%.",
   calcWidgetReferenceConditions: "Attention: if cables are grouped, the temperature is higher, or the installation method differs, the required section may be different.",
   calcWidgetSafety: "The displayed protection is for overload. The final installation check must also include short circuit, fault loop and the protection breaking capacity.",
 });
@@ -1009,7 +1055,7 @@ Object.assign(translations.uk, {
   calcWidgetSafety: "Показаний захист призначений від перевантаження. Остаточна перевірка має також включати коротке замикання, петлю пошкодження та відключаючу здатність захисту.",
 });
 
-Object.assign(translations.en, { calcWidgetKicker: "(Low Voltage)", calcTechnicalHtml: "<p><b>Calculation conditions:</b> cable <mark>Cu/PVC</mark>, installed in conduit/on a wall (<mark>B2</mark>), one circuit, temperature <mark>30°C</mark>, maximum voltage drop <mark>5%</mark>.</p><p><b class=\"calc-detail-warning\">Attention:</b> if you have <mark>grouped cables</mark>, <mark>higher temperature</mark> or a <mark>different installation method</mark>, the required section may differ.</p><p>The displayed protection is for <mark>overload</mark>. The final installation check must also include <mark>short circuit</mark>, <mark>fault loop</mark> and the protection <mark>breaking capacity</mark>.</p>" });
+Object.assign(translations.en, { calcWidgetKicker: "(Low Voltage)", calcTechnicalHtml: "<p><b>Calculation conditions:</b> IEC 60364-5-52 reference tables (not BS 7671), cable <mark>Cu/PVC</mark>, installed in conduit/on a wall (<mark>B2</mark>), one circuit, temperature <mark>30°C</mark>, maximum voltage drop <mark>5%</mark>.</p><p><b class=\"calc-detail-warning\">Attention:</b> if you have <mark>grouped cables</mark>, <mark>higher temperature</mark> or a <mark>different installation method</mark>, the required section may differ.</p><p>The displayed protection is for <mark>overload</mark>. The final installation check must also include <mark>short circuit</mark>, <mark>fault loop</mark> and the protection <mark>breaking capacity</mark>.</p>" });
 Object.assign(translations.ro, { calcWidgetKicker: "(Joasă Tensiune)", calcTechnicalHtml: "<p><b>Condiții de calcul:</b> cablu <mark>Cu/PVC</mark>, montat în tub/perete (<mark>B2</mark>), un singur circuit, temperatură <mark>30°C</mark>, cădere maximă de tensiune <mark>5%</mark>.</p><p><b class=\"calc-detail-warning\">Atenție:</b> dacă ai <mark>cabluri grupate</mark>, <mark>temperatură mai mare</mark> sau <mark>alt mod de montaj</mark>, secțiunea necesară poate fi diferită.</p><p>Protecția afișată este pentru <mark>suprasarcină</mark>. Verificarea finală a instalației trebuie să includă și <mark>scurtcircuitul</mark>, <mark>bucla de defect</mark> și <mark>puterea de rupere</mark> a protecției.</p>" });
 Object.assign(translations.it, { calcWidgetKicker: "(Bassa Tensione)", calcTechnicalHtml: "<p><b>Condizioni di calcolo:</b> cavo <mark>Cu/PVC</mark>, in tubo/a parete (<mark>B2</mark>), un circuito, temperatura <mark>30°C</mark>, caduta massima <mark>5%</mark>.</p><p><b class=\"calc-detail-warning\">Attenzione:</b> <mark>cavi raggruppati</mark>, <mark>temperatura maggiore</mark> o <mark>metodo di posa diverso</mark> possono richiedere una sezione diversa.</p><p>La protezione indicata è per <mark>sovraccarico</mark>. La verifica finale deve includere <mark>cortocircuito</mark>, <mark>anello di guasto</mark> e <mark>potere di interruzione</mark>.</p>" });
 Object.assign(translations.nl, { calcWidgetKicker: "(Laagspanning)", calcTechnicalHtml: "<p><b>Berekeningsvoorwaarden:</b> <mark>Cu/PVC</mark>-kabel, in buis/op wand (<mark>B2</mark>), één circuit, temperatuur <mark>30°C</mark>, maximale spanningsval <mark>5%</mark>.</p><p><b class=\"calc-detail-warning\">Let op:</b> <mark>gegroepeerde kabels</mark>, <mark>hogere temperatuur</mark> of een <mark>andere installatiemethode</mark> kunnen een andere doorsnede vragen.</p><p>De getoonde beveiliging is voor <mark>overbelasting</mark>. De eindcontrole moet ook <mark>kortsluiting</mark>, <mark>foutlus</mark> en <mark>afschakelvermogen</mark> omvatten.</p>" });

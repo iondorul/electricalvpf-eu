@@ -28,14 +28,32 @@ class LanguageDropdownControl {
     return this.languages.some((l) => l.code === code);
   }
 
-  // Ordine: limba salvată -> limba browserului (doar dacă SITE_LANG_DETECT) -> English,
-  // același fallback universal ca în aplicație (niciodată Română implicit).
+  // Paginile statice (/ = English, /ro/ = Română; templates/home.html → site/tools/build-home-pages.js)
+  // au limba în URL: SITE_PAGE_LANG. Acolo limba URL-ului e limba inițială — o preferință salvată
+  // en/ro NU o rescrie; doar o alegere explicită anterioară a uneia dintre celelalte 8 limbi se aplică
+  // (traducere în browser, fără efect SEO). Fără SITE_PAGE_LANG (ex. vitrina .eu):
+  // limba salvată -> limba browserului (doar dacă SITE_LANG_DETECT) -> English.
+  static SEO_LANGS = ["en", "ro"];
+
   resolveInitialLang() {
     let stored = null;
     try {
       stored = localStorage.getItem(this.storageKey);
     } catch (err) {
       stored = null;
+    }
+    const pageLang = window.SITE_PAGE_LANG;
+    if (pageLang && this.isSupported(pageLang)) {
+      if (stored && this.isSupported(stored) && !LanguageDropdownControl.SEO_LANGS.includes(stored)) return stored;
+      // Nimic salvat: limba paginii devine preferința (ca Înregistrarea/aplicația să se deschidă în aceeași limbă).
+      if (!stored) {
+        try {
+          localStorage.setItem(this.storageKey, pageLang);
+        } catch (err) {
+          /* stocare indisponibilă */
+        }
+      }
+      return pageLang;
     }
     if (stored && this.isSupported(stored)) return stored;
 
@@ -150,6 +168,12 @@ class LanguageDropdownControl {
           localStorage.setItem(this.storageKey, selectedLang);
         } catch (err) {
           /* stocarea indisponibilă (mod privat) — limba se aplică oricum pe pagina curentă */
+        }
+        // English / Română au pagini proprii: alegerea lor navighează la URL-ul limbii.
+        const pageUrls = window.SITE_PAGE_URLS;
+        if (pageUrls && pageUrls[selectedLang] && selectedLang !== window.SITE_PAGE_LANG) {
+          window.location.href = pageUrls[selectedLang] + window.location.hash;
+          return;
         }
         this.render();
         this.attachEvents();

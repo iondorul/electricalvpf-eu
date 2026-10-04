@@ -192,7 +192,8 @@
     "freePlan": "PLAN BEZPŁATNY",
     "proPlan": "PLAN PRO",
     "contracts": "Umowy",
-    "sentQuotes": "Wysłane Oferty"
+    "sentQuotes": "Wysłane Oferty",
+    "estimatedMaterials": "Materiały Szacowane"
   },
   "header": {
     "accountSettings": "Konto / Ustawienia",
@@ -201,6 +202,19 @@
     "logout": "Wyloguj się",
     "changeAvatar": "Zmień awatar",
     "chooseAvatar": "Mój profil",
+    "companyLogo": "Logo firmy",
+    "companyLogoIntro": "Pojawia się na ofertach i fakturach.",
+    "logoAdd": "Dodaj logo",
+    "logoDelete": "Usuń logo",
+    "logoRestore": "Przywróć domyślne logo",
+    "logoRestoreWarning": "Stracisz wszystkie przesłane logo ({{count}}). Zostaną tylko domyślne logo systemu. Kontynuować?",
+    "logoRestoreYes": "Tak, przywróć",
+    "logoSave": "Zapisz logo",
+    "logoSaved": "Logo zapisane!",
+    "logoSaveFailed": "Nie udało się zapisać logo. Spróbuj ponownie.",
+    "logoLoadFailed": "Nie udało się wczytać logo. Spróbuj ponownie.",
+    "logoInvalid": "Wybierz obraz PNG, JPG lub WEBP.",
+    "logoTooLarge": "Obraz jest za duży (maksymalnie 5 MB).",
     "avatarSettings": "Zarządzaj awatarem w Ustawieniach",
     "language": "Język",
     "toggleTheme": "Przełącz motyw",
@@ -360,7 +374,28 @@
       "loadError": "Błąd sieci podczas ładowania ustawień.",
       "saved": "Dane firmy zostały pomyślnie zapisane.",
       "saveFailed": "Nie udało się zapisać danych.",
-      "nameRequired": "Nazwa firmy jest wymagana."
+      "nameRequired": "Nazwa firmy jest wymagana.",
+      "sectionDocuments": "Dokumenty: kraj, waluta i VAT",
+      "countrySuggestionHint": "Wybór kraju uzupełnia walutę, stawkę VAT i język dokumentów. To tylko sugestie: możesz je zmienić.",
+      "countryCode": "Kraj firmy",
+      "chooseCountry": "— Wybierz kraj —",
+      "documentLanguage": "Język dokumentów",
+      "documentLanguageHint": "Nowe oferty i faktury (PDF i e-mail) będą w tym języku. Może się różnić od języka aplikacji.",
+      "defaultCurrency": "Domyślna waluta",
+      "defaultVatRate": "Domyślna stawka VAT (%)",
+      "vatRegistered": "Czynny podatnik VAT",
+      "vatRegisteredHint": "Jeśli nie jesteś czynnym podatnikiem VAT, nowe oferty i faktury nie doliczają VAT.",
+      "sectionBank": "Dane bankowe",
+      "bankAccountHint": "Podaj IBAN lub, tam gdzie IBAN nie jest używany, numer konta i kod banku (np. sort code w Wielkiej Brytanii).",
+      "bic": "BIC / SWIFT",
+      "bankAccountNumber": "Numer konta",
+      "bankRoutingCode": "Kod banku",
+      "currencyChangedInfo": "Istniejące dokumenty zachowują swoją walutę. Nową walutę stosują tylko nowe oferty i umowy.",
+      "invalidCountry": "Wybranego kraju nie ma na liście.",
+      "invalidCurrency": "Wybranej waluty nie ma na liście.",
+      "invalidVatRate": "Stawka VAT musi wynosić od 0 do 100.",
+      "invalidLanguage": "Języka dokumentów nie ma na liście.",
+      "invalidBic": "Kod BIC / SWIFT ma 8 lub 11 znaków."
     },
     "privacy": {
       "title": "Prywatność",
@@ -379,7 +414,40 @@
       "exportSoon": "Eksport danych będzie wkrótce dostępny.",
       "termsSoon": "Regulamin będzie wkrótce dostępny.",
       "privacyPolicySoon": "Polityka prywatności będzie wkrótce dostępna.",
-      "deleteSoon": "Usuwanie konta będzie wkrótce dostępne. Skontaktuj się z pomocą techniczną, aby uzyskać wsparcie."
+      "deleteSoon": "Usuwanie konta będzie wkrótce dostępne. Skontaktuj się z pomocą techniczną, aby uzyskać wsparcie.",
+      "deleteModal": {
+        "title": "Trwałe usunięcie konta",
+        "irreversible": "Ta operacja jest trwała i nie można jej cofnąć.",
+        "intro": "Jeśli przejdziesz dalej, dane powiązane z Twoim kontem zostaną trwale usunięte, w tym:",
+        "itemClients": "Klienci i potencjalni klienci",
+        "itemWork": "Zlecenia i zgłoszenia",
+        "itemMaterials": "Materiały i materiały szacowane",
+        "itemOffers": "Oferty i wyceny",
+        "itemContracts": "Umowy i powiązane dokumenty",
+        "itemInvoices": "Faktury i płatności",
+        "itemReports": "Raporty",
+        "itemPhotos": "Zdjęcia i inne dane operacyjne powiązane z kontem",
+        "noRecovery": "Po usunięciu tych danych nie da się odzyskać.",
+        "typeLabel": "Aby potwierdzić, wpisz dokładnie:",
+        "phrase": "USUŃ MOJE KONTO",
+        "keep": "Zachowaj konto",
+        "confirm": "Usuń konto na stałe",
+        "deleting": "Usuwanie…"
+      },
+      "exportModal": {
+        "title": "Eksportuj dane konta",
+        "intro": "Eksport będzie zawierał dane powiązane z Twoim kontem ElectricalVPF, w tym klientów, zlecenia, materiały, oferty, umowy, faktury, raporty i dane z przepływu pomocniczego.",
+        "format": "Format eksportu: JSON",
+        "filesNote": "Załączniki, takie jak pliki PDF, zdjęcia i podpisy, są wymienione w eksporcie, ale nie są zawarte w pliku JSON. Nadal można je pobrać z aplikacji.",
+        "waitNote": "Przygotowanie eksportu może chwilę potrwać.",
+        "limitNote": "Pełny eksport możesz utworzyć raz na 24 godziny.",
+        "create": "Utwórz eksport",
+        "cancel": "Anuluj",
+        "preparing": "Przygotowywanie eksportu…",
+        "success": "Eksport został utworzony i pobrany.",
+        "nextAvailable": "Następny eksport dostępny: {{date}}",
+        "cooldown": "W ciągu ostatnich 24 godzin utworzono już eksport."
+      }
     },
     "billing": {
       "title": "Subskrypcja i płatności",
@@ -570,7 +638,16 @@
     "notFound": "Zlecenie nie zostało znalezione.",
     "nameAndClientRequired": "Nazwa zlecenia i klient są wymagane.",
     "saveFailed": "Nie udało się zapisać zlecenia.",
-    "deleteFailed": "Nie udało się zarchiwizować zlecenia."
+    "deleteFailed": "Nie udało się zarchiwizować zlecenia.",
+    "currencyLabel": "Waluta zlecenia",
+    "currencyInUse": "To zlecenie ma już materiały lub dokumenty w tej walucie, więc waluty nie można już zmienić.",
+    "copyFromRequest": "Kopiuj ze zgłoszenia (opcjonalnie)",
+    "copyFromRequestNone": "— Nie kopiuj —",
+    "chooseClientFirst": "Najpierw wybierz klienta",
+    "noRequestsForClient": "Ten klient nie ma zgłoszonych prac — uzupełnij pracę od zera.",
+    "copyFromRequestHelp": "Widoczne są tylko zgłoszenia powiązane z klientem. Zgłoszenia potencjalnego klienta nie mogą stać się zleceniem, dopóki nie zostanie on klientem.",
+    "copyFromRequestWhy": "Jakie zgłoszenia są tu widoczne?",
+    "copyLocationPrefix": "Lokalizacja"
   },
   "estimating": {
     "viewEstimate": "Podgląd oferty szacunkowej",
@@ -664,7 +741,11 @@
     "itemUnitCostInvalid": "Koszt jednostkowy linii #{{index}} nie może być ujemny.",
     "itemMarginInvalid": "Marża linii #{{index}} nie może być ujemna.",
     "updateNotFound": "Oferta szacunkowa nie została znaleziona lub aktualizacja się nie powiodła.",
-    "alreadyArchived": "Oferta szacunkowa nie została znaleziona lub jest już zarchiwizowana."
+    "alreadyArchived": "Oferta szacunkowa nie została znaleziona lub jest już zarchiwizowana.",
+    "currencyOfWork": "Waluta zlecenia: {{currency}} — wszystkie ceny w kosztorysie są w tej walucie.",
+    "materialCurrencyMismatch": "Materiał „{{material}}” ma cenę w {{materialCurrency}}, a zlecenie jest w {{estimateCurrency}}. Użyj materiału z ceną w {{estimateCurrency}}.",
+    "materialCurrencyUnconfirmed": "Materiał „{{material}}” nie ma jeszcze potwierdzonej waluty ceny. Potwierdź ją w Materiałach.",
+    "workCurrencyMismatch": "Kosztorys jest w {{estimate}}, a wybrane zlecenie w {{work}}. Wybierz zlecenie w {{estimate}}."
   },
   "quotes": {
     "draftExists": "Dla tej oferty szacunkowej istnieje już oferta w wersji roboczej. Edytuj ją zamiast tworzyć drugą.",
@@ -749,7 +830,8 @@
     "itemTable": {
       "category": "Kategoria",
       "qty": "Ilość",
-      "unitPrice": "Cena jedn."
+      "unitPrice": "Cena jedn.",
+      "unitPriceRequired": "Cena jedn. *"
     },
     "workLabel": "Zlecenie",
     "subtotalMaterials": "Suma częściowa — materiały",
@@ -794,7 +876,58 @@
     "quickFilterLabel": "Szybkie filtry:",
     "quickFilterAll": "Wszystkie",
     "currentStatus": "Bieżący Status",
-    "editStatusHint": "Zmiana statusu wyprowadza Cię z Edycji i otwiera okno Aktualizacji Statusu."
+    "editStatusHint": "Zmiana statusu wyprowadza Cię z Edycji i otwiera okno Aktualizacji Statusu.",
+    "currencyLabel": "Waluta",
+    "documentLanguageLabel": "Język dokumentu",
+    "documentLanguageHint": "PDF i e-mail do klienta będą w tym języku.",
+    "calc": {
+      "title": "OBLICZENIA ELEKTRYCZNE",
+      "professional": "Profesjonalne obliczenie elektryczne",
+      "quickJt": "Szybkie obliczenie nN",
+      "generic": "Obliczenie elektryczne",
+      "power": "MOC",
+      "length": "DŁUGOŚĆ",
+      "supply": "ZASILANIE",
+      "cable": "ZALECANY PRZEWÓD",
+      "protection": "ZABEZPIECZENIE ZNAMIONOWE",
+      "voltageDrop": "SPADEK NAPIĘCIA",
+      "designCurrent": "PRĄD OBLICZENIOWY (Ib)",
+      "cableCapacity": "OBCIĄŻALNOŚĆ PRZEWODU (Iz)",
+      "loadFailed": "Nie udało się wczytać obliczeń elektrycznych."
+    },
+    "workRequiredLabel": "Zlecenie *",
+    "workRequired": "Wybierz zlecenie, którego dotyczy oferta.",
+    "noEligibleWork": "Nie masz aktywnego zlecenia.",
+    "addWork": "Dodaj zlecenie",
+    "copyFromEstimate": "Kopiuj z oferty szacunkowej (opcjonalnie)",
+    "copyFromEstimateHint": "Oferty szacunkowe wybranego klienta. Kopiowanie uzupełnia tytuł, zlecenie i pozycje — możesz je zmienić przed zapisaniem.",
+    "selectWork": "Wybierz zlecenie...",
+    "loadingEstimates": "Ładowanie ofert szacunkowych...",
+    "copyNone": "— Bez kopiowania: tworzę ofertę od zera —",
+    "estimateNotForWork": "Wybrana oferta szacunkowa już nie istnieje lub nie należy do wybranego zlecenia. Wybierz inną lub kontynuuj bez kopiowania.",
+    "copiedFromEstimate": "Pozycje skopiowano z {{number}}. Możesz je zmienić przed zapisaniem.",
+    "copyFailed": "Nie udało się skopiować oferty szacunkowej. Możesz utworzyć ofertę od zera.",
+    "newStatusHint": "Nowa oferta zaczyna jako szkic. Staje się wysłana, gdy wyślesz ją klientowi e-mailem.",
+    "titleLabel": "Tytuł oferty *",
+    "acceptance": {
+      "sectionTitle": "Akceptacja online",
+      "acceptedOnline": "Zaakceptowana online przez {{name}} dnia {{date}}.",
+      "downloadAccepted": "Pobierz zaakceptowaną ofertę (PDF)",
+      "downloadFailed": "Nie udało się pobrać zaakceptowanej oferty.",
+      "pending": "Link do akceptacji wysłany na {{email}}. Klient jeszcze nie zaakceptował oferty.",
+      "viewed": "Klient otworzył link dnia {{date}}.",
+      "manualTitle": "Klient nie zaakceptował jeszcze oferty online",
+      "manualText": "Oferta {{number}} nie została zaakceptowana przez klienta przez link w e-mailu. Mimo to oznaczyć ofertę jako Zaakceptowaną (np. klient zaakceptował ją na papierze lub telefonicznie)?",
+      "manualYes": "Tak, oznacz jako Zaakceptowaną"
+    },
+    "titleTaken": "Masz już ofertę o tym tytule. Wybierz inny tytuł.",
+    "titlePlaceholder": "np. Oferta – instalacja elektryczna willi",
+    "titleRequired": "Tytuł oferty jest wymagany.",
+    "clientRequired": "Wybierz klienta.",
+    "lineItems": "Pozycje oferty (materiały / robocizna)",
+    "chooseClientFirst": "Najpierw wybierz klienta",
+    "noEstimatesForClient": "Ten klient nie ma ofert szacunkowych — utwórz ofertę od zera.",
+    "loadingClients": "Ładowanie klientów..."
   },
   "acceptedQuotes": {
     "loadingList": "Ładowanie zaakceptowanych ofert...",
@@ -842,6 +975,7 @@
     "registerAction": "Zarejestruj",
     "table": {
       "invoiceNumber": "Numer faktury",
+      "quoteTitle": "Tytuł oferty",
       "dueDate": "Termin płatności"
     },
     "deleteAllConfirm": "Czy na pewno chcesz usunąć WSZYSTKIE faktury? Tej czynności nie można cofnąć!",
@@ -851,11 +985,24 @@
     "loadFailed": "Nie udało się załadować faktur.",
     "networkLoadError": "Błąd sieci podczas ładowania faktur.",
     "noInvoices": "Brak zarejestrowanych faktur.",
+    "resendConfirmTitle": "Wysłać fakturę ponownie?",
+    "resendConfirmDesc": "Faktura została już wysłana na adres {{email}}. Czy na pewno chcesz wysłać ją ponownie?",
+    "deleteTitle": "Usuń fakturę",
+    "deleteConfirmTitle": "Usunąć fakturę?",
+    "deleteConfirmDesc": "Czy na pewno chcesz usunąć fakturę {{number}}? Faktura zostanie zarchiwizowana i nie będzie już widoczna na liście.",
+    "deleteConfirmYes": "Tak, usuń fakturę",
+    "deleted": "Faktura została usunięta (zarchiwizowana).",
+    "deleteFailed": "Nie udało się usunąć faktury.",
     "downloadPdf": "Pobierz PDF",
     "sendByEmailTitle": "Wyślij fakturę e-mailem",
     "noClientEmail": "Klient nie ma zapisanego adresu e-mail",
     "cannotRecordPayments": "Nie można rejestrować płatności",
     "recordPaymentTitle": "Zarejestruj płatność",
+    "paymentDoneTitle": "Płatność zarejestrowana",
+    "paymentDoneText": "Płatność za fakturę {{number}} została zarejestrowana jako przetworzona. Jeśli chcesz coś zmienić, użyj przycisku Edytuj.",
+    "paymentCanceledTitle": "Faktura jest anulowana",
+    "paymentCanceledText": "Na fakturze {{number}} nie można już rejestrować płatności. Jeśli chcesz coś zmienić, użyj przycisku Edytuj.",
+    "paymentUnavailableOk": "Rozumiem",
     "fetchFailed": "Nie udało się pobrać danych faktury.",
     "loadNetworkError": "Błąd sieci podczas ładowania faktury.",
     "paymentRecorded": "Płatność została pomyślnie zarejestrowana.",
@@ -903,7 +1050,9 @@
       "name": "Nazwa",
       "category": "Kategoria",
       "unitPrice": "Cena jedn.",
-      "stock": "Stan magazynowy"
+      "stock": "Stan magazynowy",
+      "work": "Zlecenie",
+      "quantity": "Ilość"
     },
     "loadingList": "Ładowanie materiałów...",
     "itemCode": "Kod produktu (SKU)",
@@ -936,7 +1085,21 @@
     "deleteFailed": "Nie udało się usunąć materiału.",
     "deleteNetworkError": "Błąd sieci podczas usuwania materiału.",
     "notFound": "Materiał nie został znaleziony.",
-    "codeAlreadyExists": "Materiał z tym kodem już istnieje na Twoim koncie."
+    "codeAlreadyExists": "Materiał z tym kodem już istnieje na Twoim koncie.",
+    "priceAndCurrency": "Cena jednostkowa i waluta",
+    "workRequired": "Zlecenie *",
+    "chooseWork": "— Wybierz zlecenie —",
+    "quantityOnWork": "Ilość na zleceniu",
+    "noWorkTitle": "Nie masz żadnego aktywnego zlecenia",
+    "noWorkText": "Materiały zawsze należą do zlecenia. Najpierw dodaj zlecenie, potem użyte na nim materiały.",
+    "addWork": "Dodaj zlecenie",
+    "workRequiredMessage": "Wybierz aktywne zlecenie, do którego należy materiał.",
+    "workCurrencyMismatch": "Wybrane zlecenie ma inną walutę niż materiał. Wybierz zlecenie w tej samej walucie.",
+    "helpWork": "Każdy materiał należy do aktywnego zlecenia: koszt trafia do zlecenia, które musi go odzyskać od klienta. Materiały szacowane dla zgłoszenia są w zakładce Materiały Szacowane.",
+    "whyWorkLabel": "Dlaczego wybieram zlecenie?",
+    "copyFromEstimated": "Kopiuj z materiału szacowanego (opcjonalnie)",
+    "copyFromEstimatedNone": "— Nie kopiuj —",
+    "copyPriceOtherCurrency": "Cena szacowana jest w {{estimated}}, a zlecenie w {{work}}. Wpisz cenę w walucie zlecenia — nie przeliczamy walut."
   },
   "reports": {
     "period": "Okres",
@@ -1005,7 +1168,9 @@
     "deleteNetworkError": "Błąd sieci podczas usuwania.",
     "invalidType": "Wybrany typ raportu jest nieprawidłowy.",
     "notFound": "Raport nie został znaleziony.",
-    "deleteForbidden": "Tylko użytkownicy z rolą Administratora mogą usuwać raporty z archiwum."
+    "deleteForbidden": "Tylko użytkownicy z rolą Administratora mogą usuwać raporty z archiwum.",
+    "materialCost": "Koszt",
+    "materialsTotal": "Razem materiały"
   },
   "plans": {
     "pageTitle": "Plany i subskrypcja",
@@ -1014,6 +1179,9 @@
     "title": "Plany i subskrypcja",
     "subtitle": "Wybierz plan odpowiedni dla Twojej firmy. Możesz zmienić plan w dowolnym momencie, bez zobowiązań.",
     "free": {
+      "quotesBranding": " z logo Twojej firmy i znakiem ElectricalVPF",
+      "contractsBranding": " ze znakiem ElectricalVPF",
+      "invoicesBranding": " z logo Twojej firmy i znakiem ElectricalVPF",
       "name": "Free",
       "period": "/miesiąc",
       "desc": "Aby przetestować ERP przy niewielkiej aktywności.",
@@ -1021,6 +1189,7 @@
       "clientsLimit": " - maksymalnie 2 klientów",
       "workLimit": " - maksymalnie 3 zlecenia",
       "quotesLimit": " - maksymalnie 3 oferty",
+      "contractsLimit": " - maksymalnie 1 umowa",
       "calculatorLimit": "Kalkulator Elektryczny - maksymalnie 10 zapisanych obliczeń",
       "materialsLimit": " - maksymalnie 20 materiałów",
       "invoicesLimit": " - maksymalnie 2 faktury",
@@ -1028,6 +1197,10 @@
       "downgradeToFree": "Przejdź na Free"
     },
     "pro": {
+      "noMark": "bez znaku ElectricalVPF",
+      "quotesWhiteLabel": " z logo Twojej firmy, ",
+      "contractsWhiteLabel": ", ",
+      "invoicesWhiteLabel": " z logo Twojej firmy, ",
       "badge": "Polecany",
       "name": "Pro",
       "billingToggle": {
@@ -1086,6 +1259,7 @@
         "contractsLabel": "Tworzenie nowych Umów",
         "contractsDesc": "- wyłączone (istniejące umowy pozostają nienaruszone)",
         "calculator": "Kalkulator Elektryczny pozostaje w pełni dostępny",
+        "branding": "Oferty, faktury i umowy otrzymują stopkę „Generated with ElectricalVPF”",
         "storage": "Miejsce na zdjęcia Zgłoszeń spada z 10GB do 500MB (istniejące zdjęcia zostają)"
       },
       "autoText": "Plan Free został pomyślnie aktywowany, ale zachowasz korzyści planu Pro do końca bieżącego opłaconego okresu.",
@@ -1448,7 +1622,10 @@
       "benefit4": "Zmniejsz ryzyko zagubienia ważnych zgłoszeń",
       "benefit5": "Zyskaj większą kontrolę nad zleceniami i klientami",
       "ctaSubtext": "Odblokuj Zgłoszenia i wszystkie funkcje PRO"
-    }
+    },
+    "currencyLabel": "Waluta zgłoszenia",
+    "currencyInUse": "To zgłoszenie ma już materiały szacowane w tej walucie, więc waluty nie można już zmienić.",
+    "editRequest": "Edytuj zgłoszenie"
   },
   "contracts": {
     "templateLabel": "Szablon umowy *",
@@ -1570,6 +1747,7 @@
     "archiveFailed": "Błąd podczas archiwizacji umowy.",
     "archiveNetworkError": "Błąd sieci podczas archiwizacji umowy.",
     "proModal": {
+      "freeUsed": "Plan Free obejmuje jedną umowę, którą już wykorzystano.",
       "title": "Odblokuj Umowy z PRO",
       "message": "Zamień zaakceptowane oferty w gotowe do podpisu umowy prawne w kilka sekund.",
       "benefit1": "Generuj automatycznie umowę z zaakceptowanej oferty — klient, zlecenie i wartość są uzupełniane automatycznie",
@@ -1944,5 +2122,63 @@
     },
     "lockedTitle": "Umowa wysłana — zmiany zapisują się jako nowa kopia",
     "lockedShort": "Wysłana — możesz zapisać tylko nową kopię"
+  },
+  "currency": {
+    "helpLabel": "Dlaczego nie można zmienić waluty?",
+    "helpWork": "Waluta zlecenia obowiązuje w całym zleceniu: materiały, wycena, oferta, umowa i faktura. Możesz ją zmienić, dopóki zlecenie nie ma jeszcze materiałów ani dokumentów; od pierwszego jest ostateczna i nie ma przeliczania walut — dzięki temu każda kwota zachowuje rzeczywistą wartość, od pierwszej ceny do zapłaty.",
+    "helpMaterial": "Waluta ceny to waluta zlecenia i nie zmienia się — bez przeliczania walut, aby każda cena zachowała swoją rzeczywistą wartość.",
+    "helpDocument": "Waluta pochodzi ze zlecenia i pozostaje ta sama w całym łańcuchu: kosztorys, oferta, umowa i faktura. Nie można jej zmienić i nie przelicza się walut — dla spójności kwot.",
+    "helpManualContract": "W umowie tworzonej ręcznie wybierasz walutę teraz. Po utworzeniu umowy jest ona ostateczna — nie można jej zmienić i nie przelicza się walut, dla spójności kwot.",
+    "locked": "Waluty nie można już zmienić.",
+    "helpWorkRequest": "Waluta zgłoszenia przechodzi na jego materiały szacowane. Możesz ją zmienić, dopóki zgłoszenie nie ma jeszcze materiałów szacowanych; od pierwszego jest ostateczna — bez przeliczania walut."
+  },
+  "estimatedMaterials": {
+    "searchPlaceholder": "Szukaj po materiale lub zgłoszeniu...",
+    "add": "Dodaj materiał szacowany",
+    "addNew": "Nowy materiał szacowany",
+    "edit": "Edytuj materiał szacowany",
+    "table": {
+      "request": "Zgłoszenie",
+      "total": "Razem"
+    },
+    "requestRequired": "Zgłoszenie *",
+    "chooseRequest": "— Wybierz zgłoszenie —",
+    "quantity": "Szacowana ilość",
+    "noRequestTitle": "Nie masz żadnego zgłoszenia",
+    "noRequestText": "Materiały szacowane zawsze należą do zgłoszenia. Najpierw dodaj zgłoszenie, potem oszacuj materiały.",
+    "addRequest": "Dodaj zgłoszenie",
+    "requestRequiredMessage": "Wybierz zgłoszenie, do którego należy materiał szacowany.",
+    "currencyMismatch": "Wybrane zgłoszenie ma inną walutę. Wybierz zgłoszenie w tej samej walucie.",
+    "empty": "Brak materiałów szacowanych.",
+    "helpRequest": "Materiały szacowane należą do zgłoszenia: szybko szacujesz, co będzie potrzebne, zanim zlecenie się zacznie. Materiały użyte na aktywnym zleceniu są w zakładce Materiały.",
+    "helpCurrency": "Waluta to waluta zgłoszenia i nie wybiera się jej tutaj. Po zapisaniu się nie zmienia — bez przeliczania walut.",
+    "whyRequestLabel": "Dlaczego wybieram zgłoszenie?"
+  },
+  "planLimit": {
+    "titles": {
+      "clients": "Nielimitowani klienci z PRO",
+      "quotes": "Nielimitowane oferty z PRO",
+      "work": "Nielimitowane zlecenia z PRO",
+      "materials": "Nielimitowane materiały z PRO",
+      "invoices": "Nielimitowane faktury z PRO",
+      "reports": "Nielimitowane raporty z PRO",
+      "calculations": "Nielimitowane zapisane obliczenia z PRO",
+      "generic": "Przejdź na PRO"
+    },
+    "messages": {
+      "clients": "Wykorzystano 2 klientów dostępnych w planie Free.",
+      "quotes": "Wykorzystano 3 oferty dostępne w planie Free.",
+      "work": "Wykorzystano 3 zlecenia dostępne w planie Free.",
+      "materials": "Wykorzystano 20 materiałów dostępnych w planie Free.",
+      "invoices": "Wykorzystano 2 faktury dostępne w planie Free.",
+      "reports": "Zapisano 5 raportów dostępnych w planie Free.",
+      "calculations": "Zapisano 10 obliczeń dostępnych w planie Free.",
+      "generic": "Wykorzystano wszystko, co plan Free obejmuje dla tej czynności."
+    },
+    "documents": "Dokumenty bez znaku ElectricalVPF",
+    "also": "PRO obejmuje także:",
+    "upgrade": "Przejdź na PRO",
+    "subtext": "Wszystko, co do tej pory zapisano, pozostaje bez zmian.",
+    "close": "Nie teraz"
   }
 }

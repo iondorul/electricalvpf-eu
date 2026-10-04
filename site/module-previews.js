@@ -158,7 +158,7 @@
   }
   function loadDict(lc) {
     if (!dictCache[lc]) {
-      dictCache[lc] = fetch("frontend/locales/" + lc + ".json", { credentials: "same-origin" })
+      dictCache[lc] = fetch("/frontend/locales/" + lc + ".json", { credentials: "same-origin" })
         .then(function (r) { return r.ok ? r.json() : {}; })
         .catch(function () { return {}; });
     }

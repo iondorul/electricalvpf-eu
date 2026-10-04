@@ -192,7 +192,8 @@
     "freePlan": "FREE PLAN",
     "proPlan": "PRO PLAN",
     "contracts": "Kontrakter",
-    "sentQuotes": "Sendte Tilbud"
+    "sentQuotes": "Sendte Tilbud",
+    "estimatedMaterials": "Estimerte Materialer"
   },
   "header": {
     "accountSettings": "Konto / Innstillinger",
@@ -201,6 +202,19 @@
     "logout": "Logg ut",
     "changeAvatar": "Endre avatar",
     "chooseAvatar": "Min profil",
+    "companyLogo": "Firmalogo",
+    "companyLogoIntro": "Vises på tilbud og fakturaer.",
+    "logoAdd": "Legg til logo",
+    "logoDelete": "Slett logo",
+    "logoRestore": "Gjenopprett standardlogoer",
+    "logoRestoreWarning": "Du mister alle logoene du har lastet opp ({{count}}). Bare systemets standardlogoer blir igjen. Fortsette?",
+    "logoRestoreYes": "Ja, gjenopprett",
+    "logoSave": "Lagre logo",
+    "logoSaved": "Logoen er lagret!",
+    "logoSaveFailed": "Logoen kunne ikke lagres. Prøv igjen.",
+    "logoLoadFailed": "Logoene kunne ikke lastes. Prøv igjen.",
+    "logoInvalid": "Velg et PNG-, JPG- eller WEBP-bilde.",
+    "logoTooLarge": "Bildet er for stort (maks 5 MB).",
     "avatarSettings": "Administrer avatar i Innstillinger",
     "language": "Språk",
     "toggleTheme": "Bytt tema",
@@ -360,7 +374,28 @@
       "loadError": "Nettverksfeil ved lasting av innstillingene.",
       "saved": "Bedriftsopplysningene ble lagret.",
       "saveFailed": "Kunne ikke lagre opplysningene.",
-      "nameRequired": "Firmanavn er obligatorisk."
+      "nameRequired": "Firmanavn er obligatorisk.",
+      "sectionDocuments": "Dokumenter: land, valuta og MVA",
+      "countrySuggestionHint": "Valg av land fyller ut valuta, MVA-sats og dokumentspråk. Dette er bare forslag: du kan endre dem.",
+      "countryCode": "Firmaets land",
+      "chooseCountry": "— Velg land —",
+      "documentLanguage": "Dokumentspråk",
+      "documentLanguageHint": "Nye tilbud og fakturaer (PDF og e-post) blir på dette språket. Det kan være et annet enn appens språk.",
+      "defaultCurrency": "Standardvaluta",
+      "defaultVatRate": "Standard MVA-sats (%)",
+      "vatRegistered": "MVA-registrert virksomhet",
+      "vatRegisteredHint": "Hvis du ikke er MVA-registrert, legger nye tilbud og fakturaer ikke til MVA.",
+      "sectionBank": "Bankopplysninger",
+      "bankAccountHint": "Fyll inn IBAN eller, der IBAN ikke brukes, kontonummer og bankkode (for eksempel sort code i Storbritannia).",
+      "bic": "BIC / SWIFT",
+      "bankAccountNumber": "Kontonummer",
+      "bankRoutingCode": "Bankkode",
+      "currencyChangedInfo": "Eksisterende dokumenter beholder valutaen sin. Bare nye tilbud og kontrakter bruker den nye.",
+      "invalidCountry": "Det valgte landet er ikke i listen.",
+      "invalidCurrency": "Den valgte valutaen er ikke i listen.",
+      "invalidVatRate": "MVA-satsen må være mellom 0 og 100.",
+      "invalidLanguage": "Dokumentspråket er ikke i listen.",
+      "invalidBic": "BIC / SWIFT-koden har 8 eller 11 tegn."
     },
     "privacy": {
       "title": "Personvern",
@@ -379,7 +414,40 @@
       "exportSoon": "Dataeksport blir snart tilgjengelig.",
       "termsSoon": "Vilkår og betingelser blir snart tilgjengelig.",
       "privacyPolicySoon": "Personvernerklæringen blir snart tilgjengelig.",
-      "deleteSoon": "Sletting av konto blir snart tilgjengelig. Kontakt kundestøtte for hjelp."
+      "deleteSoon": "Sletting av konto blir snart tilgjengelig. Kontakt kundestøtte for hjelp.",
+      "deleteModal": {
+        "title": "Slett kontoen permanent",
+        "irreversible": "Denne handlingen er permanent og kan ikke angres.",
+        "intro": "Hvis du fortsetter, slettes dataene knyttet til kontoen din permanent, blant annet:",
+        "itemClients": "Kunder og leads",
+        "itemWork": "Jobber og arbeidsordrer",
+        "itemMaterials": "Materialer og estimerte materialer",
+        "itemOffers": "Tilbud og estimater",
+        "itemContracts": "Kontrakter og tilhørende dokumenter",
+        "itemInvoices": "Fakturaer og betalinger",
+        "itemReports": "Rapporter",
+        "itemPhotos": "Bilder og andre driftsdata knyttet til kontoen din",
+        "noRecovery": "Etter sletting kan disse dataene ikke gjenopprettes.",
+        "typeLabel": "For å bekrefte, skriv nøyaktig:",
+        "phrase": "SLETT KONTOEN MIN",
+        "keep": "Behold kontoen",
+        "confirm": "Slett kontoen permanent",
+        "deleting": "Sletter…"
+      },
+      "exportModal": {
+        "title": "Eksporter kontodataene dine",
+        "intro": "Eksporten inneholder dataene knyttet til ElectricalVPF-kontoen din, blant annet kunder, jobber, materialer, tilbud, kontrakter, fakturaer, rapporter og data fra den sekundære arbeidsflyten.",
+        "format": "Eksportformat: JSON",
+        "filesNote": "Vedlegg som PDF-er, bilder og signaturer er oppført i eksporten, men ikke inkludert i JSON-filen. De kan fortsatt lastes ned fra applikasjonen.",
+        "waitNote": "Det kan ta litt tid å klargjøre eksporten.",
+        "limitNote": "Du kan lage én fullstendig eksport hver 24. time.",
+        "create": "Lag eksport",
+        "cancel": "Avbryt",
+        "preparing": "Klargjør eksporten…",
+        "success": "Eksporten er laget og lastet ned.",
+        "nextAvailable": "Neste eksport tilgjengelig: {{date}}",
+        "cooldown": "Du har allerede laget en eksport de siste 24 timene."
+      }
     },
     "billing": {
       "title": "Abonnement og fakturering",
@@ -566,7 +634,16 @@
     "notFound": "Arbeidet ble ikke funnet.",
     "nameAndClientRequired": "Arbeidsnavn og kunde er obligatorisk.",
     "saveFailed": "Kunne ikke lagre arbeidet.",
-    "deleteFailed": "Kunne ikke arkivere arbeidet."
+    "deleteFailed": "Kunne ikke arkivere arbeidet.",
+    "currencyLabel": "Jobbens valuta",
+    "currencyInUse": "Jobben har allerede materialer eller dokumenter i denne valutaen, så valutaen kan ikke lenger endres.",
+    "copyFromRequest": "Kopier fra en arbeidsordre (valgfritt)",
+    "copyFromRequestNone": "— Ikke kopier —",
+    "chooseClientFirst": "Velg kunden først",
+    "noRequestsForClient": "Kunden har ingen forespurte arbeider — fyll ut arbeidet fra bunnen.",
+    "copyFromRequestHelp": "Her vises bare arbeidsordrer knyttet til en kunde. De som er knyttet til en lead kan ikke bli en jobb før leaden er gjort om til kunde.",
+    "copyFromRequestWhy": "Hvilke ordrer vises her?",
+    "copyLocationPrefix": "Sted"
   },
   "estimating": {
     "viewEstimate": "Vis estimert tilbud",
@@ -660,7 +737,11 @@
     "itemUnitCostInvalid": "Enhetskostnaden for linje #{{index}} kan ikke være negativ.",
     "itemMarginInvalid": "Påslaget for linje #{{index}} kan ikke være negativt.",
     "updateNotFound": "Det estimerte tilbudet ble ikke funnet, eller oppdateringen mislyktes.",
-    "alreadyArchived": "Det estimerte tilbudet ble ikke funnet eller er allerede arkivert."
+    "alreadyArchived": "Det estimerte tilbudet ble ikke funnet eller er allerede arkivert.",
+    "currencyOfWork": "Jobbens valuta: {{currency}} — alle prisene i overslaget er i denne valutaen.",
+    "materialCurrencyMismatch": "Materialet «{{material}}» har pris i {{materialCurrency}}, men jobben er i {{estimateCurrency}}. Bruk et materiale med pris i {{estimateCurrency}}.",
+    "materialCurrencyUnconfirmed": "Materialet «{{material}}» har ennå ikke bekreftet valuta for prisen. Bekreft den under Materialer.",
+    "workCurrencyMismatch": "Overslaget er i {{estimate}}, men den valgte jobben er i {{work}}. Velg en jobb i {{estimate}}."
   },
   "quotes": {
     "draftExists": "Det finnes allerede et tilbud i Utkast for dette estimerte tilbudet. Rediger det i stedet for å opprette et nytt.",
@@ -745,7 +826,8 @@
     "itemTable": {
       "category": "Kategori",
       "qty": "Antall",
-      "unitPrice": "Enhetspris"
+      "unitPrice": "Enhetspris",
+      "unitPriceRequired": "Enhetspris *"
     },
     "workLabel": "Arbeid",
     "subtotalMaterials": "Delsum materialer",
@@ -790,7 +872,58 @@
     "quickFilterLabel": "Hurtigfiltre:",
     "quickFilterAll": "Alle",
     "currentStatus": "Nåværende Status",
-    "editStatusHint": "Hvis du endrer status, forlater du Rediger og vinduet Oppdater Status åpnes."
+    "editStatusHint": "Hvis du endrer status, forlater du Rediger og vinduet Oppdater Status åpnes.",
+    "currencyLabel": "Valuta",
+    "documentLanguageLabel": "Dokumentspråk",
+    "documentLanguageHint": "PDF-en og e-posten til kunden blir på dette språket.",
+    "calc": {
+      "title": "ELEKTRISKE BEREGNINGER",
+      "professional": "Profesjonell elektrisk beregning",
+      "quickJt": "Rask lavspenningsberegning",
+      "generic": "Elektrisk beregning",
+      "power": "EFFEKT",
+      "length": "LENGDE",
+      "supply": "FORSYNING",
+      "cable": "ANBEFALT KABEL",
+      "protection": "MERKEVERN",
+      "voltageDrop": "SPENNINGSFALL",
+      "designCurrent": "DIMENSJONERENDE STRØM (Ib)",
+      "cableCapacity": "KABELENS STRØMFØRINGSEVNE (Iz)",
+      "loadFailed": "De elektriske beregningene kunne ikke lastes inn."
+    },
+    "workRequiredLabel": "Arbeid *",
+    "workRequired": "Velg arbeidet tilbudet gjelder.",
+    "noEligibleWork": "Du har ikke noe aktivt arbeid.",
+    "addWork": "Legg til arbeid",
+    "copyFromEstimate": "Kopier fra et estimert tilbud (valgfritt)",
+    "copyFromEstimateHint": "De estimerte tilbudene til den valgte kunden. Kopiering fyller ut tittel, arbeid og linjer — du kan endre dem før du lagrer.",
+    "selectWork": "Velg arbeidet...",
+    "loadingEstimates": "Laster estimerte tilbud...",
+    "copyNone": "— Ingen kopiering: jeg lager tilbudet fra bunnen —",
+    "estimateNotForWork": "Det valgte estimerte tilbudet finnes ikke lenger eller hører ikke til det valgte arbeidet. Velg et annet eller fortsett uten kopiering.",
+    "copiedFromEstimate": "Linjene ble kopiert fra {{number}}. Du kan endre dem før du lagrer.",
+    "copyFailed": "Det estimerte tilbudet kunne ikke kopieres. Du kan lage tilbudet fra bunnen.",
+    "newStatusHint": "Et nytt tilbud starter som Utkast. Det blir Sendt når du sender det til kunden på e-post.",
+    "titleLabel": "Tilbudstittel *",
+    "acceptance": {
+      "sectionTitle": "Godkjenning på nett",
+      "acceptedOnline": "Godkjent på nett av {{name}} {{date}}.",
+      "downloadAccepted": "Last ned det godkjente tilbudet (PDF)",
+      "downloadFailed": "Det godkjente tilbudet kunne ikke lastes ned.",
+      "pending": "Godkjenningslenke sendt til {{email}}. Kunden har ikke godkjent tilbudet ennå.",
+      "viewed": "Kunden åpnet lenken {{date}}.",
+      "manualTitle": "Kunden har ikke godkjent tilbudet på nett ennå",
+      "manualText": "Tilbud {{number}} er ikke godkjent av kunden via lenken i e-posten. Merke tilbudet som Godkjent likevel (for eksempel godkjent på papir eller per telefon)?",
+      "manualYes": "Ja, merk som Godkjent"
+    },
+    "titleTaken": "Du har allerede et tilbud med denne tittelen. Velg en annen tittel.",
+    "titlePlaceholder": "f.eks. Tilbud elektrisk installasjon villa",
+    "titleRequired": "Tilbudstittelen er påkrevd.",
+    "clientRequired": "Velg kunden.",
+    "lineItems": "Tilbudslinjer (materialer / arbeid)",
+    "chooseClientFirst": "Velg kunden først",
+    "noEstimatesForClient": "Kunden har ingen estimerte tilbud — lag tilbudet fra bunnen.",
+    "loadingClients": "Laster kunder..."
   },
   "acceptedQuotes": {
     "loadingList": "Laster aksepterte tilbud...",
@@ -838,6 +971,7 @@
     "registerAction": "Registrer",
     "table": {
       "invoiceNumber": "Fakturanummer",
+      "quoteTitle": "Tilbudstittel",
       "dueDate": "Forfallsdato"
     },
     "deleteAllConfirm": "Er du sikker på at du vil slette ALLE fakturaer? Denne handlingen kan ikke angres!",
@@ -847,11 +981,24 @@
     "loadFailed": "Kunne ikke laste fakturaene.",
     "networkLoadError": "Nettverksfeil ved lasting av fakturaene.",
     "noInvoices": "Ingen fakturaer registrert.",
+    "resendConfirmTitle": "Sende fakturaen på nytt?",
+    "resendConfirmDesc": "Fakturaen er allerede sendt til {{email}}. Er du sikker på at du vil sende den på nytt?",
+    "deleteTitle": "Slett faktura",
+    "deleteConfirmTitle": "Slette fakturaen?",
+    "deleteConfirmDesc": "Er du sikker på at du vil slette faktura {{number}}? Fakturaen arkiveres og vises ikke lenger i listen.",
+    "deleteConfirmYes": "Ja, slett fakturaen",
+    "deleted": "Fakturaen ble slettet (arkivert).",
+    "deleteFailed": "Fakturaen kunne ikke slettes.",
     "downloadPdf": "Last ned PDF",
     "sendByEmailTitle": "Send fakturaen på e-post",
     "noClientEmail": "Kunden har ingen registrert e-post",
     "cannotRecordPayments": "Betalinger kan ikke registreres",
     "recordPaymentTitle": "Registrer betaling",
+    "paymentDoneTitle": "Betalingen er registrert",
+    "paymentDoneText": "Betalingen for faktura {{number}} er registrert som behandlet. Vil du endre noe, bruk Rediger-knappen.",
+    "paymentCanceledTitle": "Fakturaen er kansellert",
+    "paymentCanceledText": "Det kan ikke registreres flere betalinger på faktura {{number}}. Vil du endre noe, bruk Rediger-knappen.",
+    "paymentUnavailableOk": "Forstått",
     "fetchFailed": "Kunne ikke hente fakturadataene.",
     "loadNetworkError": "Nettverksfeil ved lasting av fakturaen.",
     "paymentRecorded": "Betalingen ble registrert.",
@@ -899,7 +1046,9 @@
       "name": "Navn",
       "category": "Kategori",
       "unitPrice": "Enhetspris",
-      "stock": "Lagerbeholdning"
+      "stock": "Lagerbeholdning",
+      "work": "Jobb",
+      "quantity": "Antall"
     },
     "loadingList": "Laster materialer...",
     "itemCode": "Artikkelkode (SKU)",
@@ -932,7 +1081,21 @@
     "deleteFailed": "Kunne ikke slette materialet.",
     "deleteNetworkError": "Nettverksfeil ved sletting av materialet.",
     "notFound": "Materialet ble ikke funnet.",
-    "codeAlreadyExists": "Det finnes allerede et materiale med denne koden for kontoen din."
+    "codeAlreadyExists": "Det finnes allerede et materiale med denne koden for kontoen din.",
+    "priceAndCurrency": "Enhetspris og valuta",
+    "workRequired": "Jobb *",
+    "chooseWork": "— Velg jobben —",
+    "quantityOnWork": "Antall på jobben",
+    "noWorkTitle": "Du har ingen aktiv jobb",
+    "noWorkText": "Materialer hører alltid til en jobb. Legg til jobben først, deretter materialene som brukes på den.",
+    "addWork": "Legg til en jobb",
+    "workRequiredMessage": "Velg den aktive jobben materialet hører til.",
+    "workCurrencyMismatch": "Den valgte jobben har en annen valuta enn materialet. Velg en jobb i samme valuta.",
+    "helpWork": "Hvert materiale hører til en aktiv jobb: kostnaden havner på jobben som skal hente den inn fra kunden. Estimerte materialer for en forespurt jobb ligger i fanen Estimerte Materialer.",
+    "whyWorkLabel": "Hvorfor velge jobben?",
+    "copyFromEstimated": "Kopier fra et estimert materiale (valgfritt)",
+    "copyFromEstimatedNone": "— Ikke kopier —",
+    "copyPriceOtherCurrency": "Den estimerte prisen er i {{estimated}}, og jobben er i {{work}}. Skriv prisen i jobbens valuta — vi gjør ingen valutaomregning."
   },
   "reports": {
     "period": "Periode",
@@ -1001,7 +1164,9 @@
     "deleteNetworkError": "Nettverksfeil ved sletting.",
     "invalidType": "Den valgte rapporttypen er ugyldig.",
     "notFound": "Rapporten ble ikke funnet.",
-    "deleteForbidden": "Kun brukere med rollen Administrator kan slette rapporter fra arkivet."
+    "deleteForbidden": "Kun brukere med rollen Administrator kan slette rapporter fra arkivet.",
+    "materialCost": "Kostnad",
+    "materialsTotal": "Totalt materialer"
   },
   "plans": {
     "pageTitle": "Planer og abonnement",
@@ -1010,6 +1175,9 @@
     "title": "Planer og abonnement",
     "subtitle": "Velg planen som passer for bedriften din. Du kan oppgradere når som helst, uten forpliktelser.",
     "free": {
+      "quotesBranding": " med firmalogoen din og ElectricalVPF-merking",
+      "contractsBranding": " med ElectricalVPF-merking",
+      "invoicesBranding": " med firmalogoen din og ElectricalVPF-merking",
       "name": "Free",
       "period": "/måned",
       "desc": "For å teste ERP-en med lavt aktivitetsnivå.",
@@ -1017,6 +1185,7 @@
       "clientsLimit": " - maksimalt 2 kunder",
       "workLimit": " - maksimalt 3 jobber",
       "quotesLimit": " - maksimalt 3 tilbud",
+      "contractsLimit": " - maksimalt 1 kontrakt",
       "calculatorLimit": "Elektrisk Kalkulator - maksimalt 10 lagrede beregninger",
       "materialsLimit": " - maksimalt 20 materialer",
       "invoicesLimit": " - maksimalt 2 fakturaer",
@@ -1024,6 +1193,10 @@
       "downgradeToFree": "Bytt til Free"
     },
     "pro": {
+      "noMark": "uten ElectricalVPF-merking",
+      "quotesWhiteLabel": " med firmalogoen din, ",
+      "contractsWhiteLabel": ", ",
+      "invoicesWhiteLabel": " med firmalogoen din, ",
       "badge": "Anbefalt",
       "name": "Pro",
       "billingToggle": {
@@ -1082,6 +1255,7 @@
         "contractsLabel": "Opprettelse av nye Kontrakter",
         "contractsDesc": "- deaktivert (eksisterende kontrakter forblir uendret)",
         "calculator": "Elektrisk Kalkulator forblir fullt tilgjengelig",
+        "branding": "Tilbud, fakturaer og kontrakter får bunnteksten «Generated with ElectricalVPF»",
         "storage": "Bildelagring for Arbeidsordrer reduseres fra 10GB til 500MB (eksisterende bilder beholdes)"
       },
       "autoText": "Free-planen er aktivert, men du beholder fordelene fra Pro-planen frem til slutten av den nåværende betalte perioden.",
@@ -1442,7 +1616,10 @@
       "benefit4": "Reduser risikoen for at viktige henvendelser går tapt",
       "benefit5": "Få mer kontroll over jobber og kunder",
       "ctaSubtext": "Lås opp Arbeidsordrer og alle PRO-funksjoner"
-    }
+    },
+    "currencyLabel": "Ordrens valuta",
+    "currencyInUse": "Arbeidsordren har allerede estimerte materialer i denne valutaen, så valutaen kan ikke lenger endres.",
+    "editRequest": "Rediger arbeidsordre"
   },
   "contracts": {
     "templateLabel": "Kontraktsmal *",
@@ -1564,6 +1741,7 @@
     "archiveFailed": "Feil ved arkivering av kontrakt.",
     "archiveNetworkError": "Nettverksfeil ved arkivering av kontrakt.",
     "proModal": {
+      "freeUsed": "Free-planen inkluderer én kontrakt, og den har du allerede brukt.",
       "title": "Lås opp Kontrakter med PRO",
       "message": "Gjør aksepterte tilbud om til signeringsklare juridiske kontrakter på sekunder.",
       "benefit1": "Generer automatisk en kontrakt fra et akseptert tilbud, med kunde, arbeid og verdi forhåndsutfylt",
@@ -1938,5 +2116,63 @@
     },
     "lockedTitle": "Kontrakt sendt — endringer lagres som en ny kopi",
     "lockedShort": "Sendt — du kan bare lagre en ny kopi"
+  },
+  "currency": {
+    "helpLabel": "Hvorfor kan ikke valutaen endres?",
+    "helpWork": "Jobbens valuta gjelder hele jobben: materialer, estimat, tilbud, kontrakt og faktura. Du kan endre den så lenge jobben ikke har materialer eller dokumenter ennå; fra det første er den endelig, og det gjøres aldri valutaomregning — slik beholder hvert beløp sin reelle verdi, fra første pris til betaling.",
+    "helpMaterial": "Valutaen for prisen er jobbens valuta og endres ikke senere — uten omregning, slik at hver pris beholder sin reelle verdi.",
+    "helpDocument": "Valutaen kommer fra jobben og er den samme gjennom hele kjeden: overslag, tilbud, kontrakt og faktura. Den kan ikke endres, og det gjøres ingen valutaomregning — for beløpenes integritet.",
+    "helpManualContract": "For en manuell kontrakt velger du valuta nå. Etter at kontrakten er opprettet er den endelig — den kan ikke endres, og det gjøres ingen omregning, for beløpenes integritet.",
+    "locked": "Valutaen kan ikke lenger endres.",
+    "helpWorkRequest": "Ordrens valuta følger med til de estimerte materialene. Du kan endre den så lenge ordren ikke har estimerte materialer ennå; fra det første er den endelig — uten valutaomregning."
+  },
+  "estimatedMaterials": {
+    "searchPlaceholder": "Søk etter materiale eller arbeidsordre...",
+    "add": "Legg til estimert materiale",
+    "addNew": "Nytt estimert materiale",
+    "edit": "Rediger estimert materiale",
+    "table": {
+      "request": "Arbeidsordre",
+      "total": "Totalt"
+    },
+    "requestRequired": "Arbeidsordre *",
+    "chooseRequest": "— Velg arbeidsordren —",
+    "quantity": "Estimert antall",
+    "noRequestTitle": "Du har ingen arbeidsordre",
+    "noRequestText": "Estimerte materialer hører alltid til en arbeidsordre. Legg til ordren først, og estimer deretter materialene.",
+    "addRequest": "Legg til arbeidsordre",
+    "requestRequiredMessage": "Velg arbeidsordren det estimerte materialet hører til.",
+    "currencyMismatch": "Den valgte arbeidsordren har en annen valuta. Velg en i samme valuta.",
+    "empty": "Det finnes ingen estimerte materialer.",
+    "helpRequest": "Estimerte materialer hører til en arbeidsordre: du estimerer raskt hva som trengs før jobben starter. Materialer brukt på en aktiv jobb ligger i fanen Materialer.",
+    "helpCurrency": "Valutaen er arbeidsordrens valuta og velges ikke her. Etter lagring endres den ikke — uten valutaomregning.",
+    "whyRequestLabel": "Hvorfor velge arbeidsordren?"
+  },
+  "planLimit": {
+    "titles": {
+      "clients": "Ubegrenset antall kunder med PRO",
+      "quotes": "Ubegrenset antall tilbud med PRO",
+      "work": "Ubegrenset antall jobber med PRO",
+      "materials": "Ubegrenset antall materialer med PRO",
+      "invoices": "Ubegrenset antall fakturaer med PRO",
+      "reports": "Ubegrenset antall rapporter med PRO",
+      "calculations": "Ubegrenset antall lagrede beregninger med PRO",
+      "generic": "Oppgrader til PRO"
+    },
+    "messages": {
+      "clients": "Du har brukt de 2 kundene som er inkludert i Free-planen.",
+      "quotes": "Du har brukt de 3 tilbudene som er inkludert i Free-planen.",
+      "work": "Du har brukt de 3 jobbene som er inkludert i Free-planen.",
+      "materials": "Du har brukt de 20 materialene som er inkludert i Free-planen.",
+      "invoices": "Du har brukt de 2 fakturaene som er inkludert i Free-planen.",
+      "reports": "Du har lagret de 5 rapportene som er inkludert i Free-planen.",
+      "calculations": "Du har lagret de 10 beregningene som er inkludert i Free-planen.",
+      "generic": "Du har brukt alt Free-planen inkluderer for denne handlingen."
+    },
+    "documents": "Dokumenter uten ElectricalVPF-merking",
+    "also": "PRO inkluderer også:",
+    "upgrade": "Oppgrader til PRO",
+    "subtext": "Alt du har lagret så langt, forblir som det er.",
+    "close": "Ikke nå"
   }
 }

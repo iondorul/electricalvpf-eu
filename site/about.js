@@ -5,7 +5,7 @@
       section: "Despre", menu: "Omul, experiența și AI-ul din spatele aplicației", close: "Închide",
       era: "Experiență umană · Era AI", tagline: "Din lumea lucrărilor electrice. Cu instrumentele unei noi ere.",
       human: "Două domenii. Aceeași practică.", humanText: "ElectricalVPF îmbină pregătirea în ingineria calculatoarelor cu experiența practică în dezvoltare software și instalații electrice industriale. Aplicația pornește din nevoile reale ale lucrului în teren și ale organizării unei firme.",
-      ai: "Dezvoltare asistată de AI", aiText: "ChatGPT, Meta AI, Claude, Codex și Gemini au fost folosite în procesul de dezvoltare, pentru idei, cod și revizuire. Direcția și deciziile rămân umane.",
+      ai: "Dezvoltare asistată de AI", aiText: "ChatGPT, Meta AI, Claude, Codex, Gemini și Copilot au fost folosite în procesul de dezvoltare, pentru idei, cod și revizuire. Direcția și deciziile rămân umane.",
       care: "Încredere prin lucruri verificabile", careText: "Datele unei firme cer grijă. Dezvoltarea include teste și revizuirea codului. Contribuția AI nu înlocuiește verificarea și nu reprezintă o certificare de securitate.",
       footer: "Experiență practică. Instrumente noi. Responsabilitate umană."
     },
@@ -13,7 +13,7 @@
       section: "Informazioni", menu: "La persona, l’esperienza e l’IA dietro l’applicazione", close: "Chiudi",
       era: "Esperienza umana · L’era dell’IA", tagline: "Dal mondo degli impianti elettrici. Con gli strumenti di una nuova era.",
       human: "Due discipline. Esperienza sul campo.", humanText: "ElectricalVPF unisce la formazione in ingegneria informatica all’esperienza pratica nello sviluppo software e negli impianti elettrici industriali. L’applicazione nasce dalle esigenze reali del lavoro sul campo e dell’organizzazione di un’impresa.",
-      ai: "Sviluppo assistito dall’IA", aiText: "ChatGPT, Meta AI, Claude, Codex e Gemini sono stati utilizzati nello sviluppo per idee, codice e revisione. La direzione e le decisioni restano umane.",
+      ai: "Sviluppo assistito dall’IA", aiText: "ChatGPT, Meta AI, Claude, Codex, Gemini e Copilot sono stati utilizzati nello sviluppo per idee, codice e revisione. La direzione e le decisioni restano umane.",
       care: "Fiducia attraverso fatti verificabili", careText: "I dati di un’impresa richiedono cura. Lo sviluppo comprende test e revisione del codice. Il contributo dell’IA non sostituisce la verifica e non costituisce una certificazione di sicurezza.",
       footer: "Esperienza pratica. Nuovi strumenti. Responsabilità umana."
     },
@@ -21,7 +21,7 @@
       section: "Over", menu: "De persoon, ervaring en AI achter de applicatie", close: "Sluiten",
       era: "Menselijke ervaring · Het AI-tijdperk", tagline: "Vanuit de elektrotechnische praktijk. Met de middelen van een nieuw tijdperk.",
       human: "Twee vakgebieden. Praktijkervaring.", humanText: "ElectricalVPF combineert een opleiding in computertechniek met praktijkervaring in softwareontwikkeling en industriële elektrische installaties. De applicatie is ontstaan vanuit de werkelijke behoeften op de werkvloer en bij het organiseren van een bedrijf.",
-      ai: "Ontwikkeling met ondersteuning van AI", aiText: "ChatGPT, Meta AI, Claude, Codex en Gemini zijn tijdens de ontwikkeling gebruikt voor ideeën, code en beoordeling. Mensen bepalen de richting en nemen de beslissingen.",
+      ai: "Ontwikkeling met ondersteuning van AI", aiText: "ChatGPT, Meta AI, Claude, Codex, Gemini en Copilot zijn tijdens de ontwikkeling gebruikt voor ideeën, code en beoordeling. Mensen bepalen de richting en nemen de beslissingen.",
       care: "Vertrouwen door controleerbaar werk", careText: "Bedrijfsgegevens verdienen zorg. Testen en codebeoordeling maken deel uit van de ontwikkeling. De bijdrage van AI vervangt geen controle en vormt geen beveiligingscertificering.",
       footer: "Praktijkervaring. Nieuwe middelen. Menselijke verantwoordelijkheid."
     },
@@ -29,7 +29,7 @@
       section: "Om", menu: "Mennesket, erfaringen og KI-en bak applikasjonen", close: "Lukk",
       era: "Menneskelig erfaring · KI-æraen", tagline: "Fra elektrofaget. Med verktøyene fra en ny æra.",
       human: "To fagområder. Praktisk erfaring.", humanText: "ElectricalVPF kombinerer utdanning innen dataingeniørfaget med praktisk erfaring fra programvareutvikling og industrielle elektriske installasjoner. Applikasjonen tar utgangspunkt i reelle behov i feltarbeidet og i organiseringen av en bedrift.",
-      ai: "Utvikling med støtte fra KI", aiText: "ChatGPT, Meta AI, Claude, Codex og Gemini ble brukt i utviklingen til ideer, kode og gjennomgang. Mennesker setter retningen og tar beslutningene.",
+      ai: "Utvikling med støtte fra KI", aiText: "ChatGPT, Meta AI, Claude, Codex, Gemini og Copilot ble brukt i utviklingen til ideer, kode og gjennomgang. Mennesker setter retningen og tar beslutningene.",
       care: "Tillit gjennom etterprøvbart arbeid", careText: "Bedriftsdata krever omtanke. Utviklingen omfatter testing og kodegjennomgang. Bidrag fra KI erstatter ikke kontroll og utgjør ingen sikkerhetssertifisering.",
       footer: "Praktisk erfaring. Nye verktøy. Menneskelig ansvar."
     },
@@ -37,7 +37,7 @@
       section: "O aplikacji", menu: "Człowiek, doświadczenie i AI stojące za aplikacją", close: "Zamknij",
       era: "Ludzkie doświadczenie · Era AI", tagline: "Ze świata instalacji elektrycznych. Z narzędziami nowej ery.",
       human: "Dwie dziedziny. Praktyczne doświadczenie.", humanText: "ElectricalVPF łączy wykształcenie w zakresie inżynierii komputerowej z praktycznym doświadczeniem w tworzeniu oprogramowania i przemysłowych instalacjach elektrycznych. Aplikacja powstała z rzeczywistych potrzeb pracy w terenie i organizacji firmy.",
-      ai: "Rozwój wspomagany przez AI", aiText: "ChatGPT, Meta AI, Claude, Codex i Gemini były wykorzystywane podczas tworzenia aplikacji do opracowywania pomysłów, kodu i jego przeglądu. Kierunek i decyzje pozostają w rękach człowieka.",
+      ai: "Rozwój wspomagany przez AI", aiText: "ChatGPT, Meta AI, Claude, Codex, Gemini i Copilot były wykorzystywane podczas tworzenia aplikacji do opracowywania pomysłów, kodu i jego przeglądu. Kierunek i decyzje pozostają w rękach człowieka.",
       care: "Zaufanie oparte na weryfikowalnej pracy", careText: "Dane firmy wymagają troski. Proces rozwoju obejmuje testy i przegląd kodu. Wkład AI nie zastępuje weryfikacji i nie stanowi certyfikatu bezpieczeństwa.",
       footer: "Praktyczne doświadczenie. Nowe narzędzia. Ludzka odpowiedzialność."
     },
@@ -45,7 +45,7 @@
       section: "О приложении", menu: "Человек, опыт и ИИ за созданием приложения", close: "Закрыть",
       era: "Человеческий опыт · Эра ИИ", tagline: "Из мира электромонтажных работ. С инструментами новой эпохи.",
       human: "Две области. Практический опыт.", humanText: "ElectricalVPF сочетает образование в области компьютерной инженерии с практическим опытом разработки программного обеспечения и работы с промышленными электроустановками. Приложение создано на основе реальных потребностей работы на объектах и организации деятельности компании.",
-      ai: "Разработка с помощью ИИ", aiText: "ChatGPT, Meta AI, Claude, Codex и Gemini использовались при разработке для поиска идей, написания и проверки кода. Направление работы и решения остаются за человеком.",
+      ai: "Разработка с помощью ИИ", aiText: "ChatGPT, Meta AI, Claude, Codex, Gemini и Copilot использовались при разработке для поиска идей, написания и проверки кода. Направление работы и решения остаются за человеком.",
       care: "Доверие через проверяемую работу", careText: "Данные компании требуют бережного отношения. Разработка включает тестирование и проверку кода. Участие ИИ не заменяет проверку и не является сертификацией безопасности.",
       footer: "Практический опыт. Новые инструменты. Ответственность человека."
     },
@@ -53,7 +53,7 @@
       section: "Om", menu: "Människan, erfarenheten och AI bakom applikationen", close: "Stäng",
       era: "Mänsklig erfarenhet · AI-eran", tagline: "Från elarbetets verklighet. Med en ny eras verktyg.",
       human: "Två områden. Praktisk erfarenhet.", humanText: "ElectricalVPF förenar en utbildning inom datateknik med praktisk erfarenhet av programvaruutveckling och industriella elinstallationer. Applikationen utgår från verkliga behov i fältarbetet och i organiseringen av ett företag.",
-      ai: "Utveckling med stöd av AI", aiText: "ChatGPT, Meta AI, Claude, Codex och Gemini har använts under utvecklingen för idéer, kod och granskning. Människor bestämmer riktningen och fattar besluten.",
+      ai: "Utveckling med stöd av AI", aiText: "ChatGPT, Meta AI, Claude, Codex, Gemini och Copilot har använts under utvecklingen för idéer, kod och granskning. Människor bestämmer riktningen och fattar besluten.",
       care: "Förtroende genom verifierbart arbete", careText: "Företagsdata kräver omsorg. Utvecklingen omfattar tester och kodgranskning. AI:s bidrag ersätter inte verifiering och utgör ingen säkerhetscertifiering.",
       footer: "Praktisk erfarenhet. Nya verktyg. Mänskligt ansvar."
     },
@@ -61,7 +61,7 @@
       section: "Hakkında", menu: "Uygulamanın arkasındaki insan, deneyim ve yapay zekâ", close: "Kapat",
       era: "İnsan deneyimi · Yapay zekâ çağı", tagline: "Elektrik işlerinin içinden. Yeni bir çağın araçlarıyla.",
       human: "İki alan. Pratik deneyim.", humanText: "ElectricalVPF, bilgisayar mühendisliği eğitimini yazılım geliştirme ve endüstriyel elektrik tesisatlarındaki pratik deneyimle birleştirir. Uygulama, saha çalışmalarının ve bir işletmenin yönetiminin gerçek ihtiyaçlarından doğmuştur.",
-      ai: "Yapay zekâ destekli geliştirme", aiText: "ChatGPT, Meta AI, Claude, Codex ve Gemini geliştirme sürecinde fikir üretme, kod yazma ve inceleme için kullanılmıştır. Yönü insanlar belirler, kararları insanlar verir.",
+      ai: "Yapay zekâ destekli geliştirme", aiText: "ChatGPT, Meta AI, Claude, Codex, Gemini ve Copilot geliştirme sürecinde fikir üretme, kod yazma ve inceleme için kullanılmıştır. Yönü insanlar belirler, kararları insanlar verir.",
       care: "Doğrulanabilir çalışmalarla güven", careText: "İşletme verileri özen gerektirir. Geliştirme süreci testleri ve kod incelemesini içerir. Yapay zekânın katkısı doğrulamanın yerini almaz ve bir güvenlik sertifikası niteliği taşımaz.",
       footer: "Pratik deneyim. Yeni araçlar. İnsan sorumluluğu."
     },
@@ -69,7 +69,7 @@
       section: "Про застосунок", menu: "Людина, досвід і ШІ за створенням застосунку", close: "Закрити",
       era: "Людський досвід · Ера ШІ", tagline: "Зі світу електромонтажних робіт. З інструментами нової епохи.",
       human: "Дві галузі. Практичний досвід.", humanText: "ElectricalVPF поєднує освіту в галузі комп’ютерної інженерії з практичним досвідом розробки програмного забезпечення та роботи з промисловими електроустановками. Застосунок створено на основі реальних потреб роботи на об’єктах та організації діяльності компанії.",
-      ai: "Розробка за підтримки ШІ", aiText: "ChatGPT, Meta AI, Claude, Codex і Gemini використовувалися під час розробки для пошуку ідей, написання та перевірки коду. Напрям роботи й рішення залишаються за людиною.",
+      ai: "Розробка за підтримки ШІ", aiText: "ChatGPT, Meta AI, Claude, Codex, Gemini і Copilot використовувалися під час розробки для пошуку ідей, написання та перевірки коду. Напрям роботи й рішення залишаються за людиною.",
       care: "Довіра через роботу, яку можна перевірити", careText: "Дані компанії потребують дбайливого ставлення. Розробка включає тестування та перевірку коду. Внесок ШІ не замінює перевірку й не є сертифікацією безпеки.",
       footer: "Практичний досвід. Нові інструменти. Людська відповідальність."
     },
@@ -77,7 +77,7 @@
       section: "About", menu: "The person, experience and AI behind the application", close: "Close",
       era: "Human experience · The AI era", tagline: "From electrical work. With the tools of a new era.",
       human: "Two disciplines. Practical experience.", humanText: "ElectricalVPF combines a background in computer engineering with practical experience in software development and industrial electrical installations. The application is grounded in the real needs of field work and running a business.",
-      ai: "AI-assisted development", aiText: "ChatGPT, Meta AI, Claude, Codex and Gemini were used during development for ideas, code and review. Direction and decisions remain human.",
+      ai: "AI-assisted development", aiText: "ChatGPT, Meta AI, Claude, Codex, Gemini and Copilot were used during development for ideas, code and review. Direction and decisions remain human.",
       care: "Trust through verifiable work", careText: "Business data deserves care. Development includes testing and code review. AI contributions do not replace verification or constitute a security certification.",
       footer: "Practical experience. New tools. Human responsibility."
     }
@@ -187,7 +187,7 @@
       content.append(node("h3", null, t[key]), node("p", "about-copy", t[key + "Text"]));
       if (key === "ai") {
         const tools = node("ul", "about-tools");
-        ["ChatGPT", "Meta AI", "Claude", "Codex", "Gemini"].forEach(name => tools.append(node("li", null, name)));
+        ["ChatGPT", "Meta AI", "Claude", "Codex", "Gemini", "Copilot"].forEach(name => tools.append(node("li", null, name)));
         content.append(tools);
       }
       block.append(node("span", "about-number", "0" + (index + 1)), content);

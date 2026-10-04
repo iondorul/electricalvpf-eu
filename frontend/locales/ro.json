@@ -178,13 +178,14 @@
     "electricCalculator": "Calculator Electric",
     "settings": "Setări",
     "leads": "Clienți Potențiali",
-    "workRequests": "Solicitări Lucrări",
+    "workRequests": "Lucrări Solicitate",
     "logout": "Deconectare",
     "closeSidebar": "Închide meniul",
     "freePlan": "PLAN FREE",
     "proPlan": "PLAN PRO",
     "contracts": "Contracte",
-    "sentQuotes": "Oferte Trimise"
+    "sentQuotes": "Oferte Trimise",
+    "estimatedMaterials": "Materiale Estimate"
   },
   "header": {
     "accountSettings": "Date cont / Setări",
@@ -193,6 +194,19 @@
     "logout": "Deconectare",
     "changeAvatar": "Schimbă avatarul",
     "chooseAvatar": "Profilul meu",
+    "companyLogo": "Logo firmă",
+    "companyLogoIntro": "Apare pe oferte și facturi.",
+    "logoAdd": "Adaugă logo",
+    "logoDelete": "Șterge logo-ul",
+    "logoRestore": "Restabilește logo-urile implicite",
+    "logoRestoreWarning": "Vei pierde toate logo-urile tale încărcate ({{count}}). Rămân doar logo-urile implicite din sistem. Continui?",
+    "logoRestoreYes": "Da, restabilește",
+    "logoSave": "Salvează Logo",
+    "logoSaved": "Logo salvat cu succes!",
+    "logoSaveFailed": "Logo-ul nu s-a putut salva. Încearcă din nou.",
+    "logoLoadFailed": "Logo-urile nu s-au putut încărca. Încearcă din nou.",
+    "logoInvalid": "Alege o imagine PNG, JPG sau WEBP.",
+    "logoTooLarge": "Imaginea e prea mare (maximum 5 MB).",
     "avatarSettings": "Gestionează avatarul din Setări",
     "language": "Limbă",
     "toggleTheme": "Comută tema",
@@ -398,7 +412,28 @@
       "loadError": "Eroare de rețea la încărcarea setărilor.",
       "saved": "Datele firmei au fost salvate cu succes.",
       "saveFailed": "Nu s-au putut salva datele.",
-      "nameRequired": "Numele firmei este obligatoriu."
+      "nameRequired": "Numele firmei este obligatoriu.",
+      "sectionDocuments": "Documente: țară, monedă și TVA",
+      "countrySuggestionHint": "Alegerea țării completează moneda, cota TVA și limba documentelor. Sunt doar sugestii: le poți schimba.",
+      "countryCode": "Țara firmei",
+      "chooseCountry": "— Alege țara —",
+      "documentLanguage": "Limba documentelor",
+      "documentLanguageHint": "Ofertele și facturile noi (PDF și email) vor fi în această limbă. Poate fi alta decât limba aplicației.",
+      "defaultCurrency": "Moneda implicită",
+      "defaultVatRate": "Cota TVA implicită (%)",
+      "vatRegistered": "Firmă înregistrată în scopuri de TVA",
+      "vatRegisteredHint": "Dacă nu ești înregistrat, ofertele și facturile noi nu adaugă TVA.",
+      "sectionBank": "Date bancare",
+      "bankAccountHint": "Completează IBAN-ul sau, unde nu se folosește IBAN, numărul de cont și codul băncii (de exemplu sort code în Marea Britanie).",
+      "bic": "BIC / SWIFT",
+      "bankAccountNumber": "Număr de cont",
+      "bankRoutingCode": "Cod bancă",
+      "currencyChangedInfo": "Documentele existente își păstrează moneda. Doar ofertele și contractele noi o folosesc pe cea nouă.",
+      "invalidCountry": "Țara aleasă nu este în listă.",
+      "invalidCurrency": "Moneda aleasă nu este în listă.",
+      "invalidVatRate": "Cota TVA trebuie să fie între 0 și 100.",
+      "invalidLanguage": "Limba documentelor nu este în listă.",
+      "invalidBic": "Codul BIC / SWIFT are 8 sau 11 caractere."
     },
     "privacy": {
       "title": "Confidențialitate",
@@ -415,7 +450,40 @@
       "confirmDelete": "Confirmă Ștergerea Definitivă",
       "deleteConfirmWord": "ȘTERGE",
       "exportError": "Nu s-a putut exporta. Încearcă din nou.",
-      "deleteError": "Nu s-a putut șterge contul. Încearcă din nou sau contactează suportul."
+      "deleteError": "Nu s-a putut șterge contul. Încearcă din nou sau contactează suportul.",
+      "deleteModal": {
+        "title": "Ștergere definitivă a contului",
+        "irreversible": "Această acțiune este permanentă și nu poate fi anulată.",
+        "intro": "Prin continuare, vor fi șterse definitiv datele asociate contului tău, inclusiv:",
+        "itemClients": "Clienți și Clienți Potențiali",
+        "itemWork": "Lucrări și Lucrări Solicitate",
+        "itemMaterials": "Materiale și Materiale Estimate",
+        "itemOffers": "Oferte și estimări",
+        "itemContracts": "Contracte și documentele asociate",
+        "itemInvoices": "Facturi și plăți",
+        "itemReports": "Rapoarte",
+        "itemPhotos": "Fotografii și alte date operaționale asociate contului",
+        "noRecovery": "După ștergere, aceste date nu mai pot fi recuperate.",
+        "typeLabel": "Pentru confirmare, scrie exact:",
+        "phrase": "ȘTERGE CONTUL MEU",
+        "keep": "Păstrează contul",
+        "confirm": "Șterge definitiv contul",
+        "deleting": "Se șterge…"
+      },
+      "exportModal": {
+        "title": "Exportă datele contului",
+        "intro": "Exportul va conține datele asociate contului tău ElectricalVPF, inclusiv clienți, lucrări, materiale, oferte, contracte, facturi, rapoarte și datele din fluxul secundar.",
+        "format": "Format export: JSON",
+        "filesNote": "Fișierele atașate, precum PDF-uri, fotografii și semnături, sunt listate în export, dar nu sunt incluse în fișierul JSON. Rămân disponibile pentru descărcare din aplicație.",
+        "waitNote": "Pregătirea exportului poate dura câteva momente.",
+        "limitNote": "Poți crea un export complet o dată la 24 de ore.",
+        "create": "Creează exportul",
+        "cancel": "Anulează",
+        "preparing": "Se pregătește exportul…",
+        "success": "Exportul a fost creat și descărcat.",
+        "nextAvailable": "Următorul export disponibil: {{date}}",
+        "cooldown": "Ai creat deja un export în ultimele 24 de ore."
+      }
     },
     "billing": {
       "title": "Abonament & Plăți",
@@ -604,7 +672,16 @@
     "notFound": "Lucrarea nu a fost găsită.",
     "nameAndClientRequired": "Numele lucrării și clientul sunt obligatorii.",
     "saveFailed": "Nu s-a putut salva lucrarea.",
-    "deleteFailed": "Nu s-a putut arhiva lucrarea."
+    "deleteFailed": "Nu s-a putut arhiva lucrarea.",
+    "currencyLabel": "Moneda lucrării",
+    "currencyInUse": "Lucrarea are deja materiale sau documente în această monedă, așa că moneda nu se mai poate schimba.",
+    "copyFromRequest": "Copiază dintr-o lucrare solicitată (opțional)",
+    "copyFromRequestNone": "— Nu copia —",
+    "chooseClientFirst": "Alege întâi clientul",
+    "noRequestsForClient": "Clientul nu are lucrări solicitate — completezi lucrarea de la zero.",
+    "copyFromRequestHelp": "Apar doar lucrările solicitate asociate unui client. Cele cu un client potențial nu pot deveni lucrare până nu e convertit în client.",
+    "copyFromRequestWhy": "Ce solicitări apar aici?",
+    "copyLocationPrefix": "Locație"
   },
   "estimating": {
     "viewEstimate": "Vizualizare Ofertă Estimată",
@@ -698,7 +775,11 @@
     "itemUnitCostInvalid": "Costul unitar al liniei #{{index}} nu poate fi negativ.",
     "itemMarginInvalid": "Adaosul liniei #{{index}} nu poate fi negativ.",
     "updateNotFound": "Oferta estimată nu a fost găsită sau actualizarea a eșuat.",
-    "alreadyArchived": "Oferta estimată nu a fost găsită sau este deja arhivată."
+    "alreadyArchived": "Oferta estimată nu a fost găsită sau este deja arhivată.",
+    "currencyOfWork": "Moneda lucrării: {{currency}} — toate prețurile estimării sunt în această monedă.",
+    "materialCurrencyMismatch": "Materialul „{{material}}” are prețul în {{materialCurrency}}, iar lucrarea e în {{estimateCurrency}}. Folosește un material cu prețul în {{estimateCurrency}}.",
+    "materialCurrencyUnconfirmed": "Materialul „{{material}}” nu are încă moneda prețului confirmată. Confirm-o în Materiale.",
+    "workCurrencyMismatch": "Estimarea e în {{estimate}}, iar lucrarea aleasă e în {{work}}. Alege o lucrare în {{estimate}}."
   },
   "quotes": {
     "draftExists": "Există deja o ofertă în Schiță pentru această ofertă estimată. Editeaz-o pe aceasta în loc să creezi a doua.",
@@ -783,7 +864,8 @@
     "itemTable": {
       "category": "Categorie",
       "qty": "Cant.",
-      "unitPrice": "Preț U."
+      "unitPrice": "Preț U.",
+      "unitPriceRequired": "Preț U. *"
     },
     "workLabel": "Lucrare",
     "subtotalMaterials": "Subtotal Materiale",
@@ -828,7 +910,58 @@
     "quickFilterLabel": "Filtre rapide:",
     "quickFilterAll": "Toate",
     "currentStatus": "Status Curent",
-    "editStatusHint": "Schimbarea statusului te scoate din Editare și deschide fereastra de Actualizare Status."
+    "editStatusHint": "Schimbarea statusului te scoate din Editare și deschide fereastra de Actualizare Status.",
+    "currencyLabel": "Monedă",
+    "documentLanguageLabel": "Limba documentului",
+    "documentLanguageHint": "PDF-ul și emailul către client vor fi în această limbă.",
+    "calc": {
+      "title": "CALCULE ELECTRICE",
+      "professional": "Calcul Electric Profesional",
+      "quickJt": "Calcul JT Rapid",
+      "generic": "Calcul electric",
+      "power": "PUTERE",
+      "length": "LUNGIME",
+      "supply": "ALIMENTARE",
+      "cable": "CABLU RECOMANDAT",
+      "protection": "PROTECȚIE NOMINALĂ",
+      "voltageDrop": "CĂDERE DE TENSIUNE",
+      "designCurrent": "CURENT DE CALCUL (Ib)",
+      "cableCapacity": "CAPACITATE CABLU (Iz)",
+      "loadFailed": "Calculele electrice nu au putut fi încărcate."
+    },
+    "workRequiredLabel": "Lucrare *",
+    "workRequired": "Alege lucrarea pentru care faci oferta.",
+    "noEligibleWork": "Nu ai nicio lucrare activă.",
+    "addWork": "Adaugă o Lucrare",
+    "copyFromEstimate": "Copiază dintr-o ofertă estimată (opțional)",
+    "copyFromEstimateHint": "Ofertele estimate ale clientului ales. Copierea completează titlul, lucrarea și liniile — le poți modifica înainte de salvare.",
+    "selectWork": "Alege lucrarea...",
+    "loadingEstimates": "Se încarcă ofertele estimate...",
+    "copyNone": "— Fără copiere: completez oferta de la zero —",
+    "estimateNotForWork": "Oferta estimată aleasă nu mai există sau nu aparține lucrării selectate. Alege alta sau continuă fără copiere.",
+    "copiedFromEstimate": "Liniile au fost copiate din {{number}}. Le poți modifica înainte de salvare.",
+    "copyFailed": "Oferta estimată nu a putut fi copiată. Poți completa oferta de la zero.",
+    "newStatusHint": "O ofertă nouă pornește ca Schiță. Devine Trimisă când o trimiți clientului pe email.",
+    "titleLabel": "Titlu Ofertă *",
+    "acceptance": {
+      "sectionTitle": "Acceptare online",
+      "acceptedOnline": "Acceptată online de {{name}} pe {{date}}.",
+      "downloadAccepted": "Descarcă oferta acceptată (PDF)",
+      "downloadFailed": "Oferta acceptată nu a putut fi descărcată.",
+      "pending": "Link de acceptare trimis la {{email}}. Clientul nu a acceptat încă oferta.",
+      "viewed": "Clientul a deschis linkul pe {{date}}.",
+      "manualTitle": "Clientul nu a acceptat încă oferta online",
+      "manualText": "Oferta {{number}} nu a fost acceptată de client prin linkul din email. Marchezi totuși oferta ca Acceptată (de exemplu, clientul a acceptat-o pe hârtie sau la telefon)?",
+      "manualYes": "Da, marchează Acceptată"
+    },
+    "titleTaken": "Ai deja o ofertă cu acest titlu. Alege alt titlu.",
+    "titlePlaceholder": "ex: Ofertă Instalație Electrică Vila",
+    "titleRequired": "Titlul ofertei este obligatoriu.",
+    "clientRequired": "Alege clientul.",
+    "lineItems": "Linii Ofertă (Materiale / Manoperă)",
+    "chooseClientFirst": "Alege întâi clientul",
+    "noEstimatesForClient": "Clientul nu are oferte estimate — completezi oferta de la zero.",
+    "loadingClients": "Se încarcă clienții..."
   },
   "acceptedQuotes": {
     "loadingList": "Se încarcă ofertele acceptate...",
@@ -876,6 +1009,7 @@
     "registerAction": "Înregistrează",
     "table": {
       "invoiceNumber": "Număr Factură",
+      "quoteTitle": "Titlu Ofertă",
       "dueDate": "Scadență"
     },
     "deleteAllConfirm": "Sigur dorești să ștergi TOATE facturile? Această acțiune este ireversibilă!",
@@ -885,11 +1019,24 @@
     "loadFailed": "Nu s-au putut încărca facturile.",
     "networkLoadError": "Eroare de rețea la încărcarea facturilor.",
     "noInvoices": "Nu există facturi înregistrate.",
+    "resendConfirmTitle": "Retrimiți factura?",
+    "resendConfirmDesc": "Factura a fost deja trimisă la {{email}}. Ești sigur că vrei să o retrimiți?",
+    "deleteTitle": "Șterge factura",
+    "deleteConfirmTitle": "Ștergi factura?",
+    "deleteConfirmDesc": "Ești sigur că vrei să ștergi factura {{number}}? Factura va fi arhivată și nu va mai apărea în listă.",
+    "deleteConfirmYes": "Da, șterge factura",
+    "deleted": "Factura a fost ștearsă (arhivată).",
+    "deleteFailed": "Factura nu a putut fi ștearsă.",
     "downloadPdf": "Descarcă PDF",
     "sendByEmailTitle": "Trimite factura pe email",
     "noClientEmail": "Clientul nu are email completat",
     "cannotRecordPayments": "Nu se pot înregistra plăți",
     "recordPaymentTitle": "Înregistrează plată",
+    "paymentDoneTitle": "Plata a fost înregistrată",
+    "paymentDoneText": "Plata facturii {{number}} a fost înregistrată ca procesată. Dacă vrei să schimbi ceva, folosește butonul Editează.",
+    "paymentCanceledTitle": "Factura este anulată",
+    "paymentCanceledText": "Pe factura {{number}} nu se mai pot înregistra plăți. Dacă vrei să schimbi ceva, folosește butonul Editează.",
+    "paymentUnavailableOk": "Am înțeles",
     "fetchFailed": "Nu s-au putut prelua datele facturii.",
     "loadNetworkError": "Eroare de rețea la încărcarea facturii.",
     "paymentRecorded": "Plata a fost înregistrată cu succes.",
@@ -937,7 +1084,9 @@
       "name": "Denumire",
       "category": "Categorie",
       "unitPrice": "Preț Unitar",
-      "stock": "Stoc"
+      "stock": "Stoc",
+      "work": "Lucrare",
+      "quantity": "Cantitate"
     },
     "loadingList": "Se încarcă materialele...",
     "itemCode": "Cod Articol (SKU)",
@@ -970,7 +1119,21 @@
     "deleteFailed": "Nu s-a putut șterge materialul.",
     "deleteNetworkError": "Eroare de rețea la ștergerea materialului.",
     "notFound": "Materialul nu a fost găsit.",
-    "codeAlreadyExists": "Există deja un material cu acest cod pentru contul tău."
+    "codeAlreadyExists": "Există deja un material cu acest cod pentru contul tău.",
+    "priceAndCurrency": "Preț unitar și monedă",
+    "workRequired": "Lucrare *",
+    "chooseWork": "— Alege lucrarea —",
+    "quantityOnWork": "Cantitate pe lucrare",
+    "noWorkTitle": "Nu ai nicio lucrare activă",
+    "noWorkText": "Materialele aparțin întotdeauna unei lucrări. Adaugă întâi lucrarea, apoi materialele folosite pe ea.",
+    "addWork": "Adaugă o Lucrare",
+    "workRequiredMessage": "Alege lucrarea activă căreia îi aparține materialul.",
+    "workCurrencyMismatch": "Lucrarea aleasă are altă monedă decât materialul. Alege o lucrare în aceeași monedă.",
+    "helpWork": "Fiecare material aparține unei lucrări active: costul ajunge la lucrarea care trebuie să-l recupereze de la client. Materialele estimate pentru o lucrare solicitată stau în tabul Materiale Estimate.",
+    "whyWorkLabel": "De ce aleg lucrarea?",
+    "copyFromEstimated": "Copiază dintr-un material estimat (opțional)",
+    "copyFromEstimatedNone": "— Nu copia —",
+    "copyPriceOtherCurrency": "Prețul estimat e în {{estimated}}, iar lucrarea e în {{work}}. Scrie prețul în moneda lucrării — nu facem conversii valutare."
   },
   "electricalWorkTypes": {
     "newInstallation": "Instalație electrică nouă",
@@ -1111,10 +1274,10 @@
     }
   },
   "workRequests": {
-    "pageTitle": "Solicitări Lucrări",
+    "pageTitle": "Lucrări Solicitate",
     "searchPlaceholder": "Căutare după nr. solicitare, titlu sau client...",
-    "newRequest": "Solicitare Lucrare Nouă",
-    "addWorkRequest": "Adaugă Solicitare Lucrare",
+    "newRequest": "Lucrare Solicitată Nouă",
+    "addWorkRequest": "Adaugă Lucrare Solicitată",
     "createRequest": "Creează Solicitare",
     "allStatuses": "Toate statusurile",
     "allPriorities": "Toate prioritățile",
@@ -1259,15 +1422,18 @@
     "invalidLead": "Client potențial invalid.",
     "noLead": "Fără client potențial",
     "proModal": {
-      "title": "Deblochează Solicitări Lucrări cu PRO",
+      "title": "Deblochează Lucrări Solicitate cu PRO",
       "message": "Transformă solicitările clienților în lucrări organizate și ușor de urmărit.",
-      "benefit1": "Creezi și gestionezi Solicitări de Lucrări",
+      "benefit1": "Creezi și gestionezi Lucrări Solicitate",
       "benefit2": "Urmărești statusul și progresul solicitărilor",
       "benefit3": "Centralizezi comunicarea și informațiile despre lucrări",
       "benefit4": "Reduci riscul ca solicitările importante să se piardă",
       "benefit5": "Ai mai mult control asupra lucrărilor și clienților",
-      "ctaSubtext": "Deblochează Solicitări Lucrări și toate funcționalitățile PRO"
-    }
+      "ctaSubtext": "Deblochează Lucrări Solicitate și toate funcționalitățile PRO"
+    },
+    "currencyLabel": "Moneda solicitării",
+    "currencyInUse": "Solicitarea are deja materiale estimate în această monedă, așa că moneda nu se mai poate schimba.",
+    "editRequest": "Editează Lucrare Solicitată"
   },
   "superElectra": {
     "subtitle": "Admin Control Center — panou de administrare pentru ElectricalVPF ERP.",
@@ -1631,6 +1797,73 @@
         "resendTag": "retrimis",
         "historyEmpty": "Nu a fost trimis încă."
       }
+    },
+    "acquisition": {
+      "payingCustomers": "Clienți plătitori confirmați (Stripe live)",
+      "proAccounts": "Conturi PRO în total",
+      "source": "Sursă",
+      "campaign": "Campanie",
+      "lang": "Limbă",
+      "signups": "Înregistrări",
+      "paying": "Clienți plătitori",
+      "footnote": "Sursa vine din linkul de înregistrare al aceleiași vizite (fără cookie-uri). „Clienți plătitori” = prima plată PRO confirmată de Stripe; PRO acordat manual și clienții dinaintea măsurării apar doar în „Conturi PRO în total”.",
+      "empty": "Încă nicio înregistrare cu sursă.",
+      "loadFailed": "Datele de achiziție nu s-au putut încărca."
+    },
+    "funnel": {
+      "title": "Traseu clienți — ultimele 12 săptămâni",
+      "bySource": "Pe sursă",
+      "byWeek": "Pe săptămână",
+      "week": "Săptămâna",
+      "signups": "Înregistrări",
+      "confirmed": "Email confirmat",
+      "activated": "Prima ofertă",
+      "checkout": "Au deschis plata",
+      "paying": "Clienți plătitori",
+      "rate": "Înregistrare → plată",
+      "footnote": "Conturi create în ultimele 12 săptămâni, fără conturile de administrator. Activare = prima ofertă creată. „Au deschis plata” = au apăsat „Continuă la plată”. „Clienți plătitori” = prima plată PRO confirmată de Stripe (live).",
+      "empty": "Niciun cont nou în această perioadă.",
+      "loadFailed": "Traseul clienților nu s-a putut încărca."
+    },
+    "triggers": {
+      "title": "Ce a declanșat upgrade-ul — ultimele 12 săptămâni",
+      "place": "De unde a pornit spre plată",
+      "limit": "Limită Free plină",
+      "footnote": "Locul = butonul din aplicație de pe care omul a pornit spre Planuri / Upgrade. Limitele = ce limite ale planului Free erau deja pline când a deschis plata. Un cont poate apărea pe mai multe rânduri. „(necunoscut)” = plăți deschise înainte de această măsurătoare.",
+      "empty": "Nimeni nu a deschis încă plata în această perioadă.",
+      "unknown": "(necunoscut)",
+      "codes": {
+        "paywall-contracts": "Fereastra PRO — Contracte",
+        "paywall-custom-contracts": "Fereastra PRO — Contracte Personalizate",
+        "paywall-job-status": "Fereastra PRO — Stadiu Lucrare",
+        "paywall-leads": "Fereastra PRO — Clienți Potențiali",
+        "paywall-work-requests": "Fereastra PRO — Lucrări Solicitate",
+        "storage-quota": "Cota de stocare pentru poze",
+        "help-contact": "Ajutor → Contact",
+        "page-settings": "Setări → Abonament",
+        "page-erp-plans": "Pagina Planuri, deschisă direct",
+        "limit-clients": "Limita Free atinsă — Clienți",
+        "limit-quotes": "Limita Free atinsă — Oferte",
+        "limit-work": "Limita Free atinsă — Lucrări",
+        "limit-materials": "Limita Free atinsă — Materiale",
+        "limit-invoices": "Limita Free atinsă — Facturi",
+        "limit-reports": "Limita Free atinsă — Rapoarte",
+        "limit-calculations": "Limita Free atinsă — Calcule salvate",
+        "limit-generic": "Limita Free atinsă — altă limită",
+        "page-contracts": "Pagina Contracte",
+        "page-job-status": "Pagina Stadiu Lucrare",
+        "page-offers": "Pagina Oferte",
+        "page-jobs": "Pagina Lucrări",
+        "page-customers": "Pagina Clienți"
+      },
+      "limits": {
+        "clients": "Clienți (2)",
+        "quotes": "Oferte (3)",
+        "work": "Lucrări (3)",
+        "materials": "Materiale (20)",
+        "invoices": "Facturi (2)",
+        "reports": "Rapoarte (5)"
+      }
     }
   },
   "practicalGuide": {
@@ -1735,7 +1968,9 @@
     "deleteNetworkError": "Eroare de rețea la ștergere.",
     "invalidType": "Tipul de raport selectat este invalid.",
     "notFound": "Raportul nu a fost găsit.",
-    "deleteForbidden": "Doar utilizatorii cu rol de Administrator pot șterge rapoarte din arhivă."
+    "deleteForbidden": "Doar utilizatorii cu rol de Administrator pot șterge rapoarte din arhivă.",
+    "materialCost": "Cost",
+    "materialsTotal": "Total materiale"
   },
   "plans": {
     "pageTitle": "Planuri & Abonament",
@@ -1744,6 +1979,9 @@
     "title": "Planuri & Abonament",
     "subtitle": "Alege planul potrivit pentru firma ta. Poți face upgrade oricând, fără angajament.",
     "free": {
+      "quotesBranding": " cu logo-ul firmei tale și marca ElectricalVPF",
+      "contractsBranding": " cu marca ElectricalVPF",
+      "invoicesBranding": " cu logo-ul firmei tale și marca ElectricalVPF",
       "name": "Free",
       "period": "/lună",
       "desc": "Pentru a testa ERP-ul cu volum redus de activitate.",
@@ -1751,6 +1989,7 @@
       "clientsLimit": " - maximum 2 clienți",
       "workLimit": " - maximum 3 lucrări",
       "quotesLimit": " - maximum 3 oferte",
+      "contractsLimit": " - maximum 1 contract",
       "calculatorLimit": "Calculator Electric - maximum 10 calcule salvate",
       "materialsLimit": " - maximum 20 materiale",
       "invoicesLimit": " - maximum 2 facturi",
@@ -1758,6 +1997,10 @@
       "downgradeToFree": "Downgrade la Free"
     },
     "pro": {
+      "noMark": "fără marca ElectricalVPF",
+      "quotesWhiteLabel": " cu logo-ul firmei tale, ",
+      "contractsWhiteLabel": ", ",
+      "invoicesWhiteLabel": " cu logo-ul firmei tale, ",
       "badge": "Recomandat",
       "name": "Pro",
       "billingToggle": {
@@ -1816,6 +2059,7 @@
         "contractsLabel": "Crearea de Contracte noi",
         "contractsDesc": "- dezactivată (cele existente rămân neatinse)",
         "calculator": "Calculatorul Electric rămâne disponibil integral",
+        "branding": "Ofertele, facturile și contractele primesc subsolul „Generated with ElectricalVPF”",
         "storage": "Stocarea pentru poze la Solicitări scade de la 10GB la 500MB (pozele existente rămân)"
       },
       "autoText": "Planul Free a fost activat cu succes, dar păstrezi beneficiile planului Pro până la expirarea perioadei curente plătite.",
@@ -2168,6 +2412,7 @@
     "archiveFailed": "Eroare la arhivarea contractului.",
     "archiveNetworkError": "Eroare de rețea la arhivarea contractului.",
     "proModal": {
+      "freeUsed": "Planul Free include un singur contract, pe care l-ai folosit deja.",
       "title": "Deblochează Contractele cu PRO",
       "message": "Transformă ofertele acceptate în contracte legale, gata de semnat, în câteva secunde.",
       "benefit1": "Generezi automat un contract dintr-o Ofertă acceptată, cu client, proiect și valoare precompletate",
@@ -2542,5 +2787,63 @@
     },
     "lockedTitle": "Contract trimis — modificările se salvează ca o copie nouă",
     "lockedShort": "Trimis — salvezi doar ca o copie nouă"
+  },
+  "currency": {
+    "helpLabel": "De ce nu se poate schimba moneda?",
+    "helpWork": "Moneda lucrării se propagă pe tot parcursul ei: materiale, estimare, ofertă, contract și factură. O poți schimba cât timp lucrarea nu are încă materiale sau documente; de la primul, rămâne definitivă și nu se fac conversii valutare — așa fiecare sumă își păstrează valoarea reală, de la primul preț până la încasare.",
+    "helpMaterial": "Moneda prețului este moneda lucrării și nu se mai schimbă — fără conversii valutare, ca fiecare preț să-și păstreze valoarea reală.",
+    "helpDocument": "Moneda vine din lucrare și rămâne aceeași pe tot lanțul: estimare, ofertă, contract și factură. Nu se poate schimba și nu se fac conversii valutare — pentru integritatea sumelor.",
+    "helpManualContract": "La un contract manual alegi moneda acum. După creare rămâne definitivă — nu se mai poate schimba și nu se fac conversii valutare, pentru integritatea sumelor.",
+    "locked": "Moneda nu se mai poate schimba.",
+    "helpWorkRequest": "Moneda solicitării trece la materialele estimate ale ei. O poți schimba cât timp solicitarea nu are încă materiale estimate; de la primul, rămâne definitivă — fără conversii valutare."
+  },
+  "estimatedMaterials": {
+    "searchPlaceholder": "Caută după material sau lucrare solicitată...",
+    "add": "Adaugă Material Estimat",
+    "addNew": "Material Estimat Nou",
+    "edit": "Editare Material Estimat",
+    "table": {
+      "request": "Lucrare Solicitată",
+      "total": "Total"
+    },
+    "requestRequired": "Lucrare Solicitată *",
+    "chooseRequest": "— Alege lucrarea solicitată —",
+    "quantity": "Cantitate estimată",
+    "noRequestTitle": "Nu ai nicio lucrare solicitată",
+    "noRequestText": "Materialele estimate aparțin întotdeauna unei lucrări solicitate. Adaugă întâi solicitarea, apoi estimează materialele.",
+    "addRequest": "Adaugă Lucrare Solicitată",
+    "requestRequiredMessage": "Alege lucrarea solicitată căreia îi aparține materialul estimat.",
+    "currencyMismatch": "Lucrarea solicitată aleasă are altă monedă. Alege una în aceeași monedă.",
+    "empty": "Nu există materiale estimate.",
+    "helpRequest": "Materialele estimate aparțin unei lucrări solicitate: estimezi rapid ce trebuie, înainte ca lucrarea să înceapă. Materialele folosite pe o lucrare activă stau în tabul Materiale.",
+    "helpCurrency": "Moneda este moneda lucrării solicitate și nu se alege aici. După salvare nu se mai schimbă — fără conversii valutare.",
+    "whyRequestLabel": "De ce aleg lucrarea solicitată?"
+  },
+  "planLimit": {
+    "titles": {
+      "clients": "Clienți nelimitați cu PRO",
+      "quotes": "Oferte nelimitate cu PRO",
+      "work": "Lucrări nelimitate cu PRO",
+      "materials": "Materiale nelimitate cu PRO",
+      "invoices": "Facturi nelimitate cu PRO",
+      "reports": "Rapoarte nelimitate cu PRO",
+      "calculations": "Calcule salvate nelimitate cu PRO",
+      "generic": "Treci la PRO"
+    },
+    "messages": {
+      "clients": "Ai folosit cei 2 clienți incluși în planul Free.",
+      "quotes": "Ai folosit cele 3 oferte incluse în planul Free.",
+      "work": "Ai folosit cele 3 lucrări incluse în planul Free.",
+      "materials": "Ai folosit cele 20 de materiale incluse în planul Free.",
+      "invoices": "Ai folosit cele 2 facturi incluse în planul Free.",
+      "reports": "Ai salvat cele 5 rapoarte incluse în planul Free.",
+      "calculations": "Ai salvat cele 10 calcule incluse în planul Free.",
+      "generic": "Ai folosit tot ce include planul Free pentru această acțiune."
+    },
+    "documents": "Documente fără marca ElectricalVPF",
+    "also": "PRO include și:",
+    "upgrade": "Treci la PRO",
+    "subtext": "Tot ce ai salvat până acum rămâne neatins.",
+    "close": "Nu acum"
   }
 }

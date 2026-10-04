@@ -192,7 +192,8 @@
     "freePlan": "PIANO FREE",
     "proPlan": "PIANO PRO",
     "contracts": "Contratti",
-    "sentQuotes": "Offerte Inviate"
+    "sentQuotes": "Offerte Inviate",
+    "estimatedMaterials": "Materiali Stimati"
   },
   "header": {
     "accountSettings": "Account / Impostazioni",
@@ -201,6 +202,19 @@
     "logout": "Esci",
     "changeAvatar": "Cambia avatar",
     "chooseAvatar": "Il mio profilo",
+    "companyLogo": "Logo aziendale",
+    "companyLogoIntro": "Appare su preventivi e fatture.",
+    "logoAdd": "Aggiungi logo",
+    "logoDelete": "Elimina logo",
+    "logoRestore": "Ripristina i loghi predefiniti",
+    "logoRestoreWarning": "Perderai tutti i loghi che hai caricato ({{count}}). Resteranno solo i loghi predefiniti del sistema. Continuare?",
+    "logoRestoreYes": "Sì, ripristina",
+    "logoSave": "Salva logo",
+    "logoSaved": "Logo salvato con successo!",
+    "logoSaveFailed": "Impossibile salvare il logo. Riprova.",
+    "logoLoadFailed": "Impossibile caricare i loghi. Riprova.",
+    "logoInvalid": "Scegli un'immagine PNG, JPG o WEBP.",
+    "logoTooLarge": "L'immagine è troppo grande (massimo 5 MB).",
     "avatarSettings": "Gestisci l'avatar nelle Impostazioni",
     "language": "Lingua",
     "toggleTheme": "Cambia tema",
@@ -360,7 +374,28 @@
       "loadError": "Errore di rete durante il caricamento delle impostazioni.",
       "saved": "Dati aziendali salvati con successo.",
       "saveFailed": "Impossibile salvare i dati.",
-      "nameRequired": "Il nome dell'azienda è obbligatorio."
+      "nameRequired": "Il nome dell'azienda è obbligatorio.",
+      "sectionDocuments": "Documenti: paese, valuta e IVA",
+      "countrySuggestionHint": "La scelta del paese compila la valuta, l’aliquota IVA e la lingua dei documenti. Sono solo suggerimenti: puoi modificarli.",
+      "countryCode": "Paese dell’azienda",
+      "chooseCountry": "— Scegli il paese —",
+      "documentLanguage": "Lingua dei documenti",
+      "documentLanguageHint": "I nuovi preventivi e le nuove fatture (PDF ed email) saranno in questa lingua. Può essere diversa dalla lingua dell’app.",
+      "defaultCurrency": "Valuta predefinita",
+      "defaultVatRate": "Aliquota IVA predefinita (%)",
+      "vatRegistered": "Azienda con partita IVA",
+      "vatRegisteredHint": "Se non sei soggetto IVA, i nuovi preventivi e le nuove fatture non aggiungono l’IVA.",
+      "sectionBank": "Dati bancari",
+      "bankAccountHint": "Inserisci l’IBAN oppure, dove l’IBAN non si usa, il numero di conto e il codice della banca (ad esempio il sort code nel Regno Unito).",
+      "bic": "BIC / SWIFT",
+      "bankAccountNumber": "Numero di conto",
+      "bankRoutingCode": "Codice banca",
+      "currencyChangedInfo": "I documenti esistenti mantengono la loro valuta. Solo i nuovi preventivi e contratti usano quella nuova.",
+      "invalidCountry": "Il paese scelto non è nell’elenco.",
+      "invalidCurrency": "La valuta scelta non è nell’elenco.",
+      "invalidVatRate": "L’aliquota IVA deve essere tra 0 e 100.",
+      "invalidLanguage": "La lingua dei documenti non è nell’elenco.",
+      "invalidBic": "Il codice BIC / SWIFT ha 8 o 11 caratteri."
     },
     "privacy": {
       "title": "Privacy",
@@ -379,7 +414,40 @@
       "exportSoon": "L'esportazione dei dati sarà presto disponibile.",
       "termsSoon": "I Termini e condizioni saranno presto disponibili.",
       "privacyPolicySoon": "L'informativa sulla privacy sarà presto disponibile.",
-      "deleteSoon": "L'eliminazione dell'account sarà presto disponibile. Contatta l'assistenza per supporto."
+      "deleteSoon": "L'eliminazione dell'account sarà presto disponibile. Contatta l'assistenza per supporto.",
+      "deleteModal": {
+        "title": "Eliminazione definitiva dell'account",
+        "irreversible": "Questa azione è permanente e non può essere annullata.",
+        "intro": "Continuando, i dati associati al tuo account verranno eliminati definitivamente, tra cui:",
+        "itemClients": "Clienti e potenziali clienti",
+        "itemWork": "Lavori e richieste di intervento",
+        "itemMaterials": "Materiali e materiali stimati",
+        "itemOffers": "Offerte e stime",
+        "itemContracts": "Contratti e documenti collegati",
+        "itemInvoices": "Fatture e pagamenti",
+        "itemReports": "Report",
+        "itemPhotos": "Foto e altri dati operativi collegati al tuo account",
+        "noRecovery": "Dopo l'eliminazione, questi dati non potranno essere recuperati.",
+        "typeLabel": "Per confermare, scrivi esattamente:",
+        "phrase": "ELIMINA IL MIO ACCOUNT",
+        "keep": "Mantieni l'account",
+        "confirm": "Elimina definitivamente l'account",
+        "deleting": "Eliminazione…"
+      },
+      "exportModal": {
+        "title": "Esporta i dati dell'account",
+        "intro": "L'esportazione conterrà i dati associati al tuo account ElectricalVPF, inclusi clienti, lavori, materiali, offerte, contratti, fatture, report e i dati del flusso secondario.",
+        "format": "Formato di esportazione: JSON",
+        "filesNote": "I file allegati, come PDF, foto e firme, sono elencati nell'esportazione ma non inclusi nel file JSON. Restano scaricabili dall'applicazione.",
+        "waitNote": "La preparazione dell'esportazione può richiedere qualche istante.",
+        "limitNote": "Puoi creare un'esportazione completa ogni 24 ore.",
+        "create": "Crea esportazione",
+        "cancel": "Annulla",
+        "preparing": "Preparazione dell'esportazione…",
+        "success": "L'esportazione è stata creata e scaricata.",
+        "nextAvailable": "Prossima esportazione disponibile: {{date}}",
+        "cooldown": "Hai già creato un'esportazione nelle ultime 24 ore."
+      }
     },
     "billing": {
       "title": "Abbonamento e fatturazione",
@@ -566,7 +634,16 @@
     "notFound": "Lavoro non trovato.",
     "nameAndClientRequired": "Il nome del lavoro e il cliente sono obbligatori.",
     "saveFailed": "Impossibile salvare il lavoro.",
-    "deleteFailed": "Impossibile archiviare il lavoro."
+    "deleteFailed": "Impossibile archiviare il lavoro.",
+    "currencyLabel": "Valuta del lavoro",
+    "currencyInUse": "Il lavoro ha già materiali o documenti in questa valuta, quindi la valuta non si può più cambiare.",
+    "copyFromRequest": "Copia da una richiesta di intervento (facoltativo)",
+    "copyFromRequestNone": "— Non copiare —",
+    "chooseClientFirst": "Scegli prima il cliente",
+    "noRequestsForClient": "Il cliente non ha lavori richiesti — compila il lavoro da zero.",
+    "copyFromRequestHelp": "Compaiono solo le richieste collegate a un cliente. Quelle collegate a un lead non possono diventare un lavoro finché il lead non è convertito in cliente.",
+    "copyFromRequestWhy": "Quali richieste compaiono qui?",
+    "copyLocationPrefix": "Luogo"
   },
   "estimating": {
     "viewEstimate": "Visualizza offerta stimata",
@@ -660,7 +737,11 @@
     "itemUnitCostInvalid": "Il costo unitario della riga #{{index}} non può essere negativo.",
     "itemMarginInvalid": "Il margine della riga #{{index}} non può essere negativo.",
     "updateNotFound": "Offerta stimata non trovata o aggiornamento non riuscito.",
-    "alreadyArchived": "Offerta stimata non trovata o già archiviata."
+    "alreadyArchived": "Offerta stimata non trovata o già archiviata.",
+    "currencyOfWork": "Valuta del lavoro: {{currency}} — tutti i prezzi della stima sono in questa valuta.",
+    "materialCurrencyMismatch": "Il materiale “{{material}}” ha il prezzo in {{materialCurrency}}, ma il lavoro è in {{estimateCurrency}}. Usa un materiale con il prezzo in {{estimateCurrency}}.",
+    "materialCurrencyUnconfirmed": "Il materiale “{{material}}” non ha ancora la valuta del prezzo confermata. Confermala in Materiali.",
+    "workCurrencyMismatch": "La stima è in {{estimate}}, ma il lavoro scelto è in {{work}}. Scegli un lavoro in {{estimate}}."
   },
   "quotes": {
     "draftExists": "Esiste già un'offerta in Bozza per questa offerta stimata. Modificala invece di crearne una seconda.",
@@ -745,7 +826,8 @@
     "itemTable": {
       "category": "Categoria",
       "qty": "Q.tà",
-      "unitPrice": "Prezzo unitario"
+      "unitPrice": "Prezzo unitario",
+      "unitPriceRequired": "Prezzo unit. *"
     },
     "workLabel": "Lavoro",
     "subtotalMaterials": "Subtotale materiali",
@@ -790,7 +872,58 @@
     "quickFilterLabel": "Filtri rapidi:",
     "quickFilterAll": "Tutte",
     "currentStatus": "Stato Attuale",
-    "editStatusHint": "Cambiare lo stato ti fa uscire dalla Modifica e apre la finestra di Aggiornamento Stato."
+    "editStatusHint": "Cambiare lo stato ti fa uscire dalla Modifica e apre la finestra di Aggiornamento Stato.",
+    "currencyLabel": "Valuta",
+    "documentLanguageLabel": "Lingua del documento",
+    "documentLanguageHint": "Il PDF e l’email al cliente saranno in questa lingua.",
+    "calc": {
+      "title": "CALCOLI ELETTRICI",
+      "professional": "Calcolo elettrico professionale",
+      "quickJt": "Calcolo BT rapido",
+      "generic": "Calcolo elettrico",
+      "power": "POTENZA",
+      "length": "LUNGHEZZA",
+      "supply": "ALIMENTAZIONE",
+      "cable": "CAVO CONSIGLIATO",
+      "protection": "PROTEZIONE NOMINALE",
+      "voltageDrop": "CADUTA DI TENSIONE",
+      "designCurrent": "CORRENTE DI IMPIEGO (Ib)",
+      "cableCapacity": "PORTATA DEL CAVO (Iz)",
+      "loadFailed": "Non è stato possibile caricare i calcoli elettrici."
+    },
+    "workRequiredLabel": "Lavoro *",
+    "workRequired": "Scegli il lavoro per cui fai il preventivo.",
+    "noEligibleWork": "Non hai nessun lavoro attivo.",
+    "addWork": "Aggiungi un lavoro",
+    "copyFromEstimate": "Copia da un preventivo stimato (facoltativo)",
+    "copyFromEstimateHint": "I preventivi stimati del cliente scelto. La copia compila titolo, lavoro e righe — puoi modificarli prima di salvare.",
+    "selectWork": "Scegli il lavoro...",
+    "loadingEstimates": "Caricamento dei preventivi stimati...",
+    "copyNone": "— Nessuna copia: compilo il preventivo da zero —",
+    "estimateNotForWork": "Il preventivo stimato scelto non esiste più o non appartiene al lavoro selezionato. Scegline un altro o continua senza copiare.",
+    "copiedFromEstimate": "Le righe sono state copiate da {{number}}. Puoi modificarle prima di salvare.",
+    "copyFailed": "Non è stato possibile copiare il preventivo stimato. Puoi compilare il preventivo da zero.",
+    "newStatusHint": "Un nuovo preventivo parte come Bozza. Diventa Inviato quando lo invii al cliente via email.",
+    "titleLabel": "Titolo preventivo *",
+    "acceptance": {
+      "sectionTitle": "Accettazione online",
+      "acceptedOnline": "Accettato online da {{name}} il {{date}}.",
+      "downloadAccepted": "Scarica il preventivo accettato (PDF)",
+      "downloadFailed": "Impossibile scaricare il preventivo accettato.",
+      "pending": "Link di accettazione inviato a {{email}}. Il cliente non ha ancora accettato il preventivo.",
+      "viewed": "Il cliente ha aperto il link il {{date}}.",
+      "manualTitle": "Il cliente non ha ancora accettato il preventivo online",
+      "manualText": "Il preventivo {{number}} non è stato accettato dal cliente tramite il link nell'email. Segnarlo comunque come Accettato (ad esempio, il cliente lo ha accettato su carta o per telefono)?",
+      "manualYes": "Sì, segna come Accettato"
+    },
+    "titleTaken": "Hai già un preventivo con questo titolo. Scegli un altro titolo.",
+    "titlePlaceholder": "es.: Preventivo impianto elettrico villa",
+    "titleRequired": "Il titolo del preventivo è obbligatorio.",
+    "clientRequired": "Scegli il cliente.",
+    "lineItems": "Righe del preventivo (materiali / manodopera)",
+    "chooseClientFirst": "Scegli prima il cliente",
+    "noEstimatesForClient": "Il cliente non ha preventivi stimati — compila il preventivo da zero.",
+    "loadingClients": "Caricamento dei clienti..."
   },
   "acceptedQuotes": {
     "loadingList": "Caricamento offerte accettate...",
@@ -838,6 +971,7 @@
     "registerAction": "Registra",
     "table": {
       "invoiceNumber": "Numero fattura",
+      "quoteTitle": "Titolo preventivo",
       "dueDate": "Scadenza pagamento"
     },
     "deleteAllConfirm": "Sei sicuro di voler eliminare TUTTE le fatture? Questa azione è irreversibile!",
@@ -847,11 +981,24 @@
     "loadFailed": "Impossibile caricare le fatture.",
     "networkLoadError": "Errore di rete durante il caricamento delle fatture.",
     "noInvoices": "Nessuna fattura registrata.",
+    "resendConfirmTitle": "Inviare di nuovo la fattura?",
+    "resendConfirmDesc": "La fattura è già stata inviata a {{email}}. Sei sicuro di volerla inviare di nuovo?",
+    "deleteTitle": "Elimina fattura",
+    "deleteConfirmTitle": "Eliminare la fattura?",
+    "deleteConfirmDesc": "Sei sicuro di voler eliminare la fattura {{number}}? La fattura verrà archiviata e non apparirà più nell'elenco.",
+    "deleteConfirmYes": "Sì, elimina la fattura",
+    "deleted": "La fattura è stata eliminata (archiviata).",
+    "deleteFailed": "Impossibile eliminare la fattura.",
     "downloadPdf": "Scarica PDF",
     "sendByEmailTitle": "Invia la fattura via email",
     "noClientEmail": "Il cliente non ha un'email registrata",
     "cannotRecordPayments": "Non è possibile registrare pagamenti",
     "recordPaymentTitle": "Registra pagamento",
+    "paymentDoneTitle": "Pagamento registrato",
+    "paymentDoneText": "Il pagamento della fattura {{number}} è stato registrato come elaborato. Se vuoi modificare qualcosa, usa il pulsante Modifica.",
+    "paymentCanceledTitle": "La fattura è annullata",
+    "paymentCanceledText": "Sulla fattura {{number}} non si possono più registrare pagamenti. Se vuoi modificare qualcosa, usa il pulsante Modifica.",
+    "paymentUnavailableOk": "Ho capito",
     "fetchFailed": "Impossibile recuperare i dati della fattura.",
     "loadNetworkError": "Errore di rete durante il caricamento della fattura.",
     "paymentRecorded": "Pagamento registrato con successo.",
@@ -899,7 +1046,9 @@
       "name": "Nome",
       "category": "Categoria",
       "unitPrice": "Prezzo unitario",
-      "stock": "Giacenza"
+      "stock": "Giacenza",
+      "work": "Lavoro",
+      "quantity": "Quantità"
     },
     "loadingList": "Caricamento materiali...",
     "itemCode": "Codice articolo (SKU)",
@@ -932,7 +1081,21 @@
     "deleteFailed": "Impossibile eliminare il materiale.",
     "deleteNetworkError": "Errore di rete durante l'eliminazione del materiale.",
     "notFound": "Materiale non trovato.",
-    "codeAlreadyExists": "Esiste già un materiale con questo codice per il tuo account."
+    "codeAlreadyExists": "Esiste già un materiale con questo codice per il tuo account.",
+    "priceAndCurrency": "Prezzo unitario e valuta",
+    "workRequired": "Lavoro *",
+    "chooseWork": "— Scegli il lavoro —",
+    "quantityOnWork": "Quantità sul lavoro",
+    "noWorkTitle": "Non hai nessun lavoro attivo",
+    "noWorkText": "I materiali appartengono sempre a un lavoro. Aggiungi prima il lavoro, poi i materiali usati.",
+    "addWork": "Aggiungi un Lavoro",
+    "workRequiredMessage": "Scegli il lavoro attivo a cui appartiene il materiale.",
+    "workCurrencyMismatch": "Il lavoro scelto ha una valuta diversa dal materiale. Scegli un lavoro nella stessa valuta.",
+    "helpWork": "Ogni materiale appartiene a un lavoro attivo: il costo va al lavoro che deve recuperarlo dal cliente. I materiali stimati per un lavoro richiesto sono nella scheda Materiali Stimati.",
+    "whyWorkLabel": "Perché scegliere il lavoro?",
+    "copyFromEstimated": "Copia da un materiale stimato (facoltativo)",
+    "copyFromEstimatedNone": "— Non copiare —",
+    "copyPriceOtherCurrency": "Il prezzo stimato è in {{estimated}} e il lavoro è in {{work}}. Inserisci il prezzo nella valuta del lavoro — non facciamo conversioni."
   },
   "reports": {
     "period": "Periodo",
@@ -1001,7 +1164,9 @@
     "deleteNetworkError": "Errore di rete durante l'eliminazione.",
     "invalidType": "Il tipo di report selezionato non è valido.",
     "notFound": "Report non trovato.",
-    "deleteForbidden": "Solo gli utenti con ruolo Amministratore possono eliminare i report dall'archivio."
+    "deleteForbidden": "Solo gli utenti con ruolo Amministratore possono eliminare i report dall'archivio.",
+    "materialCost": "Costo",
+    "materialsTotal": "Totale materiali"
   },
   "plans": {
     "pageTitle": "Piani e abbonamento",
@@ -1010,6 +1175,9 @@
     "title": "Piani e abbonamento",
     "subtitle": "Scegli il piano più adatto alla tua azienda. Puoi effettuare l'upgrade in qualsiasi momento, senza vincoli.",
     "free": {
+      "quotesBranding": " con il logo della tua azienda e il marchio ElectricalVPF",
+      "contractsBranding": " con il marchio ElectricalVPF",
+      "invoicesBranding": " con il logo della tua azienda e il marchio ElectricalVPF",
       "name": "Free",
       "period": "/mese",
       "desc": "Per testare l'ERP con un basso volume di attività.",
@@ -1017,6 +1185,7 @@
       "clientsLimit": " - massimo 2 clienti",
       "workLimit": " - massimo 3 lavori",
       "quotesLimit": " - massimo 3 offerte",
+      "contractsLimit": " - massimo 1 contratto",
       "calculatorLimit": "Calcolatore Elettrico - massimo 10 calcoli salvati",
       "materialsLimit": " - massimo 20 materiali",
       "invoicesLimit": " - massimo 2 fatture",
@@ -1024,6 +1193,10 @@
       "downgradeToFree": "Passa a Free"
     },
     "pro": {
+      "noMark": "senza il marchio ElectricalVPF",
+      "quotesWhiteLabel": " con il logo della tua azienda, ",
+      "contractsWhiteLabel": ", ",
+      "invoicesWhiteLabel": " con il logo della tua azienda, ",
       "badge": "Consigliato",
       "name": "Pro",
       "billingToggle": {
@@ -1082,6 +1255,7 @@
         "contractsLabel": "Creazione di nuovi Contratti",
         "contractsDesc": "- disabilitata (i contratti esistenti restano intatti)",
         "calculator": "Il Calcolatore Elettrico rimane completamente disponibile",
+        "branding": "Preventivi, fatture e contratti ricevono il piè di pagina “Generated with ElectricalVPF”",
         "storage": "Lo spazio foto delle Richieste scende da 10GB a 500MB (le foto esistenti restano)"
       },
       "autoText": "Il piano Free è stato attivato con successo, ma mantieni i vantaggi del piano Pro fino alla fine del periodo pagato in corso.",
@@ -1442,7 +1616,10 @@
       "benefit4": "Riduci il rischio che le richieste importanti vadano perse",
       "benefit5": "Ottieni più controllo su lavori e clienti",
       "ctaSubtext": "Sblocca le Richieste di Intervento e tutte le funzionalità PRO"
-    }
+    },
+    "currencyLabel": "Valuta della richiesta",
+    "currencyInUse": "La richiesta ha già materiali stimati in questa valuta, quindi la valuta non si può più cambiare.",
+    "editRequest": "Modifica Richiesta di Intervento"
   },
   "contracts": {
     "templateLabel": "Modello di contratto *",
@@ -1564,6 +1741,7 @@
     "archiveFailed": "Errore durante l'archiviazione del contratto.",
     "archiveNetworkError": "Errore di rete durante l'archiviazione del contratto.",
     "proModal": {
+      "freeUsed": "Il piano Free include un solo contratto, che hai già utilizzato.",
       "title": "Sblocca i Contratti con PRO",
       "message": "Trasforma i preventivi accettati in contratti legali pronti per la firma in pochi secondi.",
       "benefit1": "Genera automaticamente un contratto da un preventivo accettato, con cliente, lavoro e valore precompilati",
@@ -1938,5 +2116,63 @@
     },
     "lockedTitle": "Contratto inviato — le modifiche si salvano come nuova copia",
     "lockedShort": "Inviato — puoi salvare solo una nuova copia"
+  },
+  "currency": {
+    "helpLabel": "Perché la valuta non si può cambiare?",
+    "helpWork": "La valuta del lavoro vale per tutto il lavoro: materiali, stima, offerta, contratto e fattura. Puoi cambiarla finché il lavoro non ha ancora materiali o documenti; dal primo diventa definitiva e non si fanno conversioni — così ogni importo conserva il suo valore reale, dal primo prezzo all'incasso.",
+    "helpMaterial": "La valuta del prezzo è la valuta del lavoro e non cambia più — senza conversioni, perché ogni prezzo conservi il suo valore reale.",
+    "helpDocument": "La valuta viene dal lavoro e resta la stessa lungo tutta la catena: stima, preventivo, contratto e fattura. Non si può cambiare e non si fanno conversioni valutarie — per l’integrità degli importi.",
+    "helpManualContract": "In un contratto manuale scegli ora la valuta. Dopo la creazione è definitiva — non si può più cambiare e non si fanno conversioni, per l’integrità degli importi.",
+    "locked": "La valuta non si può più cambiare.",
+    "helpWorkRequest": "La valuta della richiesta passa ai suoi materiali stimati. Puoi cambiarla finché la richiesta non ha ancora materiali stimati; dal primo è definitiva — senza conversioni."
+  },
+  "estimatedMaterials": {
+    "searchPlaceholder": "Cerca per materiale o richiesta di intervento...",
+    "add": "Aggiungi Materiale Stimato",
+    "addNew": "Nuovo Materiale Stimato",
+    "edit": "Modifica Materiale Stimato",
+    "table": {
+      "request": "Richiesta di Intervento",
+      "total": "Totale"
+    },
+    "requestRequired": "Richiesta di Intervento *",
+    "chooseRequest": "— Scegli la richiesta —",
+    "quantity": "Quantità stimata",
+    "noRequestTitle": "Non hai nessuna richiesta di intervento",
+    "noRequestText": "I materiali stimati appartengono sempre a una richiesta di intervento. Aggiungi prima la richiesta, poi stima i materiali.",
+    "addRequest": "Aggiungi Richiesta di Intervento",
+    "requestRequiredMessage": "Scegli la richiesta di intervento a cui appartiene il materiale stimato.",
+    "currencyMismatch": "La richiesta scelta ha una valuta diversa. Scegline una nella stessa valuta.",
+    "empty": "Non ci sono materiali stimati.",
+    "helpRequest": "I materiali stimati appartengono a una richiesta di intervento: stimi rapidamente cosa serve prima che il lavoro inizi. I materiali usati su un lavoro attivo sono nella scheda Materiali.",
+    "helpCurrency": "La valuta è quella della richiesta di intervento e non si sceglie qui. Dopo il salvataggio non cambia più — senza conversioni.",
+    "whyRequestLabel": "Perché scegliere la richiesta?"
+  },
+  "planLimit": {
+    "titles": {
+      "clients": "Clienti illimitati con PRO",
+      "quotes": "Preventivi illimitati con PRO",
+      "work": "Lavori illimitati con PRO",
+      "materials": "Materiali illimitati con PRO",
+      "invoices": "Fatture illimitate con PRO",
+      "reports": "Report illimitati con PRO",
+      "calculations": "Calcoli salvati illimitati con PRO",
+      "generic": "Passa a PRO"
+    },
+    "messages": {
+      "clients": "Hai usato i 2 clienti inclusi nel piano Free.",
+      "quotes": "Hai usato i 3 preventivi inclusi nel piano Free.",
+      "work": "Hai usato i 3 lavori inclusi nel piano Free.",
+      "materials": "Hai usato i 20 materiali inclusi nel piano Free.",
+      "invoices": "Hai usato le 2 fatture incluse nel piano Free.",
+      "reports": "Hai salvato i 5 report inclusi nel piano Free.",
+      "calculations": "Hai salvato i 10 calcoli inclusi nel piano Free.",
+      "generic": "Hai usato tutto ciò che il piano Free include per questa azione."
+    },
+    "documents": "Documenti senza il marchio ElectricalVPF",
+    "also": "PRO include anche:",
+    "upgrade": "Passa a PRO",
+    "subtext": "Tutto ciò che hai salvato finora resta com'è.",
+    "close": "Non ora"
   }
 }

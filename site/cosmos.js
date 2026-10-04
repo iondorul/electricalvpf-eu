@@ -1,12 +1,16 @@
 /* Cerul vitrinei (tema întunecată): stele albe în spațiu tridimensional, care vin spre privitor
    foarte încet — călătorie calmă prin infinit. Canvas fix în spatele paginii (site/cosmos.css).
-   Static la prefers-reduced-motion; oprit cât tab-ul e ascuns sau tema e luminoasă. */
+   Static la prefers-reduced-motion; oprit cât tab-ul e ascuns sau tema e luminoasă.
+   Cu data-cosmos-always pe <script> (login, register, paginile legale — fundal bleumarin în ambele
+   teme), cerul rămâne aprins și pe tema luminoasă; fereastra principală, opacă, îl acoperă în centru. */
 (function () {
   "use strict";
 
+  const always = !!(document.currentScript && document.currentScript.hasAttribute("data-cosmos-always"));
   const canvas = document.createElement("canvas");
   canvas.className = "cosmos-sky";
   canvas.setAttribute("aria-hidden", "true");
+  if (always) canvas.classList.add("cosmos-sky--always");
   document.body.prepend(canvas);
 
   const ctx = canvas.getContext("2d");
@@ -74,7 +78,7 @@
     raf = requestAnimationFrame(frame);
   }
 
-  const active = () => root.getAttribute("data-theme") === "dark" && !document.hidden;
+  const active = () => (always || root.getAttribute("data-theme") === "dark") && !document.hidden;
 
   function update() {
     cancelAnimationFrame(raf);

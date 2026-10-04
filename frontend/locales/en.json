@@ -184,7 +184,8 @@
     "freePlan": "FREE PLAN",
     "proPlan": "PRO PLAN",
     "contracts": "Contracts",
-    "sentQuotes": "Sent Quotes"
+    "sentQuotes": "Sent Quotes",
+    "estimatedMaterials": "Estimated Materials"
   },
   "header": {
     "accountSettings": "Account / Settings",
@@ -193,6 +194,19 @@
     "logout": "Logout",
     "changeAvatar": "Change avatar",
     "chooseAvatar": "My Profile",
+    "companyLogo": "Company logo",
+    "companyLogoIntro": "Shown on your quotes and invoices.",
+    "logoAdd": "Add logo",
+    "logoDelete": "Delete logo",
+    "logoRestore": "Restore default logos",
+    "logoRestoreWarning": "You will lose all the logos you uploaded ({{count}}). Only the system default logos will remain. Continue?",
+    "logoRestoreYes": "Yes, restore",
+    "logoSave": "Save logo",
+    "logoSaved": "Logo saved successfully!",
+    "logoSaveFailed": "The logo could not be saved. Please try again.",
+    "logoLoadFailed": "The logos could not be loaded. Please try again.",
+    "logoInvalid": "Choose a PNG, JPG or WEBP image.",
+    "logoTooLarge": "The image is too large (maximum 5 MB).",
     "avatarSettings": "Manage avatar in Settings",
     "language": "Language",
     "toggleTheme": "Toggle theme",
@@ -398,7 +412,28 @@
       "loadError": "Network error while loading the settings.",
       "saved": "Company details saved successfully.",
       "saveFailed": "Could not save the details.",
-      "nameRequired": "Company name is required."
+      "nameRequired": "Company name is required.",
+      "sectionDocuments": "Documents: country, currency and VAT",
+      "countrySuggestionHint": "Choosing the country fills in the currency, the VAT rate and the document language. They are only suggestions: you can change them.",
+      "countryCode": "Company country",
+      "chooseCountry": "— Choose the country —",
+      "documentLanguage": "Document language",
+      "documentLanguageHint": "New quotes and invoices (PDF and email) will be in this language. It can differ from the app language.",
+      "defaultCurrency": "Default currency",
+      "defaultVatRate": "Default VAT rate (%)",
+      "vatRegistered": "VAT-registered business",
+      "vatRegisteredHint": "If you are not registered, new quotes and invoices do not add VAT.",
+      "sectionBank": "Bank details",
+      "bankAccountHint": "Fill in the IBAN or, where IBAN is not used, the account number and the bank code (for example the sort code in the UK).",
+      "bic": "BIC / SWIFT",
+      "bankAccountNumber": "Account number",
+      "bankRoutingCode": "Bank code",
+      "currencyChangedInfo": "Existing documents keep their currency. Only new quotes and contracts use the new one.",
+      "invalidCountry": "The chosen country is not in the list.",
+      "invalidCurrency": "The chosen currency is not in the list.",
+      "invalidVatRate": "The VAT rate must be between 0 and 100.",
+      "invalidLanguage": "The document language is not in the list.",
+      "invalidBic": "The BIC / SWIFT code has 8 or 11 characters."
     },
     "privacy": {
       "title": "Privacy",
@@ -415,7 +450,40 @@
       "confirmDelete": "Confirm Permanent Deletion",
       "deleteConfirmWord": "DELETE",
       "exportError": "Could not export your data. Please try again.",
-      "deleteError": "Could not delete your account. Please try again or contact support."
+      "deleteError": "Could not delete your account. Please try again or contact support.",
+      "deleteModal": {
+        "title": "Permanently delete your account",
+        "irreversible": "This action is permanent and cannot be undone.",
+        "intro": "If you continue, the data associated with your account will be permanently deleted, including:",
+        "itemClients": "Clients and leads",
+        "itemWork": "Jobs and work requests",
+        "itemMaterials": "Materials and estimated materials",
+        "itemOffers": "Quotes and estimates",
+        "itemContracts": "Contracts and their documents",
+        "itemInvoices": "Invoices and payments",
+        "itemReports": "Reports",
+        "itemPhotos": "Photos and other operational data linked to your account",
+        "noRecovery": "After deletion, this data cannot be recovered.",
+        "typeLabel": "To confirm, type exactly:",
+        "phrase": "DELETE MY ACCOUNT",
+        "keep": "Keep my account",
+        "confirm": "Permanently delete account",
+        "deleting": "Deleting…"
+      },
+      "exportModal": {
+        "title": "Export your account data",
+        "intro": "Your export will contain the data associated with your ElectricalVPF account, including clients, jobs, materials, quotes, contracts, invoices, reports and data from the secondary workflow.",
+        "format": "Export format: JSON",
+        "filesNote": "Attached files such as PDFs, photos and signatures are listed in the export, but are not embedded in the JSON file. They remain available for download from the application.",
+        "waitNote": "The export may take a few moments to prepare.",
+        "limitNote": "You can create one full export every 24 hours.",
+        "create": "Create export",
+        "cancel": "Cancel",
+        "preparing": "Preparing export…",
+        "success": "Your export has been created and downloaded.",
+        "nextAvailable": "Next export available: {{date}}",
+        "cooldown": "You have already created an export in the last 24 hours."
+      }
     },
     "billing": {
       "title": "Subscription & Billing",
@@ -602,7 +670,16 @@
     "notFound": "Work not found.",
     "nameAndClientRequired": "Work name and client are required.",
     "saveFailed": "Could not save the work.",
-    "deleteFailed": "Could not archive the work."
+    "deleteFailed": "Could not archive the work.",
+    "currencyLabel": "Job currency",
+    "currencyInUse": "This job already has materials or documents in this currency, so the currency can no longer change.",
+    "copyFromRequest": "Copy from a work request (optional)",
+    "copyFromRequestNone": "— Don't copy —",
+    "chooseClientFirst": "Choose the client first",
+    "noRequestsForClient": "This client has no requested works — fill in the work from scratch.",
+    "copyFromRequestHelp": "Only work requests linked to a client appear here. Those linked to a lead cannot become a job until the lead is converted into a client.",
+    "copyFromRequestWhy": "Which requests appear here?",
+    "copyLocationPrefix": "Location"
   },
   "estimating": {
     "viewEstimate": "View Estimated Quote",
@@ -696,7 +773,11 @@
     "itemUnitCostInvalid": "Unit cost of line #{{index}} cannot be negative.",
     "itemMarginInvalid": "Margin of line #{{index}} cannot be negative.",
     "updateNotFound": "Estimated quote not found or the update failed.",
-    "alreadyArchived": "Estimated quote not found or already archived."
+    "alreadyArchived": "Estimated quote not found or already archived.",
+    "currencyOfWork": "Job currency: {{currency}} — all prices in this estimate are in this currency.",
+    "materialCurrencyMismatch": "The material “{{material}}” is priced in {{materialCurrency}}, but the job is in {{estimateCurrency}}. Use a material priced in {{estimateCurrency}}.",
+    "materialCurrencyUnconfirmed": "The material “{{material}}” has no confirmed price currency yet. Confirm it in Materials.",
+    "workCurrencyMismatch": "The estimate is in {{estimate}}, but the chosen job is in {{work}}. Choose a job in {{estimate}}."
   },
   "quotes": {
     "draftExists": "A Draft quote already exists for this estimated quote. Edit it instead of creating a second one.",
@@ -781,7 +862,8 @@
     "itemTable": {
       "category": "Category",
       "qty": "Qty.",
-      "unitPrice": "Unit Price"
+      "unitPrice": "Unit Price",
+      "unitPriceRequired": "Unit Price *"
     },
     "workLabel": "Work",
     "subtotalMaterials": "Subtotal Materials",
@@ -826,7 +908,58 @@
     "quickFilterLabel": "Quick filters:",
     "quickFilterAll": "All",
     "currentStatus": "Current Status",
-    "editStatusHint": "Changing the status takes you out of Edit and opens the Update Status window."
+    "editStatusHint": "Changing the status takes you out of Edit and opens the Update Status window.",
+    "currencyLabel": "Currency",
+    "documentLanguageLabel": "Document language",
+    "documentLanguageHint": "The PDF and the email to the client will be in this language.",
+    "calc": {
+      "title": "ELECTRICAL CALCULATIONS",
+      "professional": "Professional electrical calculation",
+      "quickJt": "Quick LV calculation",
+      "generic": "Electrical calculation",
+      "power": "POWER",
+      "length": "LENGTH",
+      "supply": "SUPPLY",
+      "cable": "RECOMMENDED CABLE",
+      "protection": "RATED PROTECTION",
+      "voltageDrop": "VOLTAGE DROP",
+      "designCurrent": "DESIGN CURRENT (Ib)",
+      "cableCapacity": "CABLE CAPACITY (Iz)",
+      "loadFailed": "The electrical calculations could not be loaded."
+    },
+    "workRequiredLabel": "Work *",
+    "workRequired": "Choose the work this quote is for.",
+    "noEligibleWork": "You have no active work.",
+    "addWork": "Add Work",
+    "copyFromEstimate": "Copy from an estimated quote (optional)",
+    "copyFromEstimateHint": "The estimated quotes of the selected client. Copying fills in the title, the work and the lines — you can change them before saving.",
+    "selectWork": "Choose the work...",
+    "loadingEstimates": "Loading estimated quotes...",
+    "copyNone": "— No copy: I'll write the quote from scratch —",
+    "estimateNotForWork": "The selected estimated quote no longer exists or does not belong to the selected work. Choose another or continue without copying.",
+    "copiedFromEstimate": "The lines were copied from {{number}}. You can change them before saving.",
+    "copyFailed": "The estimated quote could not be copied. You can write the quote from scratch.",
+    "newStatusHint": "A new quote starts as a Draft. It becomes Sent when you email it to the client.",
+    "titleLabel": "Quote Title *",
+    "acceptance": {
+      "sectionTitle": "Online acceptance",
+      "acceptedOnline": "Accepted online by {{name}} on {{date}}.",
+      "downloadAccepted": "Download the accepted quote (PDF)",
+      "downloadFailed": "The accepted quote could not be downloaded.",
+      "pending": "Acceptance link sent to {{email}}. The client has not accepted the quote yet.",
+      "viewed": "The client opened the link on {{date}}.",
+      "manualTitle": "The client has not accepted the quote online yet",
+      "manualText": "Quote {{number}} has not been accepted by the client through the link in the email. Mark the quote as Accepted anyway (for example, the client accepted it on paper or by phone)?",
+      "manualYes": "Yes, mark as Accepted"
+    },
+    "titleTaken": "You already have a quote with this title. Choose another title.",
+    "titlePlaceholder": "e.g. Electrical Installation Quote – Villa",
+    "titleRequired": "The quote title is required.",
+    "clientRequired": "Choose the client.",
+    "lineItems": "Quote Lines (Materials / Labor)",
+    "chooseClientFirst": "Choose the client first",
+    "noEstimatesForClient": "This client has no estimated quotes — write the quote from scratch.",
+    "loadingClients": "Loading clients..."
   },
   "acceptedQuotes": {
     "loadingList": "Loading accepted quotes...",
@@ -874,6 +1007,7 @@
     "registerAction": "Register",
     "table": {
       "invoiceNumber": "Invoice Number",
+      "quoteTitle": "Quote Title",
       "dueDate": "Due Date"
     },
     "deleteAllConfirm": "Are you sure you want to delete ALL invoices? This action is irreversible!",
@@ -883,11 +1017,24 @@
     "loadFailed": "Could not load the invoices.",
     "networkLoadError": "Network error while loading the invoices.",
     "noInvoices": "No invoices recorded.",
+    "resendConfirmTitle": "Resend the invoice?",
+    "resendConfirmDesc": "The invoice has already been sent to {{email}}. Are you sure you want to resend it?",
+    "deleteTitle": "Delete invoice",
+    "deleteConfirmTitle": "Delete the invoice?",
+    "deleteConfirmDesc": "Are you sure you want to delete invoice {{number}}? The invoice will be archived and will no longer appear in the list.",
+    "deleteConfirmYes": "Yes, delete the invoice",
+    "deleted": "The invoice was deleted (archived).",
+    "deleteFailed": "The invoice could not be deleted.",
     "downloadPdf": "Download PDF",
     "sendByEmailTitle": "Send the invoice by email",
     "noClientEmail": "The client has no email on file",
     "cannotRecordPayments": "Payments cannot be recorded",
     "recordPaymentTitle": "Record payment",
+    "paymentDoneTitle": "Payment recorded",
+    "paymentDoneText": "The payment for invoice {{number}} has been recorded as processed. If you want to change something, use the Edit button.",
+    "paymentCanceledTitle": "The invoice is canceled",
+    "paymentCanceledText": "No more payments can be recorded on invoice {{number}}. If you want to change something, use the Edit button.",
+    "paymentUnavailableOk": "Got it",
     "fetchFailed": "Could not retrieve the invoice data.",
     "loadNetworkError": "Network error while loading the invoice.",
     "paymentRecorded": "The payment has been recorded successfully.",
@@ -935,7 +1082,9 @@
       "name": "Name",
       "category": "Category",
       "unitPrice": "Unit Price",
-      "stock": "Stock"
+      "stock": "Stock",
+      "work": "Job",
+      "quantity": "Quantity"
     },
     "loadingList": "Loading materials...",
     "itemCode": "Item Code (SKU)",
@@ -968,7 +1117,21 @@
     "deleteFailed": "Could not delete the material.",
     "deleteNetworkError": "Network error while deleting the material.",
     "notFound": "Material not found.",
-    "codeAlreadyExists": "A material with this code already exists for your account."
+    "codeAlreadyExists": "A material with this code already exists for your account.",
+    "priceAndCurrency": "Unit price and currency",
+    "workRequired": "Job *",
+    "chooseWork": "— Choose the job —",
+    "quantityOnWork": "Quantity on the job",
+    "noWorkTitle": "You have no active job",
+    "noWorkText": "Materials always belong to a job. Add the job first, then the materials used on it.",
+    "addWork": "Add a Job",
+    "workRequiredMessage": "Choose the active job this material belongs to.",
+    "workCurrencyMismatch": "The chosen job has a different currency from the material. Choose a job in the same currency.",
+    "helpWork": "Every material belongs to an active job, so its cost lands on the job that has to recover it from the client. Materials estimated for a requested job are in the Estimated Materials tab.",
+    "whyWorkLabel": "Why choose the job?",
+    "copyFromEstimated": "Copy from an estimated material (optional)",
+    "copyFromEstimatedNone": "— Don't copy —",
+    "copyPriceOtherCurrency": "The estimated price is in {{estimated}} and the job is in {{work}}. Enter the price in the job's currency — no currency conversion is made."
   },
   "electricalWorkTypes": {
     "newInstallation": "New electrical installation",
@@ -1262,7 +1425,10 @@
       "benefit4": "Reduce the risk of losing important requests",
       "benefit5": "Get more control over jobs and clients",
       "ctaSubtext": "Unlock Work Requests and all PRO features"
-    }
+    },
+    "currencyLabel": "Request currency",
+    "currencyInUse": "This work request already has estimated materials in this currency, so the currency can no longer change.",
+    "editRequest": "Edit Work Request"
   },
   "superElectra": {
     "subtitle": "Admin Control Center — administration panel for ElectricalVPF ERP.",
@@ -1626,6 +1792,73 @@
         "resendTag": "resent",
         "historyEmpty": "Not sent yet."
       }
+    },
+    "acquisition": {
+      "payingCustomers": "Confirmed paying customers (Stripe live)",
+      "proAccounts": "PRO accounts in total",
+      "source": "Source",
+      "campaign": "Campaign",
+      "lang": "Language",
+      "signups": "Sign-ups",
+      "paying": "Paying customers",
+      "footnote": "The source comes from the sign-up link of the same visit (no cookies). \"Paying customers\" = first PRO payment confirmed by Stripe; manually granted PRO and customers from before measurement only appear in \"PRO accounts in total\".",
+      "empty": "No sign-up with a source yet.",
+      "loadFailed": "Acquisition data could not be loaded."
+    },
+    "funnel": {
+      "title": "Customer path — last 12 weeks",
+      "bySource": "By source",
+      "byWeek": "By week",
+      "week": "Week",
+      "signups": "Sign-ups",
+      "confirmed": "Email confirmed",
+      "activated": "First quote",
+      "checkout": "Opened checkout",
+      "paying": "Paying customers",
+      "rate": "Sign-up → payment",
+      "footnote": "Accounts created in the last 12 weeks, excluding administrator accounts. Activation = first quote created. \"Opened checkout\" = clicked \"Continue to payment\". \"Paying customers\" = first PRO payment confirmed by Stripe (live).",
+      "empty": "No new accounts in this period.",
+      "loadFailed": "The customer path could not be loaded."
+    },
+    "triggers": {
+      "title": "What triggered the upgrade — last 12 weeks",
+      "place": "Where they started towards payment",
+      "limit": "Free limit already full",
+      "footnote": "Place = the button in the app from which the person went to Plans / Upgrade. Limits = which Free plan limits were already full when they opened the payment. An account can appear on several rows. “(unknown)” = payments opened before this measurement.",
+      "empty": "Nobody has opened the payment in this period yet.",
+      "unknown": "(unknown)",
+      "codes": {
+        "paywall-contracts": "PRO window — Contracts",
+        "paywall-custom-contracts": "PRO window — Custom Contracts",
+        "paywall-job-status": "PRO window — Job Status",
+        "paywall-leads": "PRO window — Leads",
+        "paywall-work-requests": "PRO window — Work Requests",
+        "storage-quota": "Photo storage quota",
+        "help-contact": "Help → Contact",
+        "page-settings": "Settings → Subscription",
+        "page-erp-plans": "Plans page, opened directly",
+        "limit-clients": "Free limit reached — Clients",
+        "limit-quotes": "Free limit reached — Quotes",
+        "limit-work": "Free limit reached — Jobs",
+        "limit-materials": "Free limit reached — Materials",
+        "limit-invoices": "Free limit reached — Invoices",
+        "limit-reports": "Free limit reached — Reports",
+        "limit-calculations": "Free limit reached — Saved calculations",
+        "limit-generic": "Free limit reached — other limit",
+        "page-contracts": "Contracts page",
+        "page-job-status": "Job Status page",
+        "page-offers": "Offers page",
+        "page-jobs": "Jobs page",
+        "page-customers": "Customers page"
+      },
+      "limits": {
+        "clients": "Clients (2)",
+        "quotes": "Quotes (3)",
+        "work": "Jobs (3)",
+        "materials": "Materials (20)",
+        "invoices": "Invoices (2)",
+        "reports": "Reports (5)"
+      }
     }
   },
   "practicalGuide": {
@@ -1730,7 +1963,9 @@
     "deleteNetworkError": "Network error while deleting.",
     "invalidType": "The selected report type is invalid.",
     "notFound": "Report not found.",
-    "deleteForbidden": "Only users with the Administrator role can delete reports from the archive."
+    "deleteForbidden": "Only users with the Administrator role can delete reports from the archive.",
+    "materialCost": "Cost",
+    "materialsTotal": "Total materials"
   },
   "plans": {
     "pageTitle": "Plans & Subscription",
@@ -1739,6 +1974,9 @@
     "title": "Plans & Subscription",
     "subtitle": "Choose the right plan for your company. You can upgrade anytime, no commitment.",
     "free": {
+      "quotesBranding": " with your company logo and the ElectricalVPF mark",
+      "contractsBranding": " with the ElectricalVPF mark",
+      "invoicesBranding": " with your company logo and the ElectricalVPF mark",
       "name": "Free",
       "period": "/month",
       "desc": "To test the ERP with low activity volume.",
@@ -1746,6 +1984,7 @@
       "clientsLimit": " - maximum 2 clients",
       "workLimit": " - maximum 3 work items",
       "quotesLimit": " - maximum 3 quotes",
+      "contractsLimit": " - maximum 1 contract",
       "calculatorLimit": "Electric Calculator - maximum 10 saved calculations",
       "materialsLimit": " - maximum 20 materials",
       "invoicesLimit": " - maximum 2 invoices",
@@ -1753,6 +1992,10 @@
       "downgradeToFree": "Downgrade to Free"
     },
     "pro": {
+      "noMark": "without the ElectricalVPF mark",
+      "quotesWhiteLabel": " with your company logo, ",
+      "contractsWhiteLabel": ", ",
+      "invoicesWhiteLabel": " with your company logo, ",
       "badge": "Recommended",
       "name": "Pro",
       "billingToggle": {
@@ -1790,7 +2033,7 @@
       "dashboard": "A live overview of your business - clients, work, quotes and invoices at a glance, the moment you log in.",
       "clients": "Potential clients and clients in one place - from the first contact to the full history of each client.",
       "work": "Field work requests (with photos and status) and your jobs in one place - from the first call to invoicing.",
-      "electricCalculator": "Work out the cable size, breaker and RCD type on the spot, per code.",
+      "electricCalculator": "Work out the cable size, breaker and RCD type on the spot, using IEC 60364 reference tables.",
       "materials": "Manage the materials needed for jobs, track what's required and keep materials organized per work item.",
       "offers": "Estimate the cost, send the quote to the client and see the accepted quotes, ready to invoice - all in one place.",
       "contracts": "Generate the contract from a quote or from scratch, PDF ready to email to the client.",
@@ -1811,6 +2054,7 @@
         "contractsLabel": "Creating new Contracts",
         "contractsDesc": "- disabled (existing contracts stay untouched)",
         "calculator": "The Electric Calculator remains fully available",
+        "branding": "Quotes, invoices and contracts get the footer “Generated with ElectricalVPF”",
         "storage": "Work Request photo storage drops from 10GB to 500MB (existing photos are kept)"
       },
       "autoText": "The Free plan has been successfully activated, but you keep the Pro plan benefits until the current paid period ends.",
@@ -2163,6 +2407,7 @@
     "archiveFailed": "Error archiving the contract.",
     "archiveNetworkError": "Network error while archiving the contract.",
     "proModal": {
+      "freeUsed": "The Free plan includes one contract, and you have already used it.",
       "title": "Unlock Contracts with PRO",
       "message": "Turn accepted quotes into ready-to-sign legal contracts in seconds.",
       "benefit1": "Auto-generate a contract from an accepted Quote, with client, work and value pre-filled",
@@ -2537,5 +2782,63 @@
     },
     "lockedTitle": "Contract sent — changes are saved as a new copy",
     "lockedShort": "Sent — you can only save a new copy"
+  },
+  "currency": {
+    "helpLabel": "Why can't the currency be changed?",
+    "helpWork": "The job's currency carries through the whole job: materials, estimate, quote, contract and invoice. You can change it while the job has no materials or documents yet; from the first one it is final and no currency conversion is ever made — so every amount keeps its real value, from the first price to the payment.",
+    "helpMaterial": "The price currency is the currency of the job and never changes — no currency conversion, so every price keeps its real value.",
+    "helpDocument": "The currency comes from the job and stays the same along the whole chain: estimate, quote, contract and invoice. It cannot be changed and no currency conversion is made — for the integrity of your amounts.",
+    "helpManualContract": "For a manual contract you choose the currency now. Once the contract is created it is final — it cannot be changed and no currency conversion is made, for the integrity of your amounts.",
+    "locked": "The currency can no longer be changed.",
+    "helpWorkRequest": "The request's currency carries over to its estimated materials. You can change it while the request has no estimated materials yet; from the first one it is final — no currency conversion."
+  },
+  "estimatedMaterials": {
+    "searchPlaceholder": "Search by material or work request...",
+    "add": "Add Estimated Material",
+    "addNew": "New Estimated Material",
+    "edit": "Edit Estimated Material",
+    "table": {
+      "request": "Work Request",
+      "total": "Total"
+    },
+    "requestRequired": "Work Request *",
+    "chooseRequest": "— Choose the work request —",
+    "quantity": "Estimated quantity",
+    "noRequestTitle": "You have no work request",
+    "noRequestText": "Estimated materials always belong to a work request. Add the request first, then estimate the materials.",
+    "addRequest": "Add Work Request",
+    "requestRequiredMessage": "Choose the work request this estimated material belongs to.",
+    "currencyMismatch": "The chosen work request has a different currency. Choose one in the same currency.",
+    "empty": "There are no estimated materials.",
+    "helpRequest": "Estimated materials belong to a work request: you quickly estimate what is needed before the job starts. Materials used on an active job are in the Materials tab.",
+    "helpCurrency": "The currency is the work request's currency and is not chosen here. After saving it never changes — no currency conversion.",
+    "whyRequestLabel": "Why choose the work request?"
+  },
+  "planLimit": {
+    "titles": {
+      "clients": "Unlimited clients with PRO",
+      "quotes": "Unlimited quotes with PRO",
+      "work": "Unlimited jobs with PRO",
+      "materials": "Unlimited materials with PRO",
+      "invoices": "Unlimited invoices with PRO",
+      "reports": "Unlimited reports with PRO",
+      "calculations": "Unlimited saved calculations with PRO",
+      "generic": "Upgrade to PRO"
+    },
+    "messages": {
+      "clients": "You have used the 2 clients included in the Free plan.",
+      "quotes": "You have used the 3 quotes included in the Free plan.",
+      "work": "You have used the 3 jobs included in the Free plan.",
+      "materials": "You have used the 20 materials included in the Free plan.",
+      "invoices": "You have used the 2 invoices included in the Free plan.",
+      "reports": "You have saved the 5 reports included in the Free plan.",
+      "calculations": "You have saved the 10 calculations included in the Free plan.",
+      "generic": "You have used everything the Free plan includes for this action."
+    },
+    "documents": "Documents without the ElectricalVPF mark",
+    "also": "PRO also includes:",
+    "upgrade": "Upgrade to PRO",
+    "subtext": "Everything you have saved so far stays as it is.",
+    "close": "Not now"
   }
 }
