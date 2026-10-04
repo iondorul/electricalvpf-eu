@@ -83,6 +83,20 @@ if grep -qE "[\"']/(electrical-quote-template|ro/model-deviz-instalatii-electric
   exit 1
 fi
 
+# window.SITE_PAGE_URLS: pe .app, fiecare intrare (ex. ro: "/ro/") e o pagină
+# statică separată generată de site/tools/build-home-pages.js (un director
+# real pe disc). .eu nu are așa ceva — e un singur index.html cu traduceri
+# client-side pentru toate limbile (la fel ca it/nl/no/pl/ru/sv/tr/uk, care nu
+# au pagini dedicate nici pe .app). Dacă lăsăm intrarea, alegerea limbii din
+# dropdown navighează la .eu/ro/ -> 404 GitHub Pages. Forțăm harta la unica
+# pagină care există cu adevărat pe .eu, oricâte limbi ar adăuga .app pagini
+# dedicate în viitor.
+sed -i -E 's#window\.SITE_PAGE_URLS = \{[^}]*\};#window.SITE_PAGE_URLS = { en: "/" };#' index.html
+if ! grep -q 'window.SITE_PAGE_URLS = { en: "/" };' index.html; then
+  echo "ATENȚIE: window.SITE_PAGE_URLS nu a putut fi redus la pagina locală (format schimbat în .app?)." >&2
+  exit 1
+fi
+
 # Paginile legale pe .app: același ?returnSite=eu, ca „Back to website” de acolo
 # să revină aici (return-site.js îl păstrează și la schimbarea limbii/documentului).
 sed -i -E '/frontend\/legal\//s#\.html(["'"'"'`])#.html?returnSite=eu\1#g' index.html site/*.js
