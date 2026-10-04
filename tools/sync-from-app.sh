@@ -21,26 +21,41 @@ APP_URL="https://electricalvpf.app"
 #   frontend/js/calculator-core.js — import ES module din calculator-jt-widget.js
 #   frontend/locales/*.json      — site/module-previews.js (previzualizările din
 #                                   „Explorează”) le citește cu fetch same-origin
+#   ro/index.html                 — pagina omoloagă lui index.html, generată tot
+#                                    de site/tools/build-home-pages.js pe .app;
+#                                    paritate completă: window.SITE_PAGE_URLS
+#                                    (vezi mai jos) navighează spre ea, deci
+#                                    trebuie să existe și pe .eu, nu doar pe .app.
 PATHS=(
   index.html
   site
   frontend/js/config.js
   frontend/js/calculator-core.js
   frontend/locales
+  ro
   LICENSE.txt
   READ-ME.txt
 )
 # Unelte de build ale .app (citesc frontend/locales/*.json) — nu au sens aici.
-EXCLUDE=(site/tools)
+# ro/model-deviz-instalatii-electrice/ e o resursă de descărcare (ca
+# electrical-quote-template/), nu o pagină a vitrinei — rămâne doar pe .app,
+# linkurile spre ea devin absolute mai jos.
+EXCLUDE=(site/tools ro/model-deviz-instalatii-electrice)
 
 git -C "$SRC" rev-parse --verify HEAD >/dev/null
 echo "Sursă: $SRC @ $(git -C "$SRC" log -1 --format='%h %s')"
 
-rm -rf index.html site frontend
+rm -rf index.html site frontend ro
 git -C "$SRC" archive --format=tar HEAD "${PATHS[@]}" | tar -x -f -
 for p in "${EXCLUDE[@]}"; do rm -rf "$p"; done
 
 printf 'electricalvpf.eu\n' > CNAME
+
+# Paginile "home" ale vitrinei (root + variantele de limbă cu pagină proprie,
+# ex. ro/index.html — vezi window.SITE_PAGE_URLS mai jos). Orice sed/verificare
+# care se aplică lui index.html trebuie să se aplice identic și acestora.
+HOME_PAGES=(index.html)
+[ -f ro/index.html ] && HOME_PAGES+=(ro/index.html)
 
 # Linkuri spre "frontend/..." (relative) sau "/frontend/..." (absolute pe
 # același domeniu) -> absolute pe .app. Nu atinge src="frontend/js/config.js"
@@ -54,7 +69,7 @@ sed -i \
   -e "s#href=\"/frontend/#href=\"$APP_URL/frontend/#g" \
   -e "s#'frontend/legal/'#'$APP_URL/frontend/legal/'#g" \
   -e "s#'/frontend/legal/'#'$APP_URL/frontend/legal/'#g" \
-  index.html
+  "${HOME_PAGES[@]}"
 sed -i \
   -e "s#href=\"frontend/#href=\"$APP_URL/frontend/#g" \
   -e "s#href=\"/frontend/#href=\"$APP_URL/frontend/#g" \
@@ -73,34 +88,35 @@ sed -i \
 sed -i -E \
   -e "s#($APP_URL/frontend/(login|register)\.html)\?#\1?returnSite=eu\&#g" \
   -e "s#($APP_URL/frontend/(login|register)\.html)([\"'\`])#\1?returnSite=eu\3#g" \
-  index.html site/*.js
+  "${HOME_PAGES[@]}" site/*.js
 
 # Resursele gratuite (modelul de ofertă UK, modelul de deviz RO) există doar pe .app — atât în href,
 # cât și în scriptul paginii (updateResourceLinks).
-sed -i -E "s#([\"'])/(electrical-quote-template|ro/model-deviz-instalatii-electrice)/#\1$APP_URL/\2/#g" index.html
-if grep -qE "[\"']/(electrical-quote-template|ro/model-deviz-instalatii-electrice)/" index.html; then
+sed -i -E "s#([\"'])/(electrical-quote-template|ro/model-deviz-instalatii-electrice)/#\1$APP_URL/\2/#g" "${HOME_PAGES[@]}"
+if grep -qE "[\"']/(electrical-quote-template|ro/model-deviz-instalatii-electrice)/" "${HOME_PAGES[@]}"; then
   echo "ATENȚIE: linkuri relative rămase spre resursele gratuite." >&2
   exit 1
 fi
 
 # window.SITE_PAGE_URLS: pe .app, fiecare intrare (ex. ro: "/ro/") e o pagină
-# statică separată generată de site/tools/build-home-pages.js (un director
-# real pe disc). .eu nu are așa ceva — e un singur index.html cu traduceri
-# client-side pentru toate limbile (la fel ca it/nl/no/pl/ru/sv/tr/uk, care nu
-# au pagini dedicate nici pe .app). Dacă lăsăm intrarea, alegerea limbii din
-# dropdown navighează la .eu/ro/ -> 404 GitHub Pages. Forțăm harta la unica
-# pagină care există cu adevărat pe .eu, oricâte limbi ar adăuga .app pagini
-# dedicate în viitor.
-sed -i -E 's#window\.SITE_PAGE_URLS = \{[^}]*\};#window.SITE_PAGE_URLS = { en: "/" };#' index.html
-if ! grep -q 'window.SITE_PAGE_URLS = { en: "/" };' index.html; then
-  echo "ATENȚIE: window.SITE_PAGE_URLS nu a putut fi redus la pagina locală (format schimbat în .app?)." >&2
-  exit 1
-fi
+# statică separată generată de site/tools/build-home-pages.js. .eu ține
+# paritate completă — copiem și acele pagini (vezi PATHS/HOME_PAGES mai sus) —
+# deci harta rămâne neschimbată. Verificare: fiecare URL din
+# SITE_PAGE_URLS trebuie să aibă un index.html local, altfel alegerea limbii
+# din dropdown ar duce la 404 (ex. dacă .app adaugă o limbă nouă cu pagină
+# proprie și uităm să o adăugăm în PATHS).
+while IFS= read -r url_path; do
+  local_file="${url_path#/}index.html"
+  if [ ! -s "$local_file" ]; then
+    echo "ATENȚIE: window.SITE_PAGE_URLS trimite la '$url_path' dar '$local_file' nu există local — adaugă pagina în PATHS (și, dacă e cazul, exclude resursele ei de download)." >&2
+    exit 1
+  fi
+done < <(grep -oE 'window\.SITE_PAGE_URLS = \{[^}]*\}' index.html | grep -oE '"[^"]*"' | tr -d '"')
 
 # Paginile legale pe .app: același ?returnSite=eu, ca „Back to website” de acolo
 # să revină aici (return-site.js îl păstrează și la schimbarea limbii/documentului).
-sed -i -E '/frontend\/legal\//s#\.html(["'"'"'`])#.html?returnSite=eu\1#g' index.html site/*.js
-if grep -nE "frontend/legal/" index.html site/*.js | grep -v "returnSite=eu" | grep -q .; then
+sed -i -E '/frontend\/legal\//s#\.html(["'"'"'`])#.html?returnSite=eu\1#g' "${HOME_PAGES[@]}" site/*.js
+if grep -nE "frontend/legal/" "${HOME_PAGES[@]}" site/*.js | grep -v "returnSite=eu" | grep -q .; then
   echo "ATENȚIE: linkuri legale fără returnSite=eu." >&2
   exit 1
 fi
@@ -116,14 +132,14 @@ fi
 
 # Verificare: nu trebuie să mai rămână nicio legătură relativă spre frontend/
 # în afară de fișierele copiate local.
-leftover=$(grep -nE "[\"'\`]/?frontend/" index.html site/*.js \
+leftover=$(grep -nE "[\"'\`]/?frontend/" "${HOME_PAGES[@]}" site/*.js \
   | grep -vE 'frontend/js/(config|calculator-core)\.js|frontend/locales/|includes\("/frontend/"\)|indexOf\("/frontend/' || true)
 if [ -n "$leftover" ]; then
   echo "ATENȚIE: linkuri relative rămase spre frontend/:" >&2
   echo "$leftover" >&2
   exit 1
 fi
-missing=$(grep -nE "$APP_URL/frontend/(login|register)\.html" index.html site/*.js | grep -v 'returnSite=eu' || true)
+missing=$(grep -nE "$APP_URL/frontend/(login|register)\.html" "${HOME_PAGES[@]}" site/*.js | grep -v 'returnSite=eu' || true)
 if [ -n "$missing" ]; then
   echo "ATENȚIE: linkuri Login/Register fără returnSite=eu:" >&2
   echo "$missing" >&2
