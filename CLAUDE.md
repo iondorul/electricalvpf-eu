@@ -24,6 +24,10 @@ Conținutul repo-ului:
 
 ## Fluxul standard: „am modificat ceva în .app, adu-l și pe .eu”
 
+Frază-declanșator: dacă utilizatorul spune scurt „actualizează .eu cu .app” (sau variante precum
+„sincronizează .eu”, „adu modificările din .app”), asta înseamnă să rulezi direct întregul flux de mai jos,
+fără să ceri detalii suplimentare despre ce anume s-a schimbat — pașii 1-3 descoperă asta singuri.
+
 1. **Verifică sursa.** Scriptul copiază doar starea **commit-uită** din `.app` (`git archive HEAD`).
    Rulează `git -C ../electricalvpf.app status --short` și `git -C ../electricalvpf.app log --oneline -3`.
    Dacă modificările dorite sunt necommit-uite în `.app`, spune-i utilizatorului — nu face tu commit în `.app` fără cerere.
