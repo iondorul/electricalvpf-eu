@@ -116,7 +116,8 @@
     "legendDangerDesc": "Koşullar sağlanmıyor.",
     "legendInfoTitle": "MAVİ — BİLGİ",
     "legendInfoDesc": "Bilgi / öneri.",
-    "disclaimer": "IEC 60364-5-52 referans değerleri (Cu iletken, PVC yalıtım, 30°C ortam sıcaklığı, kablo gruplaması veya farklı ortam sıcaklığı için düzeltme faktörleri OLMADAN — birlikte birden fazla kablo bulunan hatlar veya yüksek ortam sıcaklıkları için, malzeme almadan önce standarttan/yönetmelikten düzeltme faktörlerini uygulayın). Uygulamadan önce sonucu geçerli yönetmeliğe (I7 / IEC 60364) göre kontrol edin."
+    "disclaimer": "IEC 60364-5-52 referans değerleri (Cu iletken, PVC yalıtım, 30°C ortam sıcaklığı, kablo gruplaması veya farklı ortam sıcaklığı için düzeltme faktörleri OLMADAN — birlikte birden fazla kablo bulunan hatlar veya yüksek ortam sıcaklıkları için, malzeme almadan önce standarttan/yönetmelikten düzeltme faktörlerini uygulayın). Uygulamadan önce sonucu geçerli yönetmeliğe (I7 / IEC 60364) göre kontrol edin.",
+    "mcbNote": "Otomatik sigorta seçimi yalnızca nominal aşırı yük koşulunu (Ib ≤ In ≤ Iz) kontrol eder. Döngü empedansını, arıza akımını, açma süresini veya kesme kapasitesini kontrol etmez; döşeme yöntemi gerçek tesisata uygun olmalıdır."
   },
   "practicalGuide": {
     "proModal": {
@@ -2183,7 +2184,8 @@
       "note1": "Aşamalar belgelerden kendiliğinden işaretlenir: bir tahmini teklif, gönderilmiş veya kabul edilmiş bir teklif, imzalı bir sözleşme, gönderilmiş bir fatura, alınan ödeme. İş, kanıtlanan en ileri aşamada durur.",
       "note2": "Yalnızca iki aşamayı siz işaretlersiniz: Saha Ziyareti ve İş Kapatıldı. İş ancak Ödeme Alındı aşamasından sonra kapatılabilir."
     },
-    "or": "veya"
+    "or": "veya",
+    "jumpNav": "İş akışı adımları"
   },
   "jtOffer": {
     "dialogLabel": "Teklifteki hesaplama",
@@ -2681,6 +2683,73 @@
         "resendTag": "yeniden gönderildi",
         "historyEmpty": "Henüz gönderilmedi."
       }
+    },
+    "acquisition": {
+      "payingCustomers": "Ödemesi doğrulanmış müşteriler (Stripe canlı ortam)",
+      "proAccounts": "Toplam PRO hesap sayısı",
+      "source": "Kaynak",
+      "campaign": "Kampanya",
+      "lang": "Dil",
+      "signups": "Kayıtlar",
+      "paying": "Ödeme yapan müşteriler",
+      "footnote": "Kaynak, aynı ziyarette kullanılan kayıt bağlantısından alınır (çerez kullanılmaz). \"Ödeme yapan müşteriler\" = ilk PRO ödemesi Stripe tarafından doğrulananlar. Elle verilen PRO hesapları ve ölçüm başlamadan önceki müşteriler yalnızca \"Toplam PRO hesap sayısı\" içinde yer alır.",
+      "empty": "Henüz kaynağı belli bir kayıt yok.",
+      "loadFailed": "Müşteri edinme verileri yüklenemedi."
+    },
+    "funnel": {
+      "title": "Müşteri yolculuğu — son 12 hafta",
+      "bySource": "Kaynağa göre",
+      "byWeek": "Haftaya göre",
+      "week": "Hafta",
+      "signups": "Kayıtlar",
+      "confirmed": "E-posta doğrulandı",
+      "activated": "İlk teklif",
+      "checkout": "Ödeme sayfası açıldı",
+      "paying": "Ödeme yapan müşteriler",
+      "rate": "Kayıt → ödeme",
+      "footnote": "Yönetici hesapları hariç, son 12 haftada açılan hesaplar. Etkinleştirme = ilk teklifin oluşturulması. \"Ödeme sayfası açıldı\" = \"Ödemeye devam et\" düğmesine tıklanması. \"Ödeme yapan müşteriler\" = ilk PRO ödemesi Stripe canlı ortamında doğrulananlar.",
+      "empty": "Bu dönemde yeni hesap yok.",
+      "loadFailed": "Müşteri yolculuğu yüklenemedi."
+    },
+    "triggers": {
+      "title": "Yükseltmeyi ne tetikledi — son 12 hafta",
+      "place": "Ödemeye hangi noktadan geçildi",
+      "limit": "Free limiti zaten doluydu",
+      "footnote": "Yer = kullanıcının uygulamada Planlar / Yükselt sayfasına geçtiği düğme. Limitler = ödeme sayfası açıldığında hangi Free plan limitlerinin dolu olduğu. Bir hesap birden fazla satırda yer alabilir. “(bilinmiyor)” = bu ölçüm başlamadan önce açılan ödemeler.",
+      "empty": "Bu dönemde henüz kimse ödeme sayfasını açmadı.",
+      "unknown": "(bilinmiyor)",
+      "codes": {
+        "paywall-contracts": "PRO penceresi — Sözleşmeler",
+        "paywall-custom-contracts": "PRO penceresi — Özel sözleşmeler",
+        "paywall-job-status": "PRO penceresi — İş durumu",
+        "paywall-leads": "PRO penceresi — Potansiyel müşteriler",
+        "paywall-work-requests": "PRO penceresi — İş talepleri",
+        "storage-quota": "Fotoğraf depolama kotası",
+        "help-contact": "Yardım → İletişim",
+        "page-settings": "Ayarlar → Abonelik",
+        "page-erp-plans": "Doğrudan açılan Planlar sayfası",
+        "limit-clients": "Free limitine ulaşıldı — Müşteriler",
+        "limit-quotes": "Free limitine ulaşıldı — Teklifler",
+        "limit-work": "Free limitine ulaşıldı — İşler",
+        "limit-materials": "Free limitine ulaşıldı — Malzemeler",
+        "limit-invoices": "Free limitine ulaşıldı — Faturalar",
+        "limit-reports": "Free limitine ulaşıldı — Raporlar",
+        "limit-calculations": "Free limitine ulaşıldı — Kayıtlı hesaplamalar",
+        "limit-generic": "Free limitine ulaşıldı — Diğer limit",
+        "page-contracts": "Sözleşmeler sayfası",
+        "page-job-status": "İş durumu sayfası",
+        "page-offers": "Teklifler sayfası",
+        "page-jobs": "İşler sayfası",
+        "page-customers": "Müşteriler sayfası"
+      },
+      "limits": {
+        "clients": "Müşteriler (2)",
+        "quotes": "Teklifler (3)",
+        "work": "İşler (3)",
+        "materials": "Malzemeler (20)",
+        "invoices": "Faturalar (2)",
+        "reports": "Raporlar (5)"
+      }
     }
   },
   "customContracts": {
@@ -2810,6 +2879,15 @@
     "pereche": "çift",
     "cutie": "kutu",
     "pachet": "paket",
-    "l": "l"
+    "l": "l",
+    "long": {
+      "buc": "adet (parça)",
+      "m": "m (metre)",
+      "ml": "mtül (metretül)",
+      "mp": "m² (metrekare)",
+      "mc": "m³ (metreküp)",
+      "h": "sa (işçilik saati)",
+      "l": "l (litre)"
+    }
   }
 }

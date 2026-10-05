@@ -652,7 +652,7 @@
     <!-- Scripturi -->
     <!-- config.js e fișierul aplicației (nemodificat): de aici vine API_BASE_URL folosit la verificarea sesiunii. -->
     <script src="/frontend/js/config.js?v=20260928-remember"></script>
-    <script src="/site/translations.js?v=20261005-ru-sv-templates"></script>
+    <script src="/site/translations.js?v=20261005-tr-teklif"></script>
     <script src="/site/plans-i18n.js?v=no-copy-review-1"></script>
     <script src="/site/proofs-i18n.js?v=no-copy-review-1"></script>
     <script src="/site/language-dropdown.js?v=20260930-seo-urls"></script>
@@ -685,7 +685,7 @@
         // Resursa gratuită (model de ofertă / deviz): româna are modelul românesc, celelalte limbi modelul UK (engleză).
         // Același tabel ca site/tools/build-home-pages.js (RESOURCE_URLS) — pagina statică pornește deja corect.
         function updateResourceLinks() {
-            const urls = { ru: '/ru/smeta-elektromontazhnye-raboty/', ro: '/ro/model-deviz-instalatii-electrice/', no: '/no/tilbudsmal-elektriker/', nl: '/nl/offerte-sjabloon-elektricien/', it: '/it/modello-preventivo-elettricista/', pl: '/pl/wzor-oferty-elektryka/', uk: '/uk/koshtorys-elektromontazhni-roboty/', sv: '/sv/offertmall-elektriker/' };
+            const urls = { tr: '/tr/elektrik-isleri-teklif-sablonu/', ru: '/ru/smeta-elektromontazhnye-raboty/', ro: '/ro/model-deviz-instalatii-electrice/', no: '/no/tilbudsmal-elektriker/', nl: '/nl/offerte-sjabloon-elektricien/', it: '/it/modello-preventivo-elettricista/', pl: '/pl/wzor-oferty-elektryka/', uk: '/uk/koshtorys-elektromontazhni-roboty/', sv: '/sv/offertmall-elektriker/' };
             const url = urls[document.documentElement.lang] || '/electrical-quote-template/';
             document.querySelectorAll('a[data-resource="quote-template"]').forEach((a) => {
                 a.setAttribute('href', url);
