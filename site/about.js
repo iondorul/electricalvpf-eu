@@ -2,6 +2,10 @@
   "use strict";
   const copy = {
     ro: {
+      field: "Construit din experiență reală în lucrări electrice.",
+      fieldText: "Experiența practică în lucrări și instalații electrice a modelat ElectricalVPF: fluxuri mai simple pentru clienți, lucrări, materiale, oferte, contracte, facturi și rapoarte.",
+      fieldContext: "electricalvpf.com prezintă serviciile și experiența din teren care stau la baza software-ului electricalvpf.app.",
+      fieldCta: "Servicii electrice și experiență practică",
       section: "Despre", menu: "Omul, experiența și AI-ul din spatele aplicației", close: "Închide",
       era: "Experiență umană · Era AI", tagline: "Din lumea lucrărilor electrice. Cu instrumentele unei noi ere.",
       human: "Două domenii. Aceeași practică.", humanText: "ElectricalVPF îmbină pregătirea în ingineria calculatoarelor cu experiența practică în dezvoltare software și instalații electrice industriale. Aplicația pornește din nevoile reale ale lucrului în teren și ale organizării unei firme.",
@@ -10,6 +14,10 @@
       footer: "Experiență practică. Instrumente noi. Responsabilitate umană."
     },
     it: {
+      field: "Nato dall’esperienza reale nel settore elettrico.",
+      fieldText: "L’esperienza pratica nei lavori e negli impianti elettrici ha plasmato ElectricalVPF: flussi più semplici per clienti, lavori, materiali, preventivi, contratti, fatture e report.",
+      fieldContext: "electricalvpf.com presenta i servizi e l’esperienza sul campo alla base del software electricalvpf.app.",
+      fieldCta: "Servizi elettrici ed esperienza sul campo",
       section: "Informazioni", menu: "La persona, l’esperienza e l’IA dietro l’applicazione", close: "Chiudi",
       era: "Esperienza umana · L’era dell’IA", tagline: "Dal mondo degli impianti elettrici. Con gli strumenti di una nuova era.",
       human: "Due discipline. Esperienza sul campo.", humanText: "ElectricalVPF unisce la formazione in ingegneria informatica all’esperienza pratica nello sviluppo software e negli impianti elettrici industriali. L’applicazione nasce dalle esigenze reali del lavoro sul campo e dell’organizzazione di un’impresa.",
@@ -18,6 +26,10 @@
       footer: "Esperienza pratica. Nuovi strumenti. Responsabilità umana."
     },
     nl: {
+      field: "Gebouwd vanuit echte elektrotechnische praktijkervaring.",
+      fieldText: "Praktijkervaring met elektrotechnisch werk en elektrische installaties heeft ElectricalVPF gevormd: eenvoudigere werkprocessen voor klanten, opdrachten, materialen, offertes, contracten, facturen en rapporten.",
+      fieldContext: "electricalvpf.com toont de diensten en praktijkervaring waarop de software electricalvpf.app is gebaseerd.",
+      fieldCta: "Elektrotechnische diensten en praktijkervaring",
       section: "Over", menu: "De persoon, ervaring en AI achter de applicatie", close: "Sluiten",
       era: "Menselijke ervaring · Het AI-tijdperk", tagline: "Vanuit de elektrotechnische praktijk. Met de middelen van een nieuw tijdperk.",
       human: "Twee vakgebieden. Praktijkervaring.", humanText: "ElectricalVPF combineert een opleiding in computertechniek met praktijkervaring in softwareontwikkeling en industriële elektrische installaties. De applicatie is ontstaan vanuit de werkelijke behoeften op de werkvloer en bij het organiseren van een bedrijf.",
@@ -26,6 +38,10 @@
       footer: "Praktijkervaring. Nieuwe middelen. Menselijke verantwoordelijkheid."
     },
     no: {
+      field: "Bygget på reell erfaring fra elektrofaget.",
+      fieldText: "Praktisk erfaring med elektroarbeid og elektriske installasjoner har formet ElectricalVPF: enklere arbeidsflyt for kunder, oppdrag, materialer, tilbud, kontrakter, fakturaer og rapporter.",
+      fieldContext: "electricalvpf.com viser tjenestene og den praktiske erfaringen som ligger til grunn for programvaren electricalvpf.app.",
+      fieldCta: "Elektrotjenester og praktisk erfaring",
       section: "Om", menu: "Personen, erfaringen og KI-verktøyene bak løsningen", close: "Lukk",
       era: "Menneskelig erfaring · KI-æraen", tagline: "Erfaring fra elektrofaget. Nye verktøy i bruk.",
       human: "To fagområder. Praktisk erfaring.", humanText: "ElectricalVPF kombinerer utdanning innen dataingeniørfaget med praktisk erfaring fra programvareutvikling og industrielle elektriske installasjoner. Løsningen bygger på behovene som oppstår ute på oppdrag og i den daglige driften av et firma.",
@@ -34,6 +50,10 @@
       footer: "Praktisk erfaring. Nye verktøy. Menneskelig ansvar."
     },
     pl: {
+      field: "Oparte na rzeczywistym doświadczeniu w pracach elektrycznych.",
+      fieldText: "Praktyczne doświadczenie w pracach i instalacjach elektrycznych ukształtowało ElectricalVPF: prostsza obsługa klientów, zleceń, materiałów, ofert, umów, faktur i raportów.",
+      fieldContext: "electricalvpf.com przedstawia usługi i doświadczenie w terenie, na których opiera się oprogramowanie electricalvpf.app.",
+      fieldCta: "Usługi elektryczne i doświadczenie w terenie",
       section: "O aplikacji", menu: "Człowiek, doświadczenie i AI stojące za aplikacją", close: "Zamknij",
       era: "Ludzkie doświadczenie · Era AI", tagline: "Ze świata instalacji elektrycznych. Z narzędziami nowej ery.",
       human: "Dwie dziedziny. Praktyczne doświadczenie.", humanText: "ElectricalVPF łączy wykształcenie w zakresie inżynierii komputerowej z praktycznym doświadczeniem w tworzeniu oprogramowania i przemysłowych instalacjach elektrycznych. Aplikacja powstała z rzeczywistych potrzeb pracy w terenie i organizacji firmy.",
@@ -42,6 +62,10 @@
       footer: "Praktyczne doświadczenie. Nowe narzędzia. Ludzka odpowiedzialność."
     },
     ru: {
+      field: "Создано на основе реального опыта электромонтажных работ.",
+      fieldText: "Практический опыт электромонтажных работ повлиял на ElectricalVPF: более простые процессы для работы с клиентами, заказами, материалами, сметами, договорами, счетами и отчётами.",
+      fieldContext: "electricalvpf.com представляет услуги и практический опыт, лежащие в основе программы electricalvpf.app.",
+      fieldCta: "Электромонтажные услуги и практический опыт",
       section: "О приложении", menu: "Человек, опыт и ИИ за созданием приложения", close: "Закрыть",
       era: "Человеческий опыт · Эра ИИ", tagline: "Из мира электромонтажных работ. С инструментами новой эпохи.",
       human: "Две области. Практический опыт.", humanText: "ElectricalVPF сочетает образование в области компьютерной инженерии с практическим опытом разработки программного обеспечения и работы с промышленными электроустановками. Приложение создано на основе реальных потребностей работы на объектах и организации деятельности компании.",
@@ -50,6 +74,10 @@
       footer: "Практический опыт. Новые инструменты. Ответственность человека."
     },
     sv: {
+      field: "Byggt på verklig erfarenhet av elarbete.",
+      fieldText: "Praktisk erfarenhet av elarbeten och elinstallationer har format ElectricalVPF: enklare arbetsflöden för kunder, uppdrag, material, offerter, avtal, fakturor och rapporter.",
+      fieldContext: "electricalvpf.com visar tjänsterna och den praktiska erfarenhet som ligger till grund för programvaran electricalvpf.app.",
+      fieldCta: "Eltjänster och praktisk erfarenhet",
       section: "Om", menu: "Människan, erfarenheten och AI bakom applikationen", close: "Stäng",
       era: "Mänsklig erfarenhet · AI-eran", tagline: "Från elarbetets verklighet. Med en ny eras verktyg.",
       human: "Två områden. Praktisk erfarenhet.", humanText: "ElectricalVPF förenar en utbildning inom datateknik med praktisk erfarenhet av programvaruutveckling och industriella elinstallationer. Applikationen utgår från verkliga behov i fältarbetet och i organiseringen av ett företag.",
@@ -58,6 +86,10 @@
       footer: "Praktisk erfarenhet. Nya verktyg. Mänskligt ansvar."
     },
     tr: {
+      field: "Gerçek elektrik saha deneyiminden doğdu.",
+      fieldText: "Elektrik işleri ve tesisatlarındaki pratik deneyim ElectricalVPF’yi şekillendirdi: müşteriler, işler, malzemeler, teklifler, sözleşmeler, faturalar ve raporlar için daha basit iş akışları.",
+      fieldContext: "electricalvpf.com, electricalvpf.app yazılımının temelini oluşturan hizmetleri ve saha deneyimini sunar.",
+      fieldCta: "Elektrik hizmetleri ve saha deneyimi",
       section: "Hakkında", menu: "Uygulamanın arkasındaki insan, deneyim ve yapay zekâ", close: "Kapat",
       era: "İnsan deneyimi · Yapay zekâ çağı", tagline: "Elektrik işlerinin içinden. Yeni bir çağın araçlarıyla.",
       human: "İki alan. Pratik deneyim.", humanText: "ElectricalVPF, bilgisayar mühendisliği eğitimini yazılım geliştirme ve endüstriyel elektrik tesisatlarındaki pratik deneyimle birleştirir. Uygulama, saha çalışmalarının ve bir işletmenin yönetiminin gerçek ihtiyaçlarından doğmuştur.",
@@ -66,6 +98,10 @@
       footer: "Pratik deneyim. Yeni araçlar. İnsan sorumluluğu."
     },
     uk: {
+      field: "Створено на основі реального досвіду електромонтажних робіт.",
+      fieldText: "Практичний досвід електромонтажних робіт вплинув на ElectricalVPF: простіші процеси для роботи з клієнтами, замовленнями, матеріалами, кошторисами, договорами, рахунками та звітами.",
+      fieldContext: "electricalvpf.com представляє послуги та практичний досвід, що лежать в основі програми electricalvpf.app.",
+      fieldCta: "Електромонтажні послуги та практичний досвід",
       section: "Про застосунок", menu: "Людина, досвід і ШІ за створенням застосунку", close: "Закрити",
       era: "Людський досвід · Ера ШІ", tagline: "Зі світу електромонтажних робіт. З інструментами нової епохи.",
       human: "Дві галузі. Практичний досвід.", humanText: "ElectricalVPF поєднує освіту в галузі комп’ютерної інженерії з практичним досвідом розробки програмного забезпечення та роботи з промисловими електроустановками. Застосунок створено на основі реальних потреб роботи на об’єктах та організації діяльності компанії.",
@@ -74,6 +110,10 @@
       footer: "Практичний досвід. Нові інструменти. Людська відповідальність."
     },
     en: {
+      field: "Built from real electrical field experience.",
+      fieldText: "Practical experience in electrical work and installations has shaped ElectricalVPF: simpler workflows for managing clients, jobs, materials, quotes, contracts, invoices and reports.",
+      fieldContext: "electricalvpf.com presents the services and field experience behind the electricalvpf.app software.",
+      fieldCta: "Electrical Services & Field Experience",
       section: "About", menu: "The person, experience and AI behind the application", close: "Close",
       era: "Human experience · The AI era", tagline: "From electrical work. With the tools of a new era.",
       human: "Two disciplines. Practical experience.", humanText: "ElectricalVPF combines a background in computer engineering with practical experience in software development and industrial electrical installations. The application is grounded in the real needs of field work and running a business.",
@@ -181,10 +221,22 @@
     const title = node("h2", null, "ElectricalVPF");
     title.id = "about-title";
     body.append(title, node("p", "about-tagline", t.tagline));
-    ["human", "ai", "care"].forEach((key, index) => {
+    ["human", "field", "ai", "care"].forEach((key, index) => {
       const block = node("section", "about-block");
       const content = node("div");
       content.append(node("h3", null, t[key]), node("p", "about-copy", t[key + "Text"]));
+      if (key === "field") {
+        block.classList.add("about-field");
+        content.append(node("p", "about-copy about-field-context", t.fieldContext));
+        const link = node("a", "about-field-link");
+        link.href = "https://electricalvpf.com";
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        const arrow = node("span", "about-field-arrow", "→");
+        arrow.setAttribute("aria-hidden", "true");
+        link.append(node("span", null, t.fieldCta), arrow);
+        content.append(link);
+      }
       if (key === "ai") {
         const tools = node("ul", "about-tools");
         ["ChatGPT", "Meta AI", "Claude", "Codex", "Gemini", "Copilot"].forEach(name => tools.append(node("li", null, name)));

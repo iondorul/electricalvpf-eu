@@ -54,6 +54,13 @@
 .about-number { font-size:10px; font-family:monospace; color:#8cbad5; padding-top:3px; }
 .about-window h3 { margin:0 0 7px; font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#e0ebfa; }
 .about-window p.about-copy { margin:0; font-size:12px; line-height:1.8; color:#b7c4d5; }
+.about-field { padding:16px 0; border-top:1px solid #9dbbd32e; border-bottom:1px solid #9dbbd32e; }
+.about-field > div { min-width:0; }
+.about-window p.about-field-context { margin-top:9px; }
+.about-field-link { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:13px; padding:11px 12px; border:1px solid #9dbbd32e; border-radius:8px; background:#b7d3ff05; color:#a5c6de; font-size:12px; line-height:1.6; text-decoration:none; overflow-wrap:anywhere; }
+.about-field-link:hover { color:#edf4ff; border-color:#8aadc680; background:#b7d3ff0d; }
+.about-field-link:focus-visible { outline:2px solid #a4ddec; outline-offset:3px; }
+.about-field-arrow { flex-shrink:0; }
 .about-tools { display:flex; gap:6px; flex-wrap:wrap; margin:12px 0 0; padding:0; list-style:none; }
 .about-tools li { border:1px solid #9dbbd32e; border-radius:5px; padding:5px 8px; font-size:10px; color:#d1dfed; background:#b7d3ff05; }
 .about-footer { margin-top:24px; padding-top:13px; border-top:1px solid #ffffff16; display:flex; gap:9px; align-items:baseline; font-size:10px; line-height:1.7; color:#8fa3ba; }
