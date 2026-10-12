@@ -24,6 +24,63 @@
   }
   document.addEventListener('site:lang-applied', updateResourceLinks);
 
+  // Unde se află vizitatorul: linkul din meniu al secțiunii / paginii curente se colorează (is-active), în
+  // meniul de sus și în cel de pe telefon. Sub „Funcționalități” (Calculator, modelul de ofertă) se colorează
+  // „Funcționalități” și cercul iconiței paginii active.
+  function initActiveLink() {
+      const header = document.querySelector('header.site-header');
+      if (!header) return;
+      const links = (key) => {
+          const sel = {
+              product: 'a[href$="#product"]', features: 'a[href$="#features"]', workflow: 'a[href$="#workflow"]',
+              pricing: 'a[href$="#pricing"]', demo: 'a[href$="/demo/"]', calculator: 'a[href$="#calculator-tool"]',
+              resource: 'a[data-resource="quote-template"]',
+          }[key];
+          return sel ? [...header.querySelectorAll(sel)] : [];
+      };
+      const parents = [header.querySelector('#features-dropdown-toggle'), header.querySelector('.mobile-features > summary')].filter(Boolean);
+      let current = null;
+      const setActive = (key) => {
+          if (key === current) return;
+          current = key;
+          header.querySelectorAll('.is-active').forEach((el) => el.classList.remove('is-active'));
+          links(key).forEach((a) => a.classList.add('is-active'));
+          if (key === 'calculator' || key === 'resource') parents.forEach((el) => el.classList.add('is-active'));
+      };
+
+      // Paginile din afara primei pagini: pagina însăși e destinația.
+      if (!document.getElementById('product')) {
+          if (/\/demo\/?$/.test(window.location.pathname)) setActive('demo');
+          else if (links('resource').some((a) => new URL(a.href, window.location.href).pathname === window.location.pathname)) setActive('resource');
+          return;
+      }
+
+      // Prima pagină: secțiunea de sub meniu. Linia de referință e puțin sub meniu; câștigă cea mai interioară
+      // secțiune care o atinge (Calculatorul e în interiorul „Produs”).
+      const targets = [['product', 'product'], ['calculator', 'calculator-tool'], ['features', 'features'], ['workflow', 'workflow'], ['pricing', 'pricing']]
+          .map(([key, id]) => [key, document.getElementById(id)]).filter(([, el]) => el);
+      const spy = () => {
+          const line = header.getBoundingClientRect().bottom + Math.min(160, window.innerHeight * 0.25);
+          let found = 'product';
+          for (const [key, el] of targets) {
+              const r = el.getBoundingClientRect();
+              if (r.top <= line && r.bottom > line) found = key;
+          }
+          // La capătul paginii, ultima secțiune (Prețuri) e cea vizibilă, chiar dacă nu ajunge sub linie.
+          if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) found = 'pricing';
+          setActive(found);
+      };
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(() => { ticking = false; spy(); });
+      }, { passive: true });
+      window.addEventListener('resize', spy);
+      window.addEventListener('load', spy);
+      spy();
+  }
+
   // Inițializare control limbă cu steaguri
   const init = () => {
       if (typeof LanguageDropdownControl !== 'undefined') {
@@ -57,6 +114,8 @@
           requestAnimationFrame(toTop);
           window.addEventListener('load', () => { toTop(); setTimeout(toTop, 0); }, { once: true });
       }
+
+      initActiveLink();
 
       const featuresDropdown = document.getElementById('features-dropdown');
       const featuresDropdownToggle = document.getElementById('features-dropdown-toggle');

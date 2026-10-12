@@ -379,6 +379,7 @@ a { text-decoration: none; }
 [data-theme="light"] .help-menu [data-help-about] .help-menu-icon { color: #7c3aed; }
 .help-menu-item:hover .help-menu-icon::before,
 .help-menu-item:focus-visible .help-menu-icon::before { background: var(--accent-color); }
+.help-menu-item.is-active .help-menu-icon::before { background: var(--accent-color); }
 .help-menu-text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
 .help-menu-label { white-space: nowrap; }
 .help-menu-state { font-size: 0.72rem; font-weight: 400; color: var(--text-muted); white-space: nowrap; }
@@ -834,6 +835,16 @@ a { text-decoration: none; }
 }
 .mobile-features > summary::-webkit-details-marker { display: none; }
 .mobile-features > summary:hover { color: var(--accent-color); }
+
+/* Unde se află vizitatorul (site/site-header.js → is-active): linkul secțiunii / paginii curente, în culoarea de
+   accent — în meniul de sus și în cel de pe telefon; la „Funcționalități” și sublinkul activ (cercul iconiței). */
+.nav-links a.is-active:not(.btn-secondary):not(.btn-primary),
+.nav-links a.is-active:not(.btn-secondary):not(.btn-primary):hover,
+.nav-dropdown-toggle.is-active,
+.nav-dropdown-toggle.is-active:hover,
+.nav-dropdown.is-open .nav-dropdown-toggle.is-active,
+.mobile-nav-links a.is-active,
+.mobile-features > summary.is-active { color: var(--accent-color); }
 .mobile-features > summary i { font-size: 0.75rem; }
 .mobile-features[open] > summary i { transform: rotate(180deg); }
 .mobile-features-items { display: flex; flex-direction: column; padding-left: 12px; }
