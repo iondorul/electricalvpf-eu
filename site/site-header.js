@@ -49,6 +49,14 @@
               window.scrollTo({ top: 0, behavior: 'smooth' });
           });
       });
+      // Același lucru când „Produs” vine din altă pagină (/demo/, modelele de ofertă → /#product):
+      // browserul ar derula la ancoră; pagina trebuie să se deschidă de sus, exact ca la încărcarea normală.
+      if (window.location.hash === '#product' && document.getElementById('product')) {
+          const toTop = () => window.scrollTo(0, 0);
+          toTop();
+          requestAnimationFrame(toTop);
+          window.addEventListener('load', () => { toTop(); setTimeout(toTop, 0); }, { once: true });
+      }
 
       const featuresDropdown = document.getElementById('features-dropdown');
       const featuresDropdownToggle = document.getElementById('features-dropdown-toggle');
