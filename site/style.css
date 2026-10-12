@@ -90,6 +90,28 @@ h1, h2, h3 {
     font-size: 1.1rem;
 }
 
+/* Titlul paginilor publice din afara primei pagini (/demo/, modelele de ofertă): IDENTIC cu titlul secțiunii
+   „Explorează” — aceeași distanță de la meniu (80px = 24px padding-ul paginii + 56px), același corp de literă,
+   aceleași spații titlu → subtitlu (15px) → conținut (50px), fără medalion deasupra. */
+.qt-hero .section-header,
+.dm-hero .section-header {
+    margin-top: 56px;
+}
+
+.qt-hero .section-header h1,
+.dm-hero .section-header h1 {
+    font-size: 2.25rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.section-header .qt-lead,
+.section-header .dm-lead {
+    max-width: none;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
 /* Badges & Tags */
 .badge-tag {
     display: inline-block;
