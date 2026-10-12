@@ -80,36 +80,64 @@ h1, h2, h3 {
     margin: 0 auto 50px auto;
 }
 
-.section-header h2 {
-    font-size: 2.25rem;
-    margin-bottom: 15px;
+/* Titlul și subtitlul fiecărei secțiuni (Explorează, Flux de lucru, Prețuri) și ale paginilor /demo/ și ale
+   modelelor de ofertă = EXACT titlul și subtitlul din „Produs” (.hero-content h1 / .hero-subtitle): aceeași mărime,
+   greutate și spațiere, cu aceleași praguri pentru ecrane mici (vezi media queries de mai jos). */
+.section-header h2,
+.section-header h1 {
+    font-size: 1.9rem;
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 20px;
+    text-wrap: balance;
 }
 
 .section-header p {
     color: var(--text-muted);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
 }
 
-/* Titlul paginilor publice din afara primei pagini (/demo/, modelele de ofertă): IDENTIC cu titlul secțiunii
-   „Explorează” — aceeași distanță de la meniu (80px = 24px padding-ul paginii + 56px), același corp de literă,
-   aceleași spații titlu → subtitlu (15px) → conținut (50px), fără medalion deasupra. */
+@media (max-width: 1100px) {
+    .section-header h2,
+    .section-header h1 { font-size: 1.65rem; }
+}
+
+@media (max-width: 600px) {
+    .section-header h2,
+    .section-header h1 { font-size: 1.55rem; line-height: 1.3; margin-bottom: 14px; }
+    .section-header p { font-size: 1rem; line-height: 1.6; }
+}
+
+/* Paginile publice din afara primei pagini (/demo/, modelele de ofertă): aceeași distanță de la meniu ca
+   secțiunile primei pagini (80px = 24px padding-ul paginii + 56px), fără medalion deasupra. */
 .qt-hero .section-header,
 .dm-hero .section-header {
     margin-top: 56px;
 }
 
+/* Aceleași valori ca mai sus, mai specifice decât stilurile proprii ale acestor pagini (.qt-hero h1 / .dm-hero h1). */
 .qt-hero .section-header h1,
 .dm-hero .section-header h1 {
-    font-size: 2.25rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
+    font-size: 1.9rem;
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1100px) {
+    .qt-hero .section-header h1,
+    .dm-hero .section-header h1 { font-size: 1.65rem; }
+}
+
+@media (max-width: 600px) {
+    .qt-hero .section-header h1,
+    .dm-hero .section-header h1 { font-size: 1.55rem; line-height: 1.3; margin-bottom: 14px; }
 }
 
 .section-header .qt-lead,
 .section-header .dm-lead {
     max-width: none;
     margin: 0;
-    font-size: 1.1rem;
 }
 
 /* Badges & Tags */
