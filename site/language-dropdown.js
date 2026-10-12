@@ -44,6 +44,13 @@ class LanguageDropdownControl {
     }
     const pageLang = window.SITE_PAGE_LANG;
     if (pageLang && this.isSupported(pageLang)) {
+      // Paginile cu modelul de ofertă există în fiecare limbă (SITE_PAGE_STRICT): limba adresei rămâne mereu.
+      if (window.SITE_PAGE_STRICT) {
+        if (!stored) {
+          try { localStorage.setItem(this.storageKey, pageLang); } catch (err) { /* stocare indisponibilă */ }
+        }
+        return pageLang;
+      }
       if (stored && this.isSupported(stored) && !LanguageDropdownControl.SEO_LANGS.includes(stored)) return stored;
       // Nimic salvat: limba paginii devine preferința (ca Înregistrarea/aplicația să se deschidă în aceeași limbă).
       if (!stored) {

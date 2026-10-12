@@ -29,7 +29,7 @@
     <!-- Aceeași versiune Font Awesome ca aplicația (frontend/*.html) — iconițele modulelor din secțiunea Planuri. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/site/style.css?v=20261002-footer-centered">
+    <link rel="stylesheet" href="/site/style.css?v=20261011-help-align">
     <link rel="stylesheet" href="/site/about.css?v=20261005-field-experience">
     <link rel="stylesheet" href="/site/cosmos.css?v=20261005-mobile-cosmos4">
     <link rel="stylesheet" href="/site/plans.css?v=20261005-tooltip-right">
@@ -199,6 +199,7 @@
                     </div>
                 </div>
                 <a href="#workflow" data-i18n="workflow">Flux de lucru</a>
+                <a href="https://electricalvpf.app/demo/" data-i18n="viewTutorials">Vezi tutorialele</a>
                 <a href="#pricing" data-i18n="pricing">Prețuri</a>
 
 
@@ -260,6 +261,7 @@
                     </div>
                 </details>
                 <a href="#workflow" data-i18n="workflow">Flux de lucru</a>
+                <a href="https://electricalvpf.app/demo/" data-i18n="viewTutorials">Vezi tutorialele</a>
                 <a href="#pricing" data-i18n="pricing">Prețuri</a>
             </nav>
             <div class="mobile-nav-actions">
@@ -277,11 +279,11 @@
                      Titlul e mesajul singur în față; brandul e deja în antet. -->
                 <h1 data-i18n="heroTitle">Software de teren, construit de electricieni pentru firme electrice</h1>
                 <p class="hero-subtitle" data-i18n="heroSubtitle">Mai puțin timp pierdut cu actele. Mai mult timp pentru lucrări și clienți. Totul într-un singur loc: Clienți, Lucrări, Calculator Electric, Materiale, Oferte, Contracte, Facturi, Rapoarte.</p>
-                <!-- Pe telefon (≤600px): perechea „cont nou / autentificare" — Explorează platforma trece în meniul
-                     mobil. Pe ecrane mai late rămâne Explorează (autentificarea e deja în antet). -->
+                <!-- Două acțiuni: „Începe gratuit” + „▶ Vezi acum” (Overview în fereastră). Pe telefon (≤600px) se adaugă
+                     Autentificarea (pe ecrane late e deja în antet). „Explorează” e în meniu. -->
                 <div class="hero-buttons">
                     <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary btn-lg" data-i18n="startFree">Începe gratuit</a>
-                    <a href="#features" class="btn-outline btn-lg hero-btn-explore" data-i18n="explore">Explorează platforma</a>
+                    <a href="https://electricalvpf.app/demo/" class="btn-outline btn-lg hero-btn-watch" data-watch-now=""><i class="fas fa-play" aria-hidden="true"></i><span data-i18n="watchNow">Vezi acum</span></a>
                     <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="btn-outline btn-lg btn-login hero-btn-signin"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span data-i18n="login">Autentificare</span></a>
                 </div>
                 <!-- Dovadă de profesionalism, discretă. Fiecare afirmație e verificată în cod: Stripe Checkout (plăți),
@@ -652,10 +654,10 @@
     <!-- Scripturi -->
     <!-- config.js e fișierul aplicației (nemodificat): de aici vine API_BASE_URL folosit la verificarea sesiunii. -->
     <script src="/frontend/js/config.js?v=20260928-remember"></script>
-    <script src="/site/translations.js?v=20261005-tr-teklif"></script>
+    <script src="/site/translations.js?v=20261011-watch"></script>
     <script src="/site/plans-i18n.js?v=no-copy-review-1"></script>
     <script src="/site/proofs-i18n.js?v=no-copy-review-1"></script>
-    <script src="/site/language-dropdown.js?v=20260930-seo-urls"></script>
+    <script src="/site/language-dropdown.js?v=20261012-header"></script>
     <script src="/site/help-menu.js?v=20260929-mail-choices"></script>
     <script src="/site/about.js?v=20261005-field-experience"></script>
     <script src="/site/cosmos.js?v=20260929-cosmos" defer=""></script>
@@ -669,130 +671,12 @@
     <!-- Sursa vizitei → linkurile de înregistrare, doar prin URL (fără cookie-uri / stocare). -->
     <script src="/site/attribution.js?v=20260930-attribution"></script>
     <script type="module" src="/site/calculator-jt-widget.js?v=20260930-seo-urls"></script>
-    <script>
-        // Dark / Light mode: vezi site/help-menu.js (butonul „?" → Afișare).
-
-        // Linkurile legale au un fișier separat per limbă (terms.html = română, terms-en.html etc.).
-        function updateLegalLinks() {
-            const lang = document.documentElement.lang;
-            document.querySelectorAll('a[data-legal]').forEach((a) => {
-                const suffix = !lang || lang === 'ro' ? '' : '-' + lang;
-                a.setAttribute('href', 'https://electricalvpf.app/frontend/legal/' + a.getAttribute('data-legal') + suffix + '.html?returnSite=eu');
-            });
-        }
-        document.addEventListener('site:lang-applied', updateLegalLinks);
-
-        // Resursa gratuită (model de ofertă / deviz): româna are modelul românesc, celelalte limbi modelul UK (engleză).
-        // Același tabel ca site/tools/build-home-pages.js (RESOURCE_URLS) — pagina statică pornește deja corect.
-        function updateResourceLinks() {
-            const urls = { tr: '/tr/elektrik-isleri-teklif-sablonu/', ru: '/ru/smeta-elektromontazhnye-raboty/', ro: '/ro/model-deviz-instalatii-electrice/', no: '/no/tilbudsmal-elektriker/', nl: '/nl/offerte-sjabloon-elektricien/', it: '/it/modello-preventivo-elettricista/', pl: '/pl/wzor-oferty-elektryka/', uk: '/uk/koshtorys-elektromontazhni-roboty/', sv: '/sv/offertmall-elektriker/' };
-            const url = urls[document.documentElement.lang] || '/electrical-quote-template/';
-            document.querySelectorAll('a[data-resource="quote-template"]').forEach((a) => {
-                a.setAttribute('href', url);
-            });
-        }
-        document.addEventListener('site:lang-applied', updateResourceLinks);
-
-        // Inițializare control limbă cu steaguri
-        document.addEventListener('DOMContentLoaded', () => {
-            if (typeof LanguageDropdownControl !== 'undefined') {
-                new LanguageDropdownControl('language-control-container');
-            }
-
-            const menuToggle = document.getElementById('mobile-menu-toggle');
-            const menuClose = document.getElementById('mobile-menu-close');
-            const drawer = document.getElementById('mobile-nav-drawer');
-            const overlay = document.getElementById('mobile-nav-overlay');
-            const internalLinks = drawer.querySelectorAll('a');
-            let lastFocusedElement;
-
-            // "Produs" înseamnă începutul paginii. O ancoră nativă către
-            // #product ar alinia hero-ul sub headerul sticky, deci tratăm
-            // exclusiv această destinație ca scroll la poziția inițială.
-            document.querySelectorAll('a[href="#product"]').forEach((link) => {
-                link.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    if (window.location.hash !== '#product') {
-                        window.history.pushState(null, '', '#product');
-                    }
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            });
-
-            const featuresDropdown = document.getElementById('features-dropdown');
-            const featuresDropdownToggle = document.getElementById('features-dropdown-toggle');
-            const featuresDropdownMenu = document.getElementById('features-dropdown-menu');
-            let featuresDropdownCloseTimer;
-
-            const canHoverFeaturesDropdown = () =>
-                window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-            const setFeaturesDropdownOpen = (isOpen) => {
-                featuresDropdown.classList.toggle('is-open', isOpen);
-                featuresDropdownToggle.setAttribute('aria-expanded', String(isOpen));
-                featuresDropdownMenu.setAttribute('aria-hidden', String(!isOpen));
-            };
-
-            featuresDropdownToggle.addEventListener('click', () => {
-                clearTimeout(featuresDropdownCloseTimer);
-                setFeaturesDropdownOpen(!featuresDropdown.classList.contains('is-open'));
-            });
-            featuresDropdown.addEventListener('mouseenter', () => {
-                if (!canHoverFeaturesDropdown()) return;
-                clearTimeout(featuresDropdownCloseTimer);
-                setFeaturesDropdownOpen(true);
-            });
-            featuresDropdown.addEventListener('mouseleave', () => {
-                if (!canHoverFeaturesDropdown()) return;
-                featuresDropdownCloseTimer = setTimeout(() => setFeaturesDropdownOpen(false), 150);
-            });
-            featuresDropdownMenu.querySelectorAll('a').forEach((link) => {
-                link.addEventListener('click', () => setFeaturesDropdownOpen(false));
-            });
-            document.addEventListener('mousedown', (event) => {
-                if (!featuresDropdown.contains(event.target)) {
-                    clearTimeout(featuresDropdownCloseTimer);
-                    setFeaturesDropdownOpen(false);
-                }
-            });
-
-            const closeMobileMenu = () => {
-                drawer.classList.remove('is-open');
-                drawer.setAttribute('aria-hidden', 'true');
-                drawer.setAttribute('inert', '');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                overlay.hidden = true;
-                document.body.classList.remove('mobile-menu-open');
-                if (lastFocusedElement) lastFocusedElement.focus();
-            };
-
-            const openMobileMenu = () => {
-                lastFocusedElement = document.activeElement;
-                drawer.classList.add('is-open');
-                drawer.setAttribute('aria-hidden', 'false');
-                drawer.removeAttribute('inert');
-                menuToggle.setAttribute('aria-expanded', 'true');
-                overlay.hidden = false;
-                document.body.classList.add('mobile-menu-open');
-                menuClose.focus();
-            };
-
-            menuToggle.addEventListener('click', openMobileMenu);
-            menuClose.addEventListener('click', closeMobileMenu);
-            overlay.addEventListener('click', closeMobileMenu);
-            internalLinks.forEach((link) => link.addEventListener('click', closeMobileMenu));
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape' && featuresDropdown.classList.contains('is-open')) {
-                    setFeaturesDropdownOpen(false);
-                    featuresDropdownToggle.focus();
-                }
-                if (event.key === 'Escape' && drawer.classList.contains('is-open')) closeMobileMenu();
-            });
-        });
-    </script>
+    <script src="/site/site-header.js?v=20261012-header"></script>
 
     <!-- Sesiune validă -> direct în dashboard (vezi site/session-redirect.js). Ultimul, după config.js. -->
     <script src="/site/session-redirect.js?v=20260928-remember"></script>
+    <script src="/site/video-subs.js?v=20261012-phone2" defer=""></script>
+    <script src="/site/watch-now.js?v=20261012-phone" defer=""></script>
 
 
 

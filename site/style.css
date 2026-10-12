@@ -401,6 +401,10 @@ a { text-decoration: none; }
 
 /* Același meniu „?" stă pe desktop în bara de navigare, pe mobil în antet lângă ☰ (help-menu.js îl mută).
    Meniul lateral rămâne doar pentru navigare. */
+/* Pe desktop „?" stă lângă marginea dreaptă: meniul se aliniază la dreapta butonului, nu centrat
+   (centrat, ieșea din ecran pe ferestrele de ~1100–1300px, chiar și ascuns). */
+.help-dropdown .nav-dropdown-menu.help-menu { left: auto; right: 0; transform: translateY(4px); }
+.help-dropdown.is-open .nav-dropdown-menu.help-menu { transform: none; }
 .help-slot { display: contents; }
 .header-mobile-actions { display: none; }
 @media (max-width: 1099px) {
@@ -823,8 +827,25 @@ body.mobile-menu-open { overflow: hidden; }
 
 .hero-buttons {
     display: flex;
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 14px;
 }
+/* Cele trei acțiuni din Hero: aceeași înălțime, rază și greutate; textul nu se rupe (trec pe rândul
+   următor dacă nu încap). Contururile au fundal propriu, ca cerul cu stele să nu se vadă prin ele. */
+.hero-buttons .btn-lg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 54px;
+    padding: 0 26px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+}
+.hero-buttons .btn-outline { background-color: var(--bg-main, #0f172a); }
 
 /* Mini Mockup in Hero */
 .mini-dashboard-mockup {
@@ -1735,7 +1756,7 @@ button.trust-item[aria-expanded="true"] .proof-chevron { transform: rotate(90deg
 
 /* Hero — primul ecran pe telefon (≤600px). Pe ecrane mai late nu se schimbă nimic:
    „Autentificare" din hero e ascuns (e deja în antet), „Explorează platforma" rămâne. */
-.hero-btn-signin { display: none; }
+.hero-buttons .hero-btn-signin { display: none; }
 
 @media (max-width: 600px) {
     /* Antet mai compact: brandul rămâne clar, dar nu mai ia un sfert din ecran */
@@ -1946,3 +1967,23 @@ a.workflow-step:focus-visible strong { color: var(--accent-color); }
 .footer-resources a { color: var(--text-main); }
 .footer-resources a:hover { color: var(--accent-color); }
 .site-footer .footer-flex > p { order: 3; width: min(100%, 760px); padding-top: 20px; border-top: 1px solid color-mix(in srgb, var(--border-color) 70%, transparent); font-size: .8rem; }
+
+/* „▶ Watch now” — butonul din Hero și fereastra cu Overview-ul (site/watch-now.js). Calm: chenar de 1px. */
+.hero-btn-watch { display: inline-flex; align-items: center; gap: 10px; }
+.hero-btn-watch i { font-size: .85em; color: var(--accent-color); }
+.watch-modal { position: fixed; inset: 0; z-index: 3000; display: flex; align-items: center; justify-content: center;
+  padding: 24px; background: rgba(5, 8, 15, .82); }
+.watch-modal[hidden] { display: none; }
+.watch-modal-box { position: relative; width: min(1100px, 100%); }
+.watch-modal-video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #0b1220;
+  border: 1px solid rgba(255, 255, 255, .14); border-radius: 12px; }
+.watch-modal-close { position: absolute; top: -44px; right: 0; width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, .25); background: transparent; color: #fff; cursor: pointer; font-size: 1.05rem; }
+.watch-modal-close:hover, .watch-modal-close:focus-visible { border-color: var(--accent-color); }
+.watch-modal-more { display: inline-block; margin-top: 14px; color: #fff; font-weight: 600; text-decoration: none; }
+.watch-modal-more:hover { color: var(--accent-color); }
+html.watch-modal-open { overflow: hidden; }
+@media (max-width: 600px) {
+  .watch-modal { padding: 12px; }
+  .watch-modal-close { top: -42px; }
+}

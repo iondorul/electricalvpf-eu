@@ -26,9 +26,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/site/style.css?v=20261002-footer-centered">
+    <link rel="stylesheet" href="/site/style.css?v=20261011-help-align">
     <link rel="stylesheet" href="/site/cosmos.css?v=20261002-auth-cosmos">
-    <link rel="stylesheet" href="https://electricalvpf.app/frontend/css/back-to-website.css?v=20261002-shared">
     <style>
 
         .qt-header-actions { display: flex; align-items: center; gap: 10px; }
@@ -37,9 +36,6 @@
         .qt-login:hover { border-color: var(--accent-color); }
 
 
-        .qt-hero .auth-back-to-website { position: static; display: flex; width: fit-content; margin-bottom: 24px; }
-        [data-theme="light"] .qt-hero .auth-back-to-website { color: #1f2937; background: #f8fafc; border-color: #64748b; backdrop-filter: none; }
-        [data-theme="light"] .qt-hero .auth-back-to-website:hover, [data-theme="light"] .qt-hero .auth-back-to-website:focus-visible { color: #0f172a; background: #e2e8f0; border-color: #475569; }
         .qt-hero { padding: 24px 0 24px; }
         .qt-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 48px; align-items: start; }
         .qt-kicker { display: inline-block; margin-bottom: 14px; padding: 4px 12px; border: 1px solid color-mix(in srgb, var(--accent-color) 30%, transparent); border-radius: 999px; color: var(--accent-color); font-size: .8rem; font-weight: 600; }
@@ -187,6 +183,7 @@
 </head>
 
 <body>
+    <!-- site-header:start — antetul comun: templates/site-header.html (site/tools/build-site-header.js) -->
     <header class="site-header">
         <div class="container nav-container">
             <a href="/" class="logo-link" aria-label="ElectricalVPF">
@@ -194,16 +191,117 @@
                 <img class="logo-mark logo-mark-light" src="/site/img/favicon-light.png" alt="">
                 <span class="logo">Electrical<span>VPF</span></span>
             </a>
-            <div class="qt-header-actions">
-                <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="qt-login">Zaloguj się</a>
-                <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary">Zacznij za darmo</a>
+            <!-- Pe mobil, meniul „?" (Ajutor) e mutat aici de site/help-menu.js — separat de meniul de navigare. -->
+            <div class="header-mobile-actions">
+                <div id="help-slot-mobile" class="help-slot"></div>
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Otwórz menu" data-i18n-aria-label="mobileMenuOpenLabel" aria-expanded="false" aria-controls="mobile-nav-drawer">☰</button>
             </div>
+            <nav class="nav-links">
+                <a href="/#product" data-i18n="product">Produkt</a>
+                <a href="/#features" data-i18n="exploreShort">Poznaj</a>
+                <div class="nav-dropdown" id="features-dropdown">
+                    <button class="nav-dropdown-toggle" id="features-dropdown-toggle" type="button" aria-expanded="false" aria-controls="features-dropdown-menu">
+                        <span data-i18n="features">Funkcje</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <!-- Aceeași regulă ca meniul „?": antet mic → rând de 52px cu cerc de 40px → text 14px + explicație mică.
+                         „Funcționalități" nu se mai repetă aici: „Explorează" duce deja la #features. -->
+                    <div class="nav-dropdown-menu help-menu features-menu" id="features-dropdown-menu" aria-hidden="true">
+                        <span class="help-section-title" data-i18n="nav.tools.free">Darmowe narzędzia</span>
+                        <a href="/#calculator-tool" class="help-menu-item">
+                            <span class="help-menu-icon"><i class="fas fa-calculator" aria-hidden="true"></i></span>
+                            <span class="help-menu-text">
+                                <span class="help-menu-label" data-i18n="nav.tools.calculator">Kalkulator kabla</span>
+                                <span class="help-menu-state" data-i18n="nav.tools.calculatorTooltip">Oblicz przekrój kabla i spadek napięcia</span>
+                            </span>
+                        </a>
+                        <div class="help-sep" role="separator"></div>
+                        <span class="help-section-title" data-i18n="nav.resources.free">Darmowe zasoby</span>
+                        <a href="/pl/wzor-oferty-elektryka/" data-resource="quote-template" class="help-menu-item">
+                            <span class="help-menu-icon"><i class="fas fa-file-lines" aria-hidden="true"></i></span>
+                            <span class="help-menu-text">
+                                <span class="help-menu-label" data-i18n="nav.resources.quoteTemplate">Wzór oferty elektryka</span>
+                                <span class="help-menu-state" data-i18n="nav.resources.quoteTemplateTooltip">Word, Excel i PDF · bezpłatnie, dla elektryków w Polsce</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <a href="/#workflow" data-i18n="workflow">Przepływ</a>
+                <a href="https://electricalvpf.app/demo/" data-i18n="viewTutorials">Zobacz poradniki</a>
+                <a href="/#pricing" data-i18n="pricing">Cennik</a>
+
+
+                <!-- Ajutor „?" (ca în aplicație): Limbă · Afișare (luminos/întunecat) · Contact — site/help-menu.js -->
+                <div id="help-slot-desktop" class="help-slot">
+                    <div class="nav-dropdown help-dropdown" id="help-dropdown">
+                        <button class="theme-toggle-btn help-toggle-btn" id="help-dropdown-toggle" type="button" aria-label="Pomoc" data-i18n-aria-label="helpLabel" aria-haspopup="true" aria-expanded="false" aria-controls="help-dropdown-menu">
+                            <svg class="help-toggle-outline" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="19.5" fill="none" stroke-width="1"></circle><path class="help-toggle-mark" transform="translate(11.5 11.5) scale(0.033203125)" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM169.8 165.3c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"></path></svg>
+                        </button>
+                        <div class="nav-dropdown-menu help-menu" id="help-dropdown-menu" aria-hidden="true">
+                            <span class="help-section-title" data-i18n="helpLanguageGroup">Język</span>
+                            <div id="language-control-container" class="help-lang" data-click-only=""></div>
+                            <div class="help-sep" role="separator"></div>
+                            <span class="help-section-title" data-i18n="helpDisplayGroup">Wyświetlanie</span>
+                            <button type="button" class="help-menu-item help-theme-item" data-theme-toggle="">
+                                <span class="help-menu-icon"><i class="fas fa-sun" data-theme-icon="" aria-hidden="true"></i></span>
+                                <span class="help-menu-text">
+                                    <span class="help-menu-label" data-theme-label="">Schimbă pe modul luminos</span>
+                                    <span class="help-menu-state" data-theme-state="">Ecran acum: întunecat</span>
+                                </span>
+                            </button>
+                            <div class="help-sep" role="separator"></div>
+                            <span class="help-section-title" data-i18n="helpContactItem">Kontakt</span>
+                            <button type="button" class="help-menu-item" data-help-contact="">
+                                <span class="help-menu-icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
+                                <span class="help-menu-label" data-i18n="helpContactRow">E-mail, telefon, strona</span>
+                            </button>
+                            <div class="help-sep" role="separator"></div>
+                            <span class="help-section-title" data-about-text="section">Despre</span>
+                            <button type="button" class="help-menu-item" data-help-about="" aria-haspopup="dialog">
+                                <span class="help-menu-icon"><i class="fas fa-rocket" aria-hidden="true"></i></span>
+                                <span class="help-menu-text">
+                                    <span class="help-menu-label">ElectricalVPF</span>
+                                    <span class="help-menu-state" data-about-text="menu">Omul, experiența și AI-ul din spatele aplicației</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="btn-secondary btn-login"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span data-i18n="login">Zaloguj</span></a>
+            </nav>
         </div>
+        <div id="mobile-nav-overlay" class="mobile-nav-overlay" hidden=""></div>
+        <aside id="mobile-nav-drawer" class="mobile-nav-drawer" aria-hidden="true" aria-modal="true" aria-labelledby="mobile-nav-title" inert="">
+            <div class="mobile-nav-header">
+                <span id="mobile-nav-title" class="mobile-nav-title" data-i18n="mobileMenuTitle">Menu</span>
+                <button id="mobile-menu-close" class="mobile-menu-close" type="button" aria-label="Zamknij menu" data-i18n-aria-label="mobileMenuCloseLabel">×</button>
+            </div>
+            <nav class="mobile-nav-links" aria-label="Nawigacja mobilna" data-i18n-aria-label="mobileNavigationLabel">
+                <a href="/#product" data-i18n="product">Produkt</a>
+                <a href="/#features" data-i18n="exploreShort">Poznaj</a>
+                <details class="mobile-features">
+                    <summary><span data-i18n="features">Funkcje</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+                    <div class="mobile-features-items">
+                        <span class="mobile-nav-group" data-i18n="nav.tools.free">Darmowe narzędzia</span>
+                        <a href="/#calculator-tool" data-i18n="nav.tools.calculator" data-i18n-title="nav.tools.calculatorTooltip" title="Oblicz przekrój kabla i spadek napięcia">Kalkulator kabla</a>
+                        <span class="mobile-nav-group" data-i18n="nav.resources.free">Darmowe zasoby</span>
+                        <a href="/pl/wzor-oferty-elektryka/" data-resource="quote-template" data-i18n="nav.resources.quoteTemplate" data-i18n-title="nav.resources.quoteTemplateTooltip" title="Word, Excel i PDF · bezpłatnie, dla elektryków w Polsce">Wzór oferty elektryka</a>
+                    </div>
+                </details>
+                <a href="/#workflow" data-i18n="workflow">Przepływ</a>
+                <a href="https://electricalvpf.app/demo/" data-i18n="viewTutorials">Zobacz poradniki</a>
+                <a href="/#pricing" data-i18n="pricing">Cennik</a>
+            </nav>
+            <div class="mobile-nav-actions">
+                <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="btn-secondary btn-login"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span data-i18n="login">Zaloguj</span></a>
+                <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary" data-i18n="startFree">Zacznij za darmo</a>
+            </div>
+        </aside>
     </header>
+    <!-- site-header:end -->
 
     <main>
  <section class="qt-hero"><div class="container qt-grid"><div>
- <a href="/" class="auth-back-to-website"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Wróć do strony</span></a>
  <span class="qt-kicker">Dla elektryków i firm instalacyjnych w Polsce</span>
  <h1>Wzór oferty elektryka do pobrania — Word, Excel i PDF</h1>
  <p class="qt-lead">Od oględzin do przejrzystej oferty: opisz zakres, oddziel robociznę od materiałów, wpisz VAT, terminy i warunki płatności. Bezpłatny wzór oferty na roboty elektryczne do dopasowania do Twojej firmy i zlecenia — z miejscem na pomiary, protokoły i odbiór.</p>
@@ -255,4 +353,12 @@
             });
         });
     </script>
+    <!-- site-header-scripts:start — antetul comun (site/tools/build-site-header.js) -->
+    <script>window.SITE_LANG_STORAGE_KEY = "locale"; window.SITE_PAGE_LANG = "pl"; window.SITE_PAGE_STRICT = true; window.SITE_PAGE_URLS = {"tr":"/tr/elektrik-isleri-teklif-sablonu/","ru":"/ru/smeta-elektromontazhnye-raboty/","en":"/electrical-quote-template/","ro":"/ro/model-deviz-instalatii-electrice/","no":"/no/tilbudsmal-elektriker/","nl":"/nl/offerte-sjabloon-elektricien/","it":"/it/modello-preventivo-elettricista/","pl":"/pl/wzor-oferty-elektryka/","uk":"/uk/koshtorys-elektromontazhni-roboty/","sv":"/sv/offertmall-elektriker/"};</script>
+    <script src="/site/translations.js?v=20261011-watch"></script>
+    <script src="/site/language-dropdown.js?v=20261012-header"></script>
+    <script src="/site/help-menu.js?v=20260929-mail-choices"></script>
+    <script src="/site/about.js?v=20261005-field-experience"></script>
+    <script src="/site/site-header.js?v=20261012-header"></script>
+    <!-- site-header-scripts:end -->
 </body></html>

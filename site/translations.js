@@ -45,6 +45,10 @@ const translations = {
       "Made for an electrician's everyday work.",
     featuresSubtitle:
       "Jobs, materials and quotes — the way you use them every day.",
+    watchNow: "Watch now",
+    viewTutorials: "View tutorials",
+    watchNowClose: "Close video",
+    watchNowTitle: "ElectricalVPF in 90 seconds",
     workflowTitle:
       "From the first call to getting paid",
     workflowSubtitle:
@@ -140,6 +144,10 @@ const translations = {
       "Făcut pentru munca unui electrician.",
     featuresSubtitle:
       "Lucrări, materiale și oferte — așa cum le folosești tu în fiecare zi.",
+    watchNow: "Vezi acum",
+    viewTutorials: "Vezi tutorialele",
+    watchNowClose: "Închide video-ul",
+    watchNowTitle: "ElectricalVPF în 90 de secunde",
     workflowTitle:
       "De la primul apel până la încasare",
     workflowSubtitle:
@@ -235,6 +243,10 @@ const translations = {
       "Зроблено для щоденної роботи електрика.",
     featuresSubtitle:
       "Роботи, матеріали й пропозиції — так, як ви користуєтеся ними щодня.",
+    watchNow: "Дивитися",
+    viewTutorials: "Переглянути навчальні відео",
+    watchNowClose: "Закрити відео",
+    watchNowTitle: "ElectricalVPF за 90 секунд",
     workflowTitle:
       "Від першого дзвінка до оплати",
     workflowSubtitle:
@@ -334,6 +346,10 @@ const translations = {
       "Elektrikçilerin günlük işleri için tasarlandı.",
     featuresSubtitle:
       "İşler, malzemeler ve teklifler; her gün kullandığınız şekliyle.",
+    watchNow: "Şimdi izle",
+    viewTutorials: "Eğitim videoları",
+    watchNowClose: "Videoyu kapat",
+    watchNowTitle: "90 saniyede ElectricalVPF",
     workflowTitle:
       "İlk aramadan tahsilata kadar",
     workflowSubtitle:
@@ -426,6 +442,10 @@ const translations = {
       "Zrobione pod codzienną pracę elektryka.",
     featuresSubtitle:
       "Zlecenia, materiały i oferty — tak, jak używasz ich na co dzień.",
+    watchNow: "Obejrzyj",
+    viewTutorials: "Zobacz poradniki",
+    watchNowClose: "Zamknij wideo",
+    watchNowTitle: "ElectricalVPF w 90 sekund",
     workflowTitle:
       "Od pierwszego telefonu do zapłaty",
     workflowSubtitle:
@@ -520,6 +540,10 @@ const translations = {
       "Сделано для повседневной работы электрика.",
     featuresSubtitle:
       "Работы, материалы и предложения — так, как вы пользуетесь ими каждый день.",
+    watchNow: "Смотреть",
+    viewTutorials: "Обучающие видео",
+    watchNowClose: "Закрыть видео",
+    watchNowTitle: "ElectricalVPF за 90 секунд",
     workflowTitle:
       "От первого звонка до оплаты",
     workflowSubtitle:
@@ -612,6 +636,10 @@ const translations = {
       "Fatto per il lavoro di tutti i giorni di un elettricista.",
     featuresSubtitle:
       "Lavori, materiali e preventivi, come li usi ogni giorno.",
+    watchNow: "Guarda ora",
+    viewTutorials: "Guarda i tutorial",
+    watchNowClose: "Chiudi il video",
+    watchNowTitle: "ElectricalVPF in 90 secondi",
     workflowTitle:
       "Dalla prima chiamata all'incasso",
     workflowSubtitle:
@@ -703,6 +731,10 @@ const translations = {
       "Gemaakt voor het dagelijkse werk van een elektricien.",
     featuresSubtitle:
       "Klussen, materialen en offertes, zoals jij ze elke dag gebruikt.",
+    watchNow: "Bekijk nu",
+    viewTutorials: "Bekijk tutorials",
+    watchNowClose: "Video sluiten",
+    watchNowTitle: "ElectricalVPF in 90 seconden",
     workflowTitle:
       "Van het eerste telefoontje tot de betaling",
     workflowSubtitle:
@@ -794,6 +826,10 @@ const translations = {
       "Laget for elektrikerens hverdag.",
     featuresSubtitle:
       "Hold oversikt over oppdrag, materialer og tilbud i en travel hverdag.",
+    watchNow: "Se nå",
+    viewTutorials: "Se veiledningene",
+    watchNowClose: "Lukk videoen",
+    watchNowTitle: "ElectricalVPF på 90 sekunder",
     workflowTitle:
       "Fra første telefonsamtale til betaling",
     workflowSubtitle:
@@ -886,6 +922,10 @@ const translations = {
       "Gjort för elektrikerns vardag.",
     featuresSubtitle:
       "Jobb, material och offerter, så som du använder dem varje dag.",
+    watchNow: "Titta nu",
+    viewTutorials: "Se guiderna",
+    watchNowClose: "Stäng videon",
+    watchNowTitle: "ElectricalVPF på 90 sekunder",
     workflowTitle:
       "Från första samtalet till betalning",
     workflowSubtitle:

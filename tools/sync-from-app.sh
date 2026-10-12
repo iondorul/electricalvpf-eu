@@ -116,7 +116,14 @@ sed -i \
   -e "s#return \"/frontend/#return \"$APP_URL/frontend/#g" \
   -e "s#\"frontend/\" +#\"$APP_URL/frontend/\" +#g" \
   -e "s#\"/frontend/\" +#\"$APP_URL/frontend/\" +#g" \
+  -e "s#'/frontend/legal/'#'$APP_URL/frontend/legal/'#g" \
   site/*.js
+
+# Tutorialele video (/demo/, din 2026-10-11) rămân găzduite pe .app (≈130 MB de video — nu se dublează aici):
+# meniul („Vezi tutorialele”), „▶ Vezi acum” și subtitrările trimit la .app/demo/. Subtitrările se citesc cu
+# fetch() — .app le permite pentru .eu (CORS în _headers-ul .app, /demo/subs/*).
+sed -i -e "s#href=\"/demo/#href=\"$APP_URL/demo/#g" "${PAGES[@]}"
+sed -i -e "s#\"/demo/#\"$APP_URL/demo/#g" site/watch-now.js site/video-subs.js
 
 # Login/Register pe .app: ?returnSite=eu face ca „Back to website” să revină
 # aici (frontend/js/return-site.js din .app, listă fixă de destinații).
@@ -139,12 +146,13 @@ while IFS= read -r url_path; do
     exit 1
   fi
 done < <({ grep -oE "setAttribute\('href', ro \? '[^']*' : '[^']*'\)" index.html || true;
-            grep -oE "const urls = \{[^}]*\}" index.html ro/index.html || true;
+            grep -oE "const urls = \{[^}]*\}" site/site-header.js || true;
             grep -oE 'RESOURCE_URLS[^;]*' index.html || true; } \
           | grep -oE "['\"]/[a-z-]+(/[a-z-]+)?/['\"]" | tr -d "'\"" | sort -u)
 
-if ! grep -qE "const urls = \{[^}]*pl: '/pl/" index.html; then
-  echo "ATENȚIE: nu găsesc harta resurselor (const urls = {…}) în index.html — verifică updateResourceLinks() din .app." >&2
+# Harta resurselor stă din 2026-10-12 în site/site-header.js (antetul comun al .app), nu în index.html.
+if ! grep -qE "const urls = \{[^}]*pl: '/pl/" site/site-header.js; then
+  echo "ATENȚIE: nu găsesc harta resurselor (const urls = {…}) în site/site-header.js — verifică updateResourceLinks() din .app." >&2
   exit 1
 fi
 
@@ -206,14 +214,14 @@ done
 # ---------------------------------------------------------------------------
 # SEO: .eu e INDEXABIL (decizie PO, 5 octombrie 2026) — ambele domenii sunt intrări în Google.
 # Fiecare pagină .eu e originalul ei: canonical, og:url, og:image, hreflang și JSON-LD trimit la .eu.
-# Rămân pe .app DOAR adresele /frontend/ (Login, Register, paginile legale, return-site.js) — vezi regulile de mai sus.
+# Rămân pe .app DOAR adresele /frontend/ (Login, Register, paginile legale, return-site.js) și /demo/ (tutorialele video) — vezi regulile de mai sus.
 EU_URL="https://electricalvpf.eu"
-perl -pi -e 's#https://electricalvpf\.app/(?!frontend/)#https://electricalvpf.eu/#g' "${PAGES[@]}"
+perl -pi -e 's#https://electricalvpf\.app/(?!frontend/|demo/)#https://electricalvpf.eu/#g' "${PAGES[@]}"
 
 # sitemap.xml pentru .eu: din sitemap-ul .app (HEAD), doar paginile publice care există și pe .eu
 # (fără /frontend/ — paginile legale trăiesc doar pe .app), cu domeniul .eu.
 git -C "$SRC" show HEAD:sitemap.xml \
-  | perl -ne 'next if m#<loc>https://electricalvpf\.app/frontend/#; s#https://electricalvpf\.app/#https://electricalvpf.eu/#g; print' \
+  | perl -ne 'next if m#<loc>https://electricalvpf\.app/(frontend|demo)/#; s#https://electricalvpf\.app/#https://electricalvpf.eu/#g; print' \
   | perl -0pe 's#<!--.*?-->#<!-- electricalvpf.eu — generat de tools/sync-from-app.sh din sitemap-ul .app: doar paginile publice care există pe .eu. -->#s' \
   > sitemap.xml
 cat > robots.txt <<'ROBOTS'
@@ -240,8 +248,8 @@ for page in "${PAGES[@]}"; do
   url="$EU_URL/${page%index.html}"
   grep -q "<link rel=\"canonical\" href=\"$url\">" "$page" || { echo "ATENȚIE: $page nu are canonical către $url." >&2; exit 1; }
   if grep -qiE '<meta[^>]+name="robots"[^>]+noindex' "$page"; then echo "ATENȚIE: $page are noindex." >&2; exit 1; fi
-  if grep -nE 'https://electricalvpf\.app/' "$page" | grep -v 'electricalvpf\.app/frontend/' | grep -q .; then
-    echo "ATENȚIE: $page mai are adrese .app în afara /frontend/." >&2; exit 1
+  if grep -nE 'https://electricalvpf\.app/' "$page" | grep -vE 'electricalvpf\.app/(frontend|demo)/' | grep -q .; then
+    echo "ATENȚIE: $page mai are adrese .app în afara /frontend/ și /demo/." >&2; exit 1
   fi
   # fiecare pagină din sitemap e și o pagină copiată (și invers)
   grep -q "<loc>$url</loc>" sitemap.xml || { echo "ATENȚIE: $url lipsește din sitemap.xml." >&2; exit 1; }
