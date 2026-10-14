@@ -2914,7 +2914,68 @@
       "bodyRequired": "Write or upload the contract text.",
       "fieldsHint": "Fields appear in the text as {{example}}; in each contract they are replaced with the real data.",
       "replaceText": "Replace the text in the editor with the document's text?",
-      "choiceHint": "your text; only the data is filled in"
+      "choiceHint": "your text; only the data is filled in",
+      "examplesTitle": "Automatic fields — examples",
+      "exampleBeneficiary": "Client",
+      "exampleProvider": "Contractor",
+      "exampleBefore": "In the template you write:",
+      "exampleAfter": "In the contract it appears automatically:",
+      "guideButton": "Automatic field explanations",
+      "howTitle": "How do you create a template?",
+      "howStep1": "You write your contract.",
+      "howStep2": "Instead of a specific client's name, you press the “Client” button. {{client_name}} appears.",
+      "howStep3": "When you use the template for a contract, the app replaces that field with the chosen client's name.",
+      "unknownFields": "These are not automatic fields and will stay in the contract exactly as written: {{list}}. Delete them and use the buttons above.",
+      "fieldHelp": {
+        "contract_number": {
+          "example": "CTR-2026-0007"
+        },
+        "issue_date": {
+          "example": "14/10/2026"
+        },
+        "company_name": {
+          "example": "Example Electrical Ltd"
+        },
+        "company_address": {
+          "example": "10 Flower Street, London, United Kingdom"
+        },
+        "company_identification": {
+          "example": "VAT Reg. No. GB123456789, Company No. 01234567"
+        },
+        "client_name": {
+          "example": "John Smith"
+        },
+        "client_address": {
+          "example": "5 Tulip Road, Manchester"
+        },
+        "client_identification": {
+          "example": "VAT Reg. No. GB987654321, Company No. 07654321"
+        },
+        "title": {
+          "example": "Flat electrical installation"
+        },
+        "scope_of_work": {
+          "example": "Replacing the consumer unit and fitting 12 sockets."
+        },
+        "quote_number": {
+          "example": "OFF-2026-0012"
+        },
+        "total_value": {
+          "example": "12,500.00"
+        },
+        "currency": {
+          "example": "GBP"
+        },
+        "start_date": {
+          "example": "20/10/2026"
+        },
+        "end_date": {
+          "example": "25/10/2026"
+        },
+        "payment_terms": {
+          "example": "50% deposit, balance on completion."
+        }
+      }
     },
     "fields": {
       "contract_number": "Contract no.",

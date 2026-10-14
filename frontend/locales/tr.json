@@ -2321,7 +2321,68 @@
       "bodyRequired": "Sözleşme metnini yaz veya yükle.",
       "fieldsHint": "Alanlar metinde {{example}} olarak görünür; her sözleşmede gerçek verilerle değiştirilir.",
       "replaceText": "Düzenleyicideki metin belgenin metniyle değiştirilsin mi?",
-      "choiceHint": "senin metnin; yalnızca veriler doldurulur"
+      "choiceHint": "senin metnin; yalnızca veriler doldurulur",
+      "examplesTitle": "Otomatik alanlar — örnekler",
+      "exampleBeneficiary": "Müşteri",
+      "exampleProvider": "Yüklenici",
+      "exampleBefore": "Şablona yazdığınız:",
+      "exampleAfter": "Sözleşmede otomatik olarak görünen:",
+      "guideButton": "Otomatik alanların açıklamaları",
+      "howTitle": "Şablon nasıl oluşturulur?",
+      "howStep1": "Sözleşmenizi yazarsınız.",
+      "howStep2": "Belirli bir müşterinin adı yerine “Müşteri” düğmesine basarsınız. {{client_name}} görünür.",
+      "howStep3": "Şablonu bir sözleşme için kullandığınızda uygulama bu alanı seçilen müşterinin adıyla değiştirir.",
+      "unknownFields": "Bunlar otomatik alan değildir ve sözleşmede aynen kalır: {{list}}. Silin ve yukarıdaki düğmeleri kullanın.",
+      "fieldHelp": {
+        "contract_number": {
+          "example": "CTR-2026-0007"
+        },
+        "issue_date": {
+          "example": "14.10.2026"
+        },
+        "company_name": {
+          "example": "Örnek Elektrik Ltd. Şti."
+        },
+        "company_address": {
+          "example": "Çiçek Sokak No. 10, İstanbul, Türkiye"
+        },
+        "company_identification": {
+          "example": "Vergi No. 1234567890, Sicil No. 123456"
+        },
+        "client_name": {
+          "example": "Ahmet Yılmaz"
+        },
+        "client_address": {
+          "example": "Lale Caddesi No. 5, Ankara"
+        },
+        "client_identification": {
+          "example": "Vergi No. 0987654321, Sicil No. 654321"
+        },
+        "title": {
+          "example": "Daire elektrik tesisatı"
+        },
+        "scope_of_work": {
+          "example": "Elektrik panosunun değiştirilmesi ve 12 priz montajı."
+        },
+        "quote_number": {
+          "example": "OFF-2026-0012"
+        },
+        "total_value": {
+          "example": "12.500,00"
+        },
+        "currency": {
+          "example": "TRY"
+        },
+        "start_date": {
+          "example": "20.10.2026"
+        },
+        "end_date": {
+          "example": "25.10.2026"
+        },
+        "payment_terms": {
+          "example": "%50 avans, kalanı iş bitiminde."
+        }
+      }
     },
     "fields": {
       "contract_number": "Sözleşme no.",

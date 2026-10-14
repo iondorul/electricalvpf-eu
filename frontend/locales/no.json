@@ -2298,7 +2298,68 @@
       "bodyRequired": "Skriv eller last opp kontraktsteksten.",
       "fieldsHint": "Feltene vises i teksten som {{example}}; i hver kontrakt erstattes de med de faktiske dataene.",
       "replaceText": "Erstatte teksten i redigeringsfeltet med teksten fra dokumentet?",
-      "choiceHint": "din tekst; bare dataene fylles inn"
+      "choiceHint": "din tekst; bare dataene fylles inn",
+      "examplesTitle": "Automatiske felt — eksempler",
+      "exampleBeneficiary": "Kunde",
+      "exampleProvider": "Entreprenør",
+      "exampleBefore": "I malen skriver du:",
+      "exampleAfter": "I kontrakten vises automatisk:",
+      "guideButton": "Forklaring av de automatiske feltene",
+      "howTitle": "Hvordan lager du en mal?",
+      "howStep1": "Du skriver kontrakten din.",
+      "howStep2": "I stedet for navnet på en bestemt kunde trykker du på knappen «Kunde». {{client_name}} vises.",
+      "howStep3": "Når du bruker malen til en kontrakt, erstatter appen feltet med navnet på kunden du har valgt.",
+      "unknownFields": "Dette er ikke automatiske felt, og de blir stående i kontrakten akkurat slik: {{list}}. Slett dem og bruk knappene over.",
+      "fieldHelp": {
+        "contract_number": {
+          "example": "CTR-2026-0007"
+        },
+        "issue_date": {
+          "example": "14.10.2026"
+        },
+        "company_name": {
+          "example": "Elektro Eksempel AS"
+        },
+        "company_address": {
+          "example": "Blomsterveien 10, Oslo, Norge"
+        },
+        "company_identification": {
+          "example": "Org.nr. 912345678, Reg.nr. 912345678"
+        },
+        "client_name": {
+          "example": "Ola Nordmann"
+        },
+        "client_address": {
+          "example": "Tulipanveien 5, Bergen"
+        },
+        "client_identification": {
+          "example": "Org.nr. 987654321, Reg.nr. 987654321"
+        },
+        "title": {
+          "example": "Elektrisk anlegg i leilighet"
+        },
+        "scope_of_work": {
+          "example": "Utskifting av sikringsskap og montering av 12 stikkontakter."
+        },
+        "quote_number": {
+          "example": "OFF-2026-0012"
+        },
+        "total_value": {
+          "example": "125 000,00"
+        },
+        "currency": {
+          "example": "NOK"
+        },
+        "start_date": {
+          "example": "20.10.2026"
+        },
+        "end_date": {
+          "example": "25.10.2026"
+        },
+        "payment_terms": {
+          "example": "50 % forskudd, resten ved ferdigstillelse."
+        }
+      }
     },
     "fields": {
       "contract_number": "Kontraktnr.",

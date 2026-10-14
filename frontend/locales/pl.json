@@ -2327,7 +2327,68 @@
       "bodyRequired": "Wpisz lub wczytaj treść umowy.",
       "fieldsHint": "Pola pojawiają się w tekście jako {{example}}; w każdej umowie zastępowane są prawdziwymi danymi.",
       "replaceText": "Zastąpić tekst w edytorze tekstem z dokumentu?",
-      "choiceHint": "Twój tekst; uzupełniane są tylko dane"
+      "choiceHint": "Twój tekst; uzupełniane są tylko dane",
+      "examplesTitle": "Pola automatyczne — przykłady",
+      "exampleBeneficiary": "Zamawiający",
+      "exampleProvider": "Wykonawca",
+      "exampleBefore": "W szablonie piszesz:",
+      "exampleAfter": "W umowie pojawia się automatycznie:",
+      "guideButton": "Objaśnienia pól automatycznych",
+      "howTitle": "Jak utworzyć szablon?",
+      "howStep1": "Piszesz swoją umowę.",
+      "howStep2": "Zamiast nazwiska konkretnego klienta naciskasz przycisk „Klient”. Pojawia się {{client_name}}.",
+      "howStep3": "Gdy używasz szablonu do umowy, aplikacja zastępuje to pole nazwą wybranego klienta.",
+      "unknownFields": "To nie są pola automatyczne i zostaną w umowie dokładnie tak: {{list}}. Usuń je i użyj przycisków powyżej.",
+      "fieldHelp": {
+        "contract_number": {
+          "example": "CTR-2026-0007"
+        },
+        "issue_date": {
+          "example": "14.10.2026"
+        },
+        "company_name": {
+          "example": "Elektro Przykład Sp. z o.o."
+        },
+        "company_address": {
+          "example": "ul. Kwiatowa 10, Warszawa, Polska"
+        },
+        "company_identification": {
+          "example": "NIP 1234567890, KRS 0000123456"
+        },
+        "client_name": {
+          "example": "Jan Kowalski"
+        },
+        "client_address": {
+          "example": "ul. Tulipanowa 5, Kraków"
+        },
+        "client_identification": {
+          "example": "NIP 0987654321, KRS 0000654321"
+        },
+        "title": {
+          "example": "Instalacja elektryczna w mieszkaniu"
+        },
+        "scope_of_work": {
+          "example": "Wymiana rozdzielnicy i montaż 12 gniazdek."
+        },
+        "quote_number": {
+          "example": "OFF-2026-0012"
+        },
+        "total_value": {
+          "example": "12 500,00"
+        },
+        "currency": {
+          "example": "PLN"
+        },
+        "start_date": {
+          "example": "20.10.2026"
+        },
+        "end_date": {
+          "example": "25.10.2026"
+        },
+        "payment_terms": {
+          "example": "50% zaliczki, reszta po zakończeniu prac."
+        }
+      }
     },
     "fields": {
       "contract_number": "Nr umowy",

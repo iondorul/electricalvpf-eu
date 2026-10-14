@@ -2901,6 +2901,62 @@
     },
     "userContentNotice": "Conținutul contractului este furnizat și administrat de utilizator. ElectricalVPF oferă instrumentele software pentru gestionarea și semnarea documentului și nu oferă consultanță juridică.",
     "templates": {
+      "examplesTitle": "Câmpuri automate — exemple",
+      "exampleBeneficiary": "Beneficiar",
+      "exampleProvider": "Prestator",
+      "exampleBefore": "În șablon scrii:",
+      "exampleAfter": "În contract apare automat:",
+      "guideButton": "Explicațiile câmpurilor automate",
+      "fieldHelp": {
+        "contract_number": {
+          "example": "CTR-2026-0007"
+        },
+        "issue_date": {
+          "example": "14.10.2026"
+        },
+        "company_name": {
+          "example": "Electro Exemplu SRL"
+        },
+        "company_address": {
+          "example": "Str. Florilor 10, București, România"
+        },
+        "company_identification": {
+          "example": "CUI RO12345678, Nr. Reg. Com. J40/1234/2020"
+        },
+        "client_name": {
+          "example": "Ion Popescu"
+        },
+        "client_address": {
+          "example": "Str. Lalelelor 5, Cluj-Napoca"
+        },
+        "client_identification": {
+          "example": "CUI RO87654321, Nr. Reg. Com. J12/456/2021"
+        },
+        "title": {
+          "example": "Instalație electrică apartament"
+        },
+        "scope_of_work": {
+          "example": "Înlocuire tablou electric și montare 12 prize."
+        },
+        "quote_number": {
+          "example": "OFF-2026-0012"
+        },
+        "total_value": {
+          "example": "12.500,00"
+        },
+        "currency": {
+          "example": "RON"
+        },
+        "start_date": {
+          "example": "20.10.2026"
+        },
+        "end_date": {
+          "example": "25.10.2026"
+        },
+        "payment_terms": {
+          "example": "50% avans, restul la finalizarea lucrării."
+        }
+      },
       "invalid": "Dă un nume șablonului și scrie (sau încarcă) textul contractului.",
       "desc": "Șablonul este contractul tău. Îl încarci dintr-un document sau îl scrii și pui câmpurile automate (client, lucrare, valoare, date); la fiecare contract nou se completează doar datele.",
       "updated": "Actualizat {{date}}",
@@ -2919,7 +2975,12 @@
       "bodyRequired": "Scrie sau încarcă textul contractului.",
       "fieldsHint": "Câmpurile apar în text ca {{example}}; la fiecare contract se înlocuiesc cu datele reale.",
       "replaceText": "Înlocuiești textul din editor cu textul documentului?",
-      "choiceHint": "textul tău; se completează doar datele"
+      "choiceHint": "textul tău; se completează doar datele",
+      "howTitle": "Cum creezi un șablon?",
+      "howStep1": "Scrii contractul tău.",
+      "howStep2": "În locul numelui unui client concret, apeși butonul „Client”. Apare {{client_name}}.",
+      "howStep3": "Când folosești șablonul pentru un contract, aplicația înlocuiește acel câmp cu numele clientului ales.",
+      "unknownFields": "Acestea nu sunt câmpuri automate și vor rămâne în contract exact așa: {{list}}. Șterge-le și folosește butoanele de mai sus."
     },
     "fields": {
       "contract_number": "Nr. contract",

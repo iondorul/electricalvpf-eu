@@ -2298,7 +2298,68 @@
       "bodyRequired": "Schrijf of upload de contracttekst.",
       "fieldsHint": "Velden staan in de tekst als {{example}}; in elk contract worden ze vervangen door de echte gegevens.",
       "replaceText": "De tekst in de editor vervangen door de tekst van het document?",
-      "choiceHint": "jouw tekst; alleen de gegevens worden ingevuld"
+      "choiceHint": "jouw tekst; alleen de gegevens worden ingevuld",
+      "examplesTitle": "Automatische velden — voorbeelden",
+      "exampleBeneficiary": "Opdrachtgever",
+      "exampleProvider": "Aannemer",
+      "exampleBefore": "In het sjabloon schrijf je:",
+      "exampleAfter": "In het contract verschijnt automatisch:",
+      "guideButton": "Uitleg van de automatische velden",
+      "howTitle": "Hoe maak je een sjabloon?",
+      "howStep1": "Je schrijft je eigen contract.",
+      "howStep2": "In plaats van de naam van een bepaalde klant druk je op de knop “Klant”. Er verschijnt {{client_name}}.",
+      "howStep3": "Als je het sjabloon voor een contract gebruikt, vervangt de app dat veld door de naam van de gekozen klant.",
+      "unknownFields": "Dit zijn geen automatische velden; ze blijven precies zo in het contract staan: {{list}}. Verwijder ze en gebruik de knoppen hierboven.",
+      "fieldHelp": {
+        "contract_number": {
+          "example": "CTR-2026-0007"
+        },
+        "issue_date": {
+          "example": "14-10-2026"
+        },
+        "company_name": {
+          "example": "Elektro Voorbeeld B.V."
+        },
+        "company_address": {
+          "example": "Bloemenstraat 10, Utrecht, Nederland"
+        },
+        "company_identification": {
+          "example": "BTW-nr. NL123456789B01, KvK-nr. 12345678"
+        },
+        "client_name": {
+          "example": "Jan Jansen"
+        },
+        "client_address": {
+          "example": "Tulpenlaan 5, Amsterdam"
+        },
+        "client_identification": {
+          "example": "BTW-nr. NL987654321B01, KvK-nr. 87654321"
+        },
+        "title": {
+          "example": "Elektrische installatie appartement"
+        },
+        "scope_of_work": {
+          "example": "Vervangen van de groepenkast en plaatsen van 12 stopcontacten."
+        },
+        "quote_number": {
+          "example": "OFF-2026-0012"
+        },
+        "total_value": {
+          "example": "12.500,00"
+        },
+        "currency": {
+          "example": "EUR"
+        },
+        "start_date": {
+          "example": "20-10-2026"
+        },
+        "end_date": {
+          "example": "25-10-2026"
+        },
+        "payment_terms": {
+          "example": "50% aanbetaling, de rest bij oplevering."
+        }
+      }
     },
     "fields": {
       "contract_number": "Contractnr.",

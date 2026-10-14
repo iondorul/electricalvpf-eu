@@ -1413,7 +1413,68 @@
       "bodyRequired": "Skriv eller ladda upp avtalstexten.",
       "fieldsHint": "Fälten visas i texten som {{example}}; i varje avtal ersätts de med de verkliga uppgifterna.",
       "replaceText": "Ersätta texten i redigeraren med dokumentets text?",
-      "choiceHint": "din text; bara uppgifterna fylls i"
+      "choiceHint": "din text; bara uppgifterna fylls i",
+      "examplesTitle": "Automatiska fält — exempel",
+      "exampleBeneficiary": "Beställare",
+      "exampleProvider": "Entreprenör",
+      "exampleBefore": "I mallen skriver du:",
+      "exampleAfter": "I avtalet visas automatiskt:",
+      "guideButton": "Förklaring av de automatiska fälten",
+      "howTitle": "Hur skapar du en mall?",
+      "howStep1": "Du skriver ditt avtal.",
+      "howStep2": "I stället för namnet på en viss kund trycker du på knappen ”Kund”. {{client_name}} visas.",
+      "howStep3": "När du använder mallen för ett avtal ersätter appen fältet med namnet på den valda kunden.",
+      "unknownFields": "Detta är inte automatiska fält och de blir kvar i avtalet precis så här: {{list}}. Ta bort dem och använd knapparna ovan.",
+      "fieldHelp": {
+        "contract_number": {
+          "example": "CTR-2026-0007"
+        },
+        "issue_date": {
+          "example": "2026-10-14"
+        },
+        "company_name": {
+          "example": "Elektro Exempel AB"
+        },
+        "company_address": {
+          "example": "Blomgatan 10, Uppsala, Sverige"
+        },
+        "company_identification": {
+          "example": "Momsreg.nr SE556123456701, Org.nr 556123-4567"
+        },
+        "client_name": {
+          "example": "Anna Andersson"
+        },
+        "client_address": {
+          "example": "Tulpanvägen 5, Göteborg"
+        },
+        "client_identification": {
+          "example": "Momsreg.nr SE556765432101, Org.nr 556765-4321"
+        },
+        "title": {
+          "example": "Elinstallation i lägenhet"
+        },
+        "scope_of_work": {
+          "example": "Byte av elcentral och montering av 12 eluttag."
+        },
+        "quote_number": {
+          "example": "OFF-2026-0012"
+        },
+        "total_value": {
+          "example": "125 000,00"
+        },
+        "currency": {
+          "example": "SEK"
+        },
+        "start_date": {
+          "example": "2026-10-20"
+        },
+        "end_date": {
+          "example": "2026-10-25"
+        },
+        "payment_terms": {
+          "example": "50 % förskott, resten vid slutförande."
+        }
+      }
     },
     "fields": {
       "contract_number": "Avtalsnr",

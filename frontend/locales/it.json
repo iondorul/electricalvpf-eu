@@ -2321,7 +2321,68 @@
       "bodyRequired": "Scrivi o carica il testo del contratto.",
       "fieldsHint": "I campi appaiono nel testo come {{example}}; in ogni contratto vengono sostituiti con i dati reali.",
       "replaceText": "Sostituire il testo nell'editor con il testo del documento?",
-      "choiceHint": "il tuo testo; vengono compilati solo i dati"
+      "choiceHint": "il tuo testo; vengono compilati solo i dati",
+      "examplesTitle": "Campi automatici — esempi",
+      "exampleBeneficiary": "Committente",
+      "exampleProvider": "Impresa",
+      "exampleBefore": "Nel modello scrivi:",
+      "exampleAfter": "Nel contratto appare automaticamente:",
+      "guideButton": "Spiegazioni dei campi automatici",
+      "howTitle": "Come si crea un modello?",
+      "howStep1": "Scrivi il tuo contratto.",
+      "howStep2": "Al posto del nome di un cliente preciso, premi il pulsante «Committente». Appare {{client_name}}.",
+      "howStep3": "Quando usi il modello per un contratto, l'app sostituisce quel campo con il nome del cliente scelto.",
+      "unknownFields": "Questi non sono campi automatici e resteranno nel contratto esattamente così: {{list}}. Eliminali e usa i pulsanti qui sopra.",
+      "fieldHelp": {
+        "contract_number": {
+          "example": "CTR-2026-0007"
+        },
+        "issue_date": {
+          "example": "14/10/2026"
+        },
+        "company_name": {
+          "example": "Elettro Esempio S.r.l."
+        },
+        "company_address": {
+          "example": "Via dei Fiori 10, Milano, Italia"
+        },
+        "company_identification": {
+          "example": "P.IVA IT12345678901, REA MI-1234567"
+        },
+        "client_name": {
+          "example": "Mario Rossi"
+        },
+        "client_address": {
+          "example": "Via dei Tulipani 5, Torino"
+        },
+        "client_identification": {
+          "example": "P.IVA IT10987654321, REA TO-7654321"
+        },
+        "title": {
+          "example": "Impianto elettrico appartamento"
+        },
+        "scope_of_work": {
+          "example": "Sostituzione del quadro elettrico e posa di 12 prese."
+        },
+        "quote_number": {
+          "example": "OFF-2026-0012"
+        },
+        "total_value": {
+          "example": "12.500,00"
+        },
+        "currency": {
+          "example": "EUR"
+        },
+        "start_date": {
+          "example": "20/10/2026"
+        },
+        "end_date": {
+          "example": "25/10/2026"
+        },
+        "payment_terms": {
+          "example": "50% di acconto, il saldo alla fine dei lavori."
+        }
+      }
     },
     "fields": {
       "contract_number": "N. contratto",
