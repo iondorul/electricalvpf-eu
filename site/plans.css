@@ -233,6 +233,24 @@
     transition-delay: 0.1s;
 }
 
+/* Match the app: explanations open on click, with no automatic hover panel. */
+#plansGrid .plan-tooltip { display: none; }
+
+/* Same fine grey outlines as the app, without changing the descriptions. */
+#plansGrid .erp-plan-allowance {
+    display: inline-block;
+    max-width: 100%;
+    box-sizing: border-box;
+    vertical-align: baseline;
+    padding: 2px 7px;
+    border: 1px solid #606f84;
+    border-radius: 999px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    overflow-wrap: anywhere;
+}
+
 /* Un click deschide fereastra; tooltip-ul aceluiași rând nu mai apare simultan. */
 .plan-module.pinned-open .plan-tooltip {
     opacity: 0 !important;
