@@ -33,7 +33,7 @@
       const links = (key) => {
           const sel = {
               product: 'a[href$="#product"]', features: 'a[href$="#features"]', workflow: 'a[href$="#workflow"]',
-              pricing: 'a[href$="#pricing"]', demo: 'a[href$="/demo/"]', calculator: 'a[href$="#calculator-tool"]',
+              pricing: 'a[href$="#pricing"]', demo: '#tutorials-dropdown-toggle, .mobile-tutorials > summary', calculator: 'a[href$="#calculator-tool"]',
               resource: 'a[data-resource="quote-template"]',
           }[key];
           return sel ? [...header.querySelectorAll(sel)] : [];
@@ -117,15 +117,18 @@
 
       initActiveLink();
 
-      const featuresDropdown = document.getElementById('features-dropdown');
-      const featuresDropdownToggle = document.getElementById('features-dropdown-toggle');
-      const featuresDropdownMenu = document.getElementById('features-dropdown-menu');
+      const dropdownClosers = new Map();
+      document.querySelectorAll('#features-dropdown, #tutorials-dropdown').forEach((dropdown) => {
+      const featuresDropdown = dropdown;
+      const featuresDropdownToggle = dropdown.querySelector('.nav-dropdown-toggle');
+      const featuresDropdownMenu = dropdown.querySelector('.nav-dropdown-menu');
       let featuresDropdownCloseTimer;
 
       const canHoverFeaturesDropdown = () =>
           window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
       const setFeaturesDropdownOpen = (isOpen) => {
+          if (isOpen) dropdownClosers.forEach((close, other) => { if (other !== dropdown) close(); });
           featuresDropdown.classList.toggle('is-open', isOpen);
           featuresDropdownToggle.setAttribute('aria-expanded', String(isOpen));
           featuresDropdownMenu.setAttribute('aria-hidden', String(!isOpen));
@@ -154,6 +157,17 @@
           }
       });
 
+      dropdownClosers.set(dropdown, () => { clearTimeout(featuresDropdownCloseTimer); setFeaturesDropdownOpen(false); });
+      dropdown.addEventListener('focusout', (event) => {
+          if (!dropdown.contains(event.relatedTarget)) setFeaturesDropdownOpen(false);
+      });
+      dropdown.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') { setFeaturesDropdownOpen(false); featuresDropdownToggle.focus(); }
+          if (event.key === 'ArrowDown' && event.target === featuresDropdownToggle) {
+              event.preventDefault(); setFeaturesDropdownOpen(true); featuresDropdownMenu.querySelector('a').focus();
+          }
+      });
+      });
       const closeMobileMenu = () => {
           drawer.classList.remove('is-open');
           drawer.setAttribute('aria-hidden', 'true');
@@ -180,10 +194,7 @@
       overlay.addEventListener('click', closeMobileMenu);
       internalLinks.forEach((link) => link.addEventListener('click', closeMobileMenu));
       document.addEventListener('keydown', (event) => {
-          if (event.key === 'Escape' && featuresDropdown.classList.contains('is-open')) {
-              setFeaturesDropdownOpen(false);
-              featuresDropdownToggle.focus();
-          }
+
           if (event.key === 'Escape' && drawer.classList.contains('is-open')) closeMobileMenu();
       });
   };

@@ -2048,3 +2048,35 @@ html.watch-modal-open { overflow: hidden; }
   .watch-modal { padding: 12px; }
   .watch-modal-close { top: -42px; }
 }
+/* Tutorial constellation: one catalogue on desktop and mobile. */
+.tutorials-menu {
+    color: #e9edff;
+    background: radial-gradient(ellipse at 95% 0, #51317d66, transparent 55%), radial-gradient(ellipse at 0 100%, #087e8b33, transparent 55%), #10182b;
+    border: 1px solid #8b9cce55;
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: 0 24px 70px #02061788, inset 0 1px #ffffff12;
+}
+.nav-dropdown-menu.tutorials-menu { width: min(680px, 92vw); max-height: calc(100dvh - 110px); overflow-y: auto; left: auto; right: -90px; transform: translateY(4px); }
+.nav-dropdown.is-open .tutorials-menu { transform: translateY(0); }
+.tutorials-menu a { white-space: normal; color: #e9edff; text-decoration: none; }
+.tutorials-menu .tutorial-overview { display: flex; align-items: center; gap: 16px; padding: 18px; border-radius: 14px; background: linear-gradient(115deg, #5674d52e, #a556db26); border: 1px solid #a1a9ff44; }
+.tutorial-overview strong { display: block; font-size: 16px; color: #fff; }
+.tutorial-overview small { display: block; margin-top: 6px; font-size: 12px; line-height: 1.6; color: #bac7e3; font-weight: 400; }
+.tutorial-orbit { display: grid; place-items: center; width: 48px; height: 48px; flex: 0 0 48px; border: 1px solid #8de9ff; border-radius: 50%; color: #a8f1ff; box-shadow: 0 0 24px #62b9ff30, 0 0 0 6px #89baff0a; }
+.tutorial-section { display: flex; justify-content: space-between; padding: 17px 6px 10px; color: #b7c7e8; text-transform: uppercase; letter-spacing: .14em; font-size: 10px; font-weight: 700; }
+.tutorial-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px 12px; }
+.tutorials-menu .tutorial-item { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 7px; border: 1px solid transparent; border-radius: 10px; font-size: 12px; line-height: 1.4; font-weight: 500; }
+.tutorial-number { display: grid; place-items: center; flex: 0 0 30px; height: 30px; border: 1px solid #8396d15c; border-radius: 50%; background: #8ba4ff0c; color: #a9dfff; font-size: 12px; font-variant-numeric: tabular-nums; }
+.tutorial-item small { margin-left: auto; color: #9caccb; font-size: 10px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.tutorials-menu a:hover, .tutorials-menu a:focus-visible { background: #829fff19; border-color: #84cfff66; color: #fff; }
+.tutorials-menu a:focus-visible { outline: 2px solid #9adfff; outline-offset: 2px; }
+.tutorials-menu a:hover .tutorial-number { border-color: #8de9ff; box-shadow: 0 0 15px #62b9ff26; }
+.tutorials-menu .tutorial-library { display: flex; justify-content: space-between; margin-top: 12px; padding: 12px 8px 0; border-top: 1px solid #92a8d529; border-radius: 0; font-size: 12px; color: #a9dfff; }
+.mobile-tutorials .tutorials-menu { margin-top: 10px; padding: 10px; border-radius: 14px; }
+.mobile-tutorials .tutorial-grid { grid-template-columns: 1fr; }
+.mobile-tutorials .tutorial-overview { padding: 12px; gap: 10px; }
+.mobile-tutorials .tutorial-overview strong { font-size: 14px; }
+.mobile-tutorials .tutorial-orbit { flex-basis: 32px; width: 32px; height: 32px; }
+[id^="tutorial-"] { scroll-margin-top: 110px; }
+[id^="tutorial-"]:target { outline: 2px solid #83cfff; outline-offset: 6px; border-radius: 16px; box-shadow: 0 0 40px #609cff26; }

@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/site/style.css?v=20261012-active">
+    <link rel="stylesheet" href="/site/style.css?v=20261015-tutorials">
     <link rel="stylesheet" href="/site/cosmos.css?v=20261002-auth-cosmos">
     <style>
         /* Aceleași tokenuri ca vitrina (site/style.css). Calm: spațiere, borduri de 1px, fără umbre tari. */
@@ -192,7 +192,23 @@
                     </div>
                 </div>
                 <a href="/#workflow" data-i18n="workflow">Workflow</a>
-                <a href="https://electricalvpf.app/demo/" data-i18n="viewTutorials">Bekijk tutorials</a>
+                <div class="nav-dropdown" id="tutorials-dropdown"><button class="nav-dropdown-toggle" id="tutorials-dropdown-toggle" type="button" aria-expanded="false" aria-controls="tutorials-dropdown-menu"><span data-i18n="viewTutorials">Bekijk tutorials</span><i class="fas fa-chevron-down" aria-hidden="true"></i></button><div class="nav-dropdown-menu tutorials-menu" id="tutorials-dropdown-menu" aria-hidden="true"><a class="tutorial-overview" href="https://electricalvpf.app/demo/#tutorial-overview"><span class="tutorial-orbit" aria-hidden="true">▶</span><span><strong data-i18n="tutorial.overview">Overview</strong><small data-i18n="tutorial.intro">Eén klus, van het eerste telefoontje tot de betaling: de offerte, de acceptatie door de klant, het online getekende contract, de factuur en de betaling. Kies daarna hieronder een stap om die in detail te zien.</small></span><span aria-hidden="true">↗</span></a>
+    <div class="tutorial-section"><span data-i18n="tutorial.steps">Stap voor stap</span><span>14</span></div>
+    <div class="tutorial-grid"><a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-01-add-client"><span class="tutorial-number">1</span><span data-i18n="tutorial.c01t">Een klant toevoegen</span><small>0:44</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-02-work-request"><span class="tutorial-number">2</span><span data-i18n="tutorial.c02t">Een werkverzoek vastleggen</span><small>0:56</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-03-work"><span class="tutorial-number">3</span><span data-i18n="tutorial.c03t">Maak er werk van</span><small>0:48</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-04-estimated-materials"><span class="tutorial-number">4</span><span data-i18n="tutorial.c04t">Materialen ramen</span><small>1:10</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-05-materials"><span class="tutorial-number">5</span><span data-i18n="tutorial.c05t">Materialen op de klus</span><small>0:57</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-06-estimated-quote"><span class="tutorial-number">6</span><span data-i18n="tutorial.c06t">De klus prijzen</span><small>1:38</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-07-quote"><span class="tutorial-number">7</span><span data-i18n="tutorial.c07t">De offerte maken</span><small>0:46</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-07b-quote-pdf"><span class="tutorial-number">8</span><span data-i18n="tutorial.c07bt">Voorbeeld van de offerte-pdf</span><small>0:27</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-08-send-quote"><span class="tutorial-number">9</span><span data-i18n="tutorial.c08t">De offerte versturen</span><small>0:53</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-09-quote-accepted"><span class="tutorial-number">10</span><span data-i18n="tutorial.c09t">De klant accepteert online</span><small>0:41</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-10-contract"><span class="tutorial-number">11</span><span data-i18n="tutorial.c10t">Contract, door beiden getekend</span><small>2:57</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-11-invoice"><span class="tutorial-number">12</span><span data-i18n="tutorial.c11t">Factuur uit de offerte</span><small>1:12</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-12-job-status"><span class="tutorial-number">13</span><span data-i18n="tutorial.c12t">Betaald, klus afgesloten</span><small>1:08</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-13-bonus-leads"><span class="tutorial-number">14</span><span data-i18n="tutorial.c13t">Van aanvraag tot klant</span><small>1:17</small></a></div>
+    <a class="tutorial-library" href="https://electricalvpf.app/demo/"><span data-i18n="viewTutorials">Bekijk tutorials</span><span aria-hidden="true">→</span></a></div></div>
                 <a href="/#pricing" data-i18n="pricing">Prijzen</a>
 
 
@@ -254,7 +270,23 @@
                     </div>
                 </details>
                 <a href="/#workflow" data-i18n="workflow">Workflow</a>
-                <a href="https://electricalvpf.app/demo/" data-i18n="viewTutorials">Bekijk tutorials</a>
+                <details class="mobile-features mobile-tutorials"><summary><span data-i18n="viewTutorials">Bekijk tutorials</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary><div class="tutorials-menu"><a class="tutorial-overview" href="https://electricalvpf.app/demo/#tutorial-overview"><span class="tutorial-orbit" aria-hidden="true">▶</span><span><strong data-i18n="tutorial.overview">Overview</strong><small data-i18n="tutorial.intro">Eén klus, van het eerste telefoontje tot de betaling: de offerte, de acceptatie door de klant, het online getekende contract, de factuur en de betaling. Kies daarna hieronder een stap om die in detail te zien.</small></span><span aria-hidden="true">↗</span></a>
+    <div class="tutorial-section"><span data-i18n="tutorial.steps">Stap voor stap</span><span>14</span></div>
+    <div class="tutorial-grid"><a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-01-add-client"><span class="tutorial-number">1</span><span data-i18n="tutorial.c01t">Een klant toevoegen</span><small>0:44</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-02-work-request"><span class="tutorial-number">2</span><span data-i18n="tutorial.c02t">Een werkverzoek vastleggen</span><small>0:56</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-03-work"><span class="tutorial-number">3</span><span data-i18n="tutorial.c03t">Maak er werk van</span><small>0:48</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-04-estimated-materials"><span class="tutorial-number">4</span><span data-i18n="tutorial.c04t">Materialen ramen</span><small>1:10</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-05-materials"><span class="tutorial-number">5</span><span data-i18n="tutorial.c05t">Materialen op de klus</span><small>0:57</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-06-estimated-quote"><span class="tutorial-number">6</span><span data-i18n="tutorial.c06t">De klus prijzen</span><small>1:38</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-07-quote"><span class="tutorial-number">7</span><span data-i18n="tutorial.c07t">De offerte maken</span><small>0:46</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-07b-quote-pdf"><span class="tutorial-number">8</span><span data-i18n="tutorial.c07bt">Voorbeeld van de offerte-pdf</span><small>0:27</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-08-send-quote"><span class="tutorial-number">9</span><span data-i18n="tutorial.c08t">De offerte versturen</span><small>0:53</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-09-quote-accepted"><span class="tutorial-number">10</span><span data-i18n="tutorial.c09t">De klant accepteert online</span><small>0:41</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-10-contract"><span class="tutorial-number">11</span><span data-i18n="tutorial.c10t">Contract, door beiden getekend</span><small>2:57</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-11-invoice"><span class="tutorial-number">12</span><span data-i18n="tutorial.c11t">Factuur uit de offerte</span><small>1:12</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-12-job-status"><span class="tutorial-number">13</span><span data-i18n="tutorial.c12t">Betaald, klus afgesloten</span><small>1:08</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-13-bonus-leads"><span class="tutorial-number">14</span><span data-i18n="tutorial.c13t">Van aanvraag tot klant</span><small>1:17</small></a></div>
+    <a class="tutorial-library" href="https://electricalvpf.app/demo/"><span data-i18n="viewTutorials">Bekijk tutorials</span><span aria-hidden="true">→</span></a></div></details>
                 <a href="/#pricing" data-i18n="pricing">Prijzen</a>
             </nav>
             <div class="mobile-nav-actions">
@@ -400,11 +432,11 @@
     </script>
     <!-- site-header-scripts:start — antetul comun (site/tools/build-site-header.js) -->
     <script>window.SITE_LANG_STORAGE_KEY = "locale"; window.SITE_PAGE_LANG = "nl"; window.SITE_PAGE_STRICT = true; window.SITE_PAGE_URLS = {"tr":"/tr/elektrik-isleri-teklif-sablonu/","ru":"/ru/smeta-elektromontazhnye-raboty/","en":"/electrical-quote-template/","ro":"/ro/model-deviz-instalatii-electrice/","no":"/no/tilbudsmal-elektriker/","nl":"/nl/offerte-sjabloon-elektricien/","it":"/it/modello-preventivo-elettricista/","pl":"/pl/wzor-oferty-elektryka/","uk":"/uk/koshtorys-elektromontazhni-roboty/","sv":"/sv/offertmall-elektriker/"};</script>
-    <script src="/site/translations.js?v=20261011-watch"></script>
+    <script src="/site/translations.js?v=20261015-tutorials"></script>
     <script src="/site/language-dropdown.js?v=20261012-header"></script>
     <script src="/site/help-menu.js?v=20260929-mail-choices"></script>
     <script src="/site/about.js?v=20261005-field-experience"></script>
-    <script src="/site/site-header.js?v=20261012-active"></script>
+    <script src="/site/site-header.js?v=20261015-tutorials"></script>
     <!-- site-header-scripts:end -->
 </body>
 
