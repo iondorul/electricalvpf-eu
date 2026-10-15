@@ -6,7 +6,7 @@
 // Ecran complet: al nostru (cadrul video + subtitrare), nu cel nativ al video-ului — acela ar arăta doar rezumatul.
 (function () {
   var LANGS = ["en", "ro", "uk", "tr", "pl", "ru", "it", "nl", "no", "sv"];
-  var VERSION = "20261012-phone2";
+  var VERSION = "20261015-archive";
   // Caseta arsă, înregistrată pe 1920×1080: jos la 56px, lată de cel mult 960px, cel mult două rânduri de 30px.
   var REC_W = 1920, REC_H = 1080, BOTTOM = 56, BOX_W = 964, BOX_H = 118, FONT = 30, PAD_Y = 16, PAD_X = 30, RADIUS = 14;
   var MIN_FONT = 11; // pe telefon, textul la scara video-ului ar fi ilizibil
