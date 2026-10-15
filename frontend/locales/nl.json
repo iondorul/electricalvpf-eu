@@ -1752,7 +1752,8 @@
       "tokenRequired": "De bevestigingslink is ongeldig of onvolledig.",
       "tokenInvalid": "De bevestigingslink is ongeldig.",
       "tokenExpired": "De bevestigingslink is verlopen.",
-      "failureMessage": "Je e-mailadres kon niet worden bevestigd."
+      "failureMessage": "Je e-mailadres kon niet worden bevestigd.",
+      "redirecting": "We brengen je naar inloggen…"
     },
     "pageTitle": {
       "login": "ElectricalVPF ERP | Inloggen",

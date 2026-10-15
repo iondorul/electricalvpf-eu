@@ -726,7 +726,8 @@
       "tokenRequired": "Bekräftelselänken är ogiltig eller ofullständig.",
       "tokenInvalid": "Bekräftelselänken är ogiltig.",
       "tokenExpired": "Bekräftelselänken har gått ut.",
-      "failureMessage": "E-postadressen kunde inte bekräftas."
+      "failureMessage": "E-postadressen kunde inte bekräftas.",
+      "redirecting": "Vi tar dig till inloggningen…"
     },
     "pageTitle": {
       "login": "ElectricalVPF ERP | Logga in",

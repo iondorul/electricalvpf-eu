@@ -1775,7 +1775,8 @@
       "tokenRequired": "Onay bağlantısı geçersiz veya eksik.",
       "tokenInvalid": "Onay bağlantısı geçersiz.",
       "tokenExpired": "Onay bağlantısının süresi dolmuş.",
-      "failureMessage": "E-posta adresi onaylanamadı."
+      "failureMessage": "E-posta adresi onaylanamadı.",
+      "redirecting": "Giriş sayfasına yönlendiriliyorsunuz…"
     },
     "pageTitle": {
       "login": "ElectricalVPF ERP | Giriş",

@@ -2670,7 +2670,8 @@
       "tokenRequired": "Linkul de confirmare este invalid sau incomplet.",
       "tokenInvalid": "Linkul de confirmare este invalid.",
       "tokenExpired": "Linkul de confirmare a expirat.",
-      "failureMessage": "Nu s-a putut confirma adresa de email."
+      "failureMessage": "Nu s-a putut confirma adresa de email.",
+      "redirecting": "Te ducem la autentificare…"
     },
     "pageTitle": {
       "login": "ElectricalVPF ERP | Autentificare",

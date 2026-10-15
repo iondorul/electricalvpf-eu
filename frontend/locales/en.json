@@ -2665,7 +2665,8 @@
       "tokenRequired": "The confirmation link is invalid or incomplete.",
       "tokenInvalid": "The confirmation link is invalid.",
       "tokenExpired": "The confirmation link has expired.",
-      "failureMessage": "Your email address could not be confirmed."
+      "failureMessage": "Your email address could not be confirmed.",
+      "redirecting": "Taking you to sign in…"
     },
     "pageTitle": {
       "login": "ElectricalVPF ERP | Login",

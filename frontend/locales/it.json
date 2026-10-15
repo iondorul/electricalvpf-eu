@@ -1775,7 +1775,8 @@
       "tokenRequired": "Il link di conferma non è valido o è incompleto.",
       "tokenInvalid": "Il link di conferma non è valido.",
       "tokenExpired": "Il link di conferma è scaduto.",
-      "failureMessage": "Non è stato possibile confermare l'indirizzo email."
+      "failureMessage": "Non è stato possibile confermare l'indirizzo email.",
+      "redirecting": "Ti portiamo all’accesso…"
     },
     "pageTitle": {
       "login": "ElectricalVPF ERP | Accesso",

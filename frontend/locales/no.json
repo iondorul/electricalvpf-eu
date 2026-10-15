@@ -1752,7 +1752,8 @@
       "tokenRequired": "Bekreftelseslenken er ugyldig eller ufullstendig.",
       "tokenInvalid": "Bekreftelseslenken er ugyldig.",
       "tokenExpired": "Bekreftelseslenken er utløpt.",
-      "failureMessage": "E-postadressen kunne ikke bekreftes."
+      "failureMessage": "E-postadressen kunne ikke bekreftes.",
+      "redirecting": "Vi tar deg til innlogging…"
     },
     "pageTitle": {
       "login": "ElectricalVPF ERP | Logg inn",

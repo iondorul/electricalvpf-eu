@@ -1779,7 +1779,8 @@
       "tokenRequired": "Link potwierdzający jest nieprawidłowy lub niekompletny.",
       "tokenInvalid": "Link potwierdzający jest nieprawidłowy.",
       "tokenExpired": "Link potwierdzający wygasł.",
-      "failureMessage": "Nie udało się potwierdzić adresu e-mail."
+      "failureMessage": "Nie udało się potwierdzić adresu e-mail.",
+      "redirecting": "Przechodzimy do logowania…"
     },
     "pageTitle": {
       "login": "ElectricalVPF ERP | Logowanie",
