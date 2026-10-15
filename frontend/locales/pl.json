@@ -430,7 +430,14 @@
       "passwordChangeFailed": "Nie udało się zmienić hasła.",
       "twoFactorSoon": "Uwierzytelnianie dwuskładnikowe będzie wkrótce dostępne.",
       "userNotFound": "Użytkownik nie został znaleziony.",
-      "currentPasswordIncorrect": "Obecne hasło jest nieprawidłowe."
+      "currentPasswordIncorrect": "Obecne hasło jest nieprawidłowe.",
+      "logoutAllTitle": "Aktywne sesje",
+      "logoutAllDesc": "Zostawiłeś konto otwarte na innym telefonie lub komputerze? Zamknij je tutaj, na wszystkich urządzeniach.",
+      "logoutAllButton": "Wyloguj ze wszystkich urządzeń",
+      "logoutAllConfirmTitle": "Wylogować ze wszystkich urządzeń?",
+      "logoutAllConfirmText": "Konto zostanie wylogowane na wszystkich telefonach i komputerach, także na tym. Zaloguj się ponownie e-mailem i hasłem.",
+      "logoutAllYes": "Tak, wyloguj",
+      "logoutAllFailed": "Nie udało się zamknąć sesji. Spróbuj ponownie."
     },
     "company": {
       "title": "Dane firmy",

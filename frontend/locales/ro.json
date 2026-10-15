@@ -395,7 +395,14 @@
       "passwordChangeFailed": "Nu s-a putut schimba parola.",
       "twoFactorSoon": "Autentificarea în doi pași va fi disponibilă în curând.",
       "userNotFound": "Utilizatorul nu a fost găsit.",
-      "currentPasswordIncorrect": "Parola curentă este incorectă."
+      "currentPasswordIncorrect": "Parola curentă este incorectă.",
+      "logoutAllTitle": "Sesiuni active",
+      "logoutAllDesc": "Ai uitat contul deschis pe alt telefon sau calculator? Îl închizi de aici, de pe toate dispozitivele.",
+      "logoutAllButton": "Deconectează-mă de pe toate dispozitivele",
+      "logoutAllConfirmTitle": "Te deconectezi de pe toate dispozitivele?",
+      "logoutAllConfirmText": "Contul se închide pe toate telefoanele și calculatoarele, inclusiv pe acesta. Te autentifici din nou cu emailul și parola.",
+      "logoutAllYes": "Da, deconectează-mă",
+      "logoutAllFailed": "Nu am putut închide sesiunile. Încearcă din nou."
     },
     "company": {
       "title": "Date Firmă",

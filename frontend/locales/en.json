@@ -395,7 +395,14 @@
       "passwordChangeFailed": "Could not change the password.",
       "twoFactorSoon": "Two-factor authentication will be available soon.",
       "userNotFound": "User not found.",
-      "currentPasswordIncorrect": "Current password is incorrect."
+      "currentPasswordIncorrect": "Current password is incorrect.",
+      "logoutAllTitle": "Active sessions",
+      "logoutAllDesc": "Left your account open on another phone or computer? Close it here, on every device.",
+      "logoutAllButton": "Sign out of all devices",
+      "logoutAllConfirmTitle": "Sign out of all devices?",
+      "logoutAllConfirmText": "Your account is signed out on every phone and computer, including this one. Sign in again with your email and password.",
+      "logoutAllYes": "Yes, sign me out",
+      "logoutAllFailed": "Could not close the sessions. Please try again."
     },
     "company": {
       "title": "Company Details",

@@ -407,7 +407,14 @@
       "passwordChangeFailed": "Kunne ikke endre passordet.",
       "twoFactorSoon": "Tofaktorautentisering blir snart tilgjengelig.",
       "userNotFound": "Brukeren ble ikke funnet.",
-      "currentPasswordIncorrect": "Nåværende passord er feil."
+      "currentPasswordIncorrect": "Nåværende passord er feil.",
+      "logoutAllTitle": "Aktive økter",
+      "logoutAllDesc": "Glemt kontoen åpen på en annen telefon eller datamaskin? Lukk den her, på alle enheter.",
+      "logoutAllButton": "Logg ut av alle enheter",
+      "logoutAllConfirmTitle": "Logge ut av alle enheter?",
+      "logoutAllConfirmText": "Kontoen logges ut på alle telefoner og datamaskiner, også denne. Logg inn igjen med e-post og passord.",
+      "logoutAllYes": "Ja, logg meg ut",
+      "logoutAllFailed": "Kunne ikke lukke øktene. Prøv igjen."
     },
     "company": {
       "title": "Bedriftsopplysninger",

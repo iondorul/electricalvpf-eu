@@ -407,7 +407,14 @@
       "passwordChangeFailed": "Wachtwoord kon niet worden gewijzigd.",
       "twoFactorSoon": "Tweefactorauthenticatie komt binnenkort beschikbaar.",
       "userNotFound": "Gebruiker niet gevonden.",
-      "currentPasswordIncorrect": "Huidig wachtwoord is onjuist."
+      "currentPasswordIncorrect": "Huidig wachtwoord is onjuist.",
+      "logoutAllTitle": "Actieve sessies",
+      "logoutAllDesc": "Je account open laten staan op een andere telefoon of computer? Sluit het hier, op alle apparaten.",
+      "logoutAllButton": "Afmelden op alle apparaten",
+      "logoutAllConfirmTitle": "Afmelden op alle apparaten?",
+      "logoutAllConfirmText": "Je account wordt afgemeld op alle telefoons en computers, ook op deze. Log opnieuw in met je e-mail en wachtwoord.",
+      "logoutAllYes": "Ja, meld me af",
+      "logoutAllFailed": "De sessies konden niet worden gesloten. Probeer het opnieuw."
     },
     "company": {
       "title": "Bedrijfsgegevens",

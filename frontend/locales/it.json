@@ -430,7 +430,14 @@
       "passwordChangeFailed": "Impossibile cambiare la password.",
       "twoFactorSoon": "L'autenticazione a due fattori sarà presto disponibile.",
       "userNotFound": "Utente non trovato.",
-      "currentPasswordIncorrect": "La password attuale non è corretta."
+      "currentPasswordIncorrect": "La password attuale non è corretta.",
+      "logoutAllTitle": "Sessioni attive",
+      "logoutAllDesc": "Hai lasciato l’account aperto su un altro telefono o computer? Chiudilo da qui, su tutti i dispositivi.",
+      "logoutAllButton": "Esci da tutti i dispositivi",
+      "logoutAllConfirmTitle": "Uscire da tutti i dispositivi?",
+      "logoutAllConfirmText": "L’account viene chiuso su tutti i telefoni e computer, compreso questo. Accedi di nuovo con email e password.",
+      "logoutAllYes": "Sì, esci",
+      "logoutAllFailed": "Impossibile chiudere le sessioni. Riprova."
     },
     "company": {
       "title": "Dati aziendali",

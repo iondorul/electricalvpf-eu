@@ -430,7 +430,14 @@
       "passwordChangeFailed": "Şifre değiştirilemedi.",
       "twoFactorSoon": "İki faktörlü kimlik doğrulama yakında kullanıma sunulacak.",
       "userNotFound": "Kullanıcı bulunamadı.",
-      "currentPasswordIncorrect": "Mevcut şifre yanlış."
+      "currentPasswordIncorrect": "Mevcut şifre yanlış.",
+      "logoutAllTitle": "Aktif oturumlar",
+      "logoutAllDesc": "Hesabınızı başka bir telefonda veya bilgisayarda açık mı unuttunuz? Buradan tüm cihazlarda kapatın.",
+      "logoutAllButton": "Tüm cihazlarda oturumu kapat",
+      "logoutAllConfirmTitle": "Tüm cihazlarda oturum kapatılsın mı?",
+      "logoutAllConfirmText": "Hesabınız bu cihaz dahil tüm telefon ve bilgisayarlarda kapatılır. E-posta ve şifrenizle yeniden giriş yapın.",
+      "logoutAllYes": "Evet, oturumu kapat",
+      "logoutAllFailed": "Oturumlar kapatılamadı. Lütfen tekrar deneyin."
     },
     "company": {
       "title": "Şirket Bilgileri",

@@ -1587,7 +1587,14 @@
       "passwordChangeFailed": "Det gick inte att byta lösenord.",
       "twoFactorSoon": "Tvåstegsverifiering blir tillgänglig snart.",
       "userNotFound": "Användaren hittades inte.",
-      "currentPasswordIncorrect": "Det nuvarande lösenordet är fel."
+      "currentPasswordIncorrect": "Det nuvarande lösenordet är fel.",
+      "logoutAllTitle": "Aktiva sessioner",
+      "logoutAllDesc": "Glömt kontot öppet på en annan telefon eller dator? Stäng det här, på alla enheter.",
+      "logoutAllButton": "Logga ut från alla enheter",
+      "logoutAllConfirmTitle": "Logga ut från alla enheter?",
+      "logoutAllConfirmText": "Kontot loggas ut på alla telefoner och datorer, även den här. Logga in igen med e-post och lösenord.",
+      "logoutAllYes": "Ja, logga ut mig",
+      "logoutAllFailed": "Det gick inte att stänga sessionerna. Försök igen."
     },
     "contracts": {
       "notFound": "Mallen finns inte längre.",
