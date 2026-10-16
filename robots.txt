@@ -1,5 +1,4 @@
-# electricalvpf.eu — vitrina publică, indexabilă (generat de tools/sync-from-app.sh).
+# electricalvpf.eu — copie a vitrinei electricalvpf.app (generat de tools/sync-from-app.sh).
+# Originalul fiecărei pagini e pe .app (canonical); sitemap-ul e pe https://electricalvpf.app/sitemap.xml.
 User-agent: *
 Allow: /
-
-Sitemap: https://electricalvpf.eu/sitemap.xml

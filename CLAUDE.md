@@ -104,11 +104,11 @@ Alte lucruri de verificat după un sync mai mare:
   niciodată asta într-un redirect cu URL luat din parametru. Pentru un nou site-sursă, adaugă o intrare în listă.
 - Backend-ul `.app` (CORS) acceptă doar originea din `FRONTEND_URL` — de aceea `.eu` nu face apeluri API
   autentificate; totul ce cere cont se întâmplă pe `.app`.
-- SEO (decizie PO, 5 octombrie 2026): **`.eu` e INDEXABIL**, ca intrare separată în Google. Scriptul rescrie pe toate
-  paginile copiate canonical, og:url, og:image, hreflang și JSON-LD spre `https://electricalvpf.eu/` (doar adresele
-  `/frontend/` rămân pe `.app`: Login, Register, legal) și generează `sitemap.xml` + `robots.txt` pentru `.eu`;
-  verificările opresc sincronizarea dacă lipsește sitemap-ul, dacă o pagină nu are canonical `.eu` sau are `noindex`.
-  Efect asumat de PO: același text pe două domenii — Google alege de obicei unul în rezultate.
+- SEO (decizie PO, 17 octombrie 2026 — înlocuiește decizia din 5 octombrie): **originalul fiecărei pagini e pe
+  `.app`**. Scriptul NU mai rescrie canonical, hreflang, og:url, og:image și JSON-LD: rămân exact ca pe `.app`, deci
+  Google adună puterea SEO pe `.app` (contul, plata, măsurarea). Fără `sitemap.xml` pe `.eu`; `robots.txt` permite
+  accesul. Verificările opresc sincronizarea dacă o pagină nu are canonical spre `.app`, are metadate SEO spre `.eu`
+  sau are `noindex`. Pentru vizitatori `.eu` arată și funcționează la fel.
 
 ## Mesaj pentru Claude (coleg pe `.app`)
 

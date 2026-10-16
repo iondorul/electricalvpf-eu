@@ -214,47 +214,27 @@ for lc in $(grep -oE 'var LOCALES = \[[^]]*\]' site/module-previews.js | grep -o
   fi
 done
 # ---------------------------------------------------------------------------
-# SEO: .eu e INDEXABIL (decizie PO, 5 octombrie 2026) — ambele domenii sunt intrări în Google.
-# Fiecare pagină .eu e originalul ei: canonical, og:url, og:image, hreflang și JSON-LD trimit la .eu.
-# Rămân pe .app DOAR adresele /frontend/ (Login, Register, paginile legale, return-site.js) și /demo/ (tutorialele video) — vezi regulile de mai sus.
-EU_URL="https://electricalvpf.eu"
-perl -pi -e 's#https://electricalvpf\.app/(?!frontend/|demo/)#https://electricalvpf.eu/#g' "${PAGES[@]}"
-
-# sitemap.xml pentru .eu: din sitemap-ul .app (HEAD), doar paginile publice care există și pe .eu
-# (fără /frontend/ — paginile legale trăiesc doar pe .app), cu domeniul .eu.
-git -C "$SRC" show HEAD:sitemap.xml \
-  | perl -ne 'next if m#<loc>https://electricalvpf\.app/(frontend|demo)/#; s#https://electricalvpf\.app/#https://electricalvpf.eu/#g; print' \
-  | perl -0pe 's#<!--.*?-->#<!-- electricalvpf.eu — generat de tools/sync-from-app.sh din sitemap-ul .app: doar paginile publice care există pe .eu. -->#s' \
-  > sitemap.xml
+# SEO (decizie PO, 17 octombrie 2026 — înlocuiește decizia din 5 octombrie): originalul fiecărei pagini e pe
+# .app. Canonical, hreflang, og:url, og:image și JSON-LD rămân EXACT ca pe .app (adresele absolute .app din
+# pagini sunt doar aceste metadate, nu linkuri de navigare). Google adună toată puterea SEO pe .app; .eu rămâne
+# o copie funcțională pentru cine intră direct. Fără sitemap pe .eu (n-ar trebui să listeze pagini al căror
+# original e pe .app). Paginile nu au noindex: Google citește canonical-ul și îl urmează.
+APP_URL="https://electricalvpf.app"
+rm -f sitemap.xml
 cat > robots.txt <<'ROBOTS'
-# electricalvpf.eu — vitrina publică, indexabilă (generat de tools/sync-from-app.sh).
+# electricalvpf.eu — copie a vitrinei electricalvpf.app (generat de tools/sync-from-app.sh).
+# Originalul fiecărei pagini e pe .app (canonical); sitemap-ul e pe https://electricalvpf.app/sitemap.xml.
 User-agent: *
 Allow: /
-
-Sitemap: https://electricalvpf.eu/sitemap.xml
 ROBOTS
 
 # Verificări SEO — orice abatere oprește sincronizarea.
-grep -q '</urlset>' sitemap.xml || { echo "ATENȚIE: sitemap.xml lipsește sau e incomplet." >&2; exit 1; }
-if grep -q 'electricalvpf\.app\|localhost\|/frontend/' sitemap.xml; then
-  echo "ATENȚIE: sitemap.xml conține adrese .app / localhost / frontend." >&2; exit 1
-fi
-locs=$(grep -oE '<loc>[^<]*</loc>' sitemap.xml | sed -E 's#</?loc>##g')
-[ -n "$locs" ] || { echo "ATENȚIE: sitemap.xml fără nicio adresă." >&2; exit 1; }
-while IFS= read -r loc; do
-  local_file="${loc#$EU_URL/}index.html"
-  [ -s "$local_file" ] || { echo "ATENȚIE: sitemap.xml listează '$loc', dar '$local_file' nu există pe .eu." >&2; exit 1; }
-done <<< "$locs"
-grep -qx 'Sitemap: https://electricalvpf.eu/sitemap.xml' robots.txt || { echo "ATENȚIE: robots.txt nu indică sitemap-ul .eu." >&2; exit 1; }
+[ ! -e sitemap.xml ] || { echo "ATENȚIE: sitemap.xml nu trebuie să existe pe .eu." >&2; exit 1; }
 for page in "${PAGES[@]}"; do
-  url="$EU_URL/${page%index.html}"
-  grep -q "<link rel=\"canonical\" href=\"$url\">" "$page" || { echo "ATENȚIE: $page nu are canonical către $url." >&2; exit 1; }
+  url="$APP_URL/${page%index.html}"
+  grep -q "<link rel=\"canonical\" href=\"$url\">" "$page" || { echo "ATENȚIE: $page nu are canonical către $url (originalul de pe .app)." >&2; exit 1; }
   if grep -qiE '<meta[^>]+name="robots"[^>]+noindex' "$page"; then echo "ATENȚIE: $page are noindex." >&2; exit 1; fi
-  if grep -nE 'https://electricalvpf\.app/' "$page" | grep -vE 'electricalvpf\.app/(frontend|demo)/' | grep -q .; then
-    echo "ATENȚIE: $page mai are adrese .app în afara /frontend/ și /demo/." >&2; exit 1
-  fi
-  # fiecare pagină din sitemap e și o pagină copiată (și invers)
-  grep -q "<loc>$url</loc>" sitemap.xml || { echo "ATENȚIE: $url lipsește din sitemap.xml." >&2; exit 1; }
+  if grep -qE '(rel="canonical"|hreflang=|property="og:url")[^>]*electricalvpf\.eu' "$page"; then echo "ATENȚIE: $page are metadate SEO spre .eu." >&2; exit 1; fi
 done
 
 echo "OK — vitrina sincronizată. Verifică: git status && git diff"
