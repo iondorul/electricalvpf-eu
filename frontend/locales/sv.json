@@ -736,6 +736,11 @@
       "confirmEmail": "ElectricalVPF ERP | Bekräfta e-post"
     },
     "twoFactor": {
+      "inactive": "Inte aktiverad",
+      "unavailable": "Inte tillgänglig just nu",
+      "appDescription": "Skanna en QR-kod vid konfigureringen. Ange den 6-siffriga koden från autentiseringsappen när du loggar in.",
+      "emailDescription": "Få en verifieringskod till kontots e-postadress varje gång du loggar in.",
+      "verificationCode": "Verifieringskod",
       "title": "Verifieringskod",
       "verify": "Verifiera",
       "useRecovery": "Använd en reservkod",
@@ -750,7 +755,8 @@
       "errorExpired": "Verifieringssteget har gått ut. Logga in igen.",
       "errorResendSoon": "Du kan be om en ny kod om en minut.",
       "errorTooManySends": "Vi har redan skickat för många koder. Logga in igen senare.",
-      "resent": "Vi skickade en ny kod."
+      "resent": "Vi skickade en ny kod.",
+      "resendIn": "Skicka koden igen om {{seconds}} s"
     }
   },
   "electricalWorkTypes": {
@@ -1802,7 +1808,16 @@
       "methodEmail": "kod via e-post",
       "active": "Aktiv",
       "activeWith": "Metod: {{method}}",
-      "recoveryLeft": "Oanvända reservkoder: {{count}}"
+      "recoveryLeft": "Oanvända reservkoder: {{count}}",
+      "methodLabel": "Verifieringsmetod",
+      "switchTitle": "Byt metod",
+      "switchIntro": "Bekräfta först med en kod från din nuvarande metod. Tvåstegsverifieringen är på hela tiden.",
+      "continue": "Fortsätt",
+      "switched": "Metoden är bytt. Dina reservkoder är desamma.",
+      "oneMethodNote": "Bara en metod kan vara aktiv åt gången. Du kan byta den här när som helst; din nuvarande metod är på tills du bekräftar en kod från den nya.",
+      "resendIn": "Skicka igen om {{seconds}} s",
+      "resendCode": "Skicka koden igen",
+      "codeAlreadySent": "Koden skickades för några sekunder sedan. Kolla e-posten (även skräppost)."
     }
   },
   "estimating": {

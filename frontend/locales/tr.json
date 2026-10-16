@@ -594,6 +594,11 @@
       "saveFailed": "Şablon kaydedilemedi."
     },
     "twoFactor": {
+      "inactive": "Etkin değil",
+      "unavailable": "Şu anda kullanılamıyor",
+      "appDescription": "Kurulum sırasında QR kodunu tarayın. Giriş yaparken doğrulama uygulamanızın oluşturduğu 6 haneli kodu girin.",
+      "emailDescription": "Her giriş yaptığınızda hesabınızın e-posta adresine bir doğrulama kodu gönderilir.",
+      "verificationCode": "Doğrulama kodu",
       "errorInvalid": "Kod doğru değil. Kontrol edip tekrar deneyin.",
       "errorTooMany": "Çok fazla deneme. Birkaç dakika sonra tekrar deneyin.",
       "errorExpired": "Kodun süresi doldu. Yenisini isteyin.",
@@ -632,7 +637,16 @@
       "methodEmail": "e-posta kodu",
       "active": "Etkin",
       "activeWith": "Yöntem: {{method}}",
-      "recoveryLeft": "Kullanılmamış yedek kodlar: {{count}}"
+      "recoveryLeft": "Kullanılmamış yedek kodlar: {{count}}",
+      "methodLabel": "Doğrulama yöntemi",
+      "switchTitle": "Yöntemi değiştir",
+      "switchIntro": "Önce mevcut yönteminizden bir kodla onaylayın. İki adımlı doğrulama her zaman açık kalır.",
+      "continue": "Devam",
+      "switched": "Yöntem değiştirildi. Yedek kodlarınız aynı kalır.",
+      "oneMethodNote": "Aynı anda yalnızca bir yöntem etkin olabilir. Buradan istediğiniz zaman değiştirebilirsiniz; yeni yöntemin kodunu onaylayana kadar mevcut yöntem açık kalır.",
+      "resendIn": "{{seconds}} sn sonra tekrar gönder",
+      "resendCode": "Kodu tekrar gönder",
+      "codeAlreadySent": "Kod birkaç saniye önce gönderildi. E-postanızı (ve Spam klasörünü) kontrol edin."
     }
   },
   "clients": {
@@ -1847,7 +1861,8 @@
       "errorExpired": "Doğrulama adımının süresi doldu. Yeniden giriş yapın.",
       "errorResendSoon": "Bir dakika sonra yeni kod isteyebilirsiniz.",
       "errorTooManySends": "Zaten çok fazla kod gönderdik. Daha sonra yeniden giriş yapın.",
-      "resent": "Yeni bir kod gönderdik."
+      "resent": "Yeni bir kod gönderdik.",
+      "resendIn": "Kodu {{seconds}} sn sonra tekrar gönder"
     }
   },
   "electricalWorkTypes": {

@@ -571,6 +571,11 @@
       "saveFailed": "Kunne ikke lagre malen."
     },
     "twoFactor": {
+      "inactive": "Ikke aktivert",
+      "unavailable": "Ikke tilgjengelig nå",
+      "appDescription": "Skann en QR-kode under oppsettet. Skriv inn den 6-sifrede koden fra autentiseringsappen når du logger inn.",
+      "emailDescription": "Motta en bekreftelseskode på kontoens e-postadresse hver gang du logger inn.",
+      "verificationCode": "Bekreftelseskode",
       "errorInvalid": "Koden stemmer ikke. Sjekk og prøv igjen.",
       "errorTooMany": "For mange forsøk. Prøv igjen om noen minutter.",
       "errorExpired": "Koden har utløpt. Be om en ny.",
@@ -609,7 +614,16 @@
       "methodEmail": "kode på e-post",
       "active": "På",
       "activeWith": "Metode: {{method}}",
-      "recoveryLeft": "Ubrukte reservekoder: {{count}}"
+      "recoveryLeft": "Ubrukte reservekoder: {{count}}",
+      "methodLabel": "Bekreftelsesmetode",
+      "switchTitle": "Bytt metode",
+      "switchIntro": "Bekreft først med en kode fra nåværende metode. Totrinnsbekreftelse er på hele tiden.",
+      "continue": "Fortsett",
+      "switched": "Metoden er byttet. Reservekodene dine er de samme.",
+      "oneMethodNote": "Bare én metode kan være aktiv om gangen. Du kan bytte den her når som helst; nåværende metode er på til du bekrefter en kode fra den nye.",
+      "resendIn": "Send på nytt om {{seconds}} s",
+      "resendCode": "Send koden på nytt",
+      "codeAlreadySent": "Koden ble sendt for noen sekunder siden. Sjekk e-posten (også søppelpost)."
     }
   },
   "clients": {
@@ -1824,7 +1838,8 @@
       "errorExpired": "Bekreftelsessteget har utløpt. Logg inn igjen.",
       "errorResendSoon": "Du kan be om en ny kode om ett minutt.",
       "errorTooManySends": "Vi har allerede sendt for mange koder. Logg inn igjen senere.",
-      "resent": "Vi sendte deg en ny kode."
+      "resent": "Vi sendte deg en ny kode.",
+      "resendIn": "Send koden på nytt om {{seconds}} s"
     }
   },
   "electricalWorkTypes": {

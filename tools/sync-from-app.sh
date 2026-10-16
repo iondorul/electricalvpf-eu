@@ -70,7 +70,9 @@ printf 'electricalvpf.eu\n' > CNAME
 # ex. ro/index.html — vezi window.SITE_PAGE_URLS mai jos). Orice sed/verificare
 # care se aplică lui index.html trebuie să se aplice identic și acestora.
 HOME_PAGES=(index.html)
-[ -f ro/index.html ] && HOME_PAGES+=(ro/index.html)
+for lang in ro no nl it pl sv tr uk ru; do
+  [ -f "$lang/index.html" ] && HOME_PAGES+=("$lang/index.html")
+done
 
 # Paginile de reclamă (model ofertă UK / deviz RO): pagini reale pe .eu, cu
 # aceleași tipare de linkuri (frontend/login, frontend/register, frontend/legal,
@@ -169,7 +171,7 @@ while IFS= read -r url_path; do
     echo "ATENȚIE: window.SITE_PAGE_URLS trimite la '$url_path' dar '$local_file' nu există local — adaugă pagina în PATHS (și, dacă e cazul, exclude resursele ei de download)." >&2
     exit 1
   fi
-done < <(grep -oE 'window\.SITE_PAGE_URLS = \{[^}]*\}' index.html | grep -oE '"[^"]*"' | tr -d '"')
+done < <(grep -oE 'window\.SITE_PAGE_URLS = \{[^}]*\}' index.html | grep -oE ':[[:space:]]*"[^"]*"' | grep -oE '"[^"]*"' | tr -d '"')
 
 # Paginile legale pe .app: același ?returnSite=eu, ca „Back to website” de acolo
 # să revină aici (return-site.js îl păstrează și la schimbarea limbii/documentului).

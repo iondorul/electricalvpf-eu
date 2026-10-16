@@ -594,6 +594,11 @@
       "saveFailed": "Nie udało się zapisać szablonu."
     },
     "twoFactor": {
+      "inactive": "Nieaktywna",
+      "unavailable": "Obecnie niedostępna",
+      "appDescription": "Zeskanuj kod QR podczas konfiguracji. Przy logowaniu wpisz 6-cyfrowy kod wygenerowany przez aplikację.",
+      "emailDescription": "Przy każdym logowaniu otrzymasz kod weryfikacyjny na adres email konta.",
+      "verificationCode": "Kod weryfikacyjny",
       "errorInvalid": "Kod jest nieprawidłowy. Sprawdź i spróbuj ponownie.",
       "errorTooMany": "Zbyt wiele prób. Spróbuj ponownie za kilka minut.",
       "errorExpired": "Kod wygasł. Poproś o nowy.",
@@ -632,7 +637,16 @@
       "methodEmail": "kod e-mail",
       "active": "Włączone",
       "activeWith": "Metoda: {{method}}",
-      "recoveryLeft": "Niewykorzystane kody zapasowe: {{count}}"
+      "recoveryLeft": "Niewykorzystane kody zapasowe: {{count}}",
+      "methodLabel": "Metoda weryfikacji",
+      "switchTitle": "Zmień metodę",
+      "switchIntro": "Najpierw potwierdź kodem z obecnej metody. Weryfikacja dwuetapowa pozostaje cały czas włączona.",
+      "continue": "Dalej",
+      "switched": "Metoda została zmieniona. Kody zapasowe pozostają te same.",
+      "oneMethodNote": "W danym momencie może być aktywna tylko jedna metoda. Możesz ją tu zmienić w każdej chwili; obecna metoda działa, dopóki nie potwierdzisz kodu z nowej.",
+      "resendIn": "Wyślij ponownie za {{seconds}} s",
+      "resendCode": "Wyślij kod ponownie",
+      "codeAlreadySent": "Kod został wysłany kilka sekund temu. Sprawdź e-mail (także Spam)."
     }
   },
   "clients": {
@@ -1851,7 +1865,8 @@
       "errorExpired": "Krok weryfikacji wygasł. Zaloguj się ponownie.",
       "errorResendSoon": "Nowy kod możesz poprosić za minutę.",
       "errorTooManySends": "Wysłaliśmy już zbyt wiele kodów. Zaloguj się ponownie później.",
-      "resent": "Wysłaliśmy nowy kod."
+      "resent": "Wysłaliśmy nowy kod.",
+      "resendIn": "Wyślij kod ponownie za {{seconds}} s"
     }
   },
   "electricalWorkTypes": {

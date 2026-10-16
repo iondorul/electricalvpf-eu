@@ -571,6 +571,11 @@
       "saveFailed": "Kan de sjabloon niet opslaan."
     },
     "twoFactor": {
+      "inactive": "Niet ingeschakeld",
+      "unavailable": "Momenteel niet beschikbaar",
+      "appDescription": "Scan een QR-code tijdens het instellen. Voer bij het inloggen de 6-cijferige code uit je authenticator-app in.",
+      "emailDescription": "Ontvang bij elke aanmelding een verificatiecode op het e-mailadres van je account.",
+      "verificationCode": "Verificatiecode",
       "errorInvalid": "De code klopt niet. Controleer hem en probeer het opnieuw.",
       "errorTooMany": "Te veel pogingen. Probeer het over een paar minuten opnieuw.",
       "errorExpired": "De code is verlopen. Vraag een nieuwe aan.",
@@ -609,7 +614,16 @@
       "methodEmail": "code per e-mail",
       "active": "Aan",
       "activeWith": "Methode: {{method}}",
-      "recoveryLeft": "Ongebruikte herstelcodes: {{count}}"
+      "recoveryLeft": "Ongebruikte herstelcodes: {{count}}",
+      "methodLabel": "Verificatiemethode",
+      "switchTitle": "Methode wijzigen",
+      "switchIntro": "Bevestig eerst met een code van je huidige methode. Tweestapsverificatie blijft de hele tijd aan.",
+      "continue": "Doorgaan",
+      "switched": "Methode gewijzigd. Je herstelcodes blijven hetzelfde.",
+      "oneMethodNote": "Er kan maar één methode tegelijk actief zijn. Je kunt die hier altijd wijzigen; je huidige methode blijft aan tot je een code van de nieuwe bevestigt.",
+      "resendIn": "Opnieuw sturen over {{seconds}} s",
+      "resendCode": "Code opnieuw sturen",
+      "codeAlreadySent": "De code is een paar seconden geleden verstuurd. Controleer je e-mail (ook Spam)."
     }
   },
   "clients": {
@@ -1824,7 +1838,8 @@
       "errorExpired": "De verificatiestap is verlopen. Log opnieuw in.",
       "errorResendSoon": "Je kunt over een minuut een nieuwe code vragen.",
       "errorTooManySends": "We hebben al te veel codes gestuurd. Log later opnieuw in.",
-      "resent": "We hebben een nieuwe code gestuurd."
+      "resent": "We hebben een nieuwe code gestuurd.",
+      "resendIn": "Code opnieuw sturen over {{seconds}} s"
     }
   },
   "electricalWorkTypes": {

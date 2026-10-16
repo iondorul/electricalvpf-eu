@@ -594,6 +594,11 @@
       "saveFailed": "Impossibile salvare il modello."
     },
     "twoFactor": {
+      "inactive": "Non attiva",
+      "unavailable": "Al momento non disponibile",
+      "appDescription": "Scansiona un codice QR durante la configurazione. Per accedere, inserisci il codice a 6 cifre generato dalla tua app.",
+      "emailDescription": "Ricevi un codice di verifica all’indirizzo email del tuo account a ogni accesso.",
+      "verificationCode": "Codice di verifica",
       "errorInvalid": "Il codice non è corretto. Controlla e riprova.",
       "errorTooMany": "Troppi tentativi. Riprova tra qualche minuto.",
       "errorExpired": "Il codice è scaduto. Chiedine uno nuovo.",
@@ -632,7 +637,16 @@
       "methodEmail": "codice via email",
       "active": "Attiva",
       "activeWith": "Metodo: {{method}}",
-      "recoveryLeft": "Codici di recupero non usati: {{count}}"
+      "recoveryLeft": "Codici di recupero non usati: {{count}}",
+      "methodLabel": "Metodo di verifica",
+      "switchTitle": "Cambia metodo",
+      "switchIntro": "Conferma prima con un codice del metodo attuale. La verifica in due passaggi resta sempre attiva.",
+      "continue": "Continua",
+      "switched": "Metodo cambiato. I codici di recupero restano gli stessi.",
+      "oneMethodNote": "Può essere attivo un solo metodo alla volta. Puoi cambiarlo qui in qualsiasi momento; il metodo attuale resta attivo finché non confermi un codice del nuovo.",
+      "resendIn": "Invia di nuovo tra {{seconds}} s",
+      "resendCode": "Invia di nuovo il codice",
+      "codeAlreadySent": "Il codice è stato inviato pochi secondi fa. Controlla la posta (anche lo Spam)."
     }
   },
   "clients": {
@@ -1847,7 +1861,8 @@
       "errorExpired": "Il passaggio di verifica è scaduto. Accedi di nuovo.",
       "errorResendSoon": "Puoi chiedere un nuovo codice tra un minuto.",
       "errorTooManySends": "Abbiamo già inviato troppi codici. Accedi di nuovo più tardi.",
-      "resent": "Ti abbiamo inviato un nuovo codice."
+      "resent": "Ti abbiamo inviato un nuovo codice.",
+      "resendIn": "Invia di nuovo il codice tra {{seconds}} s"
     }
   },
   "electricalWorkTypes": {

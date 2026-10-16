@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<!-- FIȘIER GENERAT — nu edita manual. Sursa: templates/home.html + site/translations.js;
+     regenerare: node site/tools/build-home-pages.js -->
+<html lang="sv" data-theme="dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pageTitle">ElectricalVPF ERP och CRM - Komplett lösning för elinstallationsföretag</title>
+    <!-- SEO: aici (și în <title>, og:*, JSON-LD) rămâne "ERP & CRM"; în fața vizitatorului apare limbajul electricianului. -->
+    <meta name="description" content="Fältprogram byggt av elektriker för elfirmor: offerter, avtal som signeras online, fakturor, kunder och arbeten på ett ställe. Kom igång gratis.">
+    <link rel="canonical" href="https://electricalvpf.eu/sv/">
+    <link rel="alternate" hreflang="en" href="https://electricalvpf.eu/">
+    <link rel="alternate" hreflang="ro" href="https://electricalvpf.eu/ro/">
+    <link rel="alternate" hreflang="no" href="https://electricalvpf.eu/no/">
+    <link rel="alternate" hreflang="nl" href="https://electricalvpf.eu/nl/">
+    <link rel="alternate" hreflang="it" href="https://electricalvpf.eu/it/">
+    <link rel="alternate" hreflang="pl" href="https://electricalvpf.eu/pl/">
+    <link rel="alternate" hreflang="sv" href="https://electricalvpf.eu/sv/">
+    <link rel="alternate" hreflang="tr" href="https://electricalvpf.eu/tr/">
+    <link rel="alternate" hreflang="uk" href="https://electricalvpf.eu/uk/">
+    <link rel="alternate" hreflang="ru" href="https://electricalvpf.eu/ru/">
+    <link rel="alternate" hreflang="x-default" href="https://electricalvpf.eu/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ElectricalVPF">
+    <meta property="og:url" content="https://electricalvpf.eu/sv/">
+    <meta property="og:title" content="ElectricalVPF ERP och CRM - Komplett lösning för elinstallationsföretag">
+    <meta property="og:description" content="Fältprogram byggt av elektriker för elfirmor: offerter, avtal som signeras online, fakturor, kunder och arbeten på ett ställe. Kom igång gratis.">
+    <meta property="og:locale" content="sv_SE">
+    <meta property="og:locale:alternate" content="en_GB">
+    <meta property="og:locale:alternate" content="ro_RO">
+    <meta property="og:locale:alternate" content="nb_NO">
+    <meta property="og:locale:alternate" content="nl_NL">
+    <meta property="og:locale:alternate" content="it_IT">
+    <meta property="og:locale:alternate" content="pl_PL">
+    <meta property="og:locale:alternate" content="tr_TR">
+    <meta property="og:locale:alternate" content="uk_UA">
+    <meta property="og:locale:alternate" content="ru_RU">
+    <meta property="og:image" content="https://electricalvpf.eu/site/img/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ElectricalVPF ERP och CRM - Komplett lösning för elinstallationsföretag">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" type="image/png" href="/site/img/favicon-light.png">
+
+    <!-- Aceeași versiune Font Awesome ca aplicația (frontend/*.html) — iconițele modulelor din secțiunea Planuri. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/site/style.css?v=20261015-tutorials">
+    <link rel="stylesheet" href="/site/about.css?v=20261005-field-experience">
+    <link rel="stylesheet" href="/site/cosmos.css?v=20261005-mobile-cosmos4">
+    <link rel="stylesheet" href="/site/plans.css?v=20261015-fine-outlines-no-hover">
+    <link rel="stylesheet" href="/site/module-previews.css?v=20260929-close-ring">
+    <style>
+        .lang-option:hover {
+            background-color: color-mix(in srgb, var(--accent-color) 10%, transparent);
+            color: var(--accent-color);
+        }
+
+        .lang-option.active {
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        /* Cât timp se verifică o sesiune existentă (vezi site/session-redirect.js), pagina nu se
+           afișează — altfel un utilizator deja logat ar vedea vitrina clipind înainte de dashboard. */
+        html.session-check body {
+            visibility: hidden;
+        }
+    </style>
+
+    <!-- Limba: aceeași cheie de stocare ("locale") ca în aplicație — alegerea făcută aici rămâne și după login.
+         Prima vizită (nimic salvat): limba browserului, apoi English (același fallback ca în aplicație). -->
+    <script>
+        window.SITE_LANG_STORAGE_KEY = "locale";
+        window.SITE_LANG_DETECT = false;
+        window.SITE_PAGE_LANG = "sv";
+        window.SITE_PAGE_URLS = {"en":"/","ro":"/ro/","no":"/no/","nl":"/nl/","it":"/it/","pl":"/pl/","sv":"/sv/","tr":"/tr/","uk":"/uk/","ru":"/ru/"};
+
+        // Temă + verificare sesiune, aplicate sincron în <head>, ca să nu apară un flash.
+        (function () {
+            var root = document.documentElement;
+            function readPref() {
+                try {
+                    var stored = localStorage.getItem("theme"); // aceeași cheie ca frontend/js/theme.js
+                    return stored === "light" || stored === "dark" || stored === "system" ? stored : "dark";
+                } catch (err) {
+                    return "dark";
+                }
+            }
+            var pref = readPref();
+            var resolved = pref === "system"
+                ? (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+                : pref;
+            root.setAttribute("data-theme", resolved);
+
+            // Limba aleasă (en/ro) are pagina ei: cine a ales româna și redeschide „/” ajunge pe „/ro/”
+            // (și invers). Fără alegere salvată (ex. Googlebot) nu se întâmplă nimic. Parametrii (utm_*) rămân.
+            try {
+                var urls = window.SITE_PAGE_URLS;
+                var savedLang = localStorage.getItem("locale");
+                if (urls && urls[savedLang] && savedLang !== window.SITE_PAGE_LANG) {
+                    location.replace(urls[savedLang] + location.search + location.hash);
+                    return;
+                }
+            } catch (err) { /* stocare indisponibilă — rămâne pagina curentă */ }
+
+            try {
+                // Tokenul stă în localStorage („Ține-mă minte”) sau în sessionStorage — vezi AuthSession în frontend/js/config.js.
+                if (localStorage.getItem("token") || sessionStorage.getItem("token")) {
+                    root.classList.add("session-check");
+                    // Plasă de siguranță: dacă session-redirect.js nu rulează/nu răspunde, pagina se afișează oricum.
+                    setTimeout(function () { root.classList.remove("session-check"); }, 4000);
+                }
+            } catch (err) { /* stocare indisponibilă — vitrina se afișează normal */ }
+        })();
+    </script>
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ElectricalVPF",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "url": "https://electricalvpf.eu/sv/",
+    "inLanguage": "sv",
+    "description": "Fältprogram byggt av elektriker för elfirmor: offerter, avtal som signeras online, fakturor, kunder och arbeten på ett ställe. Kom igång gratis.",
+    "publisher": {
+        "@type": "Organization",
+        "name": "ElectricalVPF",
+        "url": "https://electricalvpf.eu/",
+        "logo": "https://electricalvpf.eu/site/img/favicon-light.png"
+    },
+    "offers": [
+        {
+            "@type": "Offer",
+            "name": "Free",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        {
+            "@type": "Offer",
+            "name": "Pro (monthly)",
+            "price": "49.00",
+            "priceCurrency": "EUR",
+            "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "49.00",
+                "priceCurrency": "EUR",
+                "unitText": "MONTH",
+                "valueAddedTaxIncluded": false
+            }
+        },
+        {
+            "@type": "Offer",
+            "name": "Pro (yearly)",
+            "price": "470.40",
+            "priceCurrency": "EUR",
+            "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "470.40",
+                "priceCurrency": "EUR",
+                "unitText": "YEAR",
+                "valueAddedTaxIncluded": false
+            }
+        }
+    ]
+}
+    </script>
+</head>
+
+<body>
+
+    <!-- 11. NAVIGATION -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="/" class="logo-link" aria-label="ElectricalVPF">
+                <img class="logo-mark logo-mark-dark" src="/site/img/favicon-dark.png" alt="">
+                <img class="logo-mark logo-mark-light" src="/site/img/favicon-light.png" alt="">
+                <span class="logo">Electrical<span>VPF</span></span>
+            </a>
+            <!-- Pe mobil, meniul „?" (Ajutor) e mutat aici de site/help-menu.js — separat de meniul de navigare. -->
+            <div class="header-mobile-actions">
+                <div id="help-slot-mobile" class="help-slot"></div>
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Öppna menyn" data-i18n-aria-label="mobileMenuOpenLabel" aria-expanded="false" aria-controls="mobile-nav-drawer">☰</button>
+            </div>
+            <nav class="nav-links">
+                <a href="#product" data-i18n="product">Produkt</a>
+                <a href="#features" data-i18n="exploreShort">Utforska</a>
+                <div class="nav-dropdown" id="features-dropdown">
+                    <button class="nav-dropdown-toggle" id="features-dropdown-toggle" type="button" aria-expanded="false" aria-controls="features-dropdown-menu">
+                        <span data-i18n="features">Funktioner</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <!-- Aceeași regulă ca meniul „?": antet mic → rând de 52px cu cerc de 40px → text 14px + explicație mică.
+                         „Funcționalități" nu se mai repetă aici: „Explorează" duce deja la #features. -->
+                    <div class="nav-dropdown-menu help-menu features-menu" id="features-dropdown-menu" aria-hidden="true">
+                        <span class="help-section-title" data-i18n="nav.tools.free">Gratis verktyg</span>
+                        <a href="#calculator-tool" class="help-menu-item">
+                            <span class="help-menu-icon"><i class="fas fa-calculator" aria-hidden="true"></i></span>
+                            <span class="help-menu-text">
+                                <span class="help-menu-label" data-i18n="nav.tools.calculator">Kabelkalkylator</span>
+                                <span class="help-menu-state" data-i18n="nav.tools.calculatorTooltip">Beräkna kabelarea och spänningsfall</span>
+                            </span>
+                        </a>
+                        <div class="help-sep" role="separator"></div>
+                        <span class="help-section-title" data-i18n="nav.resources.free">Gratis resurser</span>
+                        <a href="/sv/offertmall-elektriker/" data-resource="quote-template" class="help-menu-item">
+                            <span class="help-menu-icon"><i class="fas fa-file-lines" aria-hidden="true"></i></span>
+                            <span class="help-menu-text">
+                                <span class="help-menu-label" data-i18n="nav.resources.quoteTemplate">Offertmall för elektriker</span>
+                                <span class="help-menu-state" data-i18n="nav.resources.quoteTemplateTooltip">Word, Excel och PDF · gratis, för elektriker i Sverige</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <a href="#workflow" data-i18n="workflow">Arbetsflöde</a>
+                <div class="nav-dropdown" id="tutorials-dropdown"><button class="nav-dropdown-toggle" id="tutorials-dropdown-toggle" type="button" aria-expanded="false" aria-controls="tutorials-dropdown-menu"><span data-i18n="viewTutorials">Se guiderna</span><i class="fas fa-chevron-down" aria-hidden="true"></i></button><div class="nav-dropdown-menu tutorials-menu" id="tutorials-dropdown-menu" aria-hidden="true"><a class="tutorial-overview" href="https://electricalvpf.app/demo/#tutorial-overview"><span class="tutorial-orbit" aria-hidden="true">▶</span><span><strong data-i18n="tutorial.overview">Overview</strong><small data-i18n="tutorial.intro">Ett arbete, från första samtalet till betalning: offerten, kundens godkännande, avtalet som signeras online, fakturan och betalningen. Välj sedan ett steg nedan för att se det i detalj.</small></span><span aria-hidden="true">↗</span></a>
+    <div class="tutorial-section"><span data-i18n="tutorial.steps">Steg för steg</span><span>15</span></div>
+    <div class="tutorial-grid"><a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-01-add-client"><span class="tutorial-number">1</span><span data-i18n="tutorial.c01t">Lägg till en kund</span><small>0:44</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-02-work-request"><span class="tutorial-number">2</span><span data-i18n="tutorial.c02t">Registrera en arbetsorder</span><small>0:56</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-03-work"><span class="tutorial-number">3</span><span data-i18n="tutorial.c03t">Gör den till ett arbete</span><small>0:48</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-04-estimated-materials"><span class="tutorial-number">4</span><span data-i18n="tutorial.c04t">Beräkna materialet</span><small>1:10</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-05-materials"><span class="tutorial-number">5</span><span data-i18n="tutorial.c05t">Material på arbetet</span><small>0:57</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-06-estimated-quote"><span class="tutorial-number">6</span><span data-i18n="tutorial.c06t">Prissätt arbetet</span><small>1:38</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-07-quote"><span class="tutorial-number">7</span><span data-i18n="tutorial.c07t">Skapa offerten</span><small>0:46</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-07b-quote-pdf"><span class="tutorial-number">8</span><span data-i18n="tutorial.c07bt">Förhandsgranska offertens PDF</span><small>0:27</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-08-send-quote"><span class="tutorial-number">9</span><span data-i18n="tutorial.c08t">Skicka offerten</span><small>0:53</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-09-quote-accepted"><span class="tutorial-number">10</span><span data-i18n="tutorial.c09t">Kunden godkänner online</span><small>0:41</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-10-contract"><span class="tutorial-number">11</span><span data-i18n="tutorial.c10t">Avtal, signerat av båda</span><small>2:57</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-11-invoice"><span class="tutorial-number">12</span><span data-i18n="tutorial.c11t">Faktura från offerten</span><small>1:12</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-12-job-status"><span class="tutorial-number">13</span><span data-i18n="tutorial.c12t">Betalt, och arbetet stängt</span><small>1:08</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-13-bonus-leads"><span class="tutorial-number">14</span><span data-i18n="tutorial.c13t">Från förfrågan till kund</span><small>1:17</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-14-archive"><span class="tutorial-number">15</span><span data-i18n="tutorial.c14t">Arkivera utan att förlora något</span><small>1:52</small></a></div>
+    <a class="tutorial-library" href="https://electricalvpf.app/demo/"><span data-i18n="viewTutorials">Se guiderna</span><span aria-hidden="true">→</span></a></div></div>
+                <a href="#pricing" data-i18n="pricing">Priser</a>
+
+
+                <!-- Ajutor „?" (ca în aplicație): Limbă · Afișare (luminos/întunecat) · Contact — site/help-menu.js -->
+                <div id="help-slot-desktop" class="help-slot">
+                    <div class="nav-dropdown help-dropdown" id="help-dropdown">
+                        <button class="theme-toggle-btn help-toggle-btn" id="help-dropdown-toggle" type="button" aria-label="Hjälp" data-i18n-aria-label="helpLabel" aria-haspopup="true" aria-expanded="false" aria-controls="help-dropdown-menu">
+                            <svg class="help-toggle-outline" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="19.5" fill="none" stroke-width="1"></circle><path class="help-toggle-mark" transform="translate(11.5 11.5) scale(0.033203125)" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM169.8 165.3c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"></path></svg>
+                        </button>
+                        <div class="nav-dropdown-menu help-menu" id="help-dropdown-menu" aria-hidden="true">
+                            <span class="help-section-title" data-i18n="helpLanguageGroup">Språk</span>
+                            <div id="language-control-container" class="help-lang" data-click-only=""></div>
+                            <div class="help-sep" role="separator"></div>
+                            <span class="help-section-title" data-i18n="helpDisplayGroup">Visning</span>
+                            <button type="button" class="help-menu-item help-theme-item" data-theme-toggle="">
+                                <span class="help-menu-icon"><i class="fas fa-sun" data-theme-icon="" aria-hidden="true"></i></span>
+                                <span class="help-menu-text">
+                                    <span class="help-menu-label" data-theme-label="">Schimbă pe modul luminos</span>
+                                    <span class="help-menu-state" data-theme-state="">Ecran acum: întunecat</span>
+                                </span>
+                            </button>
+                            <div class="help-sep" role="separator"></div>
+                            <span class="help-section-title" data-i18n="helpContactItem">Kontakt</span>
+                            <button type="button" class="help-menu-item" data-help-contact="">
+                                <span class="help-menu-icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
+                                <span class="help-menu-label" data-i18n="helpContactRow">E-post, telefon, webbplats</span>
+                            </button>
+                            <div class="help-sep" role="separator"></div>
+                            <span class="help-section-title" data-about-text="section">Despre</span>
+                            <button type="button" class="help-menu-item" data-help-about="" aria-haspopup="dialog">
+                                <span class="help-menu-icon"><i class="fas fa-rocket" aria-hidden="true"></i></span>
+                                <span class="help-menu-text">
+                                    <span class="help-menu-label">ElectricalVPF</span>
+                                    <span class="help-menu-state" data-about-text="menu">Omul, experiența și AI-ul din spatele aplicației</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="btn-secondary btn-login"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span data-i18n="login">Logga in</span></a>
+            </nav>
+        </div>
+        <div id="mobile-nav-overlay" class="mobile-nav-overlay" hidden=""></div>
+        <aside id="mobile-nav-drawer" class="mobile-nav-drawer" aria-hidden="true" aria-modal="true" aria-labelledby="mobile-nav-title" inert="">
+            <div class="mobile-nav-header">
+                <span id="mobile-nav-title" class="mobile-nav-title" data-i18n="mobileMenuTitle">Meny</span>
+                <button id="mobile-menu-close" class="mobile-menu-close" type="button" aria-label="Stäng menyn" data-i18n-aria-label="mobileMenuCloseLabel">×</button>
+            </div>
+            <nav class="mobile-nav-links" aria-label="Mobil navigering" data-i18n-aria-label="mobileNavigationLabel">
+                <a href="#product" data-i18n="product">Produkt</a>
+                <a href="#features" data-i18n="exploreShort">Utforska</a>
+                <details class="mobile-features">
+                    <summary><span data-i18n="features">Funktioner</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+                    <div class="mobile-features-items">
+                        <span class="mobile-nav-group" data-i18n="nav.tools.free">Gratis verktyg</span>
+                        <a href="#calculator-tool" data-i18n="nav.tools.calculator" data-i18n-title="nav.tools.calculatorTooltip" title="Beräkna kabelarea och spänningsfall">Kabelkalkylator</a>
+                        <span class="mobile-nav-group" data-i18n="nav.resources.free">Gratis resurser</span>
+                        <a href="/sv/offertmall-elektriker/" data-resource="quote-template" data-i18n="nav.resources.quoteTemplate" data-i18n-title="nav.resources.quoteTemplateTooltip" title="Word, Excel och PDF · gratis, för elektriker i Sverige">Offertmall för elektriker</a>
+                    </div>
+                </details>
+                <a href="#workflow" data-i18n="workflow">Arbetsflöde</a>
+                <details class="mobile-features mobile-tutorials"><summary><span data-i18n="viewTutorials">Se guiderna</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary><div class="tutorials-menu"><a class="tutorial-overview" href="https://electricalvpf.app/demo/#tutorial-overview"><span class="tutorial-orbit" aria-hidden="true">▶</span><span><strong data-i18n="tutorial.overview">Overview</strong><small data-i18n="tutorial.intro">Ett arbete, från första samtalet till betalning: offerten, kundens godkännande, avtalet som signeras online, fakturan och betalningen. Välj sedan ett steg nedan för att se det i detalj.</small></span><span aria-hidden="true">↗</span></a>
+    <div class="tutorial-section"><span data-i18n="tutorial.steps">Steg för steg</span><span>15</span></div>
+    <div class="tutorial-grid"><a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-01-add-client"><span class="tutorial-number">1</span><span data-i18n="tutorial.c01t">Lägg till en kund</span><small>0:44</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-02-work-request"><span class="tutorial-number">2</span><span data-i18n="tutorial.c02t">Registrera en arbetsorder</span><small>0:56</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-03-work"><span class="tutorial-number">3</span><span data-i18n="tutorial.c03t">Gör den till ett arbete</span><small>0:48</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-04-estimated-materials"><span class="tutorial-number">4</span><span data-i18n="tutorial.c04t">Beräkna materialet</span><small>1:10</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-05-materials"><span class="tutorial-number">5</span><span data-i18n="tutorial.c05t">Material på arbetet</span><small>0:57</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-06-estimated-quote"><span class="tutorial-number">6</span><span data-i18n="tutorial.c06t">Prissätt arbetet</span><small>1:38</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-07-quote"><span class="tutorial-number">7</span><span data-i18n="tutorial.c07t">Skapa offerten</span><small>0:46</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-07b-quote-pdf"><span class="tutorial-number">8</span><span data-i18n="tutorial.c07bt">Förhandsgranska offertens PDF</span><small>0:27</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-08-send-quote"><span class="tutorial-number">9</span><span data-i18n="tutorial.c08t">Skicka offerten</span><small>0:53</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-09-quote-accepted"><span class="tutorial-number">10</span><span data-i18n="tutorial.c09t">Kunden godkänner online</span><small>0:41</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-10-contract"><span class="tutorial-number">11</span><span data-i18n="tutorial.c10t">Avtal, signerat av båda</span><small>2:57</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-11-invoice"><span class="tutorial-number">12</span><span data-i18n="tutorial.c11t">Faktura från offerten</span><small>1:12</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-12-job-status"><span class="tutorial-number">13</span><span data-i18n="tutorial.c12t">Betalt, och arbetet stängt</span><small>1:08</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-13-bonus-leads"><span class="tutorial-number">14</span><span data-i18n="tutorial.c13t">Från förfrågan till kund</span><small>1:17</small></a>
+    <a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-14-archive"><span class="tutorial-number">15</span><span data-i18n="tutorial.c14t">Arkivera utan att förlora något</span><small>1:52</small></a></div>
+    <a class="tutorial-library" href="https://electricalvpf.app/demo/"><span data-i18n="viewTutorials">Se guiderna</span><span aria-hidden="true">→</span></a></div></details>
+                <a href="#pricing" data-i18n="pricing">Priser</a>
+            </nav>
+            <div class="mobile-nav-actions">
+                <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="btn-secondary btn-login"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span data-i18n="login">Logga in</span></a>
+                <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary" data-i18n="startFree">Kom igång gratis</a>
+            </div>
+        </aside>
+    </header>
+
+    <!-- 1. HERO PREMIUM -->
+    <section id="product" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <!-- "ERP & CRM" rămâne doar în <title>/meta/JSON-LD (SEO) — limbaj de software, nu al electricianului.
+                     Titlul e mesajul singur în față; brandul e deja în antet. -->
+                <h1 data-i18n="heroTitle">Mjukvara för arbete på plats, byggd av elektriker för elfirmor</h1>
+                <p class="hero-subtitle" data-i18n="heroSubtitle">Mindre tid förlorad på pappersarbete. Mer tid för jobb och kunder. Allt på ett ställe: Kunder, Arbeten, Elektrisk kalkylator, Material, Offerter, Kontrakt, Fakturor, Rapporter.</p>
+                <!-- Două acțiuni: „Începe gratuit” + „▶ Vezi acum” (Overview în fereastră). Pe telefon (≤600px) se adaugă
+                     Autentificarea (pe ecrane late e deja în antet). „Explorează” e în meniu. -->
+                <div class="hero-buttons">
+                    <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary btn-lg" data-i18n="startFree">Kom igång gratis</a>
+                    <a href="https://electricalvpf.app/demo/" class="btn-outline btn-lg hero-btn-watch" data-watch-now=""><i class="fas fa-play" aria-hidden="true"></i><span data-i18n="watchNow">Titta nu</span></a>
+                    <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu" class="btn-outline btn-lg btn-login hero-btn-signin"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i><span data-i18n="login">Logga in</span></a>
+                </div>
+                <!-- Dovadă de profesionalism, discretă. Fiecare afirmație e verificată în cod: Stripe Checkout (plăți),
+                     JWT + Turnstile (autentificare), modulul Contracte, paginile legale + interfața în 10 limbi. -->
+                <div class="hero-proof">
+                    <i class="fas fa-shield-halved" aria-hidden="true"></i>
+                    <div>
+                        <strong data-i18n="heroProofTitle">Din data förblir din</strong>
+                        <p data-i18n="heroProofText">Exportera den när som helst och säg upp Pro när som helst utan avgift. Du betalar via Stripe; kortuppgifterna når aldrig oss.</p>
+                    </div>
+                </div>
+                <div class="hero-proof calc-tool-intro">
+                    <i class="fas fa-bolt" aria-hidden="true"></i>
+                    <div>
+                        <strong class="calc-tool-section-title"><span>ElectricalVPF</span> <i>/ JT</i> <em data-i18n="calcWidgetKicker">(Lågspänning)</em></strong>
+                        <p data-i18n="calcWidgetIntro">Sluta gissa vilken kabel och vilket skydd du ska välja. Ange effekt och ledningslängd, så ger lågspänningskalkylen snabbt rekommenderad area, nominellt skydd, beräkningsström och spänningsfall — innan du köper material eller presenterar lösningen för kunden.</p>
+                    </div>
+                </div>
+                <section id="calculator-tool" class="calc-widget" aria-labelledby="calc-widget-title">
+                    <div class="calc-widget-heading">
+                        <div>
+                            <strong id="calc-widget-title" data-i18n="calcWidgetTitle">Snabb kabelkalkylator</strong>
+                        </div>
+                        <span data-i18n="calcWidgetScope">Inomhuskretsar upp till 10 kW</span>
+                    </div>
+                    <form novalidate="">
+                        <label><span data-i18n="calcPowerLabel">Effekt (kW)</span><input name="power" type="number" min="0.1" max="10" step=".1" inputmode="decimal" aria-describedby="calcPowerError" required=""><small id="calcPowerError" class="calc-field-error" role="alert"></small></label>
+                        <label><span data-i18n="calcLengthLabel">Ledningslangd (m)</span><input name="length" type="number" min="1" step="1" inputmode="numeric" aria-describedby="calcLengthError" required=""><small id="calcLengthError" class="calc-field-error" role="alert"></small></label>
+                        <label><span data-i18n="calcVoltageLabel">Matning</span><select name="voltage" aria-describedby="calcVoltageError"><option value="230">230 V</option><option value="400">400 V</option></select><small id="calcVoltageError" class="calc-field-error" role="alert"></small></label>
+                        <button type="submit" data-i18n="calcBtn">Beräkna</button>
+                    </form>
+                    <div id="calcWidgetResult" class="calc-widget-result" role="status" aria-live="polite"></div>
+                    <details class="calc-widget-details">
+                        <summary data-i18n="calcTechnicalDetails">Tekniska detaljer</summary>
+                        <div id="calcTechnicalCopy"></div>
+                    </details>
+                </section>
+            </div>
+            <div class="hero-mockup-wrapper">
+                <!-- Scena cosmică (site/cosmos.css): orbite lente, nucleul cu fulger și sloganul
+                     „Experiență umană · Era AI” (tradus de site/about.js, cheia „era”). Nucleul duce la autentificare. -->
+                <div class="hero-cosmos">
+                    <svg class="cosmos-orbits" viewBox="0 0 520 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                        <g transform="rotate(-18 260 150)">
+                            <ellipse id="cosmosOrbitA" class="cosmos-orbit" cx="260" cy="150" rx="230" ry="66"></ellipse>
+                            <circle class="cosmos-planet" r="3.2">
+                                <animateMotion dur="90s" repeatCount="indefinite" path="M30,150 a230,66 0 1,0 460,0 a230,66 0 1,0 -460,0"></animateMotion>
+                            </circle>
+                        </g>
+                        <g transform="rotate(24 260 150)">
+                            <ellipse class="cosmos-orbit cosmos-orbit--cross" cx="260" cy="150" rx="178" ry="50"></ellipse>
+                            <circle class="cosmos-planet cosmos-planet--small" r="2.2">
+                                <animateMotion dur="140s" repeatCount="indefinite" begin="-60s" path="M438,150 a178,50 0 1,0 -356,0 a178,50 0 1,0 356,0"></animateMotion>
+                            </circle>
+                        </g>
+                        <ellipse class="cosmos-orbit cosmos-orbit--faint" cx="260" cy="150" rx="258" ry="112"></ellipse>
+                    </svg>
+                    <a class="cosmos-core" href="https://electricalvpf.app/frontend/login.html?returnSite=eu" aria-label="Logga in" data-i18n-aria-label="login"><svg viewBox="0 0 30 38" aria-hidden="true"><path d="M18 3 5 22h10l-3 13 13-20H15Z"></path></svg></a>
+                    <span class="cosmos-caption" data-about-text="era">Experiență umană · Era AI</span>
+                </div>
+                <!-- Preview General Panel — aceleași clase și aceleași valori vizuale ca pagina reală
+                     (frontend/general-panel.html: .kpi-card/.kpi-icon/.kpi-title/.kpi-value, .content-card,
+                     tabel + badge-uri de status). Stilurile sunt în site/style.css ("Preview General Panel").
+                     Datele sunt DEMO. Adresa din bară e doar text (imagine, nu browser real). Tot corpul panoului e UN singur
+                     link [data-panel-link] spre login; site/session-redirect.js îl îndreaptă spre General Panel
+                     când există o sesiune. -->
+                <div class="mini-dashboard-mockup">
+                    <div class="mockup-topbar">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                        <span class="mockup-title">electricalvpf.app/general-panel</span>
+                    </div>
+                    <a class="mockup-body" href="https://electricalvpf.app/frontend/login.html?returnSite=eu" data-panel-link="">
+                        <div class="gp-preview">
+                            <div class="gp-kpi-row">
+                                <div class="kpi-card">
+                                    <span class="kpi-icon kpi-icon-revenue" aria-hidden="true"><i class="fas fa-euro-sign"></i></span>
+                                    <span class="kpi-data"><span class="kpi-title" data-i18n="revenue">Intäkter</span><strong class="kpi-value">€24,560</strong></span>
+                                </div>
+                                <div class="kpi-card">
+                                    <span class="kpi-icon kpi-icon-work" aria-hidden="true"><i class="fas fa-folder-open"></i></span>
+                                    <span class="kpi-data"><span class="kpi-title" data-i18n="projects">Arbeten</span><strong class="kpi-value">24</strong></span>
+                                </div>
+                                <div class="kpi-card">
+                                    <span class="kpi-icon kpi-icon-clients" aria-hidden="true"><i class="fas fa-users"></i></span>
+                                    <span class="kpi-data"><span class="kpi-title" data-i18n="clients">Kunder</span><strong class="kpi-value">125</strong></span>
+                                </div>
+                            </div>
+                            <div class="content-card">
+                                <div class="gp-table-scroll">
+                                    <table class="gp-table">
+                                        <thead>
+                                            <tr><th data-i18n="project">Arbetsnamn</th><th data-i18n="client">Kund</th><th data-i18n="status">Status</th><th data-i18n="value">Värde</th></tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td class="fw-semibold">Instalație Rezidențială</td><td>Ion Popescu</td><td><span class="badge badge-in-progress" data-i18n="inProgress">Pågår</span></td><td class="fw-bold">€4,200</td></tr>
+                                            <tr><td class="fw-semibold">Tablou Industrial</td><td>S.C. Electra</td><td><span class="badge badge-completed" data-i18n="completed">Slutfört</span></td><td class="fw-bold">€12,800</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. TRUST / PROFESSIONALISM -->
+    <section class="trust-bar">
+        <!-- Fiecare cuvânt deschide o „dovadă" (site/proofs.js): fapte verificabile + „Începe gratuit". -->
+        <div class="container trust-grid">
+            <button type="button" class="trust-item" data-proof="pro" aria-haspopup="dialog" aria-expanded="false"><span aria-hidden="true">⚡</span> <span data-i18n="professional">Professionell</span><i class="fas fa-angle-right proof-chevron" aria-hidden="true"></i></button>
+            <button type="button" class="trust-item" data-proof="sec" aria-haspopup="dialog" aria-expanded="false"><span aria-hidden="true">🔒</span> <span data-i18n="secure">Säker</span><i class="fas fa-angle-right proof-chevron" aria-hidden="true"></i></button>
+            <button type="button" class="trust-item" data-proof="cloud" aria-haspopup="dialog" aria-expanded="false"><span aria-hidden="true">☁️</span> <span data-i18n="cloudBased">Molnbaserad</span><i class="fas fa-angle-right proof-chevron" aria-hidden="true"></i></button>
+            <button type="button" class="trust-item" data-proof="acc" aria-haspopup="dialog" aria-expanded="false"><span aria-hidden="true">🌐</span> <span data-i18n="accessibleAnywhere">Tillgänglig överallt</span><i class="fas fa-angle-right proof-chevron" aria-hidden="true"></i></button>
+            <button type="button" class="trust-item" data-proof="for" aria-haspopup="dialog" aria-expanded="false"><span aria-hidden="true">💡</span> <span data-i18n="builtForElectricalBusinesses">Skapad för elinstallationsföretag</span><i class="fas fa-angle-right proof-chevron" aria-hidden="true"></i></button>
+        </div>
+    </section>
+
+    <!-- 3½. TELEFON — „Biroul firmei tale, în buzunar". Avantaj central: aplicație web făcută pentru telefon, fără instalare,
+         fără update-uri manuale. Desenul e SVG (fără text de tradus, în afară de URL); textele vin din site/proofs-i18n.js
+         (chei phone_*, generate de site/tools/build-proofs-i18n.js din site/tools/phone-copy.js). Butonul deschide fereastra
+         „dovadă" (site/proofs.js). NU se afirmă „AI" — aplicația nu are funcții de inteligență artificială. -->
+    <section id="phone" class="phone-section">
+        <div class="container phone-grid">
+            <div class="phone-copy">
+                <span class="badge-tag phone-kicker" data-i18n="phone_k">Gjord för telefonen</span>
+                <h2 data-i18n="phone_t">Företagets kontor, i fickan.</h2>
+                <p class="phone-l" data-i18n="phone_l">Ingen installation. Inga uppdateringar. Ingen extra app att underhålla.</p>
+                <p class="phone-b" data-i18n="phone_b">På plats? Öppna webbläsaren så har du firmans arbete inom räckhåll: kunder, jobb, offerter, kontrakt, fakturor och rapporter — på ett ställe.</p>
+                <p class="phone-p" data-i18n="phone_p">Du har redan tillräckligt med appar i telefonen. ElectricalVPF ber inte om en till.</p>
+                <button type="button" class="btn-primary btn-lg phone-btn" data-proof="phone" aria-haspopup="dialog" aria-expanded="false"><span data-i18n="phone_btn">Se hur det fungerar på telefonen</span> <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+            </div>
+
+            <div class="phone-art" role="group" aria-label="En telefon med ElectricalVPF öppet i webbläsaren" data-i18n-aria-label="phone_aria">
+                <svg class="phone-svg" viewBox="0 0 220 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <!-- corp + butoane laterale -->
+                    <rect class="ph-btn" x="2" y="108" width="4" height="34" rx="2"></rect>
+                    <rect class="ph-btn" x="214" y="136" width="4" height="58" rx="2"></rect>
+                    <rect class="ph-shell" x="6" y="6" width="208" height="448" rx="36"></rect>
+                    <rect class="ph-screen" x="16" y="18" width="188" height="424" rx="28"></rect>
+                    <rect class="ph-island" x="88" y="26" width="44" height="10" rx="5"></rect>
+                    <!-- bara browserului: dovada că rulează în browser, fără instalare -->
+                    <rect class="ph-bar" x="28" y="48" width="164" height="24" rx="12"></rect>
+                    <circle class="ph-accent" cx="42" cy="60" r="3.2"></circle>
+                    <text class="ph-url" x="112" y="64" text-anchor="middle">electricalvpf.app</text>
+                    <!-- antet aplicație -->
+                    <circle class="ph-accent" cx="46" cy="100" r="13"></circle>
+                    <polygon class="ph-bolt" points="49,89 42,101 47,101 44,111 53,97 48,97"></polygon>
+                    <rect class="ph-title" x="66" y="93" width="70" height="8" rx="4"></rect>
+                    <rect class="ph-line" x="66" y="107" width="44" height="6" rx="3"></rect>
+                    <!-- două carduri (KPI) -->
+                    <rect class="ph-card" x="28" y="128" width="78" height="56" rx="10"></rect>
+                    <rect class="ph-line" x="38" y="140" width="34" height="6" rx="3"></rect>
+                    <rect class="ph-accent" x="38" y="154" width="26" height="13" rx="4"></rect>
+                    <rect class="ph-card" x="114" y="128" width="78" height="56" rx="10"></rect>
+                    <rect class="ph-line" x="124" y="140" width="34" height="6" rx="3"></rect>
+                    <rect class="ph-green" x="124" y="154" width="26" height="13" rx="4"></rect>
+                    <!-- listă de lucrări -->
+                    <rect class="ph-card" x="28" y="200" width="164" height="46" rx="10"></rect>
+                    <rect class="ph-title" x="40" y="212" width="70" height="7" rx="3.5"></rect>
+                    <rect class="ph-line" x="40" y="226" width="48" height="6" rx="3"></rect>
+                    <rect class="ph-accent" x="146" y="215" width="34" height="16" rx="8"></rect>
+                    <rect class="ph-card" x="28" y="254" width="164" height="46" rx="10"></rect>
+                    <rect class="ph-title" x="40" y="266" width="56" height="7" rx="3.5"></rect>
+                    <rect class="ph-line" x="40" y="280" width="62" height="6" rx="3"></rect>
+                    <rect class="ph-green" x="146" y="269" width="34" height="16" rx="8"></rect>
+                    <rect class="ph-card" x="28" y="308" width="164" height="46" rx="10"></rect>
+                    <rect class="ph-title" x="40" y="320" width="82" height="7" rx="3.5"></rect>
+                    <rect class="ph-line" x="40" y="334" width="40" height="6" rx="3"></rect>
+                    <rect class="ph-accent" x="146" y="323" width="34" height="16" rx="8"></rect>
+                    <!-- buton -->
+                    <rect class="ph-accent" x="28" y="372" width="164" height="38" rx="12"></rect>
+                    <rect class="ph-cta-line" x="82" y="388" width="56" height="6" rx="3"></rect>
+                    <rect class="ph-home" x="90" y="428" width="40" height="4" rx="2"></rect>
+                </svg>
+
+                <!-- ce NU mai ai de făcut: insigna roșie de actualizări și descărcarea, tăiate -->
+                <button type="button" class="phone-chip chip-no chip-update" data-phone-tip="updates" data-i18n-aria-label="phoneTip_updates" aria-label="Uppdateringarna kommer av sig själva."><i aria-hidden="true" class="fas fa-grip"></i><b aria-hidden="true" class="chip-badge">3</b><span hidden="" data-i18n="phoneTip_updates">Uppdateringarna kommer av sig själva.</span><span hidden="" data-i18n="phoneTip_updates_description">När du öppnar ElectricalVPF i telefonens webbläsare får du appens uppdateringar utan att trycka på någon uppdateringsknapp.</span></button>
+                <button type="button" class="phone-chip chip-no chip-install" data-phone-tip="install" data-i18n-aria-label="phoneTip_install" aria-label="Öppna webbläsaren, utan installation."><i aria-hidden="true" class="fas fa-download"></i><span hidden="" data-i18n="phoneTip_install">Öppna webbläsaren, utan installation.</span><span hidden="" data-i18n="phoneTip_install_description">Gå till electricalvpf.app i telefonens webbläsare och logga in. Ingen app behöver laddas ner eller installeras.</span></button>
+                <!-- ce primești: fluxul firmei, în buzunar (aceleași iconițe ca în aplicație) -->
+                <button type="button" class="phone-chip chip-mod mod-1" data-phone-tip="clients" data-i18n-aria-label="phoneTip_clients" aria-label="Kunduppgifterna finns nära till hands."><i aria-hidden="true" class="fas fa-users"></i><span hidden="" data-i18n="phoneTip_clients">Kunduppgifterna finns nära till hands.</span><span hidden="" data-i18n="phoneTip_clients_description">Öppna kundlistan på telefonen och hitta kontaktuppgifter direkt på arbetsplatsen.</span></button>
+                <button type="button" class="phone-chip chip-mod mod-2" data-phone-tip="quotes" data-i18n-aria-label="phoneTip_quotes" aria-label="Skicka offerter från arbetsplatsen."><i aria-hidden="true" class="fas fa-file-signature"></i><span hidden="" data-i18n="phoneTip_quotes">Skicka offerter från arbetsplatsen.</span><span hidden="" data-i18n="phoneTip_quotes_description">Skapa offerten på telefonen och skicka den till kunden utan att vänta tills du är tillbaka på kontoret.</span></button>
+                <button type="button" class="phone-chip chip-mod mod-3" data-phone-tip="invoices" data-i18n-aria-label="phoneTip_invoices" aria-label="Se vilka fakturor som är obetalda."><i aria-hidden="true" class="fas fa-file-invoice-dollar"></i><span hidden="" data-i18n="phoneTip_invoices">Se vilka fakturor som är obetalda.</span><span hidden="" data-i18n="phoneTip_invoices_description">Kontrollera fakturorna på telefonen och se vilka som är betalda och hur mycket som återstår.</span></button>
+                <button type="button" class="phone-chip chip-mod mod-4" data-phone-tip="reports" data-i18n-aria-label="phoneTip_reports" aria-label="Se hur det går för företaget."><i aria-hidden="true" class="fas fa-chart-line"></i><span hidden="" data-i18n="phoneTip_reports">Se hur det går för företaget.</span><span hidden="" data-i18n="phoneTip_reports_description">Öppna rapporterna på telefonen och följ företagets registrerade intäkter och utgifter.</span></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. & 7. BENEFITS & WHY ELECTRICALVPF (Features) -->
+    <section id="features" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="featuresTitle">Gjort för elektrikerns vardag.</h2>
+                <p data-i18n="featuresSubtitle">Jobb, material och offerter, så som du använder dem varje dag.</p>
+            </div>
+            <div class="features-grid">
+                <!-- Toate modulele, în ordinea din „Flux de lucru" (fără Stadiu Lucrări), 2 rânduri × 4.
+                     Titluri = numele modulelor din aplicație (planMod_*), descrieri = aceleași texte ca
+                     tooltip-urile din secțiunea Planuri (planTip_*, site/plans-i18n.js) — nimic scris separat. -->
+                <div class="feature-card" data-preview="clients" role="button" tabindex="0" aria-haspopup="dialog">
+                    <div class="icon"><i class="fas fa-users" aria-hidden="true"></i></div>
+                    <h3 data-i18n="planMod_clients">Kunder</h3>
+                    <p data-i18n="planTip_clients">Potentiella kunder och kunder på ett ställe - från första kontakten till fullständig historik för varje kund.</p>
+                    <span class="fc-preview"><i class="fas fa-eye" aria-hidden="true"></i><span data-i18n="previewHint">Förhandsvisning</span></span>
+                </div>
+                <div class="feature-card" data-preview="work" role="button" tabindex="0" aria-haspopup="dialog">
+                    <div class="icon"><i class="fas fa-folder-open" aria-hidden="true"></i></div>
+                    <h3 data-i18n="planMod_work">Arbeten</h3>
+                    <p data-i18n="planTip_work">Arbetsordrar från fältet (med foton och status) och dina jobb på ett ställe - från första samtalet till fakturering.</p>
+                    <span class="fc-preview"><i class="fas fa-eye" aria-hidden="true"></i><span data-i18n="previewHint">Förhandsvisning</span></span>
+                </div>
+                <div class="feature-card" data-preview="electricCalculator" role="button" tabindex="0" aria-haspopup="dialog">
+                    <div class="icon"><i class="fas fa-calculator" aria-hidden="true"></i></div>
+                    <h3 data-i18n="planMod_electricCalculator">Elektrisk kalkylator</h3>
+                    <p data-i18n="planTip_electricCalculator">Beräkna kabelarea, säkring och typ av jordfelsbrytare direkt, enligt norm.</p>
+                    <span class="fc-preview"><i class="fas fa-eye" aria-hidden="true"></i><span data-i18n="previewHint">Förhandsvisning</span></span>
+                </div>
+                <div class="feature-card" data-preview="materials" role="button" tabindex="0" aria-haspopup="dialog">
+                    <div class="icon"><i class="fas fa-boxes-stacked" aria-hidden="true"></i></div>
+                    <h3 data-i18n="planMod_materials">Material</h3>
+                    <p data-i18n="planTip_materials">Hantera materialen som behövs för jobben, följ upp behovet och håll materialen organiserade per arbete.</p>
+                    <span class="fc-preview"><i class="fas fa-eye" aria-hidden="true"></i><span data-i18n="previewHint">Förhandsvisning</span></span>
+                </div>
+                <div class="feature-card" data-preview="offers" role="button" tabindex="0" aria-haspopup="dialog">
+                    <div class="icon"><i class="fas fa-file-signature" aria-hidden="true"></i></div>
+                    <h3 data-i18n="planMod_offers">Offerter</h3>
+                    <p data-i18n="planTip_offers">Beräkna kostnaden, skicka offerten till kunden och se de accepterade offerterna, redo att faktureras - allt på ett ställe.</p>
+                    <span class="fc-preview"><i class="fas fa-eye" aria-hidden="true"></i><span data-i18n="previewHint">Förhandsvisning</span></span>
+                </div>
+                <div class="feature-card" data-preview="contracts" role="button" tabindex="0" aria-haspopup="dialog">
+                    <div class="icon"><i class="fas fa-file-contract" aria-hidden="true"></i></div>
+                    <h3 data-i18n="planMod_contracts">Kontrakt</h3>
+                    <p data-i18n="planTip_contracts">Generera kontraktet från en offert eller från grunden, PDF redo att mejlas till kunden.</p>
+                    <span class="fc-preview"><i class="fas fa-eye" aria-hidden="true"></i><span data-i18n="previewHint">Förhandsvisning</span></span>
+                </div>
+                <div class="feature-card" data-preview="invoices" role="button" tabindex="0" aria-haspopup="dialog">
+                    <div class="icon"><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i></div>
+                    <h3 data-i18n="planMod_invoices">Fakturor</h3>
+                    <p data-i18n="planTip_invoices">Utfärda fakturan, följ upp betalningen och ha en tydlig överblick över inkasserade pengar.</p>
+                    <span class="fc-preview"><i class="fas fa-eye" aria-hidden="true"></i><span data-i18n="previewHint">Förhandsvisning</span></span>
+                </div>
+                <div class="feature-card" data-preview="reports" role="button" tabindex="0" aria-haspopup="dialog">
+                    <div class="icon"><i class="fas fa-chart-line" aria-hidden="true"></i></div>
+                    <h3 data-i18n="planMod_reports">Rapporter</h3>
+                    <p data-i18n="planTip_reports">Se med en blick vad du har fakturerat, vad du har fått in och vinsten på varje arbete.</p>
+                    <span class="fc-preview"><i class="fas fa-eye" aria-hidden="true"></i><span data-i18n="previewHint">Förhandsvisning</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. WORKFLOW — aceiași pași, în aceeași ordine, ca lista modulelor comerciale. -->
+    <section id="workflow" class="section-padding bg-darker">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="workflowTitle">Från första samtalet till betalning</h2>
+                <p data-i18n="workflowSubtitle">Varje steg i ett jobb, i ett enda flöde.</p>
+            </div>
+            <div class="workflow-chain">
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=clients" data-app-page="customers.html"><i class="fas fa-users" aria-hidden="true"></i><span>01</span><strong data-i18n="planMod_clients">Kunder</strong><span class="wf-tip-source" data-i18n="wfTip_clients" hidden="">Människorna du jobbar för, med uppgifterna till hands.</span></a>
+                <span class="arrow">→</span>
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=work" data-app-page="jobs.html"><i class="fas fa-folder-open" aria-hidden="true"></i><span>02</span><strong data-i18n="planMod_work">Arbeten</strong><span class="wf-tip-source" data-i18n="wfTip_work" hidden="">Varje jobb, från förfrågan till färdigt.</span></a>
+                <span class="arrow">→</span>
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=electricCalculator" data-app-page="electric-calculator.html"><i class="fas fa-calculator" aria-hidden="true"></i><span>03</span><strong data-i18n="planMod_electricCalculator">Elektrisk kalkylator</strong><span class="wf-tip-source" data-i18n="wfTip_electricCalculator" hidden="">Rätt kabel och skydd, innan du köper.</span></a>
+                <span class="arrow">→</span>
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=materials" data-app-page="materials.html"><i class="fas fa-boxes-stacked" aria-hidden="true"></i><span>04</span><strong data-i18n="planMod_materials">Material</strong><span class="wf-tip-source" data-i18n="wfTip_materials" hidden="">Du vet vad som finns i lager och vad som ska köpas.</span></a>
+                <span class="arrow">→</span>
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=offers" data-app-page="offers.html"><i class="fas fa-file-signature" aria-hidden="true"></i><span>05</span><strong data-i18n="planMod_offers">Offerter</strong><span class="wf-tip-source" data-i18n="wfTip_offers" hidden="">Kunden vet priset innan du börjar.</span></a>
+                <span class="arrow">→</span>
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=contracts" data-app-page="contracts.html"><i class="fas fa-file-contract" aria-hidden="true"></i><span>06</span><strong data-i18n="planMod_contracts">Kontrakt</strong><span class="wf-tip-source" data-i18n="wfTip_contracts" hidden="">Överenskommelsen skriftligt, så att det inte bara blir ord.</span></a>
+                <span class="arrow">→</span>
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=invoices" data-app-page="invoices.html"><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i><span>07</span><strong data-i18n="planMod_invoices">Fakturor</strong><span class="wf-tip-source" data-i18n="wfTip_invoices" hidden="">Utfört arbete faktureras och följs upp tills det är betalt.</span></a>
+                <span class="arrow">→</span>
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=reports" data-app-page="reports.html"><i class="fas fa-chart-line" aria-hidden="true"></i><span>08</span><strong data-i18n="planMod_reports">Rapporter</strong><span class="wf-tip-source" data-i18n="wfTip_reports" hidden="">Företagets siffror, sagda rakt på sak.</span></a>
+                <span class="arrow">→</span>
+                <a class="workflow-step" href="https://electricalvpf.app/frontend/login.html?returnSite=eu&return=jobStatus" data-app-page="job-status.html"><i class="fas fa-route" aria-hidden="true"></i><span>09</span><strong data-i18n="planMod_jobStatus">Jobbstatus</strong><span class="wf-tip-source" data-i18n="wfTip_jobStatus" hidden="">Du vet alltid hur långt varje jobb har kommit.</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. PRICING — module, limite și restricții identice cu pagina de planuri din aplicație
+         (frontend/erp-plans.html). Textele vin din site/plans-i18n.js, generat din frontend/locales/*.json.
+         Nu adăuga aici limite/funcții care nu există în aplicație. -->
+    <section id="pricing" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="pricingTitle">Vad det kostar</h2>
+                <p data-i18n="pricingSubtitle">Välj rätt plan för företagets storlek. Inga dolda avgifter.</p>
+            </div>
+            <div class="pricing-grid plans-grid" id="plansGrid">
+
+                <!-- FREE -->
+                <div class="pricing-card free-plan plan-card">
+                    <h3 class="pc-name" data-i18n="freePlan">Gratis</h3>
+                    <div class="pc-price">
+                        <span class="plan-amount">€0</span>
+                        <span class="plan-period" data-i18n="planFreePeriod">/månad</span>
+                    </div>
+                    <p class="p-desc pc-desc" data-i18n="planFreeDesc">För att testa ERP-systemet med låg aktivitetsvolym.</p>
+                    <ul class="plan-modules pc-list">
+                        <li class="plan-module included" data-module="clients" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span class="plan-mod-label"><span data-i18n="planMod_clients">Kunder</span><span data-i18n="planFreeClients"> - högst 2 kunder</span></span></li>
+                        <li class="plan-module included" data-module="work" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span class="plan-mod-label"><span data-i18n="planMod_work">Arbeten</span><span data-i18n="planFreeWork"> - högst 3 arbeten</span></span></li>
+                        <li class="plan-module included" data-module="electricCalculator" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span class="plan-mod-label" data-i18n="planFreeCalculator">Elektrisk Kalkylator - högst 10 sparade beräkningar</span></li>
+                        <li class="plan-module included" data-module="materials" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span class="plan-mod-label"><span data-i18n="planMod_materials">Material</span><span data-i18n="planFreeMaterials"> - högst 20 material</span></span></li>
+                        <li class="plan-module included" data-module="offers" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span class="plan-mod-label"><span data-i18n="planMod_offers">Offerter</span><span data-i18n="planFreeQuotes"> - högst 3 offerter</span><span data-i18n="planFreeQuotesBranding"> med din företagslogotyp och ElectricalVPF-märkning</span></span></li>
+                        <li class="plan-module included" data-module="contracts" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span class="plan-mod-label"><span data-i18n="planMod_contracts">Kontrakt</span><span data-i18n="planFreeContracts"> - högst 2 avtal</span><span data-i18n="planFreeContractsBranding"> med ElectricalVPF-märkning</span></span></li>
+                        <li class="plan-module included" data-module="invoices" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span class="plan-mod-label"><span data-i18n="planMod_invoices">Fakturor</span><span data-i18n="planFreeInvoices"> - högst 2 fakturor</span><span data-i18n="planFreeInvoicesBranding"> med din företagslogotyp och ElectricalVPF-märkning</span></span></li>
+                        <li class="plan-module included" data-module="reports" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span class="plan-mod-label"><span data-i18n="planMod_reports">Rapporter</span><span data-i18n="planFreeReports"> - högst 5 rapporter</span></span></li>
+                        <li class="plan-module excluded" data-module="jobStatus" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-lock" aria-hidden="true"></i></span><span class="plan-mod-label" data-i18n="planMod_jobStatus">Jobbstatus</span></li>
+                    </ul>
+                    <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-outline pc-cta" data-i18n="freeForever">Gratis för alltid</a>
+                </div>
+
+                <!-- PRO -->
+                <div class="pricing-card featured plan-card">
+                    <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="popular-tag" data-i18n="planProBadge">Rekommenderas</a>
+                    <h3 class="pc-name" data-i18n="proPlan">Pro</h3>
+                    <div class="pc-billing">
+                        <span class="plan-billing-label active" id="billingLabelMonthly" data-i18n="planBillMonthly">Månadsvis</span>
+                        <button type="button" class="plan-billing-switch" id="billingSwitch" role="switch" aria-checked="false" aria-label="Växla mellan månads- och årsfakturering" data-i18n-aria-label="planBillAria"><span class="plan-billing-thumb"></span></button>
+                        <span class="plan-billing-label" id="billingLabelYearly" data-i18n="planBillYearly">Årsvis</span>
+                    </div>
+                    <div class="pc-price">
+                        <span class="plan-amount" id="proPlanAmount">€49.00</span>
+                        <span class="plan-period" id="proPlanPeriod" data-i18n="planProPeriod">/månad</span>
+                    </div>
+                    <div class="pc-discount">
+                        <span class="plan-discount-badge" id="proPlanDiscountBadge" data-i18n="planProDiscount" hidden="">Spara 20% med årlig fakturering</span>
+                    </div>
+                    <p class="p-desc pc-desc" data-i18n="planProDesc">För företag som vill ha full kontroll över sin verksamhet.</p>
+                    <ul class="plan-modules pc-list">
+                        <li class="plan-module included" data-module="clients" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span class="plan-mod-label"><span data-i18n="planMod_clients">Kunder</span><span data-i18n="planProClients"> - obegränsat antal kunder</span></span></li>
+                        <li class="plan-module included" data-module="work" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span class="plan-mod-label"><span data-i18n="planMod_work">Arbeten</span><span data-i18n="planProWork"> - obegränsat antal arbeten</span></span></li>
+                        <li class="plan-module included" data-module="electricCalculator" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span class="plan-mod-label" data-i18n="planProCalculator">Elektrisk Kalkylator - obegränsat antal sparade beräkningar</span></li>
+                        <li class="plan-module included" data-module="materials" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span class="plan-mod-label"><span data-i18n="planMod_materials">Material</span><span data-i18n="planProMaterials"> - obegränsat antal material</span></span></li>
+                        <li class="plan-module included" data-module="offers" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span class="plan-mod-label"><span data-i18n="planMod_offers">Offerter</span><span data-i18n="planProQuotes"> - obegränsat antal offerter</span><span data-i18n="planProQuotesWhiteLabel"> med din företagslogotyp, </span><span class="plan-no-mark" data-i18n="planProNoMark">utan ElectricalVPF-märkning</span></span></li>
+                        <li class="plan-module included" data-module="contracts" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span class="plan-mod-label"><span data-i18n="planMod_contracts">Kontrakt</span><span data-i18n="planProContracts"> - obegränsat antal avtal</span><span data-i18n="planProContractsWhiteLabel">, </span><span class="plan-no-mark" data-i18n="planProNoMark">utan ElectricalVPF-märkning</span></span></li>
+                        <li class="plan-module included" data-module="invoices" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span class="plan-mod-label"><span data-i18n="planMod_invoices">Fakturor</span><span data-i18n="planProInvoices"> - obegränsat antal fakturor</span><span data-i18n="planProInvoicesWhiteLabel"> med din företagslogotyp, </span><span class="plan-no-mark" data-i18n="planProNoMark">utan ElectricalVPF-märkning</span></span></li>
+                        <li class="plan-module included" data-module="reports" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span class="plan-mod-label"><span data-i18n="planMod_reports">Rapporter</span><span data-i18n="planProReports"> - obegränsat antal rapporter</span></span></li>
+                        <li class="plan-module included" data-module="jobStatus" tabindex="0"><span class="plan-mod-icon"><i class="fas fa-check" aria-hidden="true"></i></span><span class="plan-mod-label" data-i18n="planMod_jobStatus">Jobbstatus</span></li>
+                    </ul>
+                    <a href="https://electricalvpf.app/frontend/register.html?returnSite=eu" class="btn-primary pc-cta" id="proPlanCta" data-i18n="planProCtaMonthly">Uppgradera till Pro - €49/mån</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-flex">
+            <p>© 2026 <span data-i18n="footerText">ElectricalVPF. Alla rättigheter förbehållna.</span></p>
+            <nav class="footer-legal" aria-label="Legal">
+                <a href="https://electricalvpf.app/frontend/legal/terms-sv.html?returnSite=eu" data-legal="terms" data-i18n="legalTerms">Villkor</a>
+                <a href="https://electricalvpf.app/frontend/legal/privacy-sv.html?returnSite=eu" data-legal="privacy" data-i18n="legalPrivacy">Integritetspolicy</a>
+                <a href="https://electricalvpf.app/frontend/legal/cookies-sv.html?returnSite=eu" data-legal="cookies" data-i18n="legalCookies">Cookiepolicy</a>
+                <a href="https://electricalvpf.app/frontend/legal/refund-policy-sv.html?returnSite=eu" data-legal="refund-policy" data-i18n="legalRefund">Återbetalnings- och avbokningspolicy</a>
+                <a href="https://electricalvpf.app/frontend/legal/legal-notice-sv.html?returnSite=eu" data-legal="legal-notice" data-i18n="legalNotice">Juridisk information</a>
+            </nav>
+            <nav class="footer-resources" aria-label="Resources">
+                <span data-i18n="footerResources">Resurser</span>
+                <a href="/sv/offertmall-elektriker/" data-resource="quote-template" data-i18n="nav.resources.quoteTemplate">Offertmall för elektriker</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Scripturi -->
+    <!-- config.js e fișierul aplicației (nemodificat): de aici vine API_BASE_URL folosit la verificarea sesiunii. -->
+    <script src="/frontend/js/config.js?v=20260928-remember"></script>
+    <script src="/site/translations.js?v=20261017-seo-10"></script>
+    <script src="/site/plans-i18n.js?v=20261015-free-contracts"></script>
+    <script src="/site/proofs-i18n.js?v=no-copy-review-1"></script>
+    <script src="/site/language-dropdown.js?v=20261017-seo-10"></script>
+    <script src="/site/help-menu.js?v=20260929-mail-choices"></script>
+    <script src="/site/about.js?v=20261005-field-experience"></script>
+    <script src="/site/cosmos.js?v=20260929-cosmos" defer=""></script>
+    <script src="/site/plans.js?v=no-copy-review-1"></script>
+    <script src="https://electricalvpf.app/frontend/js/plan-allowances.js?v=20261015-shared-outlines"></script>
+    <script src="/site/proofs.js?v=20260930-seo-urls"></script>
+    <script src="/site/phone-tips.js?v=20260927-phone-tips-v3"></script>
+    <script src="/site/workflow-tips.js?v=20260930-seo-urls"></script>
+    <script src="/site/module-previews.js?v=no-copy-review-1"></script>
+    <script src="/site/jt-pending.js?v=20260923-jt-delete"></script>
+    <script src="/site/jt-offer-flow.js?v=20260930-seo-urls"></script>
+    <!-- Sursa vizitei → linkurile de înregistrare, doar prin URL (fără cookie-uri / stocare). -->
+    <script src="/site/attribution.js?v=20260930-attribution"></script>
+    <script type="module" src="/site/calculator-jt-widget.js?v=20260930-seo-urls"></script>
+    <script src="/site/site-header.js?v=20261015-tutorials"></script>
+
+    <!-- Sesiune validă -> direct în dashboard (vezi site/session-redirect.js). Ultimul, după config.js. -->
+    <script src="/site/session-redirect.js?v=20260928-remember"></script>
+    <script src="/site/video-subs.js?v=20261015-archive" defer=""></script>
+    <script src="/site/watch-now.js?v=20261012-phone" defer=""></script>
+
+
+
+</body></html>

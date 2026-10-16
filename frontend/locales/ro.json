@@ -555,6 +555,11 @@
       "saveFailed": "Nu s-a putut salva șablonul."
     },
     "twoFactor": {
+      "inactive": "Neactivată",
+      "unavailable": "Indisponibilă momentan",
+      "appDescription": "Scanezi un cod QR la configurare. La autentificare, introduci codul de 6 cifre generat de aplicația ta.",
+      "emailDescription": "Primești un cod de verificare pe adresa de email a contului, la fiecare autentificare.",
+      "verificationCode": "Cod de verificare",
       "errorInvalid": "Codul nu e corect. Verifică și încearcă din nou.",
       "errorTooMany": "Prea multe încercări. Încearcă din nou peste câteva minute.",
       "errorExpired": "Codul a expirat. Cere unul nou.",
@@ -593,7 +598,16 @@
       "methodEmail": "cod pe email",
       "active": "Activă",
       "activeWith": "Metoda: {{method}}",
-      "recoveryLeft": "Coduri de rezervă nefolosite: {{count}}"
+      "recoveryLeft": "Coduri de rezervă nefolosite: {{count}}",
+      "methodLabel": "Metoda de verificare",
+      "switchTitle": "Schimbi metoda",
+      "switchIntro": "Confirmă întâi cu un cod de la metoda actuală. Autentificarea în doi pași rămâne activă tot timpul.",
+      "continue": "Continuă",
+      "switched": "Metoda a fost schimbată. Codurile de rezervă rămân aceleași.",
+      "oneMethodNote": "Poate fi activă o singură metodă odată. O poți schimba oricând de aici; metoda actuală se oprește abia după ce confirmi codul metodei noi.",
+      "resendIn": "Retrimite în {{seconds}} s",
+      "resendCode": "Retrimite codul",
+      "codeAlreadySent": "Codul a plecat acum câteva secunde. Verifică emailul (și Spam)."
     }
   },
   "clients": {
@@ -2183,9 +2197,9 @@
       "search": "Caută firmă, persoană sau email",
       "allStatuses": "Toate statusurile",
       "allCountries": "Toate țările",
-      "autoAll": "Email: toți",
-      "autoYes": "Email automat: Da",
-      "autoNo": "Email automat: Nu",
+      "autoAll": "Email automat permis: toate",
+      "autoYes": "Email automat permis: Da",
+      "autoNo": "Email automat permis: Nu",
       "autoEmail": "Email automat",
       "actions": "Acțiuni",
       "added": "Adăugat",
@@ -2202,7 +2216,7 @@
       "kpiAuto": "Email automat permis",
       "kpiContacted": "Contactați",
       "kpiSignedUp": "Și-au făcut cont",
-      "kpiPro": "PRO",
+      "kpiPro": "Plătitori (LIVE)",
       "addTitle": "Prospect Nou",
       "editTitle": "Editează Prospect",
       "sourceHint": "ex. Companies House, registrul NICEIC, LinkedIn",
@@ -2245,8 +2259,9 @@
         "replied": "A răspuns",
         "not_interested": "Nu e interesat",
         "signed_up": "Și-a făcut cont",
-        "pro": "Client PRO",
-        "do_not_contact": "Nu contacta"
+        "pro": "Client plătitor",
+        "do_not_contact": "Nu contacta",
+        "bounced": "Adresă invalidă"
       },
       "reasons": {
         "company": "Firmă — poate primi email automat (cu link de dezabonare).",
@@ -2255,7 +2270,8 @@
         "unknown_type": "Alege tipul firmei ca să știi dacă emailul automat e permis.",
         "no_email": "Nu are adresă de email.",
         "do_not_contact": "Marcat „Nu contacta”.",
-        "type_unverified": "Acest tip de firmă nu a fost încă verificat pentru email automat — fără email automat."
+        "type_unverified": "Acest tip de firmă nu a fost încă verificat pentru email automat — fără email automat.",
+        "bounced": "Adresă invalidă — serverul destinatarului a refuzat-o (hard bounce). Nu mai primește niciun email."
       },
       "errors": {
         "company_name": "Numele firmei e obligatoriu.",
@@ -2279,15 +2295,21 @@
       "dailyLimit": "Pe zi, maximum",
       "campaignStats": "Trimise în ultimele 24 h: {{sent}} / {{limit}} · total: {{total}} · eșuate (7 zile): {{failed}}",
       "senderReady": "Expeditor: {{from}} · răspunsurile ajung la {{reply}}",
-      "senderMissing": "Expeditorul nu e încă configurat (OUTREACH_FROM și OUTREACH_REPLY_TO pe Render) — până atunci nu pleacă nimic.",
-      "campaignRules": "Luni–vineri, 9:00–17:00 ora destinatarului. Emailul 1 la firmele noi eligibile; emailul 2 după 5 zile, doar dacă n-au răspuns și nu și-au făcut cont. Niciodată un al treilea email.",
+      "senderMissing": "Outreach-ul nu are încă un cont de email separat (OUTREACH_SMTP_HOST / USER / PASS + OUTREACH_FROM / REPLY_TO pe Render). Până atunci nu pleacă nimic — contul de email al aplicației (coduri de login, facturi, contracte) nu e folosit niciodată pentru outreach.",
+      "campaignRules": "Luni–vineri, 9:00–17:00 ora destinatarului. Emailul 1 la firmele noi eligibile; emailul 2 după 5 zile, doar dacă nu i-ai marcat „A răspuns” și nu și-au făcut cont — răspunsurile nu sunt detectate automat. Niciodată un al treilea email.",
       "campaignStarted": "Trimiterea automată e PORNITĂ.",
       "campaignStopped": "Trimiterea automată e OPRITĂ.",
       "test1": "Trimite-mi emailul 1",
       "test2": "Trimite-mi emailul 2",
       "testSent": "Email de test trimis la {{email}}.",
       "noTemplate": "Nu există încă textul emailului în limba acestui prospect.",
-      "importUpdated": "{{count}} firme existente completate (email, site, persoană de contact)."
+      "importUpdated": "{{count}} firme existente completate (email, site, persoană de contact).",
+      "kpiBounced": "Adrese invalide",
+      "sendFailed": "Trimitere eșuată",
+      "bouncedOn": "Respinsă pe",
+      "markReplied": "Marchează „A răspuns” (oprește emailul 2)",
+      "markedReplied": "{{company}} marcat „A răspuns” — emailul 2 nu mai pleacă.",
+      "payingAuto": "Setat automat din plata reală Stripe LIVE — nu se poate alege de mână. „Nu contacta” se poate alege oricând."
     }
   },
   "practicalGuide": {
@@ -2751,7 +2773,8 @@
       "errorExpired": "Pasul de verificare a expirat. Autentifică-te din nou.",
       "errorResendSoon": "Poți cere un cod nou peste un minut.",
       "errorTooManySends": "Am trimis deja prea multe coduri. Autentifică-te din nou mai târziu.",
-      "resent": "Am trimis un cod nou."
+      "resent": "Am trimis un cod nou.",
+      "resendIn": "Retrimite codul în {{seconds}} s"
     }
   },
   "contracts": {

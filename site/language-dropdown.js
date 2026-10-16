@@ -28,12 +28,11 @@ class LanguageDropdownControl {
     return this.languages.some((l) => l.code === code);
   }
 
-  // Paginile statice (/ = English, /ro/ = Română; templates/home.html → site/tools/build-home-pages.js)
-  // au limba în URL: SITE_PAGE_LANG. Acolo limba URL-ului e limba inițială — o preferință salvată
-  // en/ro NU o rescrie; doar o alegere explicită anterioară a uneia dintre celelalte 8 limbi se aplică
-  // (traducere în browser, fără efect SEO). Fără SITE_PAGE_LANG (ex. vitrina .eu):
-  // limba salvată -> limba browserului (doar dacă SITE_LANG_DETECT) -> English.
-  static SEO_LANGS = ["en", "ro"];
+  // Paginile statice (/ = English, /ro/, /no/, /nl/, /it/, /pl/, /sv/, /tr/, /uk/, /ru/;
+  // templates/home.html → site/tools/build-home-pages.js) au limba în URL: SITE_PAGE_LANG. Acolo limba
+  // URL-ului e limba inițială — o preferință salvată pentru o limbă care ARE pagină proprie
+  // (SITE_PAGE_URLS) nu o rescrie; o limbă fără pagină proprie se aplică prin traducere în browser.
+  // Fără SITE_PAGE_LANG (ex. vitrina .eu): limba salvată -> limba browserului (doar dacă SITE_LANG_DETECT) -> English.
 
   resolveInitialLang() {
     let stored = null;
@@ -51,7 +50,7 @@ class LanguageDropdownControl {
         }
         return pageLang;
       }
-      if (stored && this.isSupported(stored) && !LanguageDropdownControl.SEO_LANGS.includes(stored)) return stored;
+      if (stored && this.isSupported(stored) && !(window.SITE_PAGE_URLS || {})[stored]) return stored;
       // Nimic salvat: limba paginii devine preferința (ca Înregistrarea/aplicația să se deschidă în aceeași limbă).
       if (!stored) {
         try {
@@ -176,7 +175,7 @@ class LanguageDropdownControl {
         } catch (err) {
           /* stocarea indisponibilă (mod privat) — limba se aplică oricum pe pagina curentă */
         }
-        // English / Română au pagini proprii: alegerea lor navighează la URL-ul limbii.
+        // Limbile cu pagină proprie (SITE_PAGE_URLS): alegerea lor navighează la URL-ul limbii.
         const pageUrls = window.SITE_PAGE_URLS;
         if (pageUrls && pageUrls[selectedLang] && selectedLang !== window.SITE_PAGE_LANG) {
           window.location.href = pageUrls[selectedLang] + window.location.hash;
