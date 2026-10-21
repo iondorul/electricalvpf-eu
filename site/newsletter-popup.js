@@ -4,9 +4,9 @@
 //    confirmare), celor dezabonați, nici celor logați în aplicație;
 //  - nu blochează pagina (card în colț / jos pe telefon); bifa de acord e NEBIFATĂ și obligatorie;
 //  - abonarea devine activă doar după linkul din emailul de confirmare.
-// Faza 1: doar paginile în română și engleză (decizie PO, 21 oct 2026).
+// Pe paginile site-ului în toate cele 10 limbi.
 (function () {
-  const LANGS = ["en", "ro"];
+  const LANGS = ["en", "ro", "no", "nl", "it", "pl", "sv", "tr", "uk", "ru"];
   const DELAY_MS = 30000;
   const SNOOZE_MS = 30 * 24 * 3600 * 1000;
   const KEY_STATE = "evpf-newsletter";            // "subscribed" | "unsubscribed" — permanent

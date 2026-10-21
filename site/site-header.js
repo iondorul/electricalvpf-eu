@@ -26,7 +26,8 @@
 
   // Pagina Contact în limba paginii (același tabel ca CONTACT_URLS din site/tools/build-home-pages.js).
   function updateContactLinks() {
-      const urls = { en: 'https://electricalvpf.app/contact/', ro: 'https://electricalvpf.app/ro/contact/' };
+      const urls = { en: 'https://electricalvpf.app/contact/', ro: 'https://electricalvpf.app/ro/contact/', no: 'https://electricalvpf.app/no/contact/', nl: 'https://electricalvpf.app/nl/contact/', it: 'https://electricalvpf.app/it/contact/',
+          pl: 'https://electricalvpf.app/pl/contact/', sv: 'https://electricalvpf.app/sv/contact/', tr: 'https://electricalvpf.app/tr/contact/', uk: 'https://electricalvpf.app/uk/contact/', ru: 'https://electricalvpf.app/ru/contact/' };
       const url = urls[document.documentElement.lang] || 'https://electricalvpf.app/contact/';
       document.querySelectorAll('a[data-contact]').forEach((a) => a.setAttribute('href', url));
   }
