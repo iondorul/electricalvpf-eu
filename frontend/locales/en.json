@@ -1713,7 +1713,8 @@
       "security": "Security",
       "system": "System",
       "coupons": "Coupons",
-      "outreach": "Outreach"
+      "outreach": "Outreach",
+      "newsletter": "Newsletter"
     },
     "overview": {
       "freeUsers": "FREE Users",
@@ -2305,6 +2306,83 @@
       "markReplied": "Mark as replied (stops email 2)",
       "markedReplied": "{{company}} marked as replied — email 2 won't be sent.",
       "payingAuto": "Set automatically from a real Stripe LIVE payment — it can't be chosen by hand. “Do not contact” can always be chosen."
+    },
+    "newsletter": {
+      "title": "Newsletter & Contact",
+      "intro": "People who asked for ElectricalVPF news (double opt-in: active only after they confirm by email), campaigns and the messages sent from the Contact page. Nobody is subscribed automatically.",
+      "views": {
+        "subscribers": "Subscribers",
+        "campaigns": "Campaigns",
+        "messages": "Contact messages"
+      },
+      "kpi": {
+        "subscribed": "Subscribed (confirmed)",
+        "pending": "Unconfirmed",
+        "unsubscribed": "Unsubscribed"
+      },
+      "status": {
+        "subscribed": "Subscribed",
+        "pending": "Unconfirmed",
+        "unsubscribed": "Unsubscribed"
+      },
+      "source": {
+        "popup": "Website window",
+        "contact": "Contact page"
+      },
+      "search": "Search email",
+      "allStatuses": "All statuses",
+      "empty": "No subscribers yet.",
+      "cols": {
+        "email": "Email",
+        "status": "Status",
+        "language": "Language",
+        "source": "Source",
+        "requested": "Requested",
+        "confirmed": "Confirmed",
+        "unsubscribed": "Unsubscribed",
+        "actions": "Actions",
+        "subject": "Subject",
+        "audience": "Audience",
+        "sent": "Sent",
+        "created": "Created",
+        "date": "Date",
+        "name": "Name",
+        "newsletter": "Asked for news",
+        "message": "Message"
+      },
+      "campaignRules": "Campaigns go only to confirmed subscribers, about 10 emails a minute. Every email has an unsubscribe link and a one-click unsubscribe header; anyone who unsubscribes before their email goes out is skipped.",
+      "newCampaign": "New campaign",
+      "editCampaign": "Edit campaign",
+      "edit": "Edit",
+      "test": "Send me a test",
+      "send": "Send",
+      "allLanguages": "All languages",
+      "campaignStatus": {
+        "draft": "Draft",
+        "sending": "Sending",
+        "sent": "Sent"
+      },
+      "failed": "{{count}} failed",
+      "noCampaigns": "No campaigns yet.",
+      "testSent": "Test sent to {{email}}.",
+      "sendConfirmTitle": "Send this campaign?",
+      "sendConfirmText": "\"{{subject}}\" will go to every confirmed subscriber of the chosen audience. You can't undo this.",
+      "queued": "Sending started. Confirmed subscribers receive it over the next minutes.",
+      "audienceHint": "Only confirmed subscribers who chose this language (or all of them).",
+      "body": "Message",
+      "bodyHint": "Plain text. An empty line starts a new paragraph; links become clickable. The unsubscribe link is added automatically.",
+      "saveDraft": "Save draft",
+      "saved": "Saved.",
+      "yes": "Yes",
+      "no": "No",
+      "notEmailed": "not emailed",
+      "noMessages": "No messages yet.",
+      "errors": {
+        "load": "Couldn't load the data.",
+        "generic": "Something went wrong.",
+        "subject": "Write a subject (max. 200 characters).",
+        "body": "Write the message (max. 20,000 characters)."
+      }
     }
   },
   "practicalGuide": {

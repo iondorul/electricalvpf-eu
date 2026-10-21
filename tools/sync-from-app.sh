@@ -55,7 +55,9 @@ PATHS=(
   READ-ME.txt
 )
 # Unelte de build ale .app (citesc frontend/locales/*.json) — nu au sens aici.
-EXCLUDE=(site/tools)
+# Pagina Contact și paginile newsletterului stau doar pe .app (API-ul lor acceptă doar originea .app).
+EXCLUDE=(site/tools site/contact.js site/contact.css site/newsletter-pages.css)
+for l in ro no nl it pl uk ru sv tr; do EXCLUDE+=("$l/contact"); done
 
 git -C "$SRC" rev-parse --verify HEAD >/dev/null
 echo "Sursă: $SRC @ $(git -C "$SRC" log -1 --format='%h %s')"
@@ -127,6 +129,12 @@ sed -i \
 sed -i -e "s#href=\"/demo/#href=\"$APP_URL/demo/#g" "${PAGES[@]}"
 sed -i -e "s#\"/demo/#\"$APP_URL/demo/#g" site/watch-now.js site/video-subs.js
 
+# Pagina Contact (din 2026-10-21) există doar pe .app: formularul trimite la API-ul .app, care acceptă
+# cereri doar de pe .app (CORS). Linkurile „Contact” (meniu, subsol, harta din site-header.js) duc acolo.
+# Fereastra de abonare (site/newsletter-popup.js) se oprește singură pe alt domeniu decât .app.
+sed -i -E -e "s#href=\"((/[a-z]{2})?/contact/)\"#href=\"$APP_URL\1\"#g" "${PAGES[@]}"
+sed -i -E -e "s#'((/[a-z]{2})?/contact/)'#'$APP_URL\1'#g" site/site-header.js
+
 # Login/Register pe .app: ?returnSite=eu face ca „Back to website” să revină
 # aici (frontend/js/return-site.js din .app, listă fixă de destinații).
 sed -i -E \
@@ -176,6 +184,8 @@ done < <(grep -oE 'window\.SITE_PAGE_URLS = \{[^}]*\}' index.html | grep -oE ':[
 # Paginile legale pe .app: același ?returnSite=eu, ca „Back to website” de acolo
 # să revină aici (return-site.js îl păstrează și la schimbarea limbii/documentului).
 sed -i -E '/frontend\/legal\//s#\.html(["'"'"'`])#.html?returnSite=eu\1#g' "${PAGES[@]}" site/*.js
+# …și cele cu ancoră (ex. privacy.html#newsletter din fereastra de abonare, #contact-form din Contact).
+sed -i -E '/frontend\/legal\//s#\.html\##.html?returnSite=eu\##g' "${PAGES[@]}" site/*.js
 if grep -nE "frontend/legal/" "${PAGES[@]}" site/*.js | grep -v "returnSite=eu" | grep -q .; then
   echo "ATENȚIE: linkuri legale fără returnSite=eu." >&2
   exit 1

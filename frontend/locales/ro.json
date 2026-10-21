@@ -1718,7 +1718,8 @@
       "security": "Securitate",
       "system": "Sistem",
       "coupons": "Cupoane",
-      "outreach": "Outreach"
+      "outreach": "Outreach",
+      "newsletter": "Newsletter"
     },
     "overview": {
       "freeUsers": "Utilizatori FREE",
@@ -2310,6 +2311,83 @@
       "markReplied": "Marchează „A răspuns” (oprește emailul 2)",
       "markedReplied": "{{company}} marcat „A răspuns” — emailul 2 nu mai pleacă.",
       "payingAuto": "Setat automat din plata reală Stripe LIVE — nu se poate alege de mână. „Nu contacta” se poate alege oricând."
+    },
+    "newsletter": {
+      "title": "Newsletter și Contact",
+      "intro": "Cei care au cerut noutăți ElectricalVPF (double opt-in: activi doar după ce confirmă pe email), campaniile și mesajele trimise din pagina Contact. Nimeni nu e abonat automat.",
+      "views": {
+        "subscribers": "Abonați",
+        "campaigns": "Campanii",
+        "messages": "Mesaje Contact"
+      },
+      "kpi": {
+        "subscribed": "Abonați (confirmați)",
+        "pending": "Neconfirmați",
+        "unsubscribed": "Dezabonați"
+      },
+      "status": {
+        "subscribed": "Abonat",
+        "pending": "Neconfirmat",
+        "unsubscribed": "Dezabonat"
+      },
+      "source": {
+        "popup": "Fereastra de pe site",
+        "contact": "Pagina Contact"
+      },
+      "search": "Caută email",
+      "allStatuses": "Toate statusurile",
+      "empty": "Încă nu sunt abonați.",
+      "cols": {
+        "email": "Email",
+        "status": "Status",
+        "language": "Limbă",
+        "source": "Sursă",
+        "requested": "Cerut",
+        "confirmed": "Confirmat",
+        "unsubscribed": "Dezabonat",
+        "actions": "Acțiuni",
+        "subject": "Subiect",
+        "audience": "Destinatari",
+        "sent": "Trimise",
+        "created": "Creată",
+        "date": "Data",
+        "name": "Nume",
+        "newsletter": "A cerut noutăți",
+        "message": "Mesaj"
+      },
+      "campaignRules": "Campaniile pleacă doar la abonații confirmați, cam 10 emailuri pe minut. Fiecare email are link de dezabonare și antet de dezabonare cu un click; cine se dezabonează înainte să-i plece emailul e sărit.",
+      "newCampaign": "Campanie nouă",
+      "editCampaign": "Editează campania",
+      "edit": "Editează",
+      "test": "Trimite-mi un test",
+      "send": "Trimite",
+      "allLanguages": "Toate limbile",
+      "campaignStatus": {
+        "draft": "Schiță",
+        "sending": "Se trimite",
+        "sent": "Trimisă"
+      },
+      "failed": "{{count}} eșuate",
+      "noCampaigns": "Încă nu sunt campanii.",
+      "testSent": "Testul a plecat la {{email}}.",
+      "sendConfirmTitle": "Trimiți campania?",
+      "sendConfirmText": "„{{subject}}” pleacă la toți abonații confirmați din grupul ales. Nu se poate anula.",
+      "queued": "Trimiterea a pornit. Abonații confirmați o primesc în următoarele minute.",
+      "audienceHint": "Doar abonații confirmați care au ales această limbă (sau toți).",
+      "body": "Mesaj",
+      "bodyHint": "Text simplu. Un rând gol începe un paragraf nou; linkurile devin clicabile. Linkul de dezabonare se adaugă automat.",
+      "saveDraft": "Salvează schița",
+      "saved": "Salvat.",
+      "yes": "Da",
+      "no": "Nu",
+      "notEmailed": "netrimis pe email",
+      "noMessages": "Încă nu sunt mesaje.",
+      "errors": {
+        "load": "Nu am putut încărca datele.",
+        "generic": "Ceva n-a mers.",
+        "subject": "Scrie un subiect (max. 200 de caractere).",
+        "body": "Scrie mesajul (max. 20.000 de caractere)."
+      }
     }
   },
   "practicalGuide": {

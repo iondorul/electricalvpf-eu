@@ -24,6 +24,14 @@
   }
   document.addEventListener('site:lang-applied', updateResourceLinks);
 
+  // Pagina Contact în limba paginii (același tabel ca CONTACT_URLS din site/tools/build-home-pages.js).
+  function updateContactLinks() {
+      const urls = { en: 'https://electricalvpf.app/contact/', ro: 'https://electricalvpf.app/ro/contact/' };
+      const url = urls[document.documentElement.lang] || 'https://electricalvpf.app/contact/';
+      document.querySelectorAll('a[data-contact]').forEach((a) => a.setAttribute('href', url));
+  }
+  document.addEventListener('site:lang-applied', updateContactLinks);
+
   // Unde se află vizitatorul: linkul din meniu al secțiunii / paginii curente se colorează (is-active), în
   // meniul de sus și în cel de pe telefon. Sub „Funcționalități” (Calculator, modelul de ofertă) se colorează
   // „Funcționalități” și cercul iconiței paginii active.
@@ -34,7 +42,7 @@
           const sel = {
               product: 'a[href$="#product"]', features: 'a[href$="#features"]', workflow: 'a[href$="#workflow"]',
               pricing: 'a[href$="#pricing"]', demo: '#tutorials-dropdown-toggle, .mobile-tutorials > summary', calculator: 'a[href$="#calculator-tool"]',
-              resource: 'a[data-resource="quote-template"]',
+              resource: 'a[data-resource="quote-template"]', contact: 'a[data-contact]',
           }[key];
           return sel ? [...header.querySelectorAll(sel)] : [];
       };
@@ -51,6 +59,7 @@
       // Paginile din afara primei pagini: pagina însăși e destinația.
       if (!document.getElementById('product')) {
           if (/\/demo\/?$/.test(window.location.pathname)) setActive('demo');
+          else if (/\/contact\/?$/.test(window.location.pathname)) setActive('contact');
           else if (links('resource').some((a) => new URL(a.href, window.location.href).pathname === window.location.pathname)) setActive('resource');
           return;
       }
