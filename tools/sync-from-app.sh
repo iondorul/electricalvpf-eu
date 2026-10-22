@@ -123,11 +123,10 @@ sed -i \
   -e "s#'/frontend/legal/'#'$APP_URL/frontend/legal/'#g" \
   site/*.js
 
-# Tutorialele video (/demo/, din 2026-10-11) rămân găzduite pe .app (≈130 MB de video — nu se dublează aici):
-# meniul („Vezi tutorialele”), „▶ Vezi acum” și subtitrările trimit la .app/demo/. Subtitrările se citesc cu
-# fetch() — .app le permite pentru .eu (CORS în _headers-ul .app, /demo/subs/*).
+# Tutorialele video (/demo/, din 2026-10-11) rămân găzduite pe .app (videouri în 10 limbi — nu se dublează aici):
+# meniul („Vezi tutorialele”) și „▶ Vezi acum” trimit la .app/demo/ (din 2026-10-22: /demo/v/<limbă>/, fără subtitrări).
 sed -i -e "s#href=\"/demo/#href=\"$APP_URL/demo/#g" "${PAGES[@]}"
-sed -i -e "s#\"/demo/#\"$APP_URL/demo/#g" site/watch-now.js site/video-subs.js
+sed -i -e "s#\"/demo/#\"$APP_URL/demo/#g" site/watch-now.js site/demo-videos.js
 
 # Pagina Contact (din 2026-10-21) există doar pe .app: formularul trimite la API-ul .app, care acceptă
 # cereri doar de pe .app (CORS). Linkurile „Contact” (meniu, subsol, harta din site-header.js) duc acolo.

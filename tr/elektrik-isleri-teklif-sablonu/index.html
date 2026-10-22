@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://electricalvpf.app/site/img/elektrik-isleri-teklif-sablonu.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/site/img/favicon-light.png"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/site/style.css?v=20261015-tutorials"><link rel="stylesheet" href="/site/cosmos.css?v=20261002-auth-cosmos"><style>
+<link rel="stylesheet" href="/site/style.css?v=20261021-mobile-feature-icons"><link rel="stylesheet" href="/site/cosmos.css?v=20261002-auth-cosmos"><style>
 
         .qt-header-actions { display: flex; align-items: center; gap: 10px; }
         .qt-header-actions a { font-size: .9rem; padding: 9px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; }
@@ -119,14 +119,13 @@
             </div>
             <nav class="nav-links">
                 <a href="/tr/#product" data-i18n="product">Ürün</a>
-                <a href="/tr/#features" data-i18n="exploreShort">Keşfet</a>
+                <div class="nav-dropdown" id="explore-dropdown"><button class="nav-dropdown-toggle" id="explore-dropdown-toggle" type="button" aria-expanded="false" aria-controls="explore-dropdown-menu"><span data-i18n="exploreShort">Keşfet</span><i class="fas fa-chevron-down" aria-hidden="true"></i></button><div class="nav-dropdown-menu help-menu" id="explore-dropdown-menu" aria-hidden="true"><a href="/tr/#features" class="help-menu-item"><span class="help-menu-icon"><i class="fas fa-laptop" aria-hidden="true"></i></span><span class="help-menu-label" data-i18n="nav.explore.app">Uygulamanın kendisi</span></a>
+                        <a href="/tr/#workflow" class="help-menu-item"><span class="help-menu-icon"><i class="fas fa-diagram-project" aria-hidden="true"></i></span><span class="help-menu-label" data-i18n="nav.explore.workflow">Adım adım iş akışı</span></a></div></div>
                 <div class="nav-dropdown" id="features-dropdown">
                     <button class="nav-dropdown-toggle" id="features-dropdown-toggle" type="button" aria-expanded="false" aria-controls="features-dropdown-menu">
                         <span data-i18n="features">Özellikler</span>
                         <i class="fas fa-chevron-down" aria-hidden="true"></i>
                     </button>
-                    <!-- Aceeași regulă ca meniul „?": antet mic → rând de 52px cu cerc de 40px → text 14px + explicație mică.
-                         „Funcționalități" nu se mai repetă aici: „Explorează" duce deja la #features. -->
                     <div class="nav-dropdown-menu help-menu features-menu" id="features-dropdown-menu" aria-hidden="true">
                         <span class="help-section-title" data-i18n="nav.tools.free">Ücretsiz Araçlar</span>
                         <a href="/tr/#calculator-tool" class="help-menu-item">
@@ -147,7 +146,6 @@
                         </a>
                     </div>
                 </div>
-                <a href="/tr/#workflow" data-i18n="workflow">İş Akışı</a>
                 <div class="nav-dropdown" id="tutorials-dropdown"><button class="nav-dropdown-toggle" id="tutorials-dropdown-toggle" type="button" aria-expanded="false" aria-controls="tutorials-dropdown-menu"><span data-i18n="viewTutorials">Eğitim videoları</span><i class="fas fa-chevron-down" aria-hidden="true"></i></button><div class="nav-dropdown-menu tutorials-menu" id="tutorials-dropdown-menu" aria-hidden="true"><a class="tutorial-overview" href="https://electricalvpf.app/demo/#tutorial-overview"><span class="tutorial-orbit" aria-hidden="true">▶</span><span><strong data-i18n="tutorial.overview">Overview</strong><small data-i18n="tutorial.intro">Bir iş, ilk aramadan ödemeye kadar: teklif, müşterinin kabulü, online imzalanan sözleşme, fatura ve ödeme. Ardından ayrıntılı görmek için aşağıdan istediğiniz adımı seçin.</small></span><span aria-hidden="true">↗</span></a>
     <div class="tutorial-section"><span data-i18n="tutorial.steps">Adım adım</span><span>15</span></div>
     <div class="tutorial-grid"><a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-01-add-client"><span class="tutorial-number">1</span><span data-i18n="tutorial.c01t">Müşteri ekleyin</span><small>0:44</small></a>
@@ -217,17 +215,30 @@
             </div>
             <nav class="mobile-nav-links" aria-label="Mobil menü" data-i18n-aria-label="mobileNavigationLabel">
                 <a href="/tr/#product" data-i18n="product">Ürün</a>
-                <a href="/tr/#features" data-i18n="exploreShort">Keşfet</a>
+                <details class="mobile-features mobile-explore"><summary><span data-i18n="exploreShort">Keşfet</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary><div class="mobile-features-items"><a href="/tr/#features" class="help-menu-item"><span class="help-menu-icon"><i class="fas fa-laptop" aria-hidden="true"></i></span><span class="help-menu-label" data-i18n="nav.explore.app">Uygulamanın kendisi</span></a>
+                        <a href="/tr/#workflow" class="help-menu-item"><span class="help-menu-icon"><i class="fas fa-diagram-project" aria-hidden="true"></i></span><span class="help-menu-label" data-i18n="nav.explore.workflow">Adım adım iş akışı</span></a></div></details>
                 <details class="mobile-features">
                     <summary><span data-i18n="features">Özellikler</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
                     <div class="mobile-features-items">
                         <span class="mobile-nav-group" data-i18n="nav.tools.free">Ücretsiz Araçlar</span>
-                        <a href="/tr/#calculator-tool" data-i18n="nav.tools.calculator" data-i18n-title="nav.tools.calculatorTooltip" title="Kablo kesitini ve gerilim düşümünü hesaplayın">Kablo Hesaplayıcı</a>
+                        <a href="/tr/#calculator-tool" class="help-menu-item">
+                            <span class="help-menu-icon"><i class="fas fa-calculator" aria-hidden="true"></i></span>
+                            <span class="help-menu-text">
+                                <span class="help-menu-label" data-i18n="nav.tools.calculator">Kablo Hesaplayıcı</span>
+                                <span class="help-menu-state" data-i18n="nav.tools.calculatorTooltip">Kablo kesitini ve gerilim düşümünü hesaplayın</span>
+                            </span>
+                        </a>
+                        <div class="help-sep" role="separator"></div>
                         <span class="mobile-nav-group" data-i18n="nav.resources.free">Ücretsiz Kaynaklar</span>
-                        <a href="/tr/elektrik-isleri-teklif-sablonu/" data-resource="quote-template" data-i18n="nav.resources.quoteTemplate" data-i18n-title="nav.resources.quoteTemplateTooltip" title="Türkçe Word, Excel ve PDF · elektrikçiler için ücretsiz">Ücretsiz elektrik işleri teklif formu</a>
+                        <a href="/tr/elektrik-isleri-teklif-sablonu/" data-resource="quote-template" class="help-menu-item">
+                            <span class="help-menu-icon"><i class="fas fa-file-lines" aria-hidden="true"></i></span>
+                            <span class="help-menu-text">
+                                <span class="help-menu-label" data-i18n="nav.resources.quoteTemplate">Ücretsiz elektrik işleri teklif formu</span>
+                                <span class="help-menu-state" data-i18n="nav.resources.quoteTemplateTooltip">Türkçe Word, Excel ve PDF · elektrikçiler için ücretsiz</span>
+                            </span>
+                        </a>
                     </div>
                 </details>
-                <a href="/tr/#workflow" data-i18n="workflow">İş Akışı</a>
                 <details class="mobile-features mobile-tutorials"><summary><span data-i18n="viewTutorials">Eğitim videoları</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary><div class="tutorials-menu"><a class="tutorial-overview" href="https://electricalvpf.app/demo/#tutorial-overview"><span class="tutorial-orbit" aria-hidden="true">▶</span><span><strong data-i18n="tutorial.overview">Overview</strong><small data-i18n="tutorial.intro">Bir iş, ilk aramadan ödemeye kadar: teklif, müşterinin kabulü, online imzalanan sözleşme, fatura ve ödeme. Ardından ayrıntılı görmek için aşağıdan istediğiniz adımı seçin.</small></span><span aria-hidden="true">↗</span></a>
     <div class="tutorial-section"><span data-i18n="tutorial.steps">Adım adım</span><span>15</span></div>
     <div class="tutorial-grid"><a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-01-add-client"><span class="tutorial-number">1</span><span data-i18n="tutorial.c01t">Müşteri ekleyin</span><small>0:44</small></a>
@@ -277,10 +288,10 @@
 <script>document.querySelectorAll('[data-download]').forEach(function(link) {link.addEventListener('click', function() {document.getElementById('qtAfter').classList.add('is-visible');});});</script>
     <!-- site-header-scripts:start — antetul comun (site/tools/build-site-header.js) -->
     <script>window.SITE_LANG_STORAGE_KEY = "locale"; window.SITE_PAGE_LANG = "tr"; window.SITE_PAGE_STRICT = true; window.SITE_PAGE_URLS = {"tr":"/tr/elektrik-isleri-teklif-sablonu/","ru":"/ru/smeta-elektromontazhnye-raboty/","en":"/electrical-quote-template/","ro":"/ro/model-deviz-instalatii-electrice/","no":"/no/tilbudsmal-elektriker/","nl":"/nl/offerte-sjabloon-elektricien/","it":"/it/modello-preventivo-elettricista/","pl":"/pl/wzor-oferty-elektryka/","uk":"/uk/koshtorys-elektromontazhni-roboty/","sv":"/sv/offertmall-elektriker/"};</script>
-    <script src="/site/translations.js?v=20261021-i18n10"></script>
+    <script src="/site/translations.js?v=20261021-explore-menu"></script>
     <script src="/site/language-dropdown.js?v=20261017-seo-10"></script>
     <script src="/site/help-menu.js?v=20260929-mail-choices"></script>
     <script src="/site/about.js?v=20261005-field-experience"></script>
-    <script src="/site/site-header.js?v=20261021-i18n10"></script>
+    <script src="/site/site-header.js?v=20261021-explore-menu"></script>
     <!-- site-header-scripts:end -->
 </body></html>

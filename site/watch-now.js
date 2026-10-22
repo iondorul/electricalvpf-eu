@@ -1,9 +1,8 @@
-// „▶ Watch now” (11 octombrie 2026): deschide Overview-ul de 90 s într-o fereastră, fără cont.
+// „▶ Watch now” (11 octombrie 2026): deschide Overview-ul de 90 s într-o fereastră, fără cont — din 22 octombrie
+// 2026 în limba vizitatorului (voce în limba lui, fără subtitrări).
 // Video-ul e servit de pe site (fără YouTube = fără cookie-uri) și se descarcă doar când se deschide fereastra.
 // Închidere: X, Escape, click în afară; la închidere video-ul se oprește și focusul revine pe buton.
 (function () {
-  var VIDEO = "https://electricalvpf.app/demo/videos/00-overview.mp4";
-  var POSTER = "https://electricalvpf.app/demo/posters/00-overview.jpg";
   var modal = null, video = null, opener = null;
 
   function pageLang() {
@@ -24,6 +23,11 @@
   }
 
   function build() {
+    // Videoul e vertical (filmat la mărimea unui telefon): fereastra ia forma lui, cât încape pe înălțime.
+    var css = document.createElement("style");
+    css.textContent = ".watch-modal-box{width:min(100%,calc((100vh - 140px) * 9 / 16))}" +
+      ".watch-modal-video{aspect-ratio:9/16;object-fit:contain}";
+    document.head.appendChild(css);
     modal = document.createElement("div");
     modal.className = "watch-modal";
     modal.setAttribute("role", "dialog");
@@ -32,9 +36,8 @@
     modal.innerHTML =
       '<div class="watch-modal-box">' +
       '<button type="button" class="watch-modal-close"><i class="fas fa-xmark" aria-hidden="true"></i></button>' +
-      '<video class="watch-modal-video" controls playsinline preload="none" poster="' + POSTER + '"' +
-      ' data-phone-src="https://electricalvpf.app/demo/videos/00-overview-phone.mp4" data-phone-poster="https://electricalvpf.app/demo/posters/00-overview-phone.jpg">' +
-      '<source src="' + VIDEO + '" type="video/mp4"></video>' +
+      '<video class="watch-modal-video" controls playsinline preload="none" data-demo="00-overview">' +
+      '<source type="video/mp4"></video>' +
       '<a class="watch-modal-more" href="https://electricalvpf.app/demo/"></a>' +
       "</div>";
     document.body.appendChild(modal);
@@ -48,8 +51,8 @@
     var btn = modal.querySelector(".watch-modal-close");
     btn.setAttribute("aria-label", text("watchNowClose", "Close video"));
     modal.querySelector(".watch-modal-more").textContent = text("viewTutorials", "View tutorials") + " →";
-    // Subtitrarea în limba paginii, pornită automat (vocea e în engleză).
-    if (window.DemoSubs) window.DemoSubs.attach(video, pageLang());
+    // Videoul în limba paginii: aplicația și vocea în acea limbă, fără subtitrări (site/demo-videos.js).
+    if (window.DemoVideos) window.DemoVideos.attach(video, pageLang());
   }
 
   function open(e) {

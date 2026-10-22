@@ -359,6 +359,82 @@
 html.rp-lock,
 html.rp-lock body { overflow: hidden; }
 
+/* Real account invitation, visually separate from the simulated workspace. */
+.rp-live {
+    position: sticky; bottom: 0; z-index: 1; isolation: isolate;
+    display: flex; align-items: center; gap: 22px; padding: 24px 30px;
+    border: 1px solid #41506a; border-top-color: #b89435; border-radius: 0 0 16px 16px;
+    background: radial-gradient(ellipse at 5% 100%, #72551f40, transparent 55%), linear-gradient(115deg, #111d31, #0b1220);
+    color: #f8fafc; box-shadow: 0 -12px 40px #02061730;
+    font-family: "Inter", system-ui, sans-serif;
+}
+.rp-modal:has(.rp-live) .rp-window { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+.rp-live-orbit {
+    flex: none; display: grid; place-items: center; width: 58px; height: 58px;
+    border: 1px solid #facc1560; border-radius: 50%; color: #facc15; font-size: 25px;
+    background: radial-gradient(circle, #facc151c, transparent 75%);
+    box-shadow: 0 0 0 7px #facc1506, 0 0 32px #facc1512;
+    animation: rp-live-glow 4s ease-in-out infinite;
+}
+.rp-live-copy { flex: 1; min-width: 0; }
+.rp-live-eyebrow { display: flex; align-items: center; gap: 7px; color: #f5ce65; font-size: 9px; font-weight: 700; letter-spacing: .16em; }
+.rp-live-eyebrow > span { width: 5px; height: 5px; border-radius: 50%; background: #facc15; box-shadow: 0 0 9px #facc15; }
+.rp-live h3 { margin: 7px 0 5px; color: #f8fafc; font-size: clamp(17px, 2vw, 23px); font-weight: 650; line-height: 1.3; letter-spacing: -.025em; }
+.rp-live p { margin: 0; color: #aab8cc; font-size: 12px; line-height: 1.5; }
+.rp-live-actions { display: grid; justify-items: center; gap: 10px; flex: none; }
+.rp-live-actions[hidden] { display: none; }
+.rp-live-primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 24px; padding: 13px 22px;
+    border: 1px solid #ffe28a; border-radius: 10px; background: linear-gradient(120deg, #ffe49a, #facc15);
+    color: #111827; font-size: 13px; font-weight: 750; text-decoration: none;
+    box-shadow: 0 4px 22px #facc1520; transition: transform .2s, box-shadow .2s;
+}
+.rp-live-primary:hover { color: #111827; transform: translateY(-2px); box-shadow: 0 6px 28px #facc1540; }
+.rp-live-return { color: #aab8cc; font-size: 11px; }
+.rp-live-return a { color: #f8fafc; text-decoration: underline; text-underline-offset: 3px; }
+.rp-live-trigger {
+    display: inline-flex; align-items: center; gap: 14px; padding: 0; border: 0;
+    background: none; color: inherit; font: inherit; text-align: left; cursor: pointer;
+    caret-color: transparent; user-select: none; -webkit-user-select: none;
+    text-decoration: none;
+    transition: color .2s;
+}
+.rp-live-trigger > i { color: #facc15; font-size: 16px; transition: transform .2s; pointer-events: none; }
+.rp-live-trigger[aria-expanded="true"] { color: inherit; }
+.rp-live-trigger:hover { color: #f5ce65; }
+.rp-live-trigger[aria-expanded="true"] > i { transform: rotate(90deg); }
+.rp-live-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 18px; animation: rp-choice-in .24s ease-out; }
+.rp-live-choices[hidden] { display: none; }
+.rp-live-choice {
+    display: flex; align-items: center; gap: 12px; padding: 15px 18px; border: 1px solid #53617a;
+    border-radius: 12px; background: #ffffff05; color: #f8fafc; text-decoration: none;
+    transition: border-color .2s, background .2s, transform .2s;
+}
+.rp-live-choice > i:first-child { color: #f5ce65; font-size: 18px; }
+.rp-live-choice > i:last-child { margin-left: auto; color: #f5ce65; }
+.rp-live-choice span { display: grid; gap: 4px; }
+.rp-live-choice strong { font-size: 13px; font-weight: 650; }
+.rp-live-choice small { color: #aab8cc; font-size: 12px; }
+.rp-live-choice:hover { border-color: #f5ce65; background: #facc150b; transform: translateY(-2px); color: #fff; }
+.rp-live a:focus-visible, .rp-live-trigger:focus-visible { outline: 2px solid #facc15; outline-offset: 4px; }
+@keyframes rp-choice-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes rp-live-glow { 50% { box-shadow: 0 0 0 10px #facc1509, 0 0 38px #facc1528; } }
+@media (max-width: 700px) {
+    .rp-live { gap: 12px; padding: 16px; flex-wrap: wrap; }
+    .rp-live-orbit { width: 38px; height: 38px; font-size: 19px; }
+    .rp-live-copy { flex-basis: calc(100% - 54px); }
+    .rp-live-actions { width: 100%; gap: 8px; }
+    .rp-live-primary { width: 100%; box-sizing: border-box; padding: 11px 16px; }
+    .rp-live-choices { grid-template-columns: 1fr; gap: 8px; margin-top: 14px; }
+    .rp-live-choice { padding: 12px; }
+    .rp-live h3 { font-size: 17px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .rp-live-orbit { animation: none; }
+    .rp-live-trigger, .rp-live-trigger > i, .rp-live-choice, .rp-live-primary { transition: none; }
+    .rp-live-choices { animation: none; }
+}
+
 /* ---------- Cardurile din Explorează: sunt și butoane ---------- */
 .features-grid .feature-card[data-preview] { position: relative; display: flex; flex-direction: column; cursor: pointer; }
 .features-grid .feature-card[data-preview]:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 3px; }

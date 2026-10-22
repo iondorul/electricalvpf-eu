@@ -25,7 +25,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/site/style.css?v=20261015-tutorials">
+    <link rel="stylesheet" href="/site/style.css?v=20261021-mobile-feature-icons">
     <link rel="stylesheet" href="/site/cosmos.css?v=20261002-auth-cosmos">
     <style>
 
@@ -197,14 +197,13 @@
             </div>
             <nav class="nav-links">
                 <a href="/sv/#product" data-i18n="product">Produkt</a>
-                <a href="/sv/#features" data-i18n="exploreShort">Utforska</a>
+                <div class="nav-dropdown" id="explore-dropdown"><button class="nav-dropdown-toggle" id="explore-dropdown-toggle" type="button" aria-expanded="false" aria-controls="explore-dropdown-menu"><span data-i18n="exploreShort">Utforska</span><i class="fas fa-chevron-down" aria-hidden="true"></i></button><div class="nav-dropdown-menu help-menu" id="explore-dropdown-menu" aria-hidden="true"><a href="/sv/#features" class="help-menu-item"><span class="help-menu-icon"><i class="fas fa-laptop" aria-hidden="true"></i></span><span class="help-menu-label" data-i18n="nav.explore.app">Appen som den är</span></a>
+                        <a href="/sv/#workflow" class="help-menu-item"><span class="help-menu-icon"><i class="fas fa-diagram-project" aria-hidden="true"></i></span><span class="help-menu-label" data-i18n="nav.explore.workflow">Arbetsflöde steg för steg</span></a></div></div>
                 <div class="nav-dropdown" id="features-dropdown">
                     <button class="nav-dropdown-toggle" id="features-dropdown-toggle" type="button" aria-expanded="false" aria-controls="features-dropdown-menu">
                         <span data-i18n="features">Funktioner</span>
                         <i class="fas fa-chevron-down" aria-hidden="true"></i>
                     </button>
-                    <!-- Aceeași regulă ca meniul „?": antet mic → rând de 52px cu cerc de 40px → text 14px + explicație mică.
-                         „Funcționalități" nu se mai repetă aici: „Explorează" duce deja la #features. -->
                     <div class="nav-dropdown-menu help-menu features-menu" id="features-dropdown-menu" aria-hidden="true">
                         <span class="help-section-title" data-i18n="nav.tools.free">Gratis verktyg</span>
                         <a href="/sv/#calculator-tool" class="help-menu-item">
@@ -225,7 +224,6 @@
                         </a>
                     </div>
                 </div>
-                <a href="/sv/#workflow" data-i18n="workflow">Arbetsflöde</a>
                 <div class="nav-dropdown" id="tutorials-dropdown"><button class="nav-dropdown-toggle" id="tutorials-dropdown-toggle" type="button" aria-expanded="false" aria-controls="tutorials-dropdown-menu"><span data-i18n="viewTutorials">Se guiderna</span><i class="fas fa-chevron-down" aria-hidden="true"></i></button><div class="nav-dropdown-menu tutorials-menu" id="tutorials-dropdown-menu" aria-hidden="true"><a class="tutorial-overview" href="https://electricalvpf.app/demo/#tutorial-overview"><span class="tutorial-orbit" aria-hidden="true">▶</span><span><strong data-i18n="tutorial.overview">Overview</strong><small data-i18n="tutorial.intro">Ett arbete, från första samtalet till betalning: offerten, kundens godkännande, avtalet som signeras online, fakturan och betalningen. Välj sedan ett steg nedan för att se det i detalj.</small></span><span aria-hidden="true">↗</span></a>
     <div class="tutorial-section"><span data-i18n="tutorial.steps">Steg för steg</span><span>15</span></div>
     <div class="tutorial-grid"><a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-01-add-client"><span class="tutorial-number">1</span><span data-i18n="tutorial.c01t">Lägg till en kund</span><small>0:44</small></a>
@@ -295,17 +293,30 @@
             </div>
             <nav class="mobile-nav-links" aria-label="Mobil navigering" data-i18n-aria-label="mobileNavigationLabel">
                 <a href="/sv/#product" data-i18n="product">Produkt</a>
-                <a href="/sv/#features" data-i18n="exploreShort">Utforska</a>
+                <details class="mobile-features mobile-explore"><summary><span data-i18n="exploreShort">Utforska</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary><div class="mobile-features-items"><a href="/sv/#features" class="help-menu-item"><span class="help-menu-icon"><i class="fas fa-laptop" aria-hidden="true"></i></span><span class="help-menu-label" data-i18n="nav.explore.app">Appen som den är</span></a>
+                        <a href="/sv/#workflow" class="help-menu-item"><span class="help-menu-icon"><i class="fas fa-diagram-project" aria-hidden="true"></i></span><span class="help-menu-label" data-i18n="nav.explore.workflow">Arbetsflöde steg för steg</span></a></div></details>
                 <details class="mobile-features">
                     <summary><span data-i18n="features">Funktioner</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
                     <div class="mobile-features-items">
                         <span class="mobile-nav-group" data-i18n="nav.tools.free">Gratis verktyg</span>
-                        <a href="/sv/#calculator-tool" data-i18n="nav.tools.calculator" data-i18n-title="nav.tools.calculatorTooltip" title="Beräkna kabelarea och spänningsfall">Kabelkalkylator</a>
+                        <a href="/sv/#calculator-tool" class="help-menu-item">
+                            <span class="help-menu-icon"><i class="fas fa-calculator" aria-hidden="true"></i></span>
+                            <span class="help-menu-text">
+                                <span class="help-menu-label" data-i18n="nav.tools.calculator">Kabelkalkylator</span>
+                                <span class="help-menu-state" data-i18n="nav.tools.calculatorTooltip">Beräkna kabelarea och spänningsfall</span>
+                            </span>
+                        </a>
+                        <div class="help-sep" role="separator"></div>
                         <span class="mobile-nav-group" data-i18n="nav.resources.free">Gratis resurser</span>
-                        <a href="/sv/offertmall-elektriker/" data-resource="quote-template" data-i18n="nav.resources.quoteTemplate" data-i18n-title="nav.resources.quoteTemplateTooltip" title="Word, Excel och PDF · gratis, för elektriker i Sverige">Offertmall för elektriker</a>
+                        <a href="/sv/offertmall-elektriker/" data-resource="quote-template" class="help-menu-item">
+                            <span class="help-menu-icon"><i class="fas fa-file-lines" aria-hidden="true"></i></span>
+                            <span class="help-menu-text">
+                                <span class="help-menu-label" data-i18n="nav.resources.quoteTemplate">Offertmall för elektriker</span>
+                                <span class="help-menu-state" data-i18n="nav.resources.quoteTemplateTooltip">Word, Excel och PDF · gratis, för elektriker i Sverige</span>
+                            </span>
+                        </a>
                     </div>
                 </details>
-                <a href="/sv/#workflow" data-i18n="workflow">Arbetsflöde</a>
                 <details class="mobile-features mobile-tutorials"><summary><span data-i18n="viewTutorials">Se guiderna</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary><div class="tutorials-menu"><a class="tutorial-overview" href="https://electricalvpf.app/demo/#tutorial-overview"><span class="tutorial-orbit" aria-hidden="true">▶</span><span><strong data-i18n="tutorial.overview">Overview</strong><small data-i18n="tutorial.intro">Ett arbete, från första samtalet till betalning: offerten, kundens godkännande, avtalet som signeras online, fakturan och betalningen. Välj sedan ett steg nedan för att se det i detalj.</small></span><span aria-hidden="true">↗</span></a>
     <div class="tutorial-section"><span data-i18n="tutorial.steps">Steg för steg</span><span>15</span></div>
     <div class="tutorial-grid"><a class="tutorial-item" href="https://electricalvpf.app/demo/#tutorial-01-add-client"><span class="tutorial-number">1</span><span data-i18n="tutorial.c01t">Lägg till en kund</span><small>0:44</small></a>
@@ -389,10 +400,10 @@
     </script>
     <!-- site-header-scripts:start — antetul comun (site/tools/build-site-header.js) -->
     <script>window.SITE_LANG_STORAGE_KEY = "locale"; window.SITE_PAGE_LANG = "sv"; window.SITE_PAGE_STRICT = true; window.SITE_PAGE_URLS = {"tr":"/tr/elektrik-isleri-teklif-sablonu/","ru":"/ru/smeta-elektromontazhnye-raboty/","en":"/electrical-quote-template/","ro":"/ro/model-deviz-instalatii-electrice/","no":"/no/tilbudsmal-elektriker/","nl":"/nl/offerte-sjabloon-elektricien/","it":"/it/modello-preventivo-elettricista/","pl":"/pl/wzor-oferty-elektryka/","uk":"/uk/koshtorys-elektromontazhni-roboty/","sv":"/sv/offertmall-elektriker/"};</script>
-    <script src="/site/translations.js?v=20261021-i18n10"></script>
+    <script src="/site/translations.js?v=20261021-explore-menu"></script>
     <script src="/site/language-dropdown.js?v=20261017-seo-10"></script>
     <script src="/site/help-menu.js?v=20260929-mail-choices"></script>
     <script src="/site/about.js?v=20261005-field-experience"></script>
-    <script src="/site/site-header.js?v=20261021-i18n10"></script>
+    <script src="/site/site-header.js?v=20261021-explore-menu"></script>
     <!-- site-header-scripts:end -->
 </body></html>

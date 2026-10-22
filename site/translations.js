@@ -1,5 +1,9 @@
 const translations = {
   en: {
+    "nav.explore.app": "The app as it is",
+    "nav.explore.workflow": "Workflow step by step",
+    "nav.workflow.group": "The app, step by step",
+    "nav.workflow.description": "From your first client to payment",
     product: "Product",
     electricalServices: "Electrical Services",
     mobileMenuTitle: "Menu",
@@ -99,6 +103,10 @@ const translations = {
     proPlan: "Pro",
   },
   ro: {
+    "nav.explore.app": "Aplicația așa cum e ea",
+    "nav.explore.workflow": "Flux de lucru pas cu pas",
+    "nav.workflow.group": "Aplicația pas cu pas",
+    "nav.workflow.description": "De la primul client la încasare",
     product: "Produs",
     electricalServices: "Servicii electrice",
     mobileMenuTitle: "Meniu",
@@ -198,6 +206,10 @@ const translations = {
     proPlan: "Pro",
   },
   uk: {
+    "nav.explore.app": "Застосунок як він є",
+    "nav.explore.workflow": "Робочий процес крок за кроком",
+    "nav.workflow.group": "Застосунок крок за кроком",
+    "nav.workflow.description": "Від першого клієнта до оплати",
     product: "Продукт",
     electricalServices: "Електротехнічні послуги",
     mobileMenuTitle: "Меню",
@@ -294,6 +306,10 @@ const translations = {
     proPlan: "Pro",
   },
   tr: {
+    "nav.explore.app": "Uygulamanın kendisi",
+    "nav.explore.workflow": "Adım adım iş akışı",
+    "nav.workflow.group": "Adım adım uygulama",
+    "nav.workflow.description": "İlk müşteriden tahsilata",
     metaDescription: "Elektrikçiler tarafından elektrik firmaları için geliştirilmiş saha yazılımı: teklifler, online imzalanan sözleşmeler, faturalar, müşteriler ve işler tek yerde. Ücretsiz başlayın.",
     calcResultCable: "Önerilen kablo",
     calcResultProtection: "Nominal koruma",
@@ -397,6 +413,10 @@ const translations = {
     proPlan: "Pro",
   },
   pl: {
+    "nav.explore.app": "Aplikacja taka, jaka jest",
+    "nav.explore.workflow": "Przebieg pracy krok po kroku",
+    "nav.workflow.group": "Aplikacja krok po kroku",
+    "nav.workflow.description": "Od pierwszego klienta do płatności",
     product: "Produkt",
     electricalServices: "Usługi elektryczne",
     mobileMenuTitle: "Menu",
@@ -495,6 +515,10 @@ const translations = {
     proPlan: "Pro",
   },
   ru: {
+    "nav.explore.app": "Приложение как оно есть",
+    "nav.explore.workflow": "Рабочий процесс шаг за шагом",
+    "nav.workflow.group": "Приложение шаг за шагом",
+    "nav.workflow.description": "От первого клиента до оплаты",
     product: "Продукт",
     electricalServices: "Электротехнические услуги",
     mobileMenuTitle: "Меню",
@@ -591,6 +615,10 @@ const translations = {
     proPlan: "Pro",
   },
   it: {
+    "nav.explore.app": "L’app così com’è",
+    "nav.explore.workflow": "Flusso di lavoro passo dopo passo",
+    "nav.workflow.group": "L'app, passo dopo passo",
+    "nav.workflow.description": "Dal primo cliente al pagamento",
     product: "Prodotto",
     electricalServices: "Servizi elettrici",
     mobileMenuTitle: "Menu",
@@ -686,6 +714,10 @@ const translations = {
     proPlan: "Pro",
   },
   nl: {
+    "nav.explore.app": "De app zoals die is",
+    "nav.explore.workflow": "Werkproces stap voor stap",
+    "nav.workflow.group": "De app, stap voor stap",
+    "nav.workflow.description": "Van je eerste klant tot de betaling",
     product: "Product",
     electricalServices: "Elektrotechnische diensten",
     mobileMenuTitle: "Menu",
@@ -781,6 +813,10 @@ const translations = {
     proPlan: "Pro",
   },
   no: {
+    "nav.explore.app": "Appen slik den er",
+    "nav.explore.workflow": "Arbeidsflyt steg for steg",
+    "nav.workflow.group": "Appen, steg for steg",
+    "nav.workflow.description": "Fra første kunde til betaling",
     product: "Produkt",
     electricalServices: "Elektrotjenester",
     mobileMenuTitle: "Meny",
@@ -877,6 +913,10 @@ const translations = {
     proPlan: "Pro",
   },
   sv: {
+    "nav.explore.app": "Appen som den är",
+    "nav.explore.workflow": "Arbetsflöde steg för steg",
+    "nav.workflow.group": "Appen, steg för steg",
+    "nav.workflow.description": "Från första kunden till betalning",
     product: "Produkt",
     electricalServices: "Eltjänster",
     mobileMenuTitle: "Meny",

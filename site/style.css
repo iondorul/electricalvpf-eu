@@ -2080,3 +2080,9 @@ html.watch-modal-open { overflow: hidden; }
 .mobile-tutorials .tutorial-orbit { flex-basis: 32px; width: 32px; height: 32px; }
 [id^="tutorial-"] { scroll-margin-top: 110px; }
 [id^="tutorial-"]:target { outline: 2px solid #83cfff; outline-offset: 6px; border-radius: 16px; box-shadow: 0 0 40px #609cff26; }
+
+/* Keep feature rows readable inside the narrow phone drawer. */
+.mobile-features-items .help-menu-text { flex: 1; }
+.mobile-features-items .help-menu-label,
+.mobile-features-items .help-menu-state { white-space: normal; overflow-wrap: anywhere; }
+.mobile-features-items .help-menu-item { flex-shrink: 0; }

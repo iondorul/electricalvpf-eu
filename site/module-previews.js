@@ -532,13 +532,55 @@
   var closeBtn = backdrop.querySelector(".rp-close");
   var body = backdrop.querySelector(".rp-modal-body");
 
+  // Invitation outside the simulated app: real account destinations.
+  var LIVE_TEXT = {
+    en: ["READY WHEN YOU ARE", "Like what you see? Explore it live!", "Your clients. Your jobs. Your workspace.", "Create an account", "Already have an account?", "Sign in"],
+    ro: ["URMĂTORUL PAS E AL TĂU", "Îți place ce vezi? Explorează pe viu.", "Clienții tăi. Lucrările tale. Spațiul tău de lucru.", "Creează un cont", "Ai deja un cont?", "Autentifică-te"],
+    uk: ["ТВІЙ НАСТУПНИЙ КРОК", "Подобається? Спробуй наживо.", "Твої клієнти. Твої роботи. Твій робочий простір.", "Створити обліковий запис", "Уже маєш обліковий запис?", "Увійти"],
+    tr: ["SIRADAKİ ADIM SENİN", "Beğendin mi? Canlı keşfet.", "Müşterilerin. İşlerin. Çalışma alanın.", "Hesap oluştur", "Zaten hesabın var mı?", "Giriş yap"],
+    pl: ["TWÓJ NASTĘPNY KROK", "Podoba Ci się? Wypróbuj na żywo.", "Twoi klienci. Twoje zlecenia. Twoja przestrzeń pracy.", "Utwórz konto", "Masz już konto?", "Zaloguj się"],
+    ru: ["СЛЕДУЮЩИЙ ШАГ ЗА ТОБОЙ", "Нравится? Попробуй вживую.", "Твои клиенты. Твои работы. Твоё рабочее пространство.", "Создать аккаунт", "Уже есть аккаунт?", "Войти"],
+    it: ["IL PROSSIMO PASSO È TUO", "Ti piace? Provala dal vivo.", "I tuoi clienti. I tuoi lavori. Il tuo spazio di lavoro.", "Crea un account", "Hai già un account?", "Accedi"],
+    nl: ["JOUW VOLGENDE STAP", "Bevalt het? Probeer het live.", "Jouw klanten. Jouw projecten. Jouw werkplek.", "Maak een account", "Heb je al een account?", "Inloggen"],
+    no: ["DITT NESTE STEG", "Liker du det du ser? Prøv det live.", "Dine kunder. Dine jobber. Din arbeidsplass.", "Opprett en konto", "Har du allerede en konto?", "Logg inn"],
+    sv: ["DITT NÄSTA STEG", "Gillar du det du ser? Prova live.", "Dina kunder. Dina jobb. Din arbetsyta.", "Skapa ett konto", "Har du redan ett konto?", "Logga in"]
+  };
+  var LIVE_CHOICES = {
+    en: ["I'm new here", "I already have an account"], ro: ["Sunt nou aici", "Am deja un cont"],
+    uk: ["Я тут уперше", "У мене вже є обліковий запис"], tr: ["Burada yeniyim", "Zaten hesabım var"],
+    pl: ["Jestem tu po raz pierwszy", "Mam już konto"], ru: ["Я здесь впервые", "У меня уже есть аккаунт"],
+    it: ["Sono nuovo qui", "Ho già un account"], nl: ["Ik ben hier nieuw", "Ik heb al een account"],
+    no: ["Jeg er ny her", "Jeg har allerede en konto"], sv: ["Jag är ny här", "Jag har redan ett konto"]
+  };
+  function liveInvitation() {
+    var copy = LIVE_TEXT[currentLocale()] || LIVE_TEXT.en;
+    var choices = LIVE_CHOICES[currentLocale()] || LIVE_CHOICES.en;
+    return '<aside class="rp-live"><div class="rp-live-orbit" aria-hidden="true"><i class="fas fa-bolt"></i></div>' +
+      '<div class="rp-live-copy"><span class="rp-live-eyebrow"><span></span>' + esc(copy[0]) + '</span>' +
+      '<h3><button type="button" class="rp-live-trigger" aria-expanded="false" aria-controls="rp-live-choices">' + esc(copy[1]) + '<i class="fas fa-arrow-right" aria-hidden="true"></i></button></h3><p>' + esc(copy[2]) + '</p>' +
+      '<div class="rp-live-choices" id="rp-live-choices" hidden>' +
+      '<a class="rp-live-choice" href="https://electricalvpf.app/frontend/register.html?returnSite=eu"><i class="fas fa-user-plus" aria-hidden="true"></i><span><strong>' + esc(choices[0]) + '</strong><small>' + esc(copy[3]) + '</small></span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>' +
+      '<a class="rp-live-choice" href="https://electricalvpf.app/frontend/login.html?returnSite=eu"><i class="fas fa-right-to-bracket" aria-hidden="true"></i><span><strong>' + esc(choices[1]) + '</strong><small>' + esc(copy[5]) + '</small></span><i class="fas fa-arrow-right" aria-hidden="true"></i></a></div></div>' +
+      '<div class="rp-live-actions"><a class="rp-live-primary" href="https://electricalvpf.app/frontend/register.html?returnSite=eu"><span>' + esc(copy[3]) + '</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>' +
+      '<span class="rp-live-return">' + esc(copy[4]) + ' <a href="https://electricalvpf.app/frontend/login.html?returnSite=eu">' + esc(copy[5]) + '</a></span></div></aside>';
+  }
+  body.addEventListener("click", function (event) {
+    var trigger = event.target.closest(".rp-live-trigger");
+    if (!trigger) return;
+    var expanded = trigger.getAttribute("aria-expanded") !== "true";
+    trigger.setAttribute("aria-expanded", String(expanded));
+    body.querySelector(".rp-live-choices").hidden = !expanded;
+    body.querySelector(".rp-live-actions").hidden = expanded;
+    snapToPixels();
+  });
+
   function openModal(card) {
     var key = card.getAttribute("data-preview");
     var token = ++modalToken;
     lastFocus = card;
     pagesFor(currentLocale()).then(function (pages) {
       if (token !== modalToken) return;
-      body.innerHTML = windowHtml(pages, key);
+      body.innerHTML = windowHtml(pages, key) + liveInvitation();
       dialog.setAttribute("aria-label", pages.modules[key].title);
       closeBtn.setAttribute("aria-label", pages.shell.close);
       backdrop.hidden = false;
@@ -577,7 +619,12 @@
   document.addEventListener("keydown", function (e) {
     if (!modalOpen) return;
     if (e.key === "Escape") { e.preventDefault(); closeModal(); }
-    if (e.key === "Tab") { e.preventDefault(); closeBtn.focus(); } // singurul element interactiv
+    if (e.key === "Tab") {
+      var focusable = Array.prototype.slice.call(dialog.querySelectorAll('button, a[href]')).filter(function (el) { return !el.closest('[hidden]'); });
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
   });
 
   cards.forEach(function (card) {

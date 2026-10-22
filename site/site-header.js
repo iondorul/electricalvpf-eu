@@ -47,7 +47,8 @@
           }[key];
           return sel ? [...header.querySelectorAll(sel)] : [];
       };
-      const parents = [header.querySelector('#features-dropdown-toggle'), header.querySelector('.mobile-features > summary')].filter(Boolean);
+      const parents = [header.querySelector('#features-dropdown-toggle'), header.querySelector('.mobile-features:not(.mobile-explore):not(.mobile-tutorials) > summary')].filter(Boolean);
+      const exploreParents = [...header.querySelectorAll('#explore-dropdown-toggle, .mobile-explore > summary')];
       let current = null;
       const setActive = (key) => {
           if (key === current) return;
@@ -55,6 +56,7 @@
           header.querySelectorAll('.is-active').forEach((el) => el.classList.remove('is-active'));
           links(key).forEach((a) => a.classList.add('is-active'));
           if (key === 'calculator' || key === 'resource') parents.forEach((el) => el.classList.add('is-active'));
+          if (key === 'features' || key === 'workflow') exploreParents.forEach((el) => el.classList.add('is-active'));
       };
 
       // Paginile din afara primei pagini: pagina însăși e destinația.
@@ -128,7 +130,7 @@
       initActiveLink();
 
       const dropdownClosers = new Map();
-      document.querySelectorAll('#features-dropdown, #tutorials-dropdown').forEach((dropdown) => {
+      document.querySelectorAll('#explore-dropdown, #features-dropdown, #tutorials-dropdown').forEach((dropdown) => {
       const featuresDropdown = dropdown;
       const featuresDropdownToggle = dropdown.querySelector('.nav-dropdown-toggle');
       const featuresDropdownMenu = dropdown.querySelector('.nav-dropdown-menu');

@@ -1,5 +1,5 @@
-// Pagina /demo/ (tutorialele video) în limba vizitatorului (11 octombrie 2026). Vocea video-urilor e în engleză,
-// subtitrarea e în limba paginii (site/video-subs.js, pornită automat) — în celelalte limbi pagina o spune (videoLang).
+// Pagina /demo/ (tutorialele video) în limba vizitatorului (11 octombrie 2026). De pe 22 octombrie 2026 fiecare video
+// există în fiecare limbă, cu voce în limba ei și fără subtitrări (site/demo-videos.js alege fișierul limbii).
 // Limba: alegerea salvată pe site/aplicație (localStorage "locale"), altfel limba browserului, altfel engleză.
 // Textele comune cu vitrina (Autentificare, Începe gratuit, subsolul legal) vin din translations.js + plans-i18n.js.
 (function () {
@@ -16,7 +16,7 @@
       flow1: "Request", flow2: "Quote", flow3: "Accepted online", flow4: "Contract signed", flow5: "Invoice", flow6: "Paid",
       tryFree: "Try it free",
       stepsH2: "Step by step",
-      stepsP: "In the order you work: each video is one step, under two minutes (the contract signing is three).",
+      stepsP: "In the order you work: each video is one step, under two minutes.",
       c01t: "Add a client", c01d: "Enter the details once — they appear on every quote, contract and invoice.",
       c02t: "Log a work request", c02d: "A customer rings — save what's needed, where and how urgent, in seconds.",
       c03t: "Turn it into a job", c03d: "Copy the request into a job — name, description, priority and currency filled in.",
@@ -41,13 +41,13 @@
       title: "Vezi ElectricalVPF în acțiune – de la primul telefon până la plată | ElectricalVPF",
       back: "Înapoi la site", kicker: "Pentru electricieni", h1: "Vezi ElectricalVPF în acțiune",
       lead: "O lucrare, de la început până la capăt: te sună un client, faci oferta, el o acceptă online, semnează contractul pe telefon, tu emiți factura și încasezi. Video-uri scurte din aplicația reală — uită-te la cel de care ai nevoie.",
-      videoLang: "Video-urile sunt în engleză, cu subtitrări în română.",
+      videoLang: "",
       featH2: "ElectricalVPF în 90 de secunde",
       featP: "O lucrare, de la primul telefon până la plată: oferta, acceptarea ei de către client, contractul semnat online, factura și plata. Apoi alege orice pas de mai jos, ca să-l vezi în detaliu.",
       flow1: "Solicitare", flow2: "Ofertă", flow3: "Acceptată online", flow4: "Contract semnat", flow5: "Factură", flow6: "Încasat",
       tryFree: "Încearcă gratuit",
       stepsH2: "Pas cu pas",
-      stepsP: "În ordinea în care lucrezi: fiecare video e un pas, sub două minute (semnarea contractului are trei).",
+      stepsP: "În ordinea în care lucrezi: fiecare video e un pas, sub două minute.",
       c01t: "Adaugi un client", c01d: "Datele lui le scrii o singură dată — apar pe fiecare ofertă, contract și factură.",
       c02t: "Notezi o lucrare solicitată", c02d: "Te sună un client — salvezi ce trebuie făcut, unde și cât de urgent, în câteva secunde.",
       c03t: "O transformi în lucrare", c03d: "Copiezi solicitarea într-o lucrare — numele, descrierea, prioritatea și moneda se completează singure.",
@@ -72,13 +72,13 @@
       title: "ElectricalVPF у дії – від першого дзвінка до оплати | ElectricalVPF",
       back: "Повернутися на сайт", kicker: "Для електриків", h1: "Подивіться ElectricalVPF у дії",
       lead: "Одна робота від початку до кінця: дзвонить клієнт, ви робите пропозицію, він приймає її онлайн, підписує договір на телефоні, ви виставляєте рахунок і отримуєте оплату. Короткі відео зі справжнього застосунку — дивіться те, що вам потрібно.",
-      videoLang: "Відео англійською мовою, з українськими субтитрами.",
+      videoLang: "",
       featH2: "ElectricalVPF за 90 секунд",
       featP: "Одна робота від першого дзвінка до оплати: пропозиція, її прийняття клієнтом, договір, підписаний онлайн, рахунок і оплата. Потім виберіть будь-який крок нижче, щоб побачити його докладно.",
       flow1: "Заявка", flow2: "Пропозиція", flow3: "Прийнято онлайн", flow4: "Договір підписано", flow5: "Рахунок", flow6: "Оплачено",
       tryFree: "Спробувати безкоштовно",
       stepsH2: "Крок за кроком",
-      stepsP: "У тому порядку, в якому ви працюєте: кожне відео — один крок, до двох хвилин (підписання договору — три).",
+      stepsP: "У тому порядку, в якому ви працюєте: кожне відео — один крок, до двох хвилин.",
       c01t: "Додайте клієнта", c01d: "Дані вводяться один раз — вони з’являються в кожній пропозиції, договорі й рахунку.",
       c02t: "Зареєструйте заявку", c02d: "Дзвонить клієнт — за секунди зберігаєте, що потрібно, де і наскільки терміново.",
       c03t: "Перетворіть її на роботу", c03d: "Скопіюйте заявку в роботу — назва, опис, пріоритет і валюта заповнюються самі.",
@@ -103,13 +103,13 @@
       title: "ElectricalVPF iş başında – ilk aramadan ödemeye | ElectricalVPF",
       back: "Siteye dön", kicker: "Elektrikçiler için", h1: "ElectricalVPF'yi iş başında görün",
       lead: "Bir iş, baştan sona: müşteri arar, teklif verirsiniz, teklifi online kabul eder, sözleşmeyi telefonunda imzalar, faturayı kesersiniz ve ödemenizi alırsınız. Gerçek uygulamadan kısa videolar — ihtiyacınız olanı izleyin.",
-      videoLang: "Videolar İngilizce, Türkçe altyazılıdır.",
+      videoLang: "",
       featH2: "90 saniyede ElectricalVPF",
       featP: "Bir iş, ilk aramadan ödemeye kadar: teklif, müşterinin kabulü, online imzalanan sözleşme, fatura ve ödeme. Ardından ayrıntılı görmek için aşağıdan istediğiniz adımı seçin.",
       flow1: "Talep", flow2: "Teklif", flow3: "Online kabul", flow4: "Sözleşme imzalandı", flow5: "Fatura", flow6: "Ödendi",
       tryFree: "Ücretsiz deneyin",
       stepsH2: "Adım adım",
-      stepsP: "Çalıştığınız sırayla: her video bir adım, iki dakikadan kısa (sözleşme imzası üç dakika).",
+      stepsP: "Çalıştığınız sırayla: her video bir adım, iki dakikadan kısa.",
       c01t: "Müşteri ekleyin", c01d: "Bilgileri bir kez girersiniz — her teklifte, sözleşmede ve faturada yer alır.",
       c02t: "İş talebi kaydedin", c02d: "Müşteri arar — ne gerektiğini, nerede ve ne kadar acil olduğunu saniyeler içinde kaydedin.",
       c03t: "Talebi işe dönüştürün", c03d: "Talebi bir işe kopyalayın — ad, açıklama, öncelik ve para birimi otomatik dolar.",
@@ -134,13 +134,13 @@
       title: "ElectricalVPF w akcji – od pierwszego telefonu do zapłaty | ElectricalVPF",
       back: "Wróć na stronę", kicker: "Dla elektryków", h1: "Zobacz ElectricalVPF w akcji",
       lead: "Jedno zlecenie od początku do końca: dzwoni klient, przygotowujesz ofertę, on akceptuje ją online, podpisuje umowę na telefonie, wystawiasz fakturę i dostajesz zapłatę. Krótkie filmy z prawdziwej aplikacji — obejrzyj ten, którego potrzebujesz.",
-      videoLang: "Filmy są po angielsku, z polskimi napisami.",
+      videoLang: "",
       featH2: "ElectricalVPF w 90 sekund",
       featP: "Jedno zlecenie od pierwszego telefonu do zapłaty: oferta, jej akceptacja przez klienta, umowa podpisana online, faktura i płatność. Potem wybierz dowolny krok poniżej, aby zobaczyć go dokładnie.",
       flow1: "Zgłoszenie", flow2: "Oferta", flow3: "Akceptacja online", flow4: "Umowa podpisana", flow5: "Faktura", flow6: "Zapłacono",
       tryFree: "Wypróbuj za darmo",
       stepsH2: "Krok po kroku",
-      stepsP: "W kolejności, w jakiej pracujesz: każdy film to jeden krok, poniżej dwóch minut (podpisanie umowy — trzy).",
+      stepsP: "W kolejności, w jakiej pracujesz: każdy film to jeden krok, poniżej dwóch minut.",
       c01t: "Dodaj klienta", c01d: "Dane wpisujesz raz — pojawiają się na każdej ofercie, umowie i fakturze.",
       c02t: "Zapisz zgłoszenie", c02d: "Dzwoni klient — w kilka sekund zapisujesz, co trzeba zrobić, gdzie i jak pilnie.",
       c03t: "Zamień je w zlecenie", c03d: "Skopiuj zgłoszenie do zlecenia — nazwa, opis, priorytet i waluta wypełniają się same.",
@@ -165,13 +165,13 @@
       title: "ElectricalVPF в действии – от первого звонка до оплаты | ElectricalVPF",
       back: "Вернуться на сайт", kicker: "Для электриков", h1: "Посмотрите ElectricalVPF в действии",
       lead: "Одна работа от начала до конца: звонит клиент, вы делаете предложение, он принимает его онлайн, подписывает договор на телефоне, вы выставляете счёт и получаете оплату. Короткие видео из настоящего приложения — смотрите нужное.",
-      videoLang: "Видео на английском языке, с русскими субтитрами.",
+      videoLang: "",
       featH2: "ElectricalVPF за 90 секунд",
       featP: "Одна работа от первого звонка до оплаты: предложение, его принятие клиентом, договор, подписанный онлайн, счёт и оплата. Затем выберите любой шаг ниже, чтобы посмотреть его подробно.",
       flow1: "Заявка", flow2: "Предложение", flow3: "Принято онлайн", flow4: "Договор подписан", flow5: "Счёт", flow6: "Оплачено",
       tryFree: "Попробовать бесплатно",
       stepsH2: "Шаг за шагом",
-      stepsP: "В том порядке, в котором вы работаете: каждое видео — один шаг, до двух минут (подписание договора — три).",
+      stepsP: "В том порядке, в котором вы работаете: каждое видео — один шаг, до двух минут.",
       c01t: "Добавьте клиента", c01d: "Данные вводятся один раз — они появляются в каждом предложении, договоре и счёте.",
       c02t: "Зарегистрируйте заявку", c02d: "Звонит клиент — за секунды сохраняете, что нужно, где и насколько срочно.",
       c03t: "Превратите её в работу", c03d: "Скопируйте заявку в работу — название, описание, приоритет и валюта заполняются сами.",
@@ -196,13 +196,13 @@
       title: "ElectricalVPF in azione – dalla prima telefonata al pagamento | ElectricalVPF",
       back: "Torna al sito", kicker: "Per elettricisti", h1: "Guarda ElectricalVPF in azione",
       lead: "Un lavoro dall'inizio alla fine: il cliente chiama, prepari il preventivo, lui lo accetta online, firma il contratto sul telefono, emetti la fattura e vieni pagato. Brevi video dell'app reale — guarda quello che ti serve.",
-      videoLang: "I video sono in inglese, con sottotitoli in italiano.",
+      videoLang: "",
       featH2: "ElectricalVPF in 90 secondi",
       featP: "Un lavoro dalla prima telefonata al pagamento: il preventivo, l'accettazione del cliente, il contratto firmato online, la fattura e il pagamento. Poi scegli un passaggio qui sotto per vederlo nel dettaglio.",
       flow1: "Richiesta", flow2: "Preventivo", flow3: "Accettato online", flow4: "Contratto firmato", flow5: "Fattura", flow6: "Pagato",
       tryFree: "Provalo gratis",
       stepsH2: "Passo dopo passo",
-      stepsP: "Nell'ordine in cui lavori: ogni video è un passaggio, sotto i due minuti (la firma del contratto ne dura tre).",
+      stepsP: "Nell'ordine in cui lavori: ogni video è un passaggio, sotto i due minuti.",
       c01t: "Aggiungi un cliente", c01d: "Inserisci i dati una volta sola — compaiono su ogni preventivo, contratto e fattura.",
       c02t: "Registra una richiesta di intervento", c02d: "Il cliente chiama — salvi in pochi secondi cosa serve, dove e con quale urgenza.",
       c03t: "Trasformala in un lavoro", c03d: "Copia la richiesta in un lavoro — nome, descrizione, priorità e valuta si compilano da soli.",
@@ -227,13 +227,13 @@
       title: "ElectricalVPF in actie – van eerste telefoontje tot betaling | ElectricalVPF",
       back: "Terug naar de website", kicker: "Voor elektriciens", h1: "Zie ElectricalVPF in actie",
       lead: "Eén klus van begin tot eind: een klant belt, je maakt een offerte, hij accepteert die online, tekent het contract op zijn telefoon, jij factureert en krijgt betaald. Korte video's van de echte app — bekijk wat je nodig hebt.",
-      videoLang: "De video's zijn in het Engels, met Nederlandse ondertitels.",
+      videoLang: "",
       featH2: "ElectricalVPF in 90 seconden",
       featP: "Eén klus, van het eerste telefoontje tot de betaling: de offerte, de acceptatie door de klant, het online getekende contract, de factuur en de betaling. Kies daarna hieronder een stap om die in detail te zien.",
       flow1: "Verzoek", flow2: "Offerte", flow3: "Online geaccepteerd", flow4: "Contract getekend", flow5: "Factuur", flow6: "Betaald",
       tryFree: "Probeer gratis",
       stepsH2: "Stap voor stap",
-      stepsP: "In de volgorde waarin je werkt: elke video is één stap, korter dan twee minuten (het tekenen van het contract duurt drie).",
+      stepsP: "In de volgorde waarin je werkt: elke video is één stap, korter dan twee minuten.",
       c01t: "Een klant toevoegen", c01d: "Gegevens één keer invoeren — ze staan op elke offerte, elk contract en elke factuur.",
       c02t: "Een werkverzoek vastleggen", c02d: "Een klant belt — leg in een paar seconden vast wat er nodig is, waar en hoe dringend.",
       c03t: "Maak er werk van", c03d: "Kopieer het verzoek naar een klus — naam, omschrijving, prioriteit en valuta worden ingevuld.",
@@ -258,13 +258,13 @@
       title: "ElectricalVPF i bruk – fra første telefon til betaling | ElectricalVPF",
       back: "Tilbake til nettstedet", kicker: "For elektrikere", h1: "Se ElectricalVPF i bruk",
       lead: "Ett oppdrag fra start til slutt: en kunde ringer, du gir tilbud, kunden godtar det på nett, signerer kontrakten på telefonen, du fakturerer og får betalt. Korte videoer fra den ekte appen — se den du trenger.",
-      videoLang: "Videoene er på engelsk, med norsk teksting.",
+      videoLang: "",
       featH2: "ElectricalVPF på 90 sekunder",
       featP: "Ett oppdrag, fra første telefon til betaling: tilbudet, at kunden godtar det, kontrakten signert på nett, fakturaen og betalingen. Velg deretter et steg nedenfor for å se det i detalj.",
       flow1: "Forespørsel", flow2: "Tilbud", flow3: "Godtatt på nett", flow4: "Kontrakt signert", flow5: "Faktura", flow6: "Betalt",
       tryFree: "Prøv gratis",
       stepsH2: "Steg for steg",
-      stepsP: "I den rekkefølgen du jobber: hver video er ett steg, under to minutter (kontraktsigneringen tar tre).",
+      stepsP: "I den rekkefølgen du jobber: hver video er ett steg, under to minutter.",
       c01t: "Legg til en kunde", c01d: "Opplysningene skrives inn én gang — de kommer på hvert tilbud, hver kontrakt og hver faktura.",
       c02t: "Registrer en arbeidsordre", c02d: "En kunde ringer — lagre hva som trengs, hvor og hvor haster det, på sekunder.",
       c03t: "Gjør den om til et oppdrag", c03d: "Kopier forespørselen til et oppdrag — navn, beskrivelse, prioritet og valuta fylles inn.",
@@ -289,13 +289,13 @@
       title: "ElectricalVPF i praktiken – från första samtalet till betalning | ElectricalVPF",
       back: "Tillbaka till webbplatsen", kicker: "För elektriker", h1: "Se ElectricalVPF i praktiken",
       lead: "Ett arbete från start till mål: en kund ringer, du lämnar offert, kunden godkänner den online, signerar avtalet i telefonen, du fakturerar och får betalt. Korta videor från den riktiga appen — titta på den du behöver.",
-      videoLang: "Videorna är på engelska, med svenska undertexter.",
+      videoLang: "",
       featH2: "ElectricalVPF på 90 sekunder",
       featP: "Ett arbete, från första samtalet till betalning: offerten, kundens godkännande, avtalet som signeras online, fakturan och betalningen. Välj sedan ett steg nedan för att se det i detalj.",
       flow1: "Förfrågan", flow2: "Offert", flow3: "Godkänd online", flow4: "Avtal signerat", flow5: "Faktura", flow6: "Betald",
       tryFree: "Prova gratis",
       stepsH2: "Steg för steg",
-      stepsP: "I den ordning du arbetar: varje video är ett steg, under två minuter (avtalssigneringen tar tre).",
+      stepsP: "I den ordning du arbetar: varje video är ett steg, under två minuter.",
       c01t: "Lägg till en kund", c01d: "Uppgifterna skrivs in en gång — de syns på varje offert, avtal och faktura.",
       c02t: "Registrera en arbetsorder", c02d: "En kund ringer — spara vad som behövs, var och hur bråttom det är, på några sekunder.",
       c03t: "Gör den till ett arbete", c03d: "Kopiera förfrågan till ett arbete — namn, beskrivning, prioritet och valuta fylls i.",
@@ -358,11 +358,17 @@
       var slug = a.getAttribute("data-legal");
       a.href = "https://electricalvpf.app/frontend/legal/" + slug + (lang === "ro" ? "" : "-" + lang) + ".html?returnSite=eu";
     });
-    // Subtitrările în limba paginii, pe fiecare video.
-    if (window.DemoSubs) document.querySelectorAll("video").forEach(function (v) { window.DemoSubs.attach(v, lang); });
+    // Videoul în limba paginii (voce + aplicația în acea limbă) și durata lui pe card.
+    if (window.DemoVideos) {
+      document.querySelectorAll("video[data-demo]").forEach(function (v) { window.DemoVideos.attach(v, lang); });
+      document.querySelectorAll("[data-demo-time]").forEach(function (el) {
+        var d = window.DemoVideos.duration(lang, el.getAttribute("data-demo-time"));
+        if (d) el.textContent = d;
+      });
+    }
   }
 
-  // Limba aleasă din meniul „?” al antetului comun: pagina se traduce pe loc (și subtitrările).
+  // Limba aleasă din meniul „?” al antetului comun: pagina se traduce pe loc (și videourile trec pe limba aleasă).
   document.addEventListener("site:lang-applied", apply);
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", apply);
   else apply();
