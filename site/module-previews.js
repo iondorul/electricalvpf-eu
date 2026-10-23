@@ -535,15 +535,15 @@
   // Invitation outside the simulated app: real account destinations.
   var LIVE_TEXT = {
     en: ["READY WHEN YOU ARE", "Like what you see? Explore it live!", "Your clients. Your jobs. Your workspace.", "Create an account", "Already have an account?", "Sign in"],
-    ro: ["URMĂTORUL PAS E AL TĂU", "Îți place ce vezi? Explorează pe viu.", "Clienții tăi. Lucrările tale. Spațiul tău de lucru.", "Creează un cont", "Ai deja un cont?", "Autentifică-te"],
-    uk: ["ТВІЙ НАСТУПНИЙ КРОК", "Подобається? Спробуй наживо.", "Твої клієнти. Твої роботи. Твій робочий простір.", "Створити обліковий запис", "Уже маєш обліковий запис?", "Увійти"],
-    tr: ["SIRADAKİ ADIM SENİN", "Beğendin mi? Canlı keşfet.", "Müşterilerin. İşlerin. Çalışma alanın.", "Hesap oluştur", "Zaten hesabın var mı?", "Giriş yap"],
-    pl: ["TWÓJ NASTĘPNY KROK", "Podoba Ci się? Wypróbuj na żywo.", "Twoi klienci. Twoje zlecenia. Twoja przestrzeń pracy.", "Utwórz konto", "Masz już konto?", "Zaloguj się"],
-    ru: ["СЛЕДУЮЩИЙ ШАГ ЗА ТОБОЙ", "Нравится? Попробуй вживую.", "Твои клиенты. Твои работы. Твоё рабочее пространство.", "Создать аккаунт", "Уже есть аккаунт?", "Войти"],
-    it: ["IL PROSSIMO PASSO È TUO", "Ti piace? Provala dal vivo.", "I tuoi clienti. I tuoi lavori. Il tuo spazio di lavoro.", "Crea un account", "Hai già un account?", "Accedi"],
-    nl: ["JOUW VOLGENDE STAP", "Bevalt het? Probeer het live.", "Jouw klanten. Jouw projecten. Jouw werkplek.", "Maak een account", "Heb je al een account?", "Inloggen"],
-    no: ["DITT NESTE STEG", "Liker du det du ser? Prøv det live.", "Dine kunder. Dine jobber. Din arbeidsplass.", "Opprett en konto", "Har du allerede en konto?", "Logg inn"],
-    sv: ["DITT NÄSTA STEG", "Gillar du det du ser? Prova live.", "Dina kunder. Dina jobb. Din arbetsyta.", "Skapa ett konto", "Har du redan ett konto?", "Logga in"]
+    ro: ["URMĂTORUL PAS E AL TĂU", "Îți place ce vezi? Explorează pe viu!", "Clienții tăi. Lucrările tale. Spațiul tău de lucru.", "Creează un cont", "Ai deja un cont?", "Autentifică-te"],
+    uk: ["ТВІЙ НАСТУПНИЙ КРОК", "Подобається? Спробуй наживо!", "Твої клієнти. Твої роботи. Твій робочий простір.", "Створити обліковий запис", "Уже маєш обліковий запис?", "Увійти"],
+    tr: ["SIRADAKİ ADIM SENİN", "Beğendin mi? Canlı keşfet!", "Müşterilerin. İşlerin. Çalışma alanın.", "Hesap oluştur", "Zaten hesabın var mı?", "Giriş yap"],
+    pl: ["TWÓJ NASTĘPNY KROK", "Podoba Ci się? Wypróbuj na żywo!", "Twoi klienci. Twoje zlecenia. Twoja przestrzeń pracy.", "Utwórz konto", "Masz już konto?", "Zaloguj się"],
+    ru: ["СЛЕДУЮЩИЙ ШАГ ЗА ТОБОЙ", "Нравится? Попробуй вживую!", "Твои клиенты. Твои работы. Твоё рабочее пространство.", "Создать аккаунт", "Уже есть аккаунт?", "Войти"],
+    it: ["IL PROSSIMO PASSO È TUO", "Ti piace? Provala dal vivo!", "I tuoi clienti. I tuoi lavori. Il tuo spazio di lavoro.", "Crea un account", "Hai già un account?", "Accedi"],
+    nl: ["JOUW VOLGENDE STAP", "Bevalt het? Probeer het live!", "Jouw klanten. Jouw projecten. Jouw werkplek.", "Maak een account", "Heb je al een account?", "Inloggen"],
+    no: ["DITT NESTE STEG", "Liker du det du ser? Prøv det live!", "Dine kunder. Dine jobber. Din arbeidsplass.", "Opprett en konto", "Har du allerede en konto?", "Logg inn"],
+    sv: ["DITT NÄSTA STEG", "Gillar du det du ser? Prova live!", "Dina kunder. Dina jobb. Din arbetsyta.", "Skapa ett konto", "Har du redan ett konto?", "Logga in"]
   };
   var LIVE_CHOICES = {
     en: ["I'm new here", "I already have an account"], ro: ["Sunt nou aici", "Am deja un cont"],
