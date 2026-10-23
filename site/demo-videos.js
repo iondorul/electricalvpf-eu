@@ -5,7 +5,7 @@
 // Folosit de /demo/ și de „▶ Watch now”: <video data-demo="01-add-client"> → DemoVideos.attach(video, limbă).
 (function () {
   var LANGS = ["en", "ro", "uk", "tr", "pl", "ru", "it", "nl", "no", "sv"];
-  var VERSION = "20261023-pl-brian";
+  var VERSION = "20261023-sv-brian";
 
   function fileFor(lang, name, ext) { return "https://electricalvpf.app/demo/v/" + lang + "/" + name + "." + ext + "?v=" + VERSION; }
 
