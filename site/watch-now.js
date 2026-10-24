@@ -23,10 +23,12 @@
   }
 
   function build() {
-    // Videoul e vertical (filmat la mărimea unui telefon): fereastra ia forma lui, cât încape pe înălțime.
+    // Pe telefon videoul e vertical (filmat la mărimea unui telefon): fereastra ia forma lui, cât încape pe înălțime.
     var css = document.createElement("style");
-    css.textContent = ".watch-modal-box{width:min(100%,calc((100vh - 140px) * 9 / 16))}" +
-      ".watch-modal-video{aspect-ratio:9/16;object-fit:contain}";
+    // Pe calculator, prezentarea e varianta lată (is-landscape, site/demo-videos.js): rămâne 16:9 din style.css.
+    css.textContent = ".watch-modal-box:not(.is-landscape){width:min(100%,calc((100vh - 140px) * 9 / 16))}" +
+      ".watch-modal-box:not(.is-landscape) .watch-modal-video{aspect-ratio:9/16;object-fit:contain}" +
+      ".watch-modal-box.is-landscape{width:min(1100px,100%,calc((100vh - 140px) * 16 / 9))}";
     document.head.appendChild(css);
     modal = document.createElement("div");
     modal.className = "watch-modal";
